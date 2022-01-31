@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class LookAround : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
+    private CapsuleCollider cam;
 
     private float XMouse = 0f;
     private float YMouse = 0f;
-    private float sensitivity = 2f;
+    [SerializeField] private float sensitivity = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = GetComponentInParent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MouseTracking();
+        Look();
     }
 
-    private void MouseTracking()
+
+    private void Look()
     {
-        XMouse += Input.GetAxis("Mouse X") * sensitivity;
-        YMouse -= Input.GetAxis("Mouse Y") * sensitivity;
-
+        YMouse -= Input.GetAxisRaw("Mouse Y") * sensitivity;
         YMouse = Mathf.Clamp(YMouse, -90f, 90f);
-
-        transform.localEulerAngles = new Vector3(YMouse, 0, 0);
-        playerTransform.localEulerAngles = new Vector3(0, XMouse, 0);
+        XMouse += Input.GetAxisRaw("Mouse X") * sensitivity;
+        cam.transform.localRotation = Quaternion.Euler(YMouse, XMouse, 0);
     }
+
+    
+
+
 }

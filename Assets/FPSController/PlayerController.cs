@@ -7,12 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 5f;
+    private Vector2 moveInput = Vector2.zero;
     private Vector3 playerVelocity;
 
-    private Vector2 move = Vector2.zero;
-
-
+    [SerializeField] private float jumpForce = 5f;
+    private bool jumpInput = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +23,31 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerVelocity = new Vector3(move.x, 0, move.y).normalized;
-
-        Vector3 destination = rb.position + playerVelocity * Time.fixedDeltaTime;
-        rb.MovePosition(destination);
-
+        Moving();
+        Jumping();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        move = context.ReadValue<Vector2>();
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        jumpInput = context.performed;
+    }
+
+    public void Moving()
+    {
+        playerVelocity = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+        Vector3 destination = rb.position + playerVelocity * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(destination);
+    }
+
+    public void Jumping()
+    {
+        if (jumpInput)
+        {
+            playerVelocity.y += jumpForce;
+        }
     }
 }
