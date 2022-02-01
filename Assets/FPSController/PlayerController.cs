@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 moveInput = Vector2.zero;
-    private Vector3 playerVelocity;
+    private Vector3 playerMovement;
 
     [SerializeField] private float jumpForce = 5f;
     private bool jumpInput = false;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Moving();
         Jumping();
@@ -38,16 +38,12 @@ public class PlayerController : MonoBehaviour
 
     public void Moving()
     {
-        playerVelocity = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        Vector3 destination = rb.position + playerVelocity * moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(destination);
+        playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
+        rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
     }
 
     public void Jumping()
     {
-        if (jumpInput)
-        {
-            playerVelocity.y += jumpForce;
-        }
+        
     }
 }
