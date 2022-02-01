@@ -11,19 +11,30 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput = Vector2.zero;
     private Vector3 playerMovement;
 
+    [SerializeField] private float runMultiplier = 2f;
+    private bool runInput = false;
+
     [SerializeField] private float jumpForce = 5f;
     private bool jumpInput = false;
+    
+    private bool isGrounded;
+
+    private CapsuleCollider capsule;
+    private float capsuleScale;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        capsule = GetComponentInChildren<CapsuleCollider>();
+        capsuleScale = capsule.height;
     }
 
     // Update is called once per frame
     void Update()
     {
         Moving();
+        CheckIfGrounded();
         Jumping();
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -36,14 +47,23 @@ public class PlayerController : MonoBehaviour
         jumpInput = context.performed;
     }
 
-    public void Moving()
+    void Moving()
     {
         playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
         rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
     }
 
-    public void Jumping()
+    void CheckIfGrounded()
     {
-        
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, capsuleScale * 0.5f + 0.1f);
+    }
+
+    void Jumping()
+    {
+        if (jumpInput && isGrounded)
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            jumpInput = false;
+        }
     }
 }
