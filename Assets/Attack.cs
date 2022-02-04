@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-    private bool attackOnce = true;
+    protected bool attackOnce = true;
     protected float attackRange;
     [SerializeField] protected GameObject player;
 
@@ -14,8 +14,8 @@ public class Attack : MonoBehaviour
         if (attackOnce)
         {
             anim.SetBool(animName, true);
-            attackOnce = false;
             //DoDamage();
+            attackOnce = false;
             StartCoroutine(ResetAttack(animName, resetShotTime));
         }
     }
@@ -28,8 +28,4 @@ public class Attack : MonoBehaviour
 
     //public void DoDamage(); //TODO
 
-    public void Update()
-    {
-        
-    }
 }
