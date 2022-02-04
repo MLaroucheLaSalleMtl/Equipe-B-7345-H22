@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SniperBehavior : Attack
 {
-    protected float resetTimeShot = 0.8f; //time between each individual shot
+    protected float resetTimeShot = 1.1f; //time between each individual shot
     protected float range = 30.0f;
 
     void Update()

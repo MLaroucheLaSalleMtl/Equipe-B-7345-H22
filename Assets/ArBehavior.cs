@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArBehavior : Attack
 {
-    protected float resetTimeShot = 0.3f; //time between each individual shot
+    protected float resetTimeShot = 0.8f; //time between each individual shot
     protected float range = 20.0f;
 
     void Update()
