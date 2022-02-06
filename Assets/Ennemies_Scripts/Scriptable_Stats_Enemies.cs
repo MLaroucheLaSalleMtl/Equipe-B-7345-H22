@@ -11,11 +11,10 @@ public class Scriptable_Stats_Enemies : ScriptableObject
    [SerializeField] private int healthPoints;
    [SerializeField] private int defensePoints;
    [SerializeField] private int attackPower;
-   [SerializeField] private GameObject target;
+   
 
     public string Name { get => name;                }
     public int DefensePoints { get => defensePoints; }
-    public int AttackPower { get => attackPower;     }
-    public GameObject Target { get => target;        }
+    public int AttackPower { get => attackPower; set => attackPower = value; }
     public int HealthPoints { get => healthPoints;   }
 }   

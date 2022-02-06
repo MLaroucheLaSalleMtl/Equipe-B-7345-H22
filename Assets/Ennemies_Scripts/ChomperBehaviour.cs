@@ -5,135 +5,229 @@ using UnityEngine.AI;
 
 public class ChomperBehaviour : Enemie
 {
-    private NavMeshAgent agent;
-    
-    private SphereCollider sColl;
-    private Animator anim;
-    private float rangeAttack = 2f;
-    private bool playerDetection = false;
+    private float rangeAttack = 2.50f;
     private float enemieSpeed = 5f;
+    private Vector3 newDestination = Vector3.zero;
+    //private bool attackDone = false;
+    private float rotSpeed = 10.0f;
+    private bool isAttacking = false;
+    //private bool behaviourFinish = false;
+
+    private bool isDestChange = false;
+    private bool isAgentStoped = false;
+    private GameObject playerPos;
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        sColl = GetComponent<SphereCollider>();
-        anim = GetComponent<Animator>();
-       
+        base.GetComponent();
         SetEnemie();
+        playerPos = GameObject.Find("player__test");
+    }
+    private void FixedUpdate()
+    {
+        base.EnemieAnimation();
     }
     private void Update()
     {
-        EnemieAnimation();
-        EnemieWalk();
+       
+        LookAtPlayer(playerPos.transform.position);
+       // print("have attack = " + base.haveAttacked);
+
+        //if (base.PlayerDetected() && base.haveAttacked)
+        //{
+        //    print("Switch destination");
+        //    SwitchDestinationForAttack();
+        //}
+
+        if (base.PlayerDetected() && !base.InAttackRange())
+        {
+            //print("I follow you");
+            EnemieFollow(playerPos.transform.position);
+
+        }
+
+        else if (base.InAttackRange() && base.PlayerDetected())
+        {
+
+            print("melee attack");
+            MeleeAttack();
+        }
+
+
+         else if (!base.PlayerDetected())
+            EnemieWalk();
+
     }
 
 
 
 
     //trigger enter with the player
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            EnemieRun(other.gameObject.transform.position);
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerDetection = true;
+    //        switch (BehaviourPosibility)
+    //        {
+    //            case 0:
+    //                EnemieFollow(other.gameObject.transform.position);
+    //                break;
+    //            case 1:
+    //                SwitchDestinationForAttack(other.transform.position);
+    //                break;
+    //        }
+
+    //    }
 
 
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            EnemieRun(other.gameObject.transform.position);
 
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerDetection = false;
-        }
-    }
+    //}
+
     private void OnCollisionEnter(Collision collision)
     {
         var coll = collision.gameObject;
         if (coll.CompareTag("Player"))
         {
-            coll.GetComponent<Rigidbody>().AddForce(new Vector3(2, 10, 3), ForceMode.Impulse);
+            //coll.GetComponent<Rigidbody>().AddForce(new Vector3(1, 1, 1), ForceMode.Impulse);
         }
-        else if (coll.CompareTag("PlayerTester"))
-        {
-            agent.isStopped = true;
-            anim.SetTrigger("isHit");
-            StartCoroutine(AutorizePath());
-            
-        }
+        //else if (coll.CompareTag("PlayerTester"))
+        //{
+        //    agent.isStopped = true;
+        //    anim.SetTrigger("isHit");
+        //    StartCoroutine(AutorizePath());
+        //}
     }
+    
 
-    IEnumerator AutorizePath()
+    private IEnumerator AutorizePath()
     {
         yield return new WaitForSeconds(1f);
-        agent.isStopped = false;
+        base.agent.isStopped = false;
     }
     private void SetEnemie()
     {
         base.GetStats();
-        sColl.radius = base.detectionRange;
     }
 
+
+    private void LookAtPlayer(Vector3 target)
+    {
+        if (base.PlayerDetected() && !isAttacking)
+        {
+         var rotation =   Quaternion.LookRotation(target- transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotSpeed);
+        }
+    }
 
     //set agent destionation with vector3
     private void AgentDestination(Vector3 nextPath)
     {
-        agent.SetDestination(nextPath);
-
+        base.agent.SetDestination(nextPath);
     }
 
-
-    private void EnemieRun(Vector3 playerPosition)
+    private void RunEnemieBehaviour()
     {
-        agent.speed = enemieSpeed;
-        sColl.radius = base.detectionRange;
-        AgentDestination(playerPosition);
-        playerDetection = true;
-        if (PlayerDistanceDiff(playerPosition))
+        if (base.agent.speed != enemieSpeed)
+            base.agent.speed = enemieSpeed;
+        //if(base.sColl.radius != base.EnemieRange)
+        //base.sColl.radius = base.EnemieRange;
+    }
+    private void EnemieFollow(Vector3 coll)
+    {
+        RunEnemieBehaviour();
+        AgentDestination(coll);
+    }
+    private void MeleeAttack()
+    {
+        
+
+        if (!base.haveAttacked)
         {
+            this.isAttacking = true; // this is for apply root motion on animation
+            AgentDestination(transform.position); //stop the agent from moving
+            base.agent.isStopped = true; //stop his path
+            //anim.SetBool("isAttack", !this.haveAttacked);
             anim.SetTrigger("attack");
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChomperAttack1")) // when anim finish
+            {
+                base.haveAttacked = true;
+
+                anim.ResetTrigger("attack");
+                if (!IsInvoking(nameof(ResetMovement)))
+                    Invoke(nameof(ResetMovement), 0.5f);
+
+                if (!IsInvoking(nameof(AutorizeToAttack)))
+                    Invoke(nameof(AutorizeToAttack), 1.25f);
+
+
+            }
         }
+    }
+
+    private void ResetMovement()
+    {
+       
+        this.isAttacking = false;
+        base.agent.isStopped = false;
+    }
+
+    private void AutorizeToAttack()
+    {
+        print(3);
+        base.haveAttacked = false;
        
     }
 
-    
+    private void SwitchDestinationForAttack()
+    {
+        //asign a single new destination
+        if (!isDestChange)
+        {
+            newDestination = RandomEnemieDestionation(10f, 10f);
+            AgentDestination(newDestination);
+            //base.agent.speed = enemieSpeed * 1.5f;
+            isDestChange = true;
+        }
 
+        //this mean that the enemie find his new destination and his ready to jump on enemie again
+        if (transform.position == newDestination || agent.velocity.magnitude < 1f )
+        {
+            isDestChange = false;
+
+            if (!IsInvoking(nameof(AutorizeToAttack)))
+                Invoke(nameof(AutorizeToAttack), 1f);
+            
+        }
+    }
+   
+    //use to see if the enemie is in range for attacking
     private bool PlayerDistanceDiff(Vector3 playerPos)
     {
-        var playerPosX = Mathf.Abs(transform.position.x) - Mathf.Abs(playerPos.x);
-        var playerPosY = Mathf.Abs(transform.position.z) - Mathf.Abs(playerPos.z);
-        //print(playerPosX); print(playerPosY);
-        return playerPosX <= rangeAttack && playerPosY <= rangeAttack;
+        var playerPosX = Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(playerPos.x));
+        var playerPosZ = Mathf.Abs(Mathf.Abs(transform.position.z) - Mathf.Abs(playerPos.z));
+
+       // print(Mathf.Abs(playerPosX)); print(Mathf.Abs(playerPosZ));
+        return (playerPosX <= rangeAttack && playerPosZ <= rangeAttack);
 
     }
-
-
-    public override void EnemieAnimation()
+   private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
     {
-        anim.SetFloat("axisX", agent.velocity.magnitude);
-        anim.SetBool("isDead",base.healthPoints <= 0);
-        anim.SetBool("isPlayer",playerDetection);
+        var enemiePos = transform.position;
+        return  new Vector3(Random.Range(enemiePos.x - minValue, enemiePos.x + maxValue),
+               enemiePos.y, Random.Range(enemiePos.z - minValue, enemiePos.z + maxValue));
+
+
     }
-
-    
-
-    //is ennemy attack or follow his taget(player)
     public override void EnemieWalk()
     {
-        if (!playerDetection)
-        {
-            if(agent.velocity.magnitude < 0.1f)
+            if(base.agent.velocity.magnitude < 0.1f)
             {
-                agent.speed = enemieSpeed * 0.5f;
-                sColl.radius = 15f;
-                Vector3 enemiePos = transform.position;
-                var randomPath = new Vector3(Random.Range(enemiePos.x - 15f, enemiePos.x + 15f), enemiePos.y, Random.Range(enemiePos.z - 15f, enemiePos.z + 15f));
-                AgentDestination(randomPath);
+                base.agent.speed = enemieSpeed * 0.5f;
+                base.EnemieRange = 12f;
+                AgentDestination(RandomEnemieDestionation(15f,15f));
             }
-        } 
+        
     }
 
     public override void EnemieMovement()
@@ -146,5 +240,10 @@ public class ChomperBehaviour : Enemie
         throw new System.NotImplementedException();
     }
 
-   
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
+        Gizmos.DrawWireSphere(transform.position, base.EnemieRange);
+
+    }
 }

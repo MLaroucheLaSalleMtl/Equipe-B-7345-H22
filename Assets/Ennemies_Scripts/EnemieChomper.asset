@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chomper
   healthPoints: 100
-  defensePoints: 255
+  defensePoints: 25
   attackPower: 100
-  target: {fileID: 0}
