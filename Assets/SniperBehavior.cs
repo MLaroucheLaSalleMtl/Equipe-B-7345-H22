@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SniperBehavior : Attack
+{
+    protected float resetTimeShot = 1.1f; //time between each individual shot
+    protected float range = 30.0f;
+
+    void Update()
+    {
+        base.attackRange = range;
+        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * attackRange, Color.red);
+        if (Input.GetButtonDown("Fire1") && attackOnce)
+        {
+            base.Attacking("Shoot", resetTimeShot);
+            RaycastHit hit;
+            if (Physics.Raycast(base.player.transform.position, base.player.transform.forward, out hit, attackRange)) 
+            {
+                if (hit.collider.tag == "Enemy")
+                {
+                    print("Done");
+
+                }
+            }
+        }
+    }
+}
