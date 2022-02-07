@@ -12,10 +12,13 @@ public class ChomperBehaviour : Enemie
     private float rotSpeed = 10.0f;
     private bool isAttacking = false;
     //private bool behaviourFinish = false;
-
+    private int hp;
     private bool isDestChange = false;
     private bool isAgentStoped = false;
     private GameObject playerPos;
+
+    private bool playerFound;
+    private bool canAttack;
     void Start()
     {
         base.GetComponent();
@@ -28,9 +31,10 @@ public class ChomperBehaviour : Enemie
     }
     private void Update()
     {
-       
+        playerFound = base.PlayerDetected();
+        canAttack = base.InAttackRange();
         LookAtPlayer(playerPos.transform.position);
-       // print("have attack = " + base.haveAttacked);
+        // print("have attack = " + base.haveAttacked);
 
         //if (base.PlayerDetected() && base.haveAttacked)
         //{
@@ -38,14 +42,19 @@ public class ChomperBehaviour : Enemie
         //    SwitchDestinationForAttack();
         //}
 
-        if (base.PlayerDetected() && !base.InAttackRange())
+        if (this.healthPoints <= 0)
+        {
+            base.DeadBehaviour();
+        }
+
+        else if (playerFound && !canAttack)
         {
             //print("I follow you");
             EnemieFollow(playerPos.transform.position);
 
         }
 
-        else if (base.InAttackRange() && base.PlayerDetected())
+        else if (canAttack && playerFound)
         {
 
             print("melee attack");
@@ -53,36 +62,10 @@ public class ChomperBehaviour : Enemie
         }
 
 
-         else if (!base.PlayerDetected())
+        else if (!playerFound)
             EnemieWalk();
 
     }
-
-
-
-
-    //trigger enter with the player
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerDetection = true;
-    //        switch (BehaviourPosibility)
-    //        {
-    //            case 0:
-    //                EnemieFollow(other.gameObject.transform.position);
-    //                break;
-    //            case 1:
-    //                SwitchDestinationForAttack(other.transform.position);
-    //                break;
-    //        }
-
-    //    }
-
-
-
-    //}
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -130,6 +113,8 @@ public class ChomperBehaviour : Enemie
     {
         if (base.agent.speed != enemieSpeed)
             base.agent.speed = enemieSpeed;
+        if (base.EnemieRange != 10f)
+            base.EnemieRange = 10f;
         //if(base.sColl.radius != base.EnemieRange)
         //base.sColl.radius = base.EnemieRange;
     }
@@ -159,8 +144,6 @@ public class ChomperBehaviour : Enemie
 
                 if (!IsInvoking(nameof(AutorizeToAttack)))
                     Invoke(nameof(AutorizeToAttack), 1.25f);
-
-
             }
         }
     }
@@ -174,9 +157,7 @@ public class ChomperBehaviour : Enemie
 
     private void AutorizeToAttack()
     {
-        print(3);
         base.haveAttacked = false;
-       
     }
 
     private void SwitchDestinationForAttack()
@@ -235,10 +216,7 @@ public class ChomperBehaviour : Enemie
         throw new System.NotImplementedException();
     }
 
-    public override void SaveStats()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
     private void OnDrawGizmosSelected()
     {

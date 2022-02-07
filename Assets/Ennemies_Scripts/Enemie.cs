@@ -20,7 +20,7 @@ public abstract class Enemie : MonoBehaviour
     //protected SphereCollider sColl;
     protected bool haveAttacked;
     private int maxHealthPoints;
-    public  float attackRange =1.5f;
+    public  float attackRange = 1.5f;
 
     [SerializeField][Range(1f,75f)] protected float EnemieRange = 10f;
 
@@ -43,7 +43,7 @@ public abstract class Enemie : MonoBehaviour
         //this.sColl.radius = this.EnemieRange;
         this.haveAttacked = false;
     }
-    public abstract void SaveStats();
+    
     public abstract void EnemieMovement();
     public abstract void EnemieWalk();
     protected void EnemieAnimation()
@@ -70,8 +70,11 @@ public abstract class Enemie : MonoBehaviour
         if(this.healthPoints <= 15)
         {
             var regainChance = Random.Range(0, 100);
-            if(regainChance > 90)
-            this.healthPoints = enemie_stats.HealthPoints;
+            if(regainChance < 10)
+            {
+                this.healthPoints = enemie_stats.HealthPoints;
+                this.EnrageMode();
+            }
         }
     }
 
@@ -101,17 +104,29 @@ public abstract class Enemie : MonoBehaviour
     {
         if (this.healthPoints <= 0)
         {
+            this.agent.destination = transform.position ;
             Destroy(gameObject, 2f);
         }
+    }
+    private void EnrageMode()
+    {
+        float scaleEmplifer = 1.5f;
+        float attackPowerEmplifier = 1.5f;
+        bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false ;
+        if (chanceToEnrage)
+        {
+            this.transform.localScale *= scaleEmplifer;
+            this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
+        }
+        
     }
 
     protected void ReceiveDamage(Collision collision)
     {
         //apply dmg
         var coll = collision.gameObject;
-        if (coll.CompareTag("Weapon"))
+        if (coll.CompareTag("Bullet"))
         {
-            //this.healthPoints -= 
         }
         else if (coll.CompareTag("AssaultBullet"))
         {
