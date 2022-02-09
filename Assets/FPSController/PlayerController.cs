@@ -22,12 +22,18 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider capsule;
     private float capsuleScale;
 
+    //add by steven **
+    private int hp = 100;
+
+    public int Hp { get => hp; set => hp = value; }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         capsule = GetComponentInChildren<CapsuleCollider>();
         capsuleScale = capsule.height;
+        Hp = 100;
     }
 
     // Update is called once per frame

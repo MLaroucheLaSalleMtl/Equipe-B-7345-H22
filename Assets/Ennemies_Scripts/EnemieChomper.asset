@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chomper
   healthPoints: 100
-  defensePoints: 25
-  attackPower: 100
+  defensePoints: 10
+  attackPower: 15
+  attackRange: 1
+  detectionRange: 10

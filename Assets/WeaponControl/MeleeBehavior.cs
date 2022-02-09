@@ -7,7 +7,12 @@ public class MeleeBehavior : Attack
 
     protected float resetTimeSwing = 0.9f; //time between each individual swings
     protected float range = 3.0f;
+    //steven add this **
 
+    private void Start()
+    {
+        base.attackDamgage = 25;
+    }
     void Update()
     {
         base.attackRange = range;

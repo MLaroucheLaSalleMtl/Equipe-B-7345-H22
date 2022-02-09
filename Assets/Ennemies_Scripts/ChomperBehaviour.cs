@@ -5,25 +5,31 @@ using UnityEngine.AI;
 
 public class ChomperBehaviour : Enemie
 {
-    private float rangeAttack = 2.50f;
     private float enemieSpeed = 5f;
-    private Vector3 newDestination = Vector3.zero;
-    //private bool attackDone = false;
-    private float rotSpeed = 10.0f;
     private bool isAttacking = false;
-    //private bool behaviourFinish = false;
-    private int hp;
     private bool isDestChange = false;
-    private bool isAgentStoped = false;
-    private GameObject playerPos;
+    private bool attackDone = false;
+    private GameObject targetPos;
+    private bool walkDestinationSet = false;
+    private Vector3 nextWalkDest;
+    private Vector3 nextRunDest;
+    private bool needtomove = false;
 
+    // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canAttack;
     void Start()
     {
-        base.GetComponent();
+       
         SetEnemie();
-        playerPos = GameObject.Find("player__test");
+        //the name must fit with the the scene name
+        targetPos = GameObject.Find("Player");
+    }
+
+    private void SetEnemie()
+    {
+        base.GetComponent();
+        base.GetStats();
     }
     private void FixedUpdate()
     {
@@ -31,12 +37,10 @@ public class ChomperBehaviour : Enemie
     }
     private void Update()
     {
-        playerFound = base.PlayerDetected();
-        canAttack = base.InAttackRange();
-        LookAtPlayer(playerPos.transform.position);
-        // print("have attack = " + base.haveAttacked);
+        this.playerFound = base.PlayerDetected();
+        this.canAttack = base.InAttackRange();
 
-        //if (base.PlayerDetected() && base.haveAttacked)
+        //if (playerFound && needtomove)
         //{
         //    print("Switch destination");
         //    SwitchDestinationForAttack();
@@ -47,59 +51,32 @@ public class ChomperBehaviour : Enemie
             base.DeadBehaviour();
         }
 
-        else if (playerFound && !canAttack)
+        if (playerFound && !canAttack /*&& !needtomove*/)
         {
-            //print("I follow you");
-            EnemieFollow(playerPos.transform.position);
-
+            EnemieChassing();
         }
 
-        else if (canAttack && playerFound)
+        if (canAttack && playerFound /*&& !needtomove*/)
         {
-
-            print("melee attack");
             MeleeAttack();
         }
 
-
-        else if (!playerFound)
+        if (!playerFound)
             EnemieWalk();
-
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void AgentStatBehaviour(float speedValue, float EnemieRange)
     {
-        var coll = collision.gameObject;
-        if (coll.CompareTag("Player"))
-        {
-            //coll.GetComponent<Rigidbody>().AddForce(new Vector3(1, 1, 1), ForceMode.Impulse);
-        }
-        //else if (coll.CompareTag("PlayerTester"))
-        //{
-        //    agent.isStopped = true;
-        //    anim.SetTrigger("isHit");
-        //    StartCoroutine(AutorizePath());
-        //}
-    }
-    
-
-    private IEnumerator AutorizePath()
-    {
-        yield return new WaitForSeconds(1f);
-        base.agent.isStopped = false;
-    }
-    private void SetEnemie()
-    {
-        base.GetStats();
+        base.agent.speed = speedValue;
+        base.EnemieRange = EnemieRange;
     }
 
-
-    private void LookAtPlayer(Vector3 target)
+    private void LookAtPlayer(Vector3 target) // maybe remove it
     {
         if (base.PlayerDetected() && !isAttacking)
         {
-         var rotation =   Quaternion.LookRotation(target- transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotSpeed);
+            var rotation = Quaternion.LookRotation(target- transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 50f);
         }
     }
 
@@ -108,115 +85,88 @@ public class ChomperBehaviour : Enemie
     {
         base.agent.SetDestination(nextPath);
     }
+   
+    private void EnemieChassing()
+    {
+        if (base.agent.speed != 6f && base.EnemieRange != 8f) //changing value for chassing
+            AgentStatBehaviour(6, 8);
 
-    private void RunEnemieBehaviour()
-    {
-        if (base.agent.speed != enemieSpeed)
-            base.agent.speed = enemieSpeed;
-        if (base.EnemieRange != 10f)
-            base.EnemieRange = 10f;
-        //if(base.sColl.radius != base.EnemieRange)
-        //base.sColl.radius = base.EnemieRange;
+        AgentDestination(targetPos.transform.position); //apply movement
     }
-    private void EnemieFollow(Vector3 coll)
-    {
-        RunEnemieBehaviour();
-        AgentDestination(coll);
-    }
+    
     private void MeleeAttack()
     {
-        
-
-        if (!base.haveAttacked)
+        AgentDestination(transform.position); // stop player from moving
+        if (!this.attackDone)
         {
-            this.isAttacking = true; // this is for apply root motion on animation
-            AgentDestination(transform.position); //stop the agent from moving
-            base.agent.isStopped = true; //stop his path
-            //anim.SetBool("isAttack", !this.haveAttacked);
-            anim.SetTrigger("attack");
+            transform.LookAt(targetPos.transform); // be sure to look the player direction
+            anim.SetTrigger("attack"); // set my attack
+            this.isAttacking = true; //check but maybe remove it
+            this.attackDone = true;// wait Invoke for attack again
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChomperAttack1")) // when anim finish
             {
-                base.haveAttacked = true;
-
-                anim.ResetTrigger("attack");
-                if (!IsInvoking(nameof(ResetMovement)))
-                    Invoke(nameof(ResetMovement), 0.5f);
-
-                if (!IsInvoking(nameof(AutorizeToAttack)))
-                    Invoke(nameof(AutorizeToAttack), 1.25f);
+                anim.ResetTrigger("attack"); // reset trigger anim
+                this.needtomove = true;
             }
+            Invoke(nameof(ResetAttack), 1f);
+
+
         }
+
     }
 
-    private void ResetMovement()
+    private void ResetAttack()
     {
-       
+        this.attackDone = false;
         this.isAttacking = false;
-        base.agent.isStopped = false;
-    }
 
-    private void AutorizeToAttack()
-    {
-        base.haveAttacked = false;
     }
 
     private void SwitchDestinationForAttack()
     {
+
+        //*** make a calcule to kno wmy enemie position and the decide to move is x or z position
         //asign a single new destination
         if (!isDestChange)
         {
-            newDestination = RandomEnemieDestionation(10f, 10f);
-            AgentDestination(newDestination);
-            //base.agent.speed = enemieSpeed * 1.5f;
+              
+            
+            //nextRunDest = RandomEnemieDestionation(3f, 3f, targetPos.transform.position);
+            nextRunDest =  ((targetPos.transform.position - transform.position)  ).normalized; 
+            AgentDestination(nextRunDest);
+            base.agent.speed = enemieSpeed * 1.5f;
             isDestChange = true;
         }
+        Vector3 distanceLeft = transform.position - nextRunDest;
 
-        //this mean that the enemie find his new destination and his ready to jump on enemie again
-        if (transform.position == newDestination || agent.velocity.magnitude < 1f )
+        if (distanceLeft.magnitude < 1f )
         {
+            needtomove = false;
             isDestChange = false;
-
-            if (!IsInvoking(nameof(AutorizeToAttack)))
-                Invoke(nameof(AutorizeToAttack), 1f);
-            
         }
     }
    
-    //use to see if the enemie is in range for attacking
-    private bool PlayerDistanceDiff(Vector3 playerPos)
+   private Vector3 RandomEnemieDestionation(float minValue, float maxValue , Vector3 target)
     {
-        var playerPosX = Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(playerPos.x));
-        var playerPosZ = Mathf.Abs(Mathf.Abs(transform.position.z) - Mathf.Abs(playerPos.z));
-
-       // print(Mathf.Abs(playerPosX)); print(Mathf.Abs(playerPosZ));
-        return (playerPosX <= rangeAttack && playerPosZ <= rangeAttack);
-
-    }
-   private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
-    {
-        var enemiePos = transform.position;
-        return  new Vector3(Random.Range(enemiePos.x - minValue, enemiePos.x + maxValue),
-               enemiePos.y, Random.Range(enemiePos.z - minValue, enemiePos.z + maxValue));
-
-
+        
+        return  new Vector3(Random.Range(target.x - minValue, target.x + maxValue),
+               target.y, Random.Range(target.z - minValue, target.z + maxValue));
     }
     public override void EnemieWalk()
     {
-            if(base.agent.velocity.magnitude < 0.1f)
-            {
-                base.agent.speed = enemieSpeed * 0.5f;
-                base.EnemieRange = 12f;
-                AgentDestination(RandomEnemieDestionation(15f,15f));
-            }
-        
-    }
+        if (!walkDestinationSet)
+        {
+            if (base.agent.speed != 3f && base.EnemieRange != 10f)
+                AgentStatBehaviour(3, 10);
 
-    public override void EnemieMovement()
-    {
-        throw new System.NotImplementedException();
+            nextWalkDest = RandomEnemieDestionation(15f, 15f,transform.position);
+            AgentDestination(nextWalkDest);
+            walkDestinationSet = true;
+        }
+        Vector3 distanceLeft = transform.position - nextWalkDest;// calculating the diff between my actual pos and next dest
+        if (distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) //check if my actualPos is far to my nextDest
+            walkDestinationSet = false;
     }
-
-    
 
     private void OnDrawGizmosSelected()
     {
