@@ -25,8 +25,16 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private float groundDrag = 6f;
 
+    private bool fireInput = false;
+    private bool aimDownSightsInput = false;
+    private bool reloadInput = false;
+
     private CapsuleCollider capsule;
     private float capsuleScale;
+
+    public bool FireInput { get => fireInput; set => fireInput = value; }
+    public bool AimDownSightsInput { get => aimDownSightsInput; set => aimDownSightsInput = value; }
+    public bool ReloadInput { get => reloadInput; set => reloadInput = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +94,21 @@ public class PlayerController : MonoBehaviour
             moveSpeed = baseSpeed;
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        FireInput = context.performed;
+    }
+
+    public void OnAimDownSights(InputAction.CallbackContext context)
+    {
+        AimDownSightsInput = context.performed;
+    }
+
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        ReloadInput = context.performed;
     }
 
     void Moving()
