@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu( fileName = "Enemie stats" ,menuName = "Enemie Stats")]
+[CreateAssetMenu(fileName = "Enemie stats" ,menuName = "Enemie Stats")]
 public class Scriptable_Stats_Enemies : ScriptableObject
 {
-    
 
     [SerializeField] private new  string name;
     [SerializeField] private int healthPoints;

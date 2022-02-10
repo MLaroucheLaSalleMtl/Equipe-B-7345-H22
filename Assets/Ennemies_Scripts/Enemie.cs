@@ -10,6 +10,7 @@ public abstract class Enemie : MonoBehaviour
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
+    [SerializeField] protected LayerMask whatIsBullet;
     [SerializeField] protected float EnemieRange = 10f;
     [SerializeField] protected float attackRange = 1.5f;
     //playerStat
@@ -24,19 +25,20 @@ public abstract class Enemie : MonoBehaviour
     //protected SphereCollider sColl;
     protected bool haveAttacked;
    
-    private CapsuleCollider meleeColl; // for melee attack
+    [SerializeField]private CapsuleCollider meleeAttackColl; // for melee attack
     private BoxCollider bodycoll;// player cant pass through 
 
     //add force variable
     private float impluseForce;
     private bool powerIncresed = false;
+
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
-   
+    public int RealDamage { get => InflictDamage(); }
+
     protected void GetComponent()
     {
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
-       this.meleeColl = GetComponent<CapsuleCollider>();
        this.bodycoll = GetComponent<BoxCollider>();
     }
 
@@ -55,8 +57,8 @@ public abstract class Enemie : MonoBehaviour
         this.defensePoints = this.enemie_stats.DefensePoints;
         this.maxHealthPoints = this.healthPoints;
         //set collider 
-        this.meleeColl.enabled = false;
-        this.meleeColl.isTrigger = true;
+        this.meleeAttackColl.enabled = false;
+        this.meleeAttackColl.isTrigger = true;
         //set default range 
         this.EnemieRange = this.enemie_stats.DetectionRange;
         this.attackRange = this.enemie_stats.AttackRange;
@@ -83,6 +85,14 @@ public abstract class Enemie : MonoBehaviour
     {
         return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsPlayer);
     }
+    protected bool AttackedByPLayer()
+    {
+        return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsBullet);
+    }
+    protected bool BeenHitted()
+    {
+        return !this.PlayerDetected() && this.AttackedByPLayer();
+    }
 
     protected void ResetHealth()
     {
@@ -101,13 +111,13 @@ public abstract class Enemie : MonoBehaviour
     #region Animation event
     public void AttackBegin()
     {
-        this.meleeColl.enabled = true;
+        this.meleeAttackColl.enabled = true;
         this.bodycoll.enabled = false;
 
     }
     public void AttackEnd()
     {
-        this.meleeColl.enabled = false;
+        this.meleeAttackColl.enabled = false;
         this.bodycoll.enabled = true;
 
     }
@@ -120,12 +130,12 @@ public abstract class Enemie : MonoBehaviour
         bodycoll.enabled = false ;
     }
     #endregion
-    private int RandomValue(int min, int max)
+    protected int RandomValue(int min, int max)
     {
         return Random.Range(min, max);
     }
 
-    protected int InflictDamage()//will receive player variable to have acces to his hp
+    private int InflictDamage()//will receive player variable to have acces to his hp
     {
         int damage;
         
@@ -152,8 +162,8 @@ public abstract class Enemie : MonoBehaviour
         {
             float scaleEmplifer = 1.5f;
             float attackPowerEmplifier = 1.1f;
-            bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
-            if (chanceToEnrage)
+            //bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
+            if (this.RandomValue(0, 100) > 90 ? true : false)
             {
                 this.transform.localScale *= scaleEmplifer;
                 this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
@@ -193,33 +203,19 @@ public abstract class Enemie : MonoBehaviour
             int realDamage = (int)(weaponDamage * DamageReducer());
             print(realDamage);
             this.healthPoints -= realDamage;
-            //print(this.healthPoints);
             ResetHealth();
         }
     }
-    private void AdaptiveForce(Collider other)
+    public void AdaptiveForce(Collider other)
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
             var contact = hit.point - transform.position;
-            
-            print(transform.position - hit.point);
             other.gameObject.GetComponentInParent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
         }
-        //other.GetContact(0).point
-    }
-    //this is for attack the enemie
-    private void OnTriggerEnter(Collider other)
-    {
         
-        if (other.CompareTag("Player"))
-        {
-            print(123);
-            AdaptiveForce(other);
-             other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.InflictDamage();
-            //print(other.gameObject.GetComponentInParent<PlayerController>().Hp);
-        }
     }
+    
 
 }

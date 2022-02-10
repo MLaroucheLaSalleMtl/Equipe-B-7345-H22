@@ -31,32 +31,30 @@ public class ChomperBehaviour : Enemie
         base.GetComponent();
         base.GetStats();
     }
+    
     private void FixedUpdate()
     {
         base.EnemieAnimation();
-    }
-    private void Update()
-    {
         this.playerFound = base.PlayerDetected();
         this.canAttack = base.InAttackRange();
 
-        //if (playerFound && needtomove)
-        //{
-        //    print("Switch destination");
-        //    SwitchDestinationForAttack();
-        //}
+        if (playerFound && needtomove)
+        {
+            print("Switch destination");
+            SwitchDestinationForAttack();
+        }
 
         if (this.healthPoints <= 0)
         {
             base.DeadBehaviour();
         }
 
-        if (playerFound && !canAttack /*&& !needtomove*/)
+        if (playerFound && !canAttack && !needtomove || base.BeenHitted())
         {
             EnemieChassing();
         }
 
-        if (canAttack && playerFound /*&& !needtomove*/)
+        if (canAttack && playerFound && !needtomove)
         {
             MeleeAttack();
         }
@@ -64,6 +62,7 @@ public class ChomperBehaviour : Enemie
         if (!playerFound)
             EnemieWalk();
     }
+   
 
     private void AgentStatBehaviour(float speedValue, float EnemieRange)
     {
@@ -106,11 +105,9 @@ public class ChomperBehaviour : Enemie
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChomperAttack1")) // when anim finish
             {
                 anim.ResetTrigger("attack"); // reset trigger anim
-                this.needtomove = true;
+                this.needtomove = base.RandomValue(0, 11) < 5 ? true : false;
             }
             Invoke(nameof(ResetAttack), 1f);
-
-
         }
 
     }
@@ -124,15 +121,10 @@ public class ChomperBehaviour : Enemie
 
     private void SwitchDestinationForAttack()
     {
-
-        //*** make a calcule to kno wmy enemie position and the decide to move is x or z position
         //asign a single new destination
         if (!isDestChange)
         {
-              
-            
-            //nextRunDest = RandomEnemieDestionation(3f, 3f, targetPos.transform.position);
-            nextRunDest =  ((targetPos.transform.position - transform.position)  ).normalized; 
+            nextRunDest = transform.position -(new Vector3((targetPos.transform.position.x - transform.position.x +0.5f) , 0, (targetPos.transform.position.z - transform.position.z -0.5f)) );
             AgentDestination(nextRunDest);
             base.agent.speed = enemieSpeed * 1.5f;
             isDestChange = true;

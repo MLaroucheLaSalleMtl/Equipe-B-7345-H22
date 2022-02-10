@@ -4,29 +4,20 @@ using UnityEngine;
 
 public class Enemie_MeleeAttack : MonoBehaviour
 {
-
+    //[SerializeField] private Scriptable_Stats_Enemies enemie;
     private Enemie enemie;
-    //private void OnTriggerEnter(Collider other)
-    //{
+    private void Awake()
+    {
+        enemie = GetComponentInParent<Enemie>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
 
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        print(123);
-    //        this.enemie.AdaptiveForce(other);
-    //        other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.InflictDamage();
-    //        //print(other.gameObject.GetComponentInParent<PlayerController>().Hp);
-    //    }
-    //}
-    //private void AdaptiveForce(Collider other)
-    //{
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(transform.position, transform.forward, out hit))
-    //    {
-    //        var contact = hit.point - transform.position;
-
-    //        print(transform.position - hit.point);
-    //        other.gameObject.GetComponentInParent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
-    //    }
-    //    //other.GetContact(0).point
-    //}
+        if (other.CompareTag("Player"))
+        {
+            this.enemie.AdaptiveForce(other);
+            other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.enemie.RealDamage;
+        }
+    }
+   
 }
