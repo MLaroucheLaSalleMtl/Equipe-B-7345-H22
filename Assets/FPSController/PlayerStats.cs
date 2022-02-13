@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     [SerializeField] private int healthPoints;
+    [SerializeField] private int energyPoints;
     [SerializeField] private Vector3 lastCheckpoint;
     [SerializeField] private int playerLevel;
 
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
+    public int EnergyPoints { get => energyPoints; set => energyPoints = value; }
     public Vector3 LastCheckpoint { get => lastCheckpoint; set => lastCheckpoint = value; }
     public int PlayerLevel { get => playerLevel; set => playerLevel = value; }
 }
