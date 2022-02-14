@@ -16,7 +16,7 @@ public class Enemie_MeleeAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             this.enemie.AdaptiveForce(other);
-            other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.enemie.RealDamage;
+            //other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.enemie.RealDamage;
         }
     }
    

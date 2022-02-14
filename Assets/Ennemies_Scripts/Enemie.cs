@@ -19,14 +19,15 @@ public abstract class Enemie : MonoBehaviour
     private int maxHealthPoints;
     protected int defensePoints;
     protected int attackPower;
-
+    // player gameobject position
+    [SerializeField] protected GameObject myTarget;
     protected Animator anim;
     protected NavMeshAgent agent;
+    protected NavMeshObstacle obstacle;
     //protected SphereCollider sColl;
     protected bool haveAttacked;
    
     [SerializeField]private CapsuleCollider meleeAttackColl; // for melee attack
-    private BoxCollider bodycoll;// player cant pass through 
 
     //add force variable
     private float impluseForce;
@@ -34,15 +35,19 @@ public abstract class Enemie : MonoBehaviour
 
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int RealDamage { get => InflictDamage(); }
-
+    private void Start()
+    {
+        this.GetComponent();
+        this.GetStats();
+    }
     protected void GetComponent()
     {
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
-       this.bodycoll = GetComponent<BoxCollider>();
+       this.obstacle = GetComponent<NavMeshObstacle>();
     }
 
-    protected void SetMyAgent()
+    protected void NaveMeshSetting()
     {
         //default value when start game
     }
@@ -64,18 +69,24 @@ public abstract class Enemie : MonoBehaviour
         this.attackRange = this.enemie_stats.AttackRange;
         this.impluseForce = this.enemie_stats.ImpluseForce;
         this.haveAttacked = false;
+        if(myTarget == null)
+        {
+            //the name must fit with the the scene name
+            myTarget = GameObject.Find("Player");
+        }
     }
     
-   
     public abstract void EnemieWalk();
     protected void EnemieAnimation()
     {
-        this.anim.SetFloat("axisX", this.agent.velocity.magnitude);
-        this.anim.SetBool("isDead", this.healthPoints <= 0);
+        this.anim.SetFloat("magnitude", this.agent.velocity.magnitude);
         this.anim.SetBool("isPlayer", this.PlayerDetected());
-
-        //if (this.InAttackRange())
-        //    anim.SetBool("isAttack", !this.haveAttacked);
+        if (this.healthPoints <= 0)
+        {
+            this.anim.SetBool("isDead", true);
+            this.agent.isStopped = true;
+            Destroy(gameObject, 1.5f);
+        }
     }
     protected bool PlayerDetected()
     {
@@ -98,12 +109,12 @@ public abstract class Enemie : MonoBehaviour
     {
         if(this.healthPoints <= 25)
         {
-            var regainChance = Random.Range(0, 100);
-             if (regainChance < 10)
-             {
+            //var regainChance = Random.Range(0, 100);
+            // if (regainChance < 10)
+            // {
                  this.healthPoints = enemie_stats.HealthPoints;
                  this.EnrageMode();
-             }
+             //}
         }
     }
 
@@ -112,23 +123,12 @@ public abstract class Enemie : MonoBehaviour
     public void AttackBegin()
     {
         this.meleeAttackColl.enabled = true;
-        this.bodycoll.enabled = false;
-
     }
     public void AttackEnd()
     {
         this.meleeAttackColl.enabled = false;
-        this.bodycoll.enabled = true;
-
     }
-    public void EnableCollision()
-    {
-        bodycoll.enabled = true;
-    }
-    public void DisableCollision()
-    {
-        bodycoll.enabled = false ;
-    }
+   
     #endregion
     protected int RandomValue(int min, int max)
     {
@@ -148,14 +148,6 @@ public abstract class Enemie : MonoBehaviour
         return damage;
     }
 
-    protected void DeadBehaviour()
-    {
-        if (this.healthPoints <= 0)
-        {
-            this.agent.destination = transform.position ;
-            Destroy(gameObject, 2f);
-        }
-    }
     private void EnrageMode()
     {
         if (!powerIncresed)
@@ -163,47 +155,28 @@ public abstract class Enemie : MonoBehaviour
             float scaleEmplifer = 1.5f;
             float attackPowerEmplifier = 1.1f;
             //bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
-            if (this.RandomValue(0, 100) > 90 ? true : false)
-            {
+            //if (this.RandomValue(0, 100) > 90 )
+            //{
                 this.transform.localScale *= scaleEmplifer;
                 this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
                 this.powerIncresed = true;
-            }
+            //}
         }
-
     }
     //apply damage in fonction of the defensePoints
-    private float DamageReducer()
+    private float DamageReducer(int damage)
     {
-        float reducer = 0.00f;
-        switch (this.defensePoints)
-        {
-            case 10:
-                reducer = 0.9f;
-                break;
-            case 20:
-                reducer = 0.8f;
-                break;
-            case 30:
-                reducer = 0.7f;
-                break;
-            case 40:
-                reducer = 0.6f;
-                break;
-        }
-        if (reducer == 0.00f)
-            print("Invalide defensePoint must be initialise with {10,20,30,40}");
-
-        return reducer;
+        float scaling = this.defensePoints * 0.01f;
+        return scaling * damage;
     }
-    public void ReceiveDamage(int weaponDamage)
+    public void ReceiveDamage(int Damage)
     {
         if (this.healthPoints > 0)
         {
-            int realDamage = (int)(weaponDamage * DamageReducer());
+            int realDamage = (int)(Damage + DamageReducer(Damage));
             print(realDamage);
             this.healthPoints -= realDamage;
-            ResetHealth();
+            ResetHealth(); //if lucky will receive reset health
         }
     }
     public void AdaptiveForce(Collider other)

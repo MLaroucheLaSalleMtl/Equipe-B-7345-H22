@@ -6,13 +6,13 @@ using UnityEngine;
 public class Scriptable_Stats_Enemies : ScriptableObject
 {
 
-    [SerializeField] private new  string name;
-    [SerializeField] private int healthPoints;
-    [SerializeField] private int defensePoints;
-    [SerializeField] private int attackPower;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float detectionRange;
-    [SerializeField] private float impluseForce;
+    [SerializeField] private new  string name; // enemie name
+    [SerializeField] private int healthPoints; // hp
+    [SerializeField] private int defensePoints; // reduce the receive damage from player
+    [SerializeField] private int attackPower; // damage
+    [SerializeField] private float attackRange; // melle attack range
+    [SerializeField] private float detectionRange; // range player detection
+    [SerializeField] private float impluseForce; // push player
     public string Name       { get => name; }
     public int DefensePoints { get => defensePoints; }
     public int AttackPower   { get => attackPower;  }

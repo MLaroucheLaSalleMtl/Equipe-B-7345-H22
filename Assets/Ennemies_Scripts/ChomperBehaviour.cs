@@ -9,7 +9,7 @@ public class ChomperBehaviour : Enemie
     private bool isAttacking = false;
     private bool isDestChange = false;
     private bool attackDone = false;
-    private GameObject targetPos;
+    //private GameObject targetPos;
     private bool walkDestinationSet = false;
     private Vector3 nextWalkDest;
     private Vector3 nextRunDest;
@@ -18,51 +18,46 @@ public class ChomperBehaviour : Enemie
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canAttack;
-    void Start()
-    {
+
+    //obstacle
+    public NavMeshObstacle navObj;
+
+    //void Start()
+    //{
        
-        SetEnemie();
-        //the name must fit with the the scene name
-        targetPos = GameObject.Find("Player");
-    }
+    //    SetEnemie();
+        
+    //    navObj.enabled = false;
+    //}
 
     private void SetEnemie()
     {
         base.GetComponent();
         base.GetStats();
     }
-    
     private void FixedUpdate()
     {
+        //animation with rootMotion
         base.EnemieAnimation();
         this.playerFound = base.PlayerDetected();
         this.canAttack = base.InAttackRange();
-
-        if (playerFound && needtomove)
-        {
-            print("Switch destination");
-            SwitchDestinationForAttack();
-        }
-
-        if (this.healthPoints <= 0)
-        {
-            base.DeadBehaviour();
-        }
-
-        if (playerFound && !canAttack && !needtomove || base.BeenHitted())
-        {
-            EnemieChassing();
-        }
-
-        if (canAttack && playerFound && !needtomove)
-        {
-            MeleeAttack();
-        }
-
-        if (!playerFound)
-            EnemieWalk();
     }
-   
+
+    private void Update()
+    {
+
+
+        //when update position before attack
+        if (playerFound && needtomove) SwitchDestinationForAttack();
+        //when chassing player
+        if (playerFound && !canAttack && !needtomove) EnemieChassing();
+        //when melee attack
+        if (canAttack && playerFound && !needtomove) MeleeAttack();
+        //when Patrolling
+        if (!playerFound) EnemieWalk();
+
+    }
+
 
     private void AgentStatBehaviour(float speedValue, float EnemieRange)
     {
@@ -89,34 +84,45 @@ public class ChomperBehaviour : Enemie
     {
         if (base.agent.speed != 6f && base.EnemieRange != 8f) //changing value for chassing
             AgentStatBehaviour(6, 8);
+        MovingBehaviour();
 
-        AgentDestination(targetPos.transform.position); //apply movement
+
+        AgentDestination(base.myTarget.transform.position); //apply movement
+    }
+
+    protected void MovingBehaviour()
+    {
+        navObj.enabled = false;
+        base.agent.enabled = true;
     }
     
     private void MeleeAttack()
     {
-        AgentDestination(transform.position); // stop player from moving
+        AgentDestination(this.transform.position); // stop player from moving
         if (!this.attackDone)
         {
-            transform.LookAt(targetPos.transform); // be sure to look the player direction
+            var lookAtTarget = new Vector3(base.myTarget.transform.position.x, this.transform.position.y, base.myTarget.transform.position.z);
+            transform.LookAt(lookAtTarget); // be sure to look the player direction
             anim.SetTrigger("attack"); // set my attack
-            this.isAttacking = true; //check but maybe remove it
+            //anim.PlayInFixedTime("ChomperAttack1");
+            base.agent.enabled = false;
+            navObj.enabled = true;
+
             this.attackDone = true;// wait Invoke for attack again
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChomperAttack1")) // when anim finish
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChomperAttack1") )// when anim finish
             {
                 anim.ResetTrigger("attack"); // reset trigger anim
-                this.needtomove = base.RandomValue(0, 11) < 5 ? true : false;
-            }
-            Invoke(nameof(ResetAttack), 1f);
-        }
 
+            }
+            Invoke(nameof(ResetAttack), 0.75f);
+
+        }
     }
 
     private void ResetAttack()
     {
         this.attackDone = false;
-        this.isAttacking = false;
-
+        this.needtomove = base.RandomValue(0, 11) < 5 ? true : false;
     }
 
     private void SwitchDestinationForAttack()
@@ -124,14 +130,15 @@ public class ChomperBehaviour : Enemie
         //asign a single new destination
         if (!isDestChange)
         {
-            nextRunDest = transform.position -(new Vector3((targetPos.transform.position.x - transform.position.x +0.5f) , 0, (targetPos.transform.position.z - transform.position.z -0.5f)) );
+            MovingBehaviour();
+            nextRunDest = transform.position -(new Vector3((base.myTarget.transform.position.x - transform.position.x +0.5f) , 0, (base.myTarget.transform.position.z - transform.position.z -0.5f)) );
             AgentDestination(nextRunDest);
             base.agent.speed = enemieSpeed * 1.5f;
             isDestChange = true;
         }
         Vector3 distanceLeft = transform.position - nextRunDest;
 
-        if (distanceLeft.magnitude < 1f )
+        if (distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f)
         {
             needtomove = false;
             isDestChange = false;

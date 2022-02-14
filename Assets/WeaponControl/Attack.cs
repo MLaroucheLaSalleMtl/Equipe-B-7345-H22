@@ -7,8 +7,6 @@ public class Attack : MonoBehaviour
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
     protected float attackRange;
-    //steven add this **
-    protected int attackDamgage;
 
     [SerializeField] protected GameObject player;
 
@@ -28,16 +26,6 @@ public class Attack : MonoBehaviour
         anim.SetBool(animName, false);
         attackOnce = true;
     }
-    //steven add this **
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Enemie>())
-        {
-            other.gameObject.GetComponent<Enemie>().ReceiveDamage(this.attackDamgage);
-        }
-    }
-
     //public void DoDamage(); //TODO
 
 }
