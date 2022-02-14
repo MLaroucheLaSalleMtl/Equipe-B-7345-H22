@@ -9,37 +9,40 @@ public class PistolBehavior : Attack
     protected float bulletSpeed = 20;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
+    private int currentAmmo = 10;
 
-
+    private void Awake()
+    {
+        base.maxBullet = 10;
+        base.noAmmo = false;
+    }
 
     public void ShootPistol()
     {
         Rigidbody clone1 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
         clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
+        StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
+        currentAmmo--;
+        if (currentAmmo <= 0) base.noAmmo = true;
     }
 
 
     void Update()
     {
-        base.attackRange = range;
-        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * attackRange, Color.red);
         if(Input.GetButtonDown("Fire2"))
         {
-            base.AimDownSight(false);
+            base.AimDownSight();
         }
-        if (Input.GetButtonDown("Fire1") && attackOnce)
+        if (Input.GetButtonDown("Fire1") && attackOnce && currentAmmo > 0)
         {
-            
             base.Attacking("Shoot", resetTimeShot);
             ShootPistol();
-            RaycastHit hit;
-            if (Physics.Raycast(base.player.transform.position, base.player.transform.forward, out hit, attackRange))
-            {
-                if (hit.collider.tag == "Enemy")
-                {
-                    print("Done");
-                }
-            }
+            print(currentAmmo);
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            base.Reloading("PistolIsAim");
+            currentAmmo = maxBullet;
         }
     }
 }
