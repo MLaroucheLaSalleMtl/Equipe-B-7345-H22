@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    [Header("Player movement")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float baseSpeed = 40f;
     private Vector2 moveInput = Vector2.zero;
@@ -15,15 +16,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float runMultiplier = 1.5f;
     private bool isRunning;
 
+    [Header("Player crouch")]
     [SerializeField] private float crouchMultiplier = 0.5f;
     [SerializeField] private float slideSpeed = 12f;
 
+    [Header("Player jump")]
     [SerializeField] private float jumpForce = 5f;
     private bool jumpInput = false;
     private float airDrag = 1f;
-    
+
+    [Header("Player ground detection")]
+    [SerializeField] private LayerMask groundCheck;
     private bool isGrounded;
+    private float groundDistance = 0.4f;
     private float groundDrag = 6f;
+
+    [Header("Player steps")]
+    [SerializeField] private float stepHeight = 0.3f;
+    [SerializeField] private float stepSmooth = 0.1f;
+    [SerializeField] private GameObject rayStepUpper;
+    [SerializeField] private GameObject rayStepLower;
+
+    [Header("Player slopes handling")]
+    RaycastHit slopeHit;
+    private bool isOnSlope;
+    private Vector3 movementOnSlopes;
 
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
@@ -40,8 +57,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        capsule = GetComponentInChildren<CapsuleCollider>();
+        capsule = GetComponent<CapsuleCollider>();
         capsuleScale = capsule.height;
+    }
+
+    private void Awake()
+    {
+        rayStepUpper.transform.position = new Vector3(rayStepUpper.transform.position.x, stepHeight, rayStepUpper.transform.position.z);
     }
 
     // Update is called once per frame
@@ -51,6 +73,8 @@ public class PlayerController : MonoBehaviour
         CheckIfGrounded();
         Jumping();
         DragValue();
+        Stepping();
+        OnSlopes();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -114,19 +138,50 @@ public class PlayerController : MonoBehaviour
     void Moving()
     {
         playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
-        if (isGrounded)
+        if (isGrounded && !isOnSlope)
         {
             rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
+        }
+        else if (isGrounded && isOnSlope)
+        {
+            rb.AddForce(movementOnSlopes.normalized * moveSpeed, ForceMode.Acceleration);
         }
         else
         {
             rb.AddForce(playerMovement.normalized * moveSpeed * 0.1f, ForceMode.Acceleration);
         }
     }
+    void Stepping()
+    {
+        RaycastHit lowHit;
+        if (Physics.Raycast(rayStepLower.transform.position, transform.TransformDirection(Vector3.forward), out lowHit, 0.1f))
+        {
+            RaycastHit upperHit;
+            if (!Physics.Raycast(rayStepUpper.transform.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+            {
+                rb.position += new Vector3(0f, stepSmooth, 0f);
+            }
+        }
+    }
+
+    void OnSlopes()
+    {
+        movementOnSlopes = Vector3.ProjectOnPlane(playerMovement, slopeHit.normal);
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, capsuleScale / 2 + 0.5f))
+        {
+            if (slopeHit.normal != Vector3.up)
+            {
+                isOnSlope = true;
+            }
+            isOnSlope = false;
+        }
+        isOnSlope = false;
+    }
 
     void CheckIfGrounded()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, capsuleScale * 0.5f + 0.1f);
+        Vector3 halfHeight = new Vector3(0f, capsuleScale / 2, 0f);
+        isGrounded = Physics.CheckSphere(transform.position - halfHeight, groundDistance, groundCheck);  
     }
 
     void DragValue()
@@ -140,7 +195,6 @@ public class PlayerController : MonoBehaviour
             rb.drag = airDrag;
         }
     }
-
     void Jumping()
     {
         if (jumpInput && isGrounded)
@@ -149,4 +203,5 @@ public class PlayerController : MonoBehaviour
             jumpInput = false;
         }
     }
+    
 }
