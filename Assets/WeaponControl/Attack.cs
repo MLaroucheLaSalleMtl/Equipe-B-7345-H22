@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
     protected bool isAiming = false;
+    protected float attackRange;
     [SerializeField] protected GameObject player;
     protected int maxBullet;
     protected bool noAmmo;

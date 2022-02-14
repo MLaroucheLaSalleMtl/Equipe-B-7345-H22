@@ -8,7 +8,6 @@ public class MeleeBehavior : Attack
     protected float resetTimeSwing = 0.9f; //time between each individual swings
     protected float range = 2.0f;
     private bool rayActivated = false;
-
     void Update()
     {
         Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.red);
