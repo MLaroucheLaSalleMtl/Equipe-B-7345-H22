@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - Weapon
-
   layers:
   - Default
   - TransparentFX
@@ -18,8 +17,8 @@ TagManager:
   - 
   - 
   - 
-  - Enemie
-  - PLAYERTESTER
+  - 
+  - 
   - 
   - 
   - 
