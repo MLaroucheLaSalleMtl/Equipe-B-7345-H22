@@ -6,11 +6,12 @@ TagManager:
   tags:
   - PlayerTester
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enviro
   - Water
   - UI
   - Ground
