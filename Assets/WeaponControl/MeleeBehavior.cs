@@ -4,37 +4,24 @@ using UnityEngine;
 
 public class MeleeBehavior : Attack
 {
-    [SerializeField] private WeaponDamage damage;
+
     protected float resetTimeSwing = 0.9f; //time between each individual swings
-    protected float range = 2.0f;
-    private bool rayActivated = false;
+    protected float range = 3.0f;
     void Update()
     {
-        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.red);
-        RaycastHit hit;
+        base.attackRange = range;
+        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * attackRange, Color.red);
         if (Input.GetButtonDown("Fire1") && attackOnce)
         {
             base.Attacking("Swing", resetTimeSwing);
-        }
-        if (rayActivated)
-        {
-            if (Physics.Raycast(base.player.transform.position, base.player.transform.forward, out hit, range))
+            RaycastHit hit;
+            if (Physics.Raycast(base.player.transform.position, base.player.transform.forward, out hit, attackRange))
             {
                 if (hit.collider.tag == "Enemy")
                 {
-                    print(damage.Damage);
-                    DeactivateRay();
+                    print("Done");
                 }
             }
         }
-    }
-
-    public void ActivateRay()
-    {
-        rayActivated = true;
-    }
-    public void DeactivateRay()
-    {
-        rayActivated = false;
     }
 }
