@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
     protected float attackRange;
+
     [SerializeField] protected GameObject player;
 
     public void Attacking(string animName,float resetShotTime)
@@ -25,7 +26,6 @@ public class Attack : MonoBehaviour
         anim.SetBool(animName, false);
         attackOnce = true;
     }
-
     //public void DoDamage(); //TODO
 
 }

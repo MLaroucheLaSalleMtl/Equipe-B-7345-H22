@@ -7,7 +7,6 @@ public class MeleeBehavior : Attack
 
     protected float resetTimeSwing = 0.9f; //time between each individual swings
     protected float range = 3.0f;
-
     void Update()
     {
         base.attackRange = range;
