@@ -69,7 +69,8 @@ public abstract class Enemie : MonoBehaviour
         this.attackRange = this.enemie_stats.AttackRange;
         this.impluseForce = this.enemie_stats.ImpluseForce;
         this.haveAttacked = false;
-        if(myTarget == null)
+        this.obstacle.enabled = false;
+        if (myTarget == null)
         {
             //the name must fit with the the scene name
             myTarget = GameObject.Find("Player");
@@ -81,6 +82,10 @@ public abstract class Enemie : MonoBehaviour
     {
         this.anim.SetFloat("magnitude", this.agent.velocity.magnitude);
         this.anim.SetBool("isPlayer", this.PlayerDetected());
+        DeadBehaviour();
+    }
+    private void DeadBehaviour()
+    {
         if (this.healthPoints <= 0)
         {
             this.anim.SetBool("isDead", true);
@@ -109,12 +114,12 @@ public abstract class Enemie : MonoBehaviour
     {
         if(this.healthPoints <= 25)
         {
-            //var regainChance = Random.Range(0, 100);
-            // if (regainChance < 10)
-            // {
-                 this.healthPoints = enemie_stats.HealthPoints;
+            var regainChance = Random.Range(0, 100);
+            if (regainChance < 10)
+            {
+                this.healthPoints = enemie_stats.HealthPoints;
                  this.EnrageMode();
-             //}
+            }
         }
     }
 
@@ -154,13 +159,13 @@ public abstract class Enemie : MonoBehaviour
         {
             float scaleEmplifer = 1.5f;
             float attackPowerEmplifier = 1.1f;
-            //bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
-            //if (this.RandomValue(0, 100) > 90 )
-            //{
+            bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
+            if (this.RandomValue(0, 100) > 90)
+            {
                 this.transform.localScale *= scaleEmplifer;
                 this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
                 this.powerIncresed = true;
-            //}
+            }
         }
     }
     //apply damage in fonction of the defensePoints
@@ -185,7 +190,7 @@ public abstract class Enemie : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
             var contact = hit.point - transform.position;
-            other.gameObject.GetComponentInParent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
         }
         
     }

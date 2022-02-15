@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemie_MeleeAttack : MonoBehaviour
 {
-    //[SerializeField] private Scriptable_Stats_Enemies enemie;
     private Enemie enemie;
+    private PlayerStats playerStats;
     private void Awake()
     {
         enemie = GetComponentInParent<Enemie>();
@@ -16,7 +16,8 @@ public class Enemie_MeleeAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             this.enemie.AdaptiveForce(other);
-            //other.gameObject.GetComponentInParent<PlayerController>().Hp -= this.enemie.RealDamage;
+            //other.gameObject.GetComponent<PlayerController>().Hp -= this.enemie.RealDamage;
+            this.playerStats.HealthPoints -= this.enemie.RealDamage;
         }
     }
    
