@@ -4,37 +4,40 @@ using UnityEngine;
 
 public class SniperBehavior : Attack
 {
+    [SerializeField] private WeaponDamage damage;
     protected float resetTimeShot = 1.1f; //time between each individual shot
     protected float bulletSpeed = 50;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
     [SerializeField] private Camera AimCamera;
-    private int currentAmmo = 5;
 
     private void Awake()
     {
         base.maxBullet = 5;
         base.noAmmo = false;
+        base.currAmmo = 5;
+        base.currAmmo = damage.AmmoCount;
     }
-
 
     public void ShootSniper()
     {
         if(isAiming)
         {
+            damage.AmmoCount--;
+            shotOffset = new Vector3(0f, 0f, 0f);
             Rigidbody clone1 = Instantiate(bullets, AimCamera.gameObject.transform.position, AimCamera.gameObject.transform.rotation);
-            clone1.AddForce(AimCamera.gameObject.transform.forward * bulletSpeed, ForceMode.Impulse);
+            clone1.AddForce((AimCamera.gameObject.transform.forward + shotOffset) * bulletSpeed, ForceMode.Impulse);
             StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
-            currentAmmo--;
         }
         else if(!isAiming)
         {
+            damage.AmmoCount--;
+            //shotOffset = new Vector3(Random.Range(AimCamera.gameObject.transform.forward.x - 0.005f, AimCamera.gameObject.transform.forward.x + 0.005f), Random.Range(AimCamera.gameObject.transform.forward.y - 0.05f, AimCamera.gameObject.transform.forward.y + 0.05f), 0f);
             Rigidbody clone1 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
             clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
             StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
-            currentAmmo--;
         }
-        if (currentAmmo <= 0) base.noAmmo = true;
+        if (damage.AmmoCount <= 0) base.noAmmo = true;
     }
 
     public void CameraZoom()
@@ -48,20 +51,25 @@ public class SniperBehavior : Attack
 
     void Update()
     {
+        DisplayUI();
         if (Input.GetButtonDown("Fire2"))
         {
             base.AimDownSight();
         }
-        if (Input.GetButtonDown("Fire1") && attackOnce && currentAmmo > 0)
+        if (Input.GetButtonDown("Fire1") && attackOnce && damage.AmmoCount > 0)
         {
             base.Attacking("Shoot", resetTimeShot);
             ShootSniper();
-            print(currentAmmo);
+            base.currAmmo = damage.AmmoCount;
         }
         if (Input.GetButtonDown("Fire3"))
         {
             base.Reloading("SniperIsAim");
-            currentAmmo = maxBullet;
+            if (!isAiming)
+            {
+                damage.AmmoCount = maxBullet;
+                base.currAmmo = damage.AmmoCount;
+            }
         }
     }
 }

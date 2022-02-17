@@ -11,6 +11,7 @@ public class MeleeBehavior : Attack
 
     void Update()
     {
+        DisplayUI();
         Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.red);
         RaycastHit hit;
         if (Input.GetButtonDown("Fire1") && attackOnce)
@@ -19,7 +20,7 @@ public class MeleeBehavior : Attack
         }
         if (rayActivated)
         {
-            if (Physics.Raycast(base.player.transform.position, base.player.transform.forward, out hit, range))
+            if (Physics.Raycast(base.player.gameObject.transform.position, base.player.gameObject.transform.forward, out hit, range))
             {
                 if (hit.collider.tag == "Enemy")
                 {
