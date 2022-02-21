@@ -1,16 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Attack : MonoBehaviour
 {
+    //Weapon Control
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
     protected bool isAiming = false;
-    [SerializeField] protected GameObject player;
+    protected Vector3 shotOffset;
+    protected Camera player;
     protected int maxBullet;
     protected bool noAmmo;
+    protected int currAmmo;
+    [SerializeField] protected GameObject fullScope;
+    [SerializeField] private GameObject generalCrosshair;
+    [SerializeField] protected PlayerController control;
 
+    //UI COntrol
+    [SerializeField] private TMP_Text ammoText;
+
+    private void Start()
+    {
+        player = GetComponentInParent<Camera>();
+    }
     public void Attacking(string animName,float resetShotTime)
     {
         if (attackOnce)
@@ -29,7 +43,6 @@ public class Attack : MonoBehaviour
             AimDownSight();
         }
         anim.SetBool("Reload", true);
-
     }
 
     public void ResetReload()
@@ -41,13 +54,21 @@ public class Attack : MonoBehaviour
     public void AimDownSight()
     {
         isAiming = !isAiming;
-        if(isAiming)
+        if(isAiming) anim.SetBool("Aiming", true);
+        else if(!isAiming) anim.SetBool("Aiming", false);
+    }
+
+    public void ScopeChange() //scope change AR and Pistol
+    {
+        if (isAiming)
         {
-            anim.SetBool("Aiming", true);
+            fullScope.gameObject.SetActive(false);
+            generalCrosshair.gameObject.SetActive(false);
         }
-        else if(!isAiming)
+        else if (!isAiming)
         {
-            anim.SetBool("Aiming", false);
+            fullScope.gameObject.SetActive(true);
+            generalCrosshair.gameObject.SetActive(true);
         }
     }
     public IEnumerator ResetAttack(string animName, float resetShotTime)
@@ -59,9 +80,11 @@ public class Attack : MonoBehaviour
 
     public void CheckAmmo()
     {
-        if (noAmmo && anim.GetBool("Aiming") == true)
-        {
-            AimDownSight();
-        }
+        if (noAmmo && anim.GetBool("Aiming") == true) AimDownSight();
+    }
+
+    public void DisplayUI()
+    {
+        ammoText.text = "Ammo : " + currAmmo + "/" + maxBullet;
     }
 }

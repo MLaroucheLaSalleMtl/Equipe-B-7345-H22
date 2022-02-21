@@ -6,6 +6,8 @@ using UnityEngine;
 public class WeaponDamage : ScriptableObject
 {
     [SerializeField] private int damage;
+    [SerializeField] private int ammoCount;
 
     public int Damage { get => damage; set => damage = value; }
+    public int AmmoCount { get => ammoCount; set => ammoCount = value; }
 }
