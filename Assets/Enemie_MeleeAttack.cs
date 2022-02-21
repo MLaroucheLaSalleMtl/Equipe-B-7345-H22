@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemie_MeleeAttack : MonoBehaviour
 {
     private Enemie enemie;
-    private PlayerStats playerStats;
+    [SerializeField]private PlayerStats playerStats;
     private void Awake()
     {
         enemie = GetComponentInParent<Enemie>();
@@ -18,6 +18,7 @@ public class Enemie_MeleeAttack : MonoBehaviour
             this.enemie.AdaptiveForce(other);
             //other.gameObject.GetComponent<PlayerController>().Hp -= this.enemie.RealDamage;
             this.playerStats.HealthPoints -= this.enemie.RealDamage;
+            //this.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
    

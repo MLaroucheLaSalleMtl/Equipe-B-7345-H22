@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3f1325836b7307409d243c361a1a7ef, type: 3}
-  m_Name: EnemieChomper
+  m_Name: EnemieGrenadier
   m_EditorClassIdentifier: 
-  name: Chomper
-  healthPoints: 10
-  defensePoints: 10
-  attackPower: 25
-  attackRange: 2
-  detectionRange: 10
-  impluseForce: 15
+  name: Grenadier
+  healthPoints: 200
+  defensePoints: 50
+  attackPower: 30
+  attackRange: 2.7
+  detectionRange: 20
+  impluseForce: 30

@@ -2032,7 +2032,7 @@ Animator:
   m_GameObject: {fileID: 7396104602027554599}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7e438fcdf1dd5de4f9388ab2e1c0fbdd, type: 2}
+  m_Controller: {fileID: 9100000, guid: b29b1a34fcd4c034e844592c4bff26cb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -2098,12 +2098,11 @@ MonoBehaviour:
     m_Bits: 2176
   whatIsBullet:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   EnemieRange: 10
   attackRange: 1.5
   myTarget: {fileID: 0}
   meleeAttackColl: {fileID: 6521793}
-  navObj: {fileID: 334662859}
 --- !u!65 &95166600
 BoxCollider:
   m_ObjectHideFlags: 0
