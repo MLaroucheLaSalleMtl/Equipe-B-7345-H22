@@ -12,7 +12,8 @@ public class DamageDone : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            print(damage.Damage);
+            other.GetComponent<Enemie>().ReceiveDamage(this.damage.Damage);
+            print(this.damage.Damage);
         }
         if(other.gameObject.layer == isEnviro && other.gameObject.tag == "Enemy")
         {

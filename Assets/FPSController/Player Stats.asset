@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750ec4987d53ce044a56b6e30f5d1e52, type: 3}
   m_Name: Player Stats
   m_EditorClassIdentifier: 
-  healthPoints: 0
+  healthPoints: 872
+  energyPoints: 0
   lastCheckpoint: {x: 0, y: 0, z: 0}
   playerLevel: 0
