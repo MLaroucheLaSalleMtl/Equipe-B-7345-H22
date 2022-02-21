@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+    private Camera cam;
+
+    private CapsuleCollider capsule;
+    private float capsuleScale;
 
     [Header("Player movement")]
     [SerializeField] private float moveSpeed;
@@ -19,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player crouch")]
     [SerializeField] private float crouchMultiplier = 0.5f;
     [SerializeField] private float slideSpeed = 12f;
+    private bool isCrouched;
 
     [Header("Player jump")]
     [SerializeField] private float jumpForce = 5f;
@@ -39,19 +44,24 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player slopes handling")]
     RaycastHit slopeHit;
-    private bool isOnSlope;
     private Vector3 movementOnSlopes;
 
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
     private bool reloadInput = false;
 
-    private CapsuleCollider capsule;
-    private float capsuleScale;
+    private bool firstWeaponInput = false;
+    private bool secondWeaponInput = false;
+    private bool thirdWeaponInput = false;
+    private bool fourthWeaponInput = false;
 
     public bool FireInput { get => fireInput; set => fireInput = value; }
     public bool AimDownSightsInput { get => aimDownSightsInput; set => aimDownSightsInput = value; }
     public bool ReloadInput { get => reloadInput; set => reloadInput = value; }
+    public bool FirstWeaponInput { get => firstWeaponInput; set => firstWeaponInput = value; }
+    public bool SecondWeaponInput { get => secondWeaponInput; set => secondWeaponInput = value; }
+    public bool ThirdWeaponInput { get => thirdWeaponInput; set => thirdWeaponInput = value; }
+    public bool FourthWeaponInput { get => fourthWeaponInput; set => fourthWeaponInput = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +69,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         capsule = GetComponent<CapsuleCollider>();
         capsuleScale = capsule.height;
+        cam = GetComponentInChildren<Camera>();
     }
 
     private void Awake()
@@ -93,7 +104,7 @@ public class PlayerController : MonoBehaviour
             moveSpeed *= runMultiplier;
             isRunning = true;
         }
-        else if (context.canceled)
+        else if (context.canceled && !isCrouched)
         {
             moveSpeed = baseSpeed;
             isRunning = false;
@@ -102,21 +113,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
+        if (context.performed && isGrounded && !OnSlopes())
         {
+            //transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
             moveSpeed *= crouchMultiplier;
-            transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
-            transform.localScale = new Vector3(1f, 0.5f, 1f);
+            capsule.height = capsuleScale * 0.5f;
+            isCrouched = true;
             if (isRunning)
             {
                 rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
                 isRunning = false;
+                moveSpeed = baseSpeed * crouchMultiplier;
             }
         }
-        else if (context.canceled)
+        else if (context.canceled && !Physics.Raycast(transform.localPosition, Vector3.up, 2f))
         {
             moveSpeed = baseSpeed;
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            capsule.height = capsuleScale;
+            isCrouched = false;
         }
     }
 
@@ -135,14 +149,31 @@ public class PlayerController : MonoBehaviour
         ReloadInput = context.performed;
     }
 
+    public void OnFirstWeaponSwitch(InputAction.CallbackContext context)
+    {
+        FirstWeaponInput = context.performed;
+    }
+    public void OnSecondWeaponSwitch(InputAction.CallbackContext context)
+    {
+        SecondWeaponInput = context.performed;
+    }
+    public void OnThirdWeaponSwitch(InputAction.CallbackContext context)
+    {
+        ThirdWeaponInput = context.performed;
+    }
+    public void OnFourthWeaponSwitch(InputAction.CallbackContext context)
+    {
+        FourthWeaponInput = context.performed;
+    }
+
     void Moving()
     {
         playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
-        if (isGrounded && !isOnSlope)
+        if (isGrounded || isCrouched && !OnSlopes())
         {
             rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
         }
-        else if (isGrounded && isOnSlope)
+        else if (isGrounded && OnSlopes())
         {
             rb.AddForce(movementOnSlopes.normalized * moveSpeed, ForceMode.Acceleration);
         }
@@ -164,29 +195,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnSlopes()
+    bool OnSlopes()
     {
-        movementOnSlopes = Vector3.ProjectOnPlane(playerMovement, slopeHit.normal);
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, capsuleScale / 2 + 0.5f))
+        movementOnSlopes = Vector3.ProjectOnPlane(playerMovement, slopeHit.normal).normalized;
+        if (Physics.Raycast(capsule.transform.position, Vector3.down, out slopeHit, capsuleScale * 0.5f + 0.3f))
         {
             if (slopeHit.normal != Vector3.up)
             {
-                isOnSlope = true;
+                return true;
             }
-            isOnSlope = false;
+            else
+            {
+                return false;
+            }
         }
-        isOnSlope = false;
+        return false;
     }
 
     void CheckIfGrounded()
     {
-        Vector3 halfHeight = new Vector3(0f, capsuleScale / 2, 0f);
+        Vector3 halfHeight = new Vector3(0f, capsuleScale * 0.5f, 0f);
         isGrounded = Physics.CheckSphere(transform.position - halfHeight, groundDistance, groundCheck);  
     }
 
     void DragValue()
     {
-        if (isGrounded)
+        if (isGrounded || isCrouched)
         {
             rb.drag = groundDrag;
         }
@@ -194,7 +228,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.drag = airDrag;
         }
+        rb.useGravity = !OnSlopes();
     }
+
     void Jumping()
     {
         if (jumpInput && isGrounded)
