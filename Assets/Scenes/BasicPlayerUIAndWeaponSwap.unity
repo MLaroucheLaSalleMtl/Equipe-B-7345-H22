@@ -5669,14 +5669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1022411409115658230, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198354197222512683, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1712109657451352260, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5724,14 +5716,6 @@ PrefabInstance:
     - target: {fileID: 1712109657451352267, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524024297796573043, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823610880796046833, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5915d1e80cf066041a974bef415372f3, type: 3}
