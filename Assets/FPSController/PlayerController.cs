@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isRunning;
 
     [Header("Player crouch")]
-    [SerializeField] private float crouchMultiplier = 0.5f;
+    [SerializeField] private float crouchSpeed = 20f;
     [SerializeField] private float slideSpeed = 12f;
     private bool isCrouched;
 
@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         DragValue();
         Stepping();
         OnSlopes();
+        Crouching();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -104,7 +105,7 @@ public class PlayerController : MonoBehaviour
             moveSpeed *= runMultiplier;
             isRunning = true;
         }
-        else if (context.canceled && !isCrouched)
+        else if (context.canceled)
         {
             moveSpeed = baseSpeed;
             isRunning = false;
@@ -113,25 +114,26 @@ public class PlayerController : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded && !OnSlopes())
-        {
-            //transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
-            moveSpeed *= crouchMultiplier;
-            capsule.height = capsuleScale * 0.5f;
-            isCrouched = true;
-            if (isRunning)
-            {
-                rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
-                isRunning = false;
-                moveSpeed = baseSpeed * crouchMultiplier;
-            }
-        }
-        else if (context.canceled && !Physics.Raycast(transform.localPosition, Vector3.up, 2f))
-        {
-            moveSpeed = baseSpeed;
-            capsule.height = capsuleScale;
-            isCrouched = false;
-        }
+        isCrouched = context.performed;
+        //if (context.performed && isGrounded && !OnSlopes())
+        //{
+        //    //transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
+        //    moveSpeed *= crouchMultiplier;
+        //    capsule.height = capsuleScale * 0.5f;
+        //    isCrouched = true;
+        //    if (isRunning)
+        //    {
+        //        rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
+        //        isRunning = false;
+        //        moveSpeed = baseSpeed * crouchMultiplier;
+        //    }
+        //}
+        //else if (context.canceled && !Physics.Raycast(transform.localPosition, Vector3.up, 2f))
+        //{
+        //    moveSpeed = baseSpeed;
+        //    capsule.height = capsuleScale;
+        //    isCrouched = false;
+        //}
     }
 
     public void OnFire(InputAction.CallbackContext context)
@@ -166,14 +168,20 @@ public class PlayerController : MonoBehaviour
         FourthWeaponInput = context.performed;
     }
 
+    void ReturnBaseState()
+    {
+        moveSpeed = baseSpeed;
+        capsule.height = capsuleScale;
+    }
+
     void Moving()
     {
         playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
-        if (isGrounded || isCrouched && !OnSlopes())
+        if (isGrounded || isCrouched)
         {
             rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
         }
-        else if (isGrounded && OnSlopes())
+        else if (OnSlopes())
         {
             rb.AddForce(movementOnSlopes.normalized * moveSpeed, ForceMode.Acceleration);
         }
@@ -182,17 +190,44 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(playerMovement.normalized * moveSpeed * 0.1f, ForceMode.Acceleration);
         }
     }
-    void Stepping()
+
+    void Crouching()
     {
-        RaycastHit lowHit;
-        if (Physics.Raycast(rayStepLower.transform.position, transform.TransformDirection(Vector3.forward), out lowHit, 0.1f))
+        //if(isCrouched && OnSlopes())
+        //{
+        //    ReturnBaseState();
+        //}
+
+        if (isCrouched)
         {
-            RaycastHit upperHit;
-            if (!Physics.Raycast(rayStepUpper.transform.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+            moveSpeed = crouchSpeed;
+            capsule.height = capsuleScale * 0.5f;
+            //capsule.center = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            if (isRunning)
             {
-                rb.position += new Vector3(0f, stepSmooth, 0f);
+                rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
+                rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
+                isRunning = false;
+                moveSpeed = crouchSpeed;
             }
         }
+        else if (!isCrouched && !Physics.Raycast(transform.localPosition, Vector3.up, 2f))
+        {
+            ReturnBaseState();
+        }
+    }
+
+    void Stepping()
+    {
+        //RaycastHit lowHit;
+        //if (Physics.Raycast(rayStepLower.transform.position, transform.TransformDirection(Vector3.forward), out lowHit, 0.1f))
+        //{
+        //    RaycastHit upperHit;
+        //    if (!Physics.Raycast(rayStepUpper.transform.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+        //    {
+        //        rb.position += new Vector3(0f, stepSmooth, 0f);
+        //    }
+        //}
     }
 
     bool OnSlopes()
