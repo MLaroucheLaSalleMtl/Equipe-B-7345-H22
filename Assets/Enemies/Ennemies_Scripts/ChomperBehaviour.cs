@@ -87,7 +87,7 @@ public class ChomperBehaviour : Enemie
 
     
     //animation event
-    protected override void AttackCompleted()
+    public override void AttackCompleted()
     {
         base.MovingBehaviour();
         this.needtomove = base.RandomValue(0, 50) < 15;

@@ -45,7 +45,7 @@ public abstract class Enemie : MonoBehaviour
 
     //abstract methode  section 
     //------------------------------------------------//
-    protected abstract void AttackCompleted();
+    public abstract void AttackCompleted();
     protected abstract void SpecialMove();
 
     //Starting stat section 
@@ -200,17 +200,17 @@ public abstract class Enemie : MonoBehaviour
     //Behaviour section 
     //------------------------------------------------//
     //** weapon must have a force value to be use on ennemi
-    public void AdaptiveForce(Collider other)
+    public void AdaptiveForce(Collider other,Vector3 pos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(new Vector3(transform.position.x, 1, transform.position.z),transform.forward, out hit))
         {
             var contact = hit.point - transform.position;
+            contact.y = 0; // remove add force on  y
             other.gameObject.GetComponent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
         }
-        
     }
-
+   
     protected void ResetAttack()
     {
         this.attackDone = false;
@@ -233,8 +233,12 @@ public abstract class Enemie : MonoBehaviour
         {
 
             this.obstacle.enabled = false;
-            this.agent.enabled = true;
+            Invoke(nameof(ResetAgent), 0.01f);
         }
+    }
+    private void ResetAgent()
+    {
+        this.agent.enabled = true;
     }
     protected void AgentDestination(Vector3 nextPath)
     {

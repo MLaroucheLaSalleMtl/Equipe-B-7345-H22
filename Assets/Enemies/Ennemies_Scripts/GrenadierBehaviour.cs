@@ -12,12 +12,8 @@ public class GrenadierBehaviour : Enemie
     private string[] meleeAnim;
     private int animValue;
     //when facing enemie righthand is at left and lefthand is at the right
-    [SerializeField] private CapsuleCollider rightHand;
-    [SerializeField] private CapsuleCollider leftHand;
-    //run for special behaviour
-    
-    
-
+    [SerializeField] private CapsuleCollider[] handColls; // left is [0] and righ is [1]
+  
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canAttack;
@@ -33,7 +29,6 @@ public class GrenadierBehaviour : Enemie
     {
         //animation with rootMotion
         base.EnemieAnimation();
-        print(base.agent.destination);
     }
 
     private void Update()
@@ -46,7 +41,7 @@ public class GrenadierBehaviour : Enemie
         if (playerFound && !canAttack )
         {
             //print("chasse");
-           // base.EnemieChassing();
+            base.EnemieChassing();
         }
         //when melee attack
         if (canAttack && playerFound )
@@ -68,15 +63,15 @@ public class GrenadierBehaviour : Enemie
             base.EnemieWalk();
         }
     }
-
+    
     private void Meme(string attackName)
     {
-       // AgentDestination(this.transform.position); // stop player from moving
+        AgentDestination(this.transform.position); // stop player from moving
 
         if (!this.attackDone)
         {
-            //var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
-            //transform.LookAt(lookAtTarget);
+            var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
+            transform.LookAt(lookAtTarget);
             anim.SetTrigger(attackName); // set my attack
             this.agent.enabled = false;
             this.obstacle.enabled = true;
@@ -92,40 +87,36 @@ public class GrenadierBehaviour : Enemie
     }
     private void SetMeleeColl()
     {
-        this.rightHand.isTrigger = true; 
-        this.rightHand.enabled = false;
-        this.leftHand.isTrigger = true;
-        this.leftHand.enabled = false;
+        this.handColls[0].isTrigger = true; 
+        this.handColls[0].enabled = false;
+        this.handColls[1].isTrigger = true;
+        this.handColls[1].enabled = false;
     }
     #region Animation event
     public void StartAttack()
     {
-        this.rightHand.enabled = true;
+        this.handColls[this.animValue].enabled = true;
     }
     public void EndAttack()
     {
-        this.AttackCompleted();
-        MovingBehaviour();
+        this.handColls[this.animValue].enabled = false;
     }
-    #endregion
-
-
-    protected override void AttackCompleted()
+    public override void AttackCompleted()
     {
-        base.anim.ResetTrigger("mAttack1");
-       
+        base.anim.ResetTrigger(this.meleeAnim[this.animValue]);
+        this.MovingBehaviour();
         Invoke(nameof(base.ResetAttack), 1f);
     }
-
+    #endregion
     protected override void SpecialMove()
     {
         throw new System.NotImplementedException();
     }
 
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = base.InAttackRange() ? Color.yellow : Color.red;
         Gizmos.DrawWireSphere(transform.position, base.attackRange);
-
     }
 }
