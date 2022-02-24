@@ -16,6 +16,6 @@ MonoBehaviour:
   healthPoints: 200
   defensePoints: 50
   attackPower: 30
-  attackRange: 2.5
-  detectionRange: 20
-  impluseForce: 30
+  meleeAttackRange: 2
+  detectionPlayerRange: 50
+  meleeImpluseForce: 30
