@@ -23,7 +23,6 @@ public class ChomperBehaviour : Enemie
         //set collider 
         this.meleeAttackColl.enabled = false;
         this.meleeAttackColl.isTrigger = true;
-        //Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), myTarget.GetComponent<CapsuleCollider>());
     }
 
     private void FixedUpdate()
@@ -41,25 +40,25 @@ public class ChomperBehaviour : Enemie
         //when update position before attack
         if (playerFound && needtomove)
         {
-            print("switch");
+            //print("switch");
             this.SpecialMove();
         }
         //when chassing player
         if (playerFound && !canAttack && !needtomove)
         {
-            print("chasse");
+            //print("chasse");
             base.EnemieChassing();
         }
         //when melee attack
         if (canAttack && playerFound && !needtomove)
         {
-            print("attack");
+            //print("attack");
             base.MeleeAttack("attack");
         }
         //when Patrolling
         if (!playerFound)
         {
-            print("Patroll");
+            //print("Patroll");
             base.EnemieWalk();
         }
     }
@@ -89,26 +88,20 @@ public class ChomperBehaviour : Enemie
     //animation event
     public override void AttackCompleted()
     {
-        base.MovingBehaviour();
+        StartCoroutine(base.ChangeBehaviour());
+        //base.MovingBehaviour();
         this.needtomove = base.RandomValue(0, 15) < 3;
         anim.ResetTrigger("attack");
             Invoke(nameof(base.ResetAttack), 1f);
     }
 
     
-    //to test ----
-    private bool validpath(Vector3 path)
-    {
-        NavMeshPath navPath = new NavMeshPath();
-        return base.agent.CalculatePath(path, navPath);
-
-        
-    }
+    
     //** need to rework stat modifier on enemies 
     protected override void SpecialMove()
     {
        
-        if (!playerFound)
+        if (!playerFound  )
         {
             this.needtomove = false;
             this.isDestChange = false;
@@ -116,11 +109,18 @@ public class ChomperBehaviour : Enemie
         //asign a single new destination
          if (!isDestChange)
          {
-            MovingBehaviour();
-            nextRunDest = (transform.position +( new Vector3 (base.myTarget.transform.position.x - transform.position.x  , 0,
-                         base.myTarget.transform.position.z - transform.position.z).normalized * -4.5f)); // add a variable for the value ** add random to move varius behaviour from single behaviour
-                //print(nextRunDest+ "  next dest switch");
-            base.enemieRange = 20f;
+            StartCoroutine(base.ChangeBehaviour());
+            //MovingBehaviour();
+
+            nextRunDest = (transform.position + (new Vector3(base.myTarget.transform.position.x - transform.position.x, 0,
+                        base.myTarget.transform.position.z - transform.position.z).normalized * -4.5f));
+
+            //if (!base.IsValidPath(nextRunDest))
+            //{
+            //    this.needtomove = false;
+            //    this.isDestChange = false;
+            //}
+            //base.enemieRange = 20f;
             //base.agent.speed = enemieSpeed * 1.5f;
             isDestChange = true;
          }

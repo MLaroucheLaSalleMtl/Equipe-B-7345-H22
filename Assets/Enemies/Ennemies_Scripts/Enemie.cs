@@ -236,6 +236,16 @@ public abstract class Enemie : MonoBehaviour
             Invoke(nameof(ResetAgent), 0.01f);
         }
     }
+    protected IEnumerator ChangeBehaviour()
+    {
+        if (this.obstacle.enabled != false && this.agent.enabled != true)
+        {
+
+            this.obstacle.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            this.agent.enabled = true;
+        }
+    }
     private void ResetAgent()
     {
         this.agent.enabled = true;
@@ -245,10 +255,19 @@ public abstract class Enemie : MonoBehaviour
         this.agent.SetDestination(nextPath);
     }
 
-    protected void AgentStatBehaviour(float speedValue, float EnemieRange)
+    protected void AgentStatBehaviour(float speedValue, float enemieRange)
     {
-        this.agent.speed = speedValue;
-        this.enemieRange = EnemieRange;
+        if(this.agent.speed != speedValue && this.enemieRange != enemieRange)
+        {
+            this.agent.speed = speedValue;
+            this.enemieRange = enemieRange;
+        }
+    }
+
+    protected bool IsValidPath(Vector3 path)
+    {
+        NavMeshPath navPath = new NavMeshPath();
+        return this.agent.CalculatePath(path, navPath);
     }
 
     protected void EnemieWalk()
@@ -258,13 +277,18 @@ public abstract class Enemie : MonoBehaviour
             if (this.agent.speed != 3f && this.enemieRange != 10f)
                 AgentStatBehaviour(3, 10);
             //MovingBehaviour();
+            StartCoroutine(this.ChangeBehaviour());
+            //check path 
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
+            while (!IsValidPath(nextWalkDest))
+            {
+                nextWalkDest = RandomEnemieDestionation(15f, 15f);
+            }
             AgentDestination(nextWalkDest);
             walkDestinationSet = true;
         }
-        Vector3 distanceLeft = nextWalkDest - transform.position;// calculating the diff between my actual pos and next dest
-        print(distanceLeft.magnitude + " mag");
-        if (distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) //check if my actualPos is far to my nextDest
+        //Vector3 distanceLeft = nextWalkDest - transform.position;// calculating the diff between my actual pos and next dest
+        if (Vector3.Distance(nextWalkDest, transform.position) < 1f)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
             walkDestinationSet = false;
     }
 

@@ -22,7 +22,7 @@ public class GrenadierBehaviour : Enemie
     private Vector3 nextRayPos = Vector3.zero;
     private Vector3 tempPlayerPos;
     
-    [SerializeField] private LineRenderer lazerRenderer; // ** WARNING linerenderer must be at Vector(0,0,0)
+    [SerializeField] private  LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
     [SerializeField] private PlayerStats playerStats;
     //melee Behaviour
@@ -40,8 +40,8 @@ public class GrenadierBehaviour : Enemie
         base.GetStats();
         this.SetMeleeAnim();
         this.SetMeleeColl();
-        this.lazerRenderer.enabled = false;
-        this.lazerRenderer.gameObject.transform.position = Vector3.zero;
+        //this.lazerPrefab.enabled = false;
+        //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
         this.canLazer = false;
     }
     protected override void EnemieAnimation()
@@ -54,7 +54,7 @@ public class GrenadierBehaviour : Enemie
         //animation with rootMotion
         this.EnemieAnimation();
     }
-
+    int i = 0;
     //Lazer Beam Behaviour
     private void CanLazerBeam()
     {
@@ -63,11 +63,11 @@ public class GrenadierBehaviour : Enemie
         {
                 if (!base.agent.Raycast(tempPlayerPos, out hit))
                 {
-                    if (hit.distance > lazerMinRange && hit.distance <= lazerMaxRange && hit.position == tempPlayerPos)
+                    if (hit.distance > lazerMinRange && hit.distance <= lazerMaxRange /*&& hit.position == tempPlayerPos*/)
                     {
-                        base.AgentDestination(this.transform.position);
+                    i++;
+                    print("DAMMMMM" + i );
                         this.playerStats.HealthPoints -= RealDamage;
-                        base.LookAtTarget();
                     }
                 }
         }
@@ -80,17 +80,12 @@ public class GrenadierBehaviour : Enemie
     }
     public void EnableBeam()
     {
-        if (!this.lazerRenderer.enabled)
-            this.lazerRenderer.enabled = true;
+        base.LookAtTarget();
         CanLazerBeam();
         VisualLazerBeam();
     }
     public void DisableBeam()
     {
-        if (this.lazerRenderer.enabled)
-        {
-            this.lazerRenderer.enabled = false;
-        }
         this.canLazer = false;
         this.isLazerCooldown = true;
         if (!IsInvoking(nameof(LazerOnCooldown)))
@@ -114,29 +109,26 @@ public class GrenadierBehaviour : Enemie
 
     private void VisualLazerBeam()
     {
-        lazerRenderer.SetPosition(0, lazerStartPos.position);
-        lazerRenderer.SetPosition(1, this.tempPlayerPos);
+        var myLazer = Instantiate(lazerPrefab);
+        myLazer.SetPosition(0, lazerStartPos.position);
+        myLazer.SetPosition(1, this.tempPlayerPos);
+        Destroy(myLazer.gameObject , 0.50f);
     }
-
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
         Gizmos.DrawWireSphere(transform.position, base.enemieRange);
-        
     }
     
     private bool CanUseLazer()
     {
         float actualDistance =  Vector3.Distance(transform.position, base.myTarget.transform.position);
-
         if (actualDistance > lazerMinRange && actualDistance <= lazerMaxRange && !isLazerCooldown)
         {
             base.AgentDestination(this.transform.position);
             base.LookAtTarget();
-           
             return true;
-
         }
          base.EnemieChassing();
         return false;
@@ -177,7 +169,7 @@ public class GrenadierBehaviour : Enemie
         if (!base.attackDone)
         {
             animValue = base.RandomValue(0, 1);
-            print(animValue);
+            //print(animValue);
         }
     }
     private void SetMeleeAnim()
@@ -205,7 +197,8 @@ public class GrenadierBehaviour : Enemie
     public override void AttackCompleted()
     {
         base.anim.ResetTrigger(this.meleeAnim[this.animValue]);
-        this.MovingBehaviour();
+        //this.MovingBehaviour();
+        StartCoroutine(base.ChangeBehaviour());
         Invoke(nameof(base.ResetAttack), 1f);
     }
     #endregion

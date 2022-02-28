@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce7faada3f44b4f8b06378fdbf9aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
 --- !u!1 &7396104602027554433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,8 +2100,8 @@ MonoBehaviour:
   whatIsBullet:
     serializedVersion: 2
     m_Bits: 0
-  EnemieRange: 10
-  attackRange: 1.5
+  enemieRange: 0
+  MeleeAttackRange: 0
   myTarget: {fileID: 0}
   meleeAttackColl: {fileID: 6521793}
 --- !u!65 &95166600
