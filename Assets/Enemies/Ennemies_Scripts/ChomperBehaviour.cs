@@ -9,7 +9,7 @@ public class ChomperBehaviour : Enemie
     [SerializeField] private CapsuleCollider meleeAttackColl;
 
     //run for special behaviour
-    private Vector3 nextRunDest;
+    private Vector3 nextRunDest = new Vector3();
     private bool needtomove = false;
     
     // both are assing in update for check the attack range and player detection
@@ -36,30 +36,30 @@ public class ChomperBehaviour : Enemie
     private void Update()
     {
         this.playerFound = base.PlayerDetected();
-        this.canAttack = base.InAttackRange();
+        this.canAttack = base.InMeleeAttackRange();
 
         //when update position before attack
         if (playerFound && needtomove)
         {
-            //print("switch");
+            print("switch");
             this.SpecialMove();
         }
         //when chassing player
         if (playerFound && !canAttack && !needtomove)
         {
-            //print("chasse");
+            print("chasse");
             base.EnemieChassing();
         }
         //when melee attack
         if (canAttack && playerFound && !needtomove)
         {
-            //print("attack");
+            print("attack");
             base.MeleeAttack("attack");
         }
         //when Patrolling
         if (!playerFound)
         {
-            //print("Patroll");
+            print("Patroll");
             base.EnemieWalk();
         }
     }
@@ -87,10 +87,10 @@ public class ChomperBehaviour : Enemie
 
     
     //animation event
-    protected override void AttackCompleted()
+    public override void AttackCompleted()
     {
         base.MovingBehaviour();
-        this.needtomove = base.RandomValue(0, 50) < 15;
+        this.needtomove = base.RandomValue(0, 15) < 3;
         anim.ResetTrigger("attack");
             Invoke(nameof(base.ResetAttack), 1f);
     }
@@ -104,45 +104,39 @@ public class ChomperBehaviour : Enemie
 
         
     }
-
+    //** need to rework stat modifier on enemies 
     protected override void SpecialMove()
     {
        
         if (!playerFound)
         {
             this.needtomove = false;
-            nextRunDest = new Vector3();
-            isDestChange = false;
+            this.isDestChange = false;
         }
         //asign a single new destination
-        if (!isDestChange)
-        {
-
+         if (!isDestChange)
+         {
             MovingBehaviour();
             nextRunDest = (transform.position +( new Vector3 (base.myTarget.transform.position.x - transform.position.x  , 0,
                          base.myTarget.transform.position.z - transform.position.z).normalized * -4.5f)); // add a variable for the value ** add random to move varius behaviour from single behaviour
                 //print(nextRunDest+ "  next dest switch");
-            base.EnemieRange = 20f;
-            AgentDestination(nextRunDest);
+            base.enemieRange = 20f;
             //base.agent.speed = enemieSpeed * 1.5f;
             isDestChange = true;
-        }
-        Vector3 distanceLeft = nextRunDest - transform.position  ;
-        //print(distanceLeft.magnitude + " magnitude");
-        //Vector3 distanceLeft = new Vector3(transform.position.x - nextRunDest.x, transform.position.y, transform.position.z - nextRunDest.z);  
-        //print(distanceLeft);
-        if (Vector3.Distance(nextRunDest, transform.position) < 1.5f /*|| agent.velocity.magnitude < 0.01f*/ )
-        {
-            //print("dest done");
+         }
+       
+         if (Vector3.Distance(nextRunDest, transform.position) < 1.5f /*|| agent.velocity.magnitude < 0.01f*/ )
+         {
             needtomove = false;
             isDestChange = false;
-            nextRunDest = new Vector3();
-        }
+         }
+        AgentDestination(nextRunDest);
+
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
-        Gizmos.DrawWireSphere(transform.position, base.EnemieRange);
+        Gizmos.DrawWireSphere(transform.position, base.enemieRange);
 
     }
 

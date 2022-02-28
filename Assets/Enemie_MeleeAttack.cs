@@ -6,20 +6,20 @@ public class Enemie_MeleeAttack : MonoBehaviour
 {
     private Enemie enemie;
     [SerializeField]private PlayerStats playerStats;
-    private void Awake()
+    public void Awake()
     {
         enemie = GetComponentInParent<Enemie>();
     }
-    private void OnTriggerEnter(Collider other)
-    {
 
-        if (other.CompareTag("Player"))
+    public void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("Player"))
         {
+            print("hit");
             this.enemie.AdaptiveForce(other);
-            //other.gameObject.GetComponent<PlayerController>().Hp -= this.enemie.RealDamage;
             this.playerStats.HealthPoints -= this.enemie.RealDamage;
-            //this.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
-   
+
 }

@@ -11,8 +11,8 @@ public abstract class Enemie : MonoBehaviour
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
     [SerializeField] protected LayerMask whatIsBullet;
-    [SerializeField] protected float EnemieRange = 10f;
-    [SerializeField] protected float attackRange = 1.5f;
+    [SerializeField] protected float enemieRange ;
+    [SerializeField] protected float MeleeAttackRange ;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     // for melee attack
@@ -45,7 +45,7 @@ public abstract class Enemie : MonoBehaviour
 
     //abstract methode  section 
     //------------------------------------------------//
-    protected abstract void AttackCompleted();
+    public abstract void AttackCompleted();
     protected abstract void SpecialMove();
 
     //Starting stat section 
@@ -82,10 +82,10 @@ public abstract class Enemie : MonoBehaviour
         this.maxHealthPoints = this.healthPoints;
         
         //set default range 
-        this.EnemieRange = this.enemie_stats.DetectionRange;
-        this.attackRange = this.enemie_stats.AttackRange;
+        this.enemieRange = this.enemie_stats.DetectionPlayerRange;
+        this.MeleeAttackRange = this.enemie_stats.MeleeAttackRange;
         //force 
-        this.impluseForce = this.enemie_stats.ImpluseForce;
+        this.impluseForce = this.enemie_stats.MeleeImpluseForce;
         //
         this.walkDestinationSet = false;
         //initialise player to be able to lacate him 
@@ -95,7 +95,7 @@ public abstract class Enemie : MonoBehaviour
     //Animation section 
     //------------------------------------------------//
 
-    protected void EnemieAnimation()
+    protected virtual void EnemieAnimation()
     {
         this.anim.SetFloat("magnitude", this.agent.velocity.magnitude);
         this.anim.SetBool("isPlayer", this.PlayerDetected());
@@ -118,15 +118,15 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.EnemieRange, this.whatIsPlayer);
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer);
     }
-    protected bool InAttackRange()
+    protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsPlayer);
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer);
     }
     protected bool AttackedByPLayer()
     {
-        return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsBullet);
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsBullet);
     }
     protected bool BeenHitted()
     {
@@ -199,18 +199,18 @@ public abstract class Enemie : MonoBehaviour
     }
     //Behaviour section 
     //------------------------------------------------//
-    //** weapon must have a force value to be use on ennemi
+    //** weapon must have a force value to be use on ennemie to add ::: force parameter to me more versatile for all behaviour
     public void AdaptiveForce(Collider other)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(new Vector3(transform.position.x, 1, transform.position.z),transform.forward, out hit))
         {
             var contact = hit.point - transform.position;
+            contact.y = 0; // remove add force on  y
             other.gameObject.GetComponent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
         }
-        
     }
-
+   
     protected void ResetAttack()
     {
         this.attackDone = false;
@@ -219,7 +219,7 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        if (this.agent.speed != 6f && this.EnemieRange != 8f) //changing value for chassing
+        if (this.agent.speed != 6f && this.enemieRange != 8f) //changing value for chassing
             this.AgentStatBehaviour(6, 8);
 
 
@@ -233,8 +233,12 @@ public abstract class Enemie : MonoBehaviour
         {
 
             this.obstacle.enabled = false;
-            this.agent.enabled = true;
+            Invoke(nameof(ResetAgent), 0.01f);
         }
+    }
+    private void ResetAgent()
+    {
+        this.agent.enabled = true;
     }
     protected void AgentDestination(Vector3 nextPath)
     {
@@ -244,14 +248,14 @@ public abstract class Enemie : MonoBehaviour
     protected void AgentStatBehaviour(float speedValue, float EnemieRange)
     {
         this.agent.speed = speedValue;
-        this.EnemieRange = EnemieRange;
+        this.enemieRange = EnemieRange;
     }
 
     protected void EnemieWalk()
     {
         if (!walkDestinationSet)
         {
-            if (this.agent.speed != 3f && this.EnemieRange != 10f)
+            if (this.agent.speed != 3f && this.enemieRange != 10f)
                 AgentStatBehaviour(3, 10);
             //MovingBehaviour();
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
@@ -276,13 +280,17 @@ public abstract class Enemie : MonoBehaviour
 
         if (!this.attackDone)
         {
-            var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
-            transform.LookAt(lookAtTarget);
-            anim.SetTrigger(attackName); // set my attack
+            this.LookAtTarget();
+            this.anim.SetTrigger(attackName); // set my attack
             this.agent.enabled = false;
             this.obstacle.enabled = true;
             this.attackDone = true;// wait Invoke for attack again
         }
+    }
+    protected void LookAtTarget()
+    {
+        var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
+        this.transform.LookAt(lookAtTarget);
     }
 
 }
