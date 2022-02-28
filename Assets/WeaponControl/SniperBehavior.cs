@@ -10,6 +10,7 @@ public class SniperBehavior : Attack
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
     [SerializeField] private Camera AimCamera;
+    private bool canAim = true;
 
     private void Awake()
     {
@@ -49,10 +50,30 @@ public class SniperBehavior : Attack
         AimCamera.gameObject.SetActive(false);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.layer == 9)
+        {
+            if(base.isAiming)
+            {
+                AimDownSight();
+            }
+            canAim = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            canAim = true;
+        }
+    }
+
     void Update()
     {
         DisplayUI();
-        if (control.AimDownSightsInput)
+        if (control.AimDownSightsInput && canAim)
         {
             control.AimDownSightsInput = false;
             base.AimDownSight();
