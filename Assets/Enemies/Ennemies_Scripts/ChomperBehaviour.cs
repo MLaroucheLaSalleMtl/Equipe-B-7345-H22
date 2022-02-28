@@ -36,7 +36,7 @@ public class ChomperBehaviour : Enemie
     private void Update()
     {
         this.playerFound = base.PlayerDetected();
-        this.canAttack = base.InAttackRange();
+        this.canAttack = base.InMeleeAttackRange();
 
         //when update position before attack
         if (playerFound && needtomove)

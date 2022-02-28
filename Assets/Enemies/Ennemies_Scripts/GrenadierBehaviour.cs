@@ -11,14 +11,16 @@ public class GrenadierBehaviour : Enemie
     private const float lazerMinRange = 5f;
     private const float lazerPowerForce = 20f;
     private const float lazerDamage = 30f;
-    private const int RANDOM_LAZER_RAY_RANGE = 1;
+    private const int random_Lazer_Ray_Range = 1;
     private const float lazerResetTime = 3f;
+   
 
     //initialise into awake overide parent fonction
     private bool canLazer;
     private bool isLazerCooldown;
     private const float LazerCooldown = 3f; //seconds
     private Vector3 nextRayPos = Vector3.zero;
+    private Vector3 tempPlayerPos;
     
     [SerializeField] private LineRenderer lazerRenderer; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
@@ -31,7 +33,7 @@ public class GrenadierBehaviour : Enemie
   
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
-    private bool canAttack;
+    private bool canMeleeAttack;
     private void Awake()
     {
         base.GetComponent();
@@ -56,37 +58,32 @@ public class GrenadierBehaviour : Enemie
     //Lazer Beam Behaviour
     private void CanLazerBeam()
     {
-        if (!IsInvoking(nameof(NextRayCastValue))) 
-                Invoke(nameof(NextRayCastValue),1f);
-
         NavMeshHit hit;
         if (!isLazerCooldown)
         {
-            if (nextRayPos != Vector3.zero)
-            {
-                if (!base.agent.Raycast(nextRayPos, out hit))
+                if (!base.agent.Raycast(tempPlayerPos, out hit))
                 {
-                    Vector3Int target = IntTargetValuePosition();
-
-                    if (hit.distance > lazerMinRange && hit.distance < lazerMaxRange && hit.position.x == target.x)
+                    if (hit.distance > lazerMinRange && hit.distance <= lazerMaxRange && hit.position == tempPlayerPos)
                     {
                         base.AgentDestination(this.transform.position);
-                        canLazer = true;
+                        this.playerStats.HealthPoints -= RealDamage;
                         base.LookAtTarget();
                     }
                 }
-            }
         }
     }
-    #region LzerAnimEvent
+    #region LazerAnimEvent
+
+    public void LockTarget()
+    {
+        this.tempPlayerPos = base.myTarget.transform.position;
+    }
     public void EnableBeam()
     {
-       
         if (!this.lazerRenderer.enabled)
             this.lazerRenderer.enabled = true;
-
+        CanLazerBeam();
         VisualLazerBeam();
-        this.playerStats.HealthPoints -= RealDamage;
     }
     public void DisableBeam()
     {
@@ -104,20 +101,21 @@ public class GrenadierBehaviour : Enemie
         this.isLazerCooldown = false;
     }
     #endregion
-    private Vector3Int IntTargetValuePosition()
-    {
-        Vector3 targetPosition = base.myTarget.transform.position;
-        return new Vector3Int((int)(targetPosition.x), (int)(targetPosition.y), (int)(targetPosition.z));
-    }
-    private void NextRayCastValue()
-    {
-        Vector3Int target = IntTargetValuePosition();
-        this.nextRayPos =  new Vector3(Random.Range((int)target.x - RANDOM_LAZER_RAY_RANGE, (int)target.x + RANDOM_LAZER_RAY_RANGE), target.y, target.z );
-    }
+    //private Vector3Int IntTargetValuePosition()
+    //{
+    //    Vector3 targetPosition = base.myTarget.transform.position;
+    //    return new Vector3Int((int)(targetPosition.x), (int)(targetPosition.y), (int)(targetPosition.z));
+    //}
+    //private void NextRayCastValue()
+    //{
+    //    Vector3Int target = IntTargetValuePosition();
+    //    this.nextRayPos =  new Vector3(Random.Range((int)target.x - random_Lazer_Ray_Range, (int)target.x + random_Lazer_Ray_Range), target.y, target.z );
+    //}
+
     private void VisualLazerBeam()
     {
         lazerRenderer.SetPosition(0, lazerStartPos.position);
-        lazerRenderer.SetPosition(1, base.myTarget.transform.position);
+        lazerRenderer.SetPosition(1, this.tempPlayerPos);
     }
 
 
@@ -135,28 +133,32 @@ public class GrenadierBehaviour : Enemie
         if (actualDistance > lazerMinRange && actualDistance <= lazerMaxRange && !isLazerCooldown)
         {
             base.AgentDestination(this.transform.position);
+            base.LookAtTarget();
+           
             return true;
 
         }
-        base.AgentDestination(base.myTarget.transform.position);
+         base.EnemieChassing();
         return false;
     }
 
     private void Update()
     {
+        //physic
         this.playerFound = base.PlayerDetected();
-        this.canAttack = base.InAttackRange();
-        print(playerFound);
-        if (this.playerFound && CanUseLazer() && !canAttack)
-        CanLazerBeam();
+        this.canMeleeAttack = base.InMeleeAttackRange();
+
+
+        if(CanUseLazer())
+            this.canLazer = true;
         //when chassing player
-        if (playerFound && !canAttack && !CanUseLazer())
+        if (playerFound && !canMeleeAttack && !CanUseLazer())
         {
             //print("chasse");
             base.EnemieChassing();
         }
         ////when melee attack
-        if (canAttack && playerFound && !CanUseLazer())
+        if (canMeleeAttack && playerFound && !CanUseLazer())
         {
             //print("attack");
             RandomMeleeAttack();
@@ -170,20 +172,6 @@ public class GrenadierBehaviour : Enemie
         }
     }
     
-    //private void Meme(string attackName)
-    //{
-    //    AgentDestination(this.transform.position); // stop player from moving
-
-    //    if (!this.attackDone)
-    //    {
-    //        var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
-    //        transform.LookAt(lookAtTarget);
-    //        anim.SetTrigger(attackName); // set my attack
-    //        this.agent.enabled = false;
-    //        this.obstacle.enabled = true;
-    //        this.attackDone = true;// wait Invoke for attack again
-    //    }
-    //}
     private void RandomMeleeAttack()
     {
         if (!base.attackDone)
@@ -205,7 +193,7 @@ public class GrenadierBehaviour : Enemie
         this.handColls[1].isTrigger = true;
         this.handColls[1].enabled = false;
     }
-    #region Animation event
+    #region Animation melee event
     public void StartAttack()
     {
         this.handColls[this.animValue].enabled = true;

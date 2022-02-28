@@ -12,7 +12,7 @@ public abstract class Enemie : MonoBehaviour
     [SerializeField] protected LayerMask whatIsPlayer;
     [SerializeField] protected LayerMask whatIsBullet;
     [SerializeField] protected float enemieRange ;
-    [SerializeField] protected float attackRange ;
+    [SerializeField] protected float MeleeAttackRange ;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     // for melee attack
@@ -83,7 +83,7 @@ public abstract class Enemie : MonoBehaviour
         
         //set default range 
         this.enemieRange = this.enemie_stats.DetectionPlayerRange;
-        this.attackRange = this.enemie_stats.MeleeAttackRange;
+        this.MeleeAttackRange = this.enemie_stats.MeleeAttackRange;
         //force 
         this.impluseForce = this.enemie_stats.MeleeImpluseForce;
         //
@@ -120,13 +120,13 @@ public abstract class Enemie : MonoBehaviour
     {
         return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer);
     }
-    protected bool InAttackRange()
+    protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsPlayer);
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer);
     }
     protected bool AttackedByPLayer()
     {
-        return Physics.CheckSphere(transform.position, this.attackRange, this.whatIsBullet);
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsBullet);
     }
     protected bool BeenHitted()
     {
