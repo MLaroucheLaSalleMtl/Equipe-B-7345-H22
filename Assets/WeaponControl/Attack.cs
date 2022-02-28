@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
     //Weapon Control
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
-    protected bool isAiming = false;
+    public bool isAiming = false;
     protected Vector3 shotOffset;
     protected Camera player;
     protected int maxBullet;

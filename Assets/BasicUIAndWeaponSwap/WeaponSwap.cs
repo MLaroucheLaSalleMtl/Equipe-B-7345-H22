@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponSwap : MonoBehaviour
 {
     [SerializeField] private PlayerController control;
+    [SerializeField] private Attack gunControl;
     [SerializeField] private GameObject[] weapons;
 
     void Update()
@@ -38,28 +39,28 @@ public class WeaponSwap : MonoBehaviour
         //        break;
         //}
 
-        if(control.FirstWeaponInput)
+        if(control.FirstWeaponInput && !gunControl.isAiming)
         {
             weapons[0].SetActive(true);
             weapons[1].SetActive(false);
             weapons[2].SetActive(false);
             weapons[3].SetActive(false);
         }
-        else if (control.SecondWeaponInput)
+        else if (control.SecondWeaponInput && !gunControl.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(true);
             weapons[2].SetActive(false);
             weapons[3].SetActive(false);
         }
-        else if (control.ThirdWeaponInput)
+        else if (control.ThirdWeaponInput && !gunControl.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(false);
             weapons[2].SetActive(true);
             weapons[3].SetActive(false);
         }
-        else if (control.FourthWeaponInput)
+        else if (control.FourthWeaponInput && !gunControl.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(false);
