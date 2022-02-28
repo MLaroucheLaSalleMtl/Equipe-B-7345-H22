@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DisplayDamage : MonoBehaviour
+public class DisplayDamageOnTargets : MonoBehaviour
 {
     [SerializeField] private Rigidbody player;
     [SerializeField] private TMP_Text damageText;
-    [SerializeField] private Scriptable_Stats_Enemies stats;
+    private float totalDamage = 0;
 
-    public void PrintDamage()
+    public void PrintDamage(float damage)
     {
-        damageText.text = GetComponent<Enemie>().HealthPoints.ToString() + "/" + stats.HealthPoints;
+        totalDamage += damage;
+        damageText.text = totalDamage.ToString();
         CancelInvoke("ClearPrint");
         Invoke("ClearPrint", 2.0f);
     }
@@ -19,6 +20,7 @@ public class DisplayDamage : MonoBehaviour
     public void ClearPrint()
     {
         damageText.text = null;
+        totalDamage = 0;
     }
 
     private void Update()

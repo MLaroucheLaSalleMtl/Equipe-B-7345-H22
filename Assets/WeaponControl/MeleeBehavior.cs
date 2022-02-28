@@ -26,6 +26,13 @@ public class MeleeBehavior : Attack
                 if (hit.collider.tag == "Enemy")
                 {
                     print(damage.Damage);
+                    hit.collider.gameObject.GetComponent<DisplayDamage>().PrintDamage();
+                    hit.collider.gameObject.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
+                    DeactivateRay();
+                }
+                if(hit.collider.tag == "Target")
+                {
+                    hit.collider.gameObject.GetComponent<DisplayDamageOnTargets>().PrintDamage(damage.Damage);
                     DeactivateRay();
                 }
             }

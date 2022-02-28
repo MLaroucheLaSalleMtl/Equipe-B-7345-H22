@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7370490830861225418}
   - component: {fileID: 7370490830864616938}
   - component: {fileID: 7370490830863519530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallLong01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 7370490830861225420}
   - component: {fileID: 7370490830864616940}
   - component: {fileID: 7370490830863519532}
-  m_Layer: 0
+  - component: {fileID: 6448777068086819332}
+  m_Layer: 9
   m_Name: WallLong01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +167,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6448777068086819332
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370490830861521388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
 --- !u!1 &7370490830861521390
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +192,7 @@ GameObject:
   - component: {fileID: 7370490830861225422}
   - component: {fileID: 7370490830848465262}
   - component: {fileID: 7370490831306649116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallLong01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370490831897660729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallWallStringWithHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7370490831897660728}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 12.25, y: 0, z: 30.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -281,6 +296,18 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b2dd8ac6386f73e408f8f2381388758f, type: 3}
       propertyPath: m_Name
       value: WallLong01Broken (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b2dd8ac6386f73e408f8f2381388758f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b2dd8ac6386f73e408f8f2381388758f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b2dd8ac6386f73e408f8f2381388758f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b2dd8ac6386f73e408f8f2381388758f, type: 3}
       propertyPath: m_RootOrder

@@ -13,11 +13,16 @@ public class DamageDone : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             print(damage.Damage);
-            other.GetComponent<DisplayDamage>().PrintDamage(damage.Damage);
+            other.GetComponent<DisplayDamage>().PrintDamage();
+            other.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
         }
         if(other.gameObject.layer == isEnviro || other.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
+        }
+        if(other.gameObject.tag == "Target")
+        {
+            other.GetComponent<DisplayDamageOnTargets>().PrintDamage(damage.Damage);
         }
     }
     private void OnCollisionEnter(Collision collision)

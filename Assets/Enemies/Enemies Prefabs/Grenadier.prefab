@@ -1,5 +1,241 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &545869001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545869002}
+  - component: {fileID: 545869005}
+  - component: {fileID: 545869004}
+  - component: {fileID: 545869003}
+  m_Layer: 13
+  m_Name: Canvas (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &545869002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545869001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 747119629}
+  m_Father: {fileID: 1512163676551435069}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5.41}
+  m_SizeDelta: {x: 2, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &545869005
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545869001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &545869004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545869001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!114 &545869003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545869001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &747119628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747119629}
+  - component: {fileID: 747119631}
+  - component: {fileID: 747119630}
+  m_Layer: 13
+  m_Name: TargetDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &747119629
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747119628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 545869002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &747119631
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747119628}
+  m_CullTransparentMesh: 1
+--- !u!114 &747119630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747119628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1967665471
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1967665472}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartBeam
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434915}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434917}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434919}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434921}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434923}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightThumbEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434925}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightThumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434927}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434929}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434931}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightHornArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434933}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightHornArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +603,7 @@ GameObject:
   - component: {fileID: 1512163676551434935}
   - component: {fileID: 1512163676551434930}
   - component: {fileID: 1805448699}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightHandEnd_Melee_Coll
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -425,7 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434937}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434939}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightFootEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434941}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434943}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightChestArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435073}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightChestArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435075}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435077}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435079}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435081}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftThumbEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435083}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftThumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435085}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +1011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435087}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435089}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftHornArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +1074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435091}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftHornArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +1108,7 @@ GameObject:
   - component: {fileID: 1512163676551435093}
   - component: {fileID: 1512163676551435094}
   - component: {fileID: 393677872}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftHandEnd_Melee_coll
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -930,7 +1166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435095}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +1199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435097}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftFootEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +1230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435099}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435101}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftChestArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435103}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftChestArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512163676551434909}
   - component: {fileID: 1512163676563423771}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551434911}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GrenadierSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,13 +1474,15 @@ GameObject:
   - component: {fileID: 1512163677963025498}
   - component: {fileID: 1512163677963025497}
   - component: {fileID: 1512163677963025496}
-  m_Layer: 0
+  - component: {fileID: 877032065742172117}
+  - component: {fileID: 1471755635}
+  m_Layer: 13
   m_Name: Grenadier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1512163676551435069
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,6 +1498,7 @@ Transform:
   - {fileID: 1512163676551434909}
   - {fileID: 1512163676551434911}
   - {fileID: 1967665472}
+  - {fileID: 545869002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1379,6 +1618,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 2
+--- !u!114 &877032065742172117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512163676551859997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f77a1caf6991c449b8438fa29c019a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  damageText: {fileID: 747119630}
+  stats: {fileID: 11400000, guid: 239d0142f30fbf94ebc4f397279f452e, type: 2}
+--- !u!136 &1471755635
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512163676551859997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.25
+  m_Height: 4.43
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.9862304, z: 0}
 --- !u!1 &1512163676551860033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435105}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,7 +1688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435107}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1454,7 +1722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435109}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_HelmetArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435111}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_HelmetArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,7 +1785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435113}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_EyeArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1512163676551435115}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grenadier_EyeArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
