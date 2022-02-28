@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WeaponSwap : MonoBehaviour
 {
+    [SerializeField] private MeleeBehavior melee;
+    [SerializeField] private PistolBehavior pistol;
+    [SerializeField] private ArBehavior rifle;
+    [SerializeField] private SniperBehavior sniper;
     [SerializeField] private PlayerController control;
     [SerializeField] private GameObject[] weapons;
 
@@ -38,28 +42,28 @@ public class WeaponSwap : MonoBehaviour
         //        break;
         //}
 
-        if(control.FirstWeaponInput)
+        if(control.FirstWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
         {
             weapons[0].SetActive(true);
             weapons[1].SetActive(false);
             weapons[2].SetActive(false);
             weapons[3].SetActive(false);
         }
-        else if (control.SecondWeaponInput)
+        else if (control.SecondWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(true);
             weapons[2].SetActive(false);
             weapons[3].SetActive(false);
         }
-        else if (control.ThirdWeaponInput)
+        else if (control.ThirdWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(false);
             weapons[2].SetActive(true);
             weapons[3].SetActive(false);
         }
-        else if (control.FourthWeaponInput)
+        else if (control.FourthWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
         {
             weapons[0].SetActive(false);
             weapons[1].SetActive(false);
