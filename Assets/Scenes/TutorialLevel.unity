@@ -19914,7 +19914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5065379441239036329, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6116373288991656688, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_TagString
@@ -19922,7 +19922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7204227641325386867, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8799276752564914582, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_RootOrder
@@ -19972,7 +19972,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2103717231, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
 --- !u!1 &1679520806
 GameObject:
@@ -26506,7 +26507,7 @@ CapsuleCollider:
   m_Radius: 0.118374206
   m_Height: 1
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!1 &2115784952
 GameObject:
   m_ObjectHideFlags: 0
