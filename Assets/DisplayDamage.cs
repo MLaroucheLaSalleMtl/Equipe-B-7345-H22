@@ -13,12 +13,12 @@ public class DisplayDamage : MonoBehaviour
     {
         totalDamage += damage;
         damageText.text = totalDamage.ToString();
-        //StartCoroutine(ClearPrint());
+        CancelInvoke("ClearPrint");
+        Invoke("ClearPrint", 2.0f);
     }
 
-    public IEnumerator ClearPrint()
+    public void ClearPrint()
     {
-        yield return new WaitForSeconds(2.0f);
         damageText.text = null;
         totalDamage = 0;
     }
