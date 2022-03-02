@@ -9,6 +9,10 @@ public class DisplayDamage : MonoBehaviour
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private Scriptable_Stats_Enemies stats;
 
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Rigidbody>();
+    }
     public void PrintDamage()
     {
         damageText.text = GetComponent<Enemie>().HealthPoints.ToString() + "/" + stats.HealthPoints;
