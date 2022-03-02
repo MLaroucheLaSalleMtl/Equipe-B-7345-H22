@@ -35,13 +35,14 @@ public abstract class Enemie : MonoBehaviour
     protected NavMeshObstacle obstacle;
    
     //add force variable
-    private float impluseForce;
+    private float meleeImpluseForce;
     private bool powerIncresed = false;
 
     //Get -- Set  section 
     //------------------------------------------------//
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int RealDamage { get => InflictDamage(); }
+    public float MeleeImpluseForce { get => meleeImpluseForce; }
 
     //abstract methode  section 
     //------------------------------------------------//
@@ -72,7 +73,7 @@ public abstract class Enemie : MonoBehaviour
     }
 
     //use in update to show stat of the ennemie
-    protected void GetStats()
+    protected virtual void GetStats()
     {
         //set base statistique
         this.name = enemie_stats.Name;
@@ -85,7 +86,7 @@ public abstract class Enemie : MonoBehaviour
         this.enemieRange = this.enemie_stats.DetectionPlayerRange;
         this.MeleeAttackRange = this.enemie_stats.MeleeAttackRange;
         //force 
-        this.impluseForce = this.enemie_stats.MeleeImpluseForce;
+        this.meleeImpluseForce = this.enemie_stats.MeleeImpluseForce;
         //
         this.walkDestinationSet = false;
         //initialise player to be able to lacate him 
@@ -135,10 +136,10 @@ public abstract class Enemie : MonoBehaviour
 
     protected void ResetHealth()
     {
-        if(this.healthPoints <= (int)this.maxHealthPoints* 0.5f)
+        if(this.healthPoints <= (int)this.maxHealthPoints* 0.5f && !powerIncresed) 
         {
-            var regainChance = Random.Range(0, 100);
-            if (regainChance < 10)
+            var regainChance = Random.Range(0, 100) < 10;
+            if (regainChance )
             {
                 this.healthPoints = enemie_stats.HealthPoints;
                  this.EnrageMode();
@@ -168,18 +169,16 @@ public abstract class Enemie : MonoBehaviour
 
     private void EnrageMode()
     {
-        if (!powerIncresed)
-        {
             float scaleEmplifer = 1.5f;
-            float attackPowerEmplifier = 1.1f;
-            //bool chanceToEnrage = this.RandomValue(0, 100) > 90 ? true : false;
-            if (this.RandomValue(0, 100) > 90)
+            float attackPowerEmplifier = 1.2f;
+            bool chanceToEnrage = this.RandomValue(0, 100) > 90 ;
+            if (chanceToEnrage)
             {
                 this.transform.localScale *= scaleEmplifer;
                 this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
                 this.powerIncresed = true;
             }
-        }
+        
     }
    
     private float DamageReducer(int damage)
@@ -200,14 +199,13 @@ public abstract class Enemie : MonoBehaviour
     //Behaviour section 
     //------------------------------------------------//
     //** weapon must have a force value to be use on ennemie to add ::: force parameter to me more versatile for all behaviour
-    public void AdaptiveForce(Collider other)
+    public void AdaptiveForce(float hitRange,float impluseForce)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(new Vector3(transform.position.x, 1, transform.position.z),transform.forward, out hit))
+        if (Physics.Raycast(new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
             var contact = hit.point - transform.position;
-            contact.y = 0; // remove add force on  y
-            other.gameObject.GetComponent<Rigidbody>().AddForce(contact.normalized * this.impluseForce, ForceMode.Impulse);
+            contact.y = 0; // remove add force on  y 
+            this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
         }
     }
    

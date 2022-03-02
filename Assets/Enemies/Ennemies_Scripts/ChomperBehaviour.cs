@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class ChomperBehaviour : Enemie
 {
-    private bool isDestChange = false;
+    private bool isDestChange;
     [SerializeField] private CapsuleCollider meleeAttackColl;
 
     //run for special behaviour
-    private Vector3 nextRunDest = new Vector3();
-    private bool needtomove = false;
+    private Vector3 nextRunDest;
+    private bool needtomove;
     
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
@@ -19,10 +19,16 @@ public class ChomperBehaviour : Enemie
     private void Awake()
     {
         this.GetComponent();
-        this.GetStats();
+        base.GetStats();
         //set collider 
         this.meleeAttackColl.enabled = false;
         this.meleeAttackColl.isTrigger = true;
+        //set bool
+        this.isDestChange = false;
+        this.needtomove = false;
+        //position
+        this.nextRunDest = new Vector3();
+
     }
 
     private void FixedUpdate()
@@ -31,7 +37,8 @@ public class ChomperBehaviour : Enemie
         base.EnemieAnimation();
        
     }
-
+    
+    
     private void Update()
     {
         this.playerFound = base.PlayerDetected();
@@ -63,13 +70,21 @@ public class ChomperBehaviour : Enemie
         }
     }
     #region Animation event
-    protected void AttackBegin()
+    public void AttackBegin()
     {
         this.meleeAttackColl.enabled = true;
     }
-    protected void AttackEnd()
+    public void AttackEnd()
     {
         this.meleeAttackColl.enabled = false;
+    }
+    public override void AttackCompleted()
+    {
+        StartCoroutine(base.ChangeBehaviour());
+        //base.MovingBehaviour();
+        this.needtomove = base.RandomValue(0, 15) < 3;
+        anim.ResetTrigger("attack");
+        Invoke(nameof(base.ResetAttack), 1f);
     }
 
     #endregion
@@ -84,18 +99,6 @@ public class ChomperBehaviour : Enemie
         }
     }
 
-    
-    //animation event
-    public override void AttackCompleted()
-    {
-        StartCoroutine(base.ChangeBehaviour());
-        //base.MovingBehaviour();
-        this.needtomove = base.RandomValue(0, 15) < 3;
-        anim.ResetTrigger("attack");
-            Invoke(nameof(base.ResetAttack), 1f);
-    }
-
-    
     
     //** need to rework stat modifier on enemies 
     protected override void SpecialMove()
@@ -125,7 +128,7 @@ public class ChomperBehaviour : Enemie
             isDestChange = true;
          }
        
-         if (Vector3.Distance(nextRunDest, transform.position) < 1.5f /*|| agent.velocity.magnitude < 0.01f*/ )
+         if (Vector3.Distance(nextRunDest, transform.position) < 1.5f )
          {
             needtomove = false;
             isDestChange = false;
@@ -137,7 +140,7 @@ public class ChomperBehaviour : Enemie
     {
         Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
         Gizmos.DrawWireSphere(transform.position, base.enemieRange);
-
+        Gizmos.DrawRay(new Vector3 (transform.position.x, 0.9f, transform.position.z), Vector3.forward * 10);
     }
 
     
