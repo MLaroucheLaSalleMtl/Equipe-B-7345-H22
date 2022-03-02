@@ -42,33 +42,36 @@ public class WeaponSwap : MonoBehaviour
         //        break;
         //}
 
-        if(control.FirstWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
+        if (!pistol.isAiming && !rifle.isAiming && !sniper.isAiming && !pistol.isReloading && !rifle.isReloading && !sniper.isReloading)
         {
-            weapons[0].SetActive(true);
-            weapons[1].SetActive(false);
-            weapons[2].SetActive(false);
-            weapons[3].SetActive(false);
-        }
-        else if (control.SecondWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
-        {
-            weapons[0].SetActive(false);
-            weapons[1].SetActive(true);
-            weapons[2].SetActive(false);
-            weapons[3].SetActive(false);
-        }
-        else if (control.ThirdWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
-        {
-            weapons[0].SetActive(false);
-            weapons[1].SetActive(false);
-            weapons[2].SetActive(true);
-            weapons[3].SetActive(false);
-        }
-        else if (control.FourthWeaponInput && !pistol.isAiming && !rifle.isAiming && !sniper.isAiming)
-        {
-            weapons[0].SetActive(false);
-            weapons[1].SetActive(false);
-            weapons[2].SetActive(false);
-            weapons[3].SetActive(true);
+            if (control.FirstWeaponInput)
+            {
+                weapons[0].SetActive(true);
+                weapons[1].SetActive(false);
+                weapons[2].SetActive(false);
+                weapons[3].SetActive(false);
+            }
+            else if (control.SecondWeaponInput)
+            {
+                weapons[0].SetActive(false);
+                weapons[1].SetActive(true);
+                weapons[2].SetActive(false);
+                weapons[3].SetActive(false);
+            }
+            else if (control.ThirdWeaponInput)
+            {
+                weapons[0].SetActive(false);
+                weapons[1].SetActive(false);
+                weapons[2].SetActive(true);
+                weapons[3].SetActive(false);
+            }
+            else if (control.FourthWeaponInput)
+            {
+                weapons[0].SetActive(false);
+                weapons[1].SetActive(false);
+                weapons[2].SetActive(false);
+                weapons[3].SetActive(true);
+            }
         }
     }
 }

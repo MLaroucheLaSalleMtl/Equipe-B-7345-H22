@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private Animator anim;
     protected bool attackOnce = true;
     public bool isAiming = false;
+    public bool isReloading = false;
     protected Vector3 shotOffset;
     protected Camera player;
     protected int maxBullet;
@@ -43,12 +44,14 @@ public class Attack : MonoBehaviour
             AimDownSight();
         }
         anim.SetBool("Reload", true);
+        isReloading = true;
     }
 
     public void ResetReload()
     {
         anim.SetBool("Reload", false);
         noAmmo = false;
+        isReloading = false;
     }
 
     public void AimDownSight()

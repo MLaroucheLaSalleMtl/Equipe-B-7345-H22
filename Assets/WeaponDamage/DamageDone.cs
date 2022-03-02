@@ -5,7 +5,6 @@ using UnityEngine;
 public class DamageDone : MonoBehaviour
 {
     [SerializeField] private WeaponDamage damage;
-    [SerializeField] private LayerMask isEnviro;
 
 
     private void OnTriggerEnter(Collider other)
@@ -15,19 +14,21 @@ public class DamageDone : MonoBehaviour
             print(damage.Damage);
             other.GetComponent<DisplayDamage>().PrintDamage();
             other.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
+            Destroy(gameObject);
         }
-        if(other.gameObject.layer == isEnviro || other.gameObject.tag == "Enemy")
+        if(other.gameObject.layer == 9 || other.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }
         if(other.gameObject.tag == "Target")
         {
             other.GetComponent<DisplayDamageOnTargets>().PrintDamage(damage.Damage);
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == isEnviro || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 6 || collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }

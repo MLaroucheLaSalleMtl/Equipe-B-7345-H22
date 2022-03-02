@@ -52,7 +52,7 @@ public class SniperBehavior : Attack
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.layer == 9)
+        if(other.gameObject.layer == 9 || other.gameObject.layer == 6)
         {
             if(base.isAiming)
             {
@@ -64,7 +64,7 @@ public class SniperBehavior : Attack
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 9 || other.gameObject.layer == 6)
         {
             canAim = true;
         }
