@@ -15,7 +15,7 @@ public class ChomperBehaviour : Enemie
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canAttack;
-
+    private Vector3 startpos;
     private void Awake()
     {
         this.GetComponent();
@@ -28,7 +28,7 @@ public class ChomperBehaviour : Enemie
         this.needtomove = false;
         //position
         this.nextRunDest = new Vector3();
-
+        startpos = transform.position;
     }
 
     private void FixedUpdate()
@@ -67,6 +67,13 @@ public class ChomperBehaviour : Enemie
         {
             //print("Patroll");
             base.EnemieWalk();
+        }
+
+        if (base.healthPoints <= 0)
+        {
+            base.respawnMe.isChomper = true;
+            base.respawnMe.startPosChomper = startpos;
+
         }
     }
     #region Animation event

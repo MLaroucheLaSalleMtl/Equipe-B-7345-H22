@@ -11,18 +11,20 @@ public abstract class Enemie : MonoBehaviour
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
     [SerializeField] protected LayerMask whatIsBullet;
-    [SerializeField] protected float enemieRange ;
-    [SerializeField] protected float MeleeAttackRange ;
+    protected float enemieRange ;
+    protected float MeleeAttackRange ;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     // for melee attack
-    
+    [SerializeField] protected EnnemiesSpawner respawnMe;
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
     protected bool attackDone = false;
 
-
+    private Vector3 startpos = new Vector3();
+    private const float reviveTimer = 4f;
+    
     //EnemieStats
     protected new string name ;
     protected int healthPoints;
@@ -73,7 +75,7 @@ public abstract class Enemie : MonoBehaviour
     }
 
     //use in update to show stat of the ennemie
-    protected virtual void GetStats()
+    protected  void GetStats()
     {
         //set base statistique
         this.name = enemie_stats.Name;
@@ -92,6 +94,9 @@ public abstract class Enemie : MonoBehaviour
         //initialise player to be able to lacate him 
         if (this.myTarget == null)  //the name must fit with the the scene name
                 this.myTarget = GameObject.Find("Player");
+
+        this.startpos = this.transform.position;
+        respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
     }
     //Animation section 
     //------------------------------------------------//
@@ -107,12 +112,24 @@ public abstract class Enemie : MonoBehaviour
         if (this.healthPoints <= 0)
         {
             this.anim.SetBool("isDead", true);
-            this.agent.isStopped = true;
+            //this.agent.isStopped = true;
+            this.gameObject.SetActive(  false);
             Destroy(gameObject, 1.5f);
         }
     }
 
-   
+    private void ReviveMe()
+    {
+        this.gameObject.SetActive(true);
+        this.healthPoints = maxHealthPoints;
+        this.transform.position = this.startpos;
+        StartCoroutine(ChangeBehaviour());
+    }
+
+
+    
+
+
 
 
     //Physic section 
@@ -191,8 +208,7 @@ public abstract class Enemie : MonoBehaviour
         if (this.healthPoints > 0)
         {
             int realDamage = (int)(Damage - DamageReducer(Damage));
-            print(realDamage);
-            this.healthPoints -= Damage;
+            this.healthPoints -= realDamage;
             ResetHealth(); //if lucky will receive reset health
         }
     }
@@ -217,8 +233,8 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        if (this.agent.speed != 6f && this.enemieRange != 8f) //changing value for chassing
-            this.AgentStatBehaviour(6, 8);
+        //if (this.agent.speed != 6f && this.enemieRange != 8f) //changing value for chassing
+        //    this.AgentStatBehaviour(6, 8);
 
 
         //this.MovingBehaviour();
@@ -262,7 +278,7 @@ public abstract class Enemie : MonoBehaviour
         }
     }
 
-    protected bool IsValidPath(Vector3 path)
+    public bool IsValidPath(Vector3 path)
     {
         NavMeshPath navPath = new NavMeshPath();
         return this.agent.CalculatePath(path, navPath);
@@ -272,8 +288,8 @@ public abstract class Enemie : MonoBehaviour
     {
         if (!walkDestinationSet)
         {
-            if (this.agent.speed != 3f && this.enemieRange != 10f)
-                AgentStatBehaviour(3, 10);
+            //if (this.agent.speed != 3f && this.enemieRange != 10f)
+            //    AgentStatBehaviour(3, 10);
             //MovingBehaviour();
             StartCoroutine(this.ChangeBehaviour());
             //check path 

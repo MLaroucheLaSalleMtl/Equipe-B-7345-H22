@@ -22,7 +22,7 @@ public class GrenadierBehaviour : Enemie
     private Vector3 nextRayPos = Vector3.zero;
     private Vector3 tempPlayerPos;
     
-    [SerializeField] private  LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
+    [SerializeField] private LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
     [SerializeField] private PlayerStats playerStats;
     //melee Behaviour
@@ -37,20 +37,20 @@ public class GrenadierBehaviour : Enemie
     private void Awake()
     {
         this.GetComponent();
-        this.GetStats();
-        //this.lazerPrefab.enabled = false;
-        //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
-       
-    }
-
-    protected override void GetStats()
-    {
         base.GetStats();
         this.SetMeleeAnim();
         this.SetMeleeColl();
         this.canLazer = false;
+        //this.lazerPrefab.enabled = false;
+        //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
 
     }
+
+    //protected override void GetStats()
+    //{
+        
+
+    //}
     protected override void EnemieAnimation()
     {
         base.EnemieAnimation();
@@ -102,7 +102,6 @@ public class GrenadierBehaviour : Enemie
     {
         this.tempPlayerPos = base.myTarget.transform.position;
         base.LookAtTarget();
-
     }
     public void EnableBeam()
     {
@@ -186,6 +185,11 @@ public class GrenadierBehaviour : Enemie
         {
             //print("Patroll");
             base.EnemieWalk();
+        }
+
+        if(base.healthPoints <= 0)
+        {
+            base.respawnMe.isGrenadier = true;
         }
     }
     
