@@ -45,7 +45,7 @@ public class PistolBehavior : Attack
             control.AimDownSightsInput = false;
             base.AimDownSight();
         }
-        if (control.FireInput && attackOnce && damage.AmmoCount > 0)
+        if (control.FireInput && attackOnce && damage.AmmoCount > 0 && !isReloading)
         {
             control.FireInput = false;
             base.Attacking("Shoot", resetTimeShot);
