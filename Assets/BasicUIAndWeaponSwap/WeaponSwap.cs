@@ -42,7 +42,7 @@ public class WeaponSwap : MonoBehaviour
         //        break;
         //}
 
-        if (!pistol.isAiming && !rifle.isAiming && !sniper.isAiming && !pistol.isReloading && !rifle.isReloading && !sniper.isReloading)
+        if (!pistol.isAiming && !rifle.isAiming && !sniper.isAiming && !pistol.isReloading && !rifle.isReloading && !sniper.isReloading && !pistol.isShooting && !rifle.isShooting && !sniper.isShooting && !melee.isShooting)
         {
             if (control.FirstWeaponInput)
             {

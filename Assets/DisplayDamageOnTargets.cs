@@ -8,7 +8,6 @@ public class DisplayDamageOnTargets : MonoBehaviour
     [SerializeField] private Rigidbody player;
     [SerializeField] private TMP_Text damageText;
     private float totalDamage = 0;
-
     public void PrintDamage(float damage)
     {
         totalDamage += damage;

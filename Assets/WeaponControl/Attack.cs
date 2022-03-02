@@ -6,10 +6,11 @@ using TMPro;
 public class Attack : MonoBehaviour
 {
     //Weapon Control
-    [SerializeField] private Animator anim;
+    [SerializeField] protected Animator anim;
     protected bool attackOnce = true;
     public bool isAiming = false;
     public bool isReloading = false;
+    public bool isShooting = false;
     protected Vector3 shotOffset;
     protected Camera player;
     protected int maxBullet;
@@ -25,11 +26,13 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         player = GetComponentInParent<Camera>();
+        attackOnce = true;
     }
     public void Attacking(string animName,float resetShotTime)
     {
         if (attackOnce)
         {
+            isShooting = true;
             anim.SetBool(animName, true);
             attackOnce = false;
             StartCoroutine(ResetAttack(animName, resetShotTime));
@@ -89,5 +92,10 @@ public class Attack : MonoBehaviour
     public void DisplayUI()
     {
         ammoText.text = "Ammo : " + currAmmo + "/" + maxBullet;
+    }
+
+    public void IsNotShootingNoMo()
+    {
+        isShooting = false;
     }
 }

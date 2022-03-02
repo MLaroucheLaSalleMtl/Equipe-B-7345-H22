@@ -12,8 +12,8 @@ public class DamageDone : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             print(damage.Damage);
-            other.GetComponent<DisplayDamage>().PrintDamage();
             other.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
+            other.GetComponent<DisplayDamage>().PrintDamage();
             Destroy(gameObject);
         }
         if(other.gameObject.layer == 9 || other.gameObject.tag == "Enemy")

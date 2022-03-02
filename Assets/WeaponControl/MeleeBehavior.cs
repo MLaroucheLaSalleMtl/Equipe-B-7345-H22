@@ -16,6 +16,7 @@ public class MeleeBehavior : Attack
         RaycastHit hit;
         if (control.FireInput && attackOnce)
         {
+            isShooting = true;
             control.FireInput = false;
             base.Attacking("Swing", resetTimeSwing);
         }
