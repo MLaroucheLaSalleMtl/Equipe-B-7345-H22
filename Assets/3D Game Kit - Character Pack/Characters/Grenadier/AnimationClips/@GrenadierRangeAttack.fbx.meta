@@ -558,14 +558,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.4426893
+      - time: 0.5245399
         functionName: LockTarget
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6199499
+      - time: 0.62350863
         functionName: EnableBeam
         data: 
         objectReferenceParameter: {instanceID: 0}

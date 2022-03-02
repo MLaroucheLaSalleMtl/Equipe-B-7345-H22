@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 public class GrenadierBehaviour : Enemie
 {
-    //lazerBeam
-    [Header("Lazer Beam")]
+    //lazerBeam const value
+    
     private const float lazerMaxRange = 20f;
     private const float lazerMinRange = 5f;
-    private const float lazerPowerForce = 20f;
+    private const float lazerImpulseForce = 20f;
     private const float lazerDamage = 30f;
     private const int random_Lazer_Ray_Range = 1;
     private const float lazerResetTime = 3f;
@@ -22,7 +22,7 @@ public class GrenadierBehaviour : Enemie
     private Vector3 nextRayPos = Vector3.zero;
     private Vector3 tempPlayerPos;
     
-    [SerializeField] private  LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
+    [SerializeField] private LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
     [SerializeField] private PlayerStats playerStats;
     //melee Behaviour
@@ -36,14 +36,21 @@ public class GrenadierBehaviour : Enemie
     private bool canMeleeAttack;
     private void Awake()
     {
-        base.GetComponent();
+        this.GetComponent();
         base.GetStats();
         this.SetMeleeAnim();
         this.SetMeleeColl();
+        this.canLazer = false;
         //this.lazerPrefab.enabled = false;
         //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
-        this.canLazer = false;
+
     }
+
+    //protected override void GetStats()
+    //{
+        
+
+    //}
     protected override void EnemieAnimation()
     {
         base.EnemieAnimation();
@@ -72,16 +79,33 @@ public class GrenadierBehaviour : Enemie
                 }
         }
     }
+
+    //private void LazerImpulsion()
+    //{
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(new Vector3(transform.position.x, 1, transform.position.z), transform.forward, out hit,lazerMaxRange) && hit.transform.CompareTag("Player"))
+    //    {
+    //        var contact = hit.point - transform.position;
+    //        contact.y = 0; 
+
+    //        base.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * lazerImpulseForce, ForceMode.Impulse);
+    //        this.tempPlayerPos = hit.point;
+    //    }
+    //    //else
+    //    //{
+    //    //    this.tempPlayerPos = hit.point;
+    //    //}
+    //}
     #region LazerAnimEvent
 
     public void LockTarget()
     {
         this.tempPlayerPos = base.myTarget.transform.position;
+        base.LookAtTarget();
     }
     public void EnableBeam()
     {
-        base.LookAtTarget();
-        CanLazerBeam();
+        base.AdaptiveForce(lazerMaxRange,lazerImpulseForce); // lazer impulsion
         VisualLazerBeam();
     }
     public void DisableBeam()
@@ -127,7 +151,7 @@ public class GrenadierBehaviour : Enemie
         if (actualDistance > lazerMinRange && actualDistance <= lazerMaxRange && !isLazerCooldown)
         {
             base.AgentDestination(this.transform.position);
-            base.LookAtTarget();
+            
             return true;
         }
          base.EnemieChassing();
@@ -162,6 +186,11 @@ public class GrenadierBehaviour : Enemie
             //print("Patroll");
             base.EnemieWalk();
         }
+
+        if(base.healthPoints <= 0)
+        {
+            base.respawnMe.isGrenadier = true;
+        }
     }
     
     private void RandomMeleeAttack()
@@ -169,7 +198,6 @@ public class GrenadierBehaviour : Enemie
         if (!base.attackDone)
         {
             animValue = base.RandomValue(0, 1);
-            //print(animValue);
         }
     }
     private void SetMeleeAnim()

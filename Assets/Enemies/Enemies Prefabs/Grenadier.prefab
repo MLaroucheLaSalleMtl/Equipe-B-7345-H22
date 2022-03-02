@@ -1541,9 +1541,8 @@ MonoBehaviour:
   whatIsBullet:
     serializedVersion: 2
     m_Bits: 0
-  enemieRange: 0
-  MeleeAttackRange: 0
   myTarget: {fileID: 0}
+  respawnMe: {fileID: 0}
   lazerPrefab: {fileID: 5746682804288049125, guid: 33ea79e940a9ed14184cc8a24ce38de7, type: 3}
   lazerStartPos: {fileID: 1967665472}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
@@ -1596,7 +1595,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512163676551859997}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.95
   m_Height: 3.8675394
@@ -1642,7 +1641,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1512163676551859997}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.25
   m_Height: 4.43
   m_Direction: 1
