@@ -188,14 +188,14 @@ public abstract class Enemie : MonoBehaviour
     {
             float scaleEmplifer = 1.5f;
             float attackPowerEmplifier = 1.2f;
-            bool chanceToEnrage = this.RandomValue(0, 100) > 90 ;
+            bool chanceToEnrage = this.RandomValue(0, 100) > 30 ;
             if (chanceToEnrage)
             {
                 this.transform.localScale *= scaleEmplifer;
                 this.attackPower = (int)(this.attackPower * attackPowerEmplifier);
-                this.powerIncresed = true;
             }
-        
+                this.powerIncresed = true;
+
     }
    
     private float DamageReducer(int damage)

@@ -13,8 +13,8 @@ public class GrenadierBehaviour : Enemie
     private const float lazerDamage = 30f;
     private const int random_Lazer_Ray_Range = 1;
     private const float lazerResetTime = 3f;
-   
 
+    private Vector3 startpos;
     //initialise into awake overide parent fonction
     private bool canLazer;
     private bool isLazerCooldown;
@@ -43,7 +43,7 @@ public class GrenadierBehaviour : Enemie
         this.canLazer = false;
         //this.lazerPrefab.enabled = false;
         //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
-
+        startpos = transform.position;
     }
 
     //protected override void GetStats()
@@ -190,6 +190,7 @@ public class GrenadierBehaviour : Enemie
         if(base.healthPoints <= 0)
         {
             base.respawnMe.isGrenadier = true;
+            base.respawnMe.startPosGrenadier = startpos;
         }
     }
     
