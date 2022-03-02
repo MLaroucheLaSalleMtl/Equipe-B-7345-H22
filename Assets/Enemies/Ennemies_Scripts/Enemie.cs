@@ -16,13 +16,12 @@ public abstract class Enemie : MonoBehaviour
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     // for melee attack
-    [SerializeField] protected EnnemiesSpawner respawnMe;
+    protected EnnemiesSpawner respawnMe;
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
     protected bool attackDone = false;
 
-    private Vector3 startpos = new Vector3();
     private const float reviveTimer = 4f;
     
     //EnemieStats
@@ -95,7 +94,6 @@ public abstract class Enemie : MonoBehaviour
         if (this.myTarget == null)  //the name must fit with the the scene name
                 this.myTarget = GameObject.Find("Player");
 
-        this.startpos = this.transform.position;
         respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
     }
     //Animation section 
@@ -117,20 +115,6 @@ public abstract class Enemie : MonoBehaviour
             Destroy(gameObject, 1.5f);
         }
     }
-
-    private void ReviveMe()
-    {
-        this.gameObject.SetActive(true);
-        this.healthPoints = maxHealthPoints;
-        this.transform.position = this.startpos;
-        StartCoroutine(ChangeBehaviour());
-    }
-
-
-    
-
-
-
 
     //Physic section 
     //------------------------------------------------//
