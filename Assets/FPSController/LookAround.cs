@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class LookAround : MonoBehaviour
 {
     private Camera cam;
+    private Rigidbody rb;
 
     [SerializeField] private float sensitivity = 10f;
     private float multiplier = 0.01f;
@@ -13,17 +14,28 @@ public class LookAround : MonoBehaviour
     private float yMouse;
     private float xRotation;
     private float yRotation;
+    private float smoothTime = 5f;
 
     private Vector2 lookInput;
+
+   
+
+    private void Awake()
+    {
+        StartCoroutine(PostUpdateRb());
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
+        rb = GetComponent<Rigidbody>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -50,6 +62,16 @@ public class LookAround : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
     }
 
+    IEnumerator PostUpdateRb()
+    {
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        while (true)
+        {
+            yield return waitForFixedUpdate;
+
+            rb.MoveRotation(Quaternion.AngleAxis(xMouse, Vector3.up));
+        }
+    }
     
 
 
