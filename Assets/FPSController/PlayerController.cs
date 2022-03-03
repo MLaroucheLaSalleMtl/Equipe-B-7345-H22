@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private Camera cam;
+    [SerializeField] private Transform orientation;
 
     private CapsuleCollider capsule;
     private float capsuleScale;
@@ -198,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
     void Moving()
     {
-        playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
+        playerMovement = orientation.forward * moveInput.y + orientation.right * moveInput.x;
         if (isGrounded && !OnSlopes())
         {
             rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
@@ -221,7 +222,7 @@ public class PlayerController : MonoBehaviour
             capsule.height = capsuleScale * 0.5f;
             if (runInput)
             {
-                rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
+                rb.AddForce(orientation.forward * slideSpeed, ForceMode.VelocityChange);
                 runInput = false;
                 moveSpeed = baseSpeed * crouchMultiplier;
             }
@@ -290,7 +291,7 @@ public class PlayerController : MonoBehaviour
     bool CheckIfCeiling()
     {
         halfHeight = new Vector3(0f, capsule.height * 0.5f , 0f);
-        return Physics.Raycast(cam.transform.position, Vector3.up, 1f); 
+        return Physics.Raycast(cam.transform.position, Vector3.up, 1f);
     }
 
     //private void OnDrawGizmos()
