@@ -6,7 +6,7 @@ public class ArBehavior : Attack
 {
     [SerializeField] private WeaponDamage damage;
     protected float resetTimeShot = 0.8f; //time between each individual shot
-    protected float bulletSpeed = 50;
+    protected float bulletSpeed = 75;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
 

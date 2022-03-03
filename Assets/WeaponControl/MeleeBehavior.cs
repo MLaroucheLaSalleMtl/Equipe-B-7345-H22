@@ -9,10 +9,6 @@ public class MeleeBehavior : Attack
     protected float range = 2.0f;
     private bool rayActivated = false;
 
-    private void Start()
-    {
-        attackOnce = false;
-    }
     void Update()
     {
         DisplayUI();

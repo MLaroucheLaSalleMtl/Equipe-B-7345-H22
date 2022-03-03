@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
 {
     //Weapon Control
     [SerializeField] protected Animator anim;
-    protected bool attackOnce = true;
+    public bool attackOnce = true;
     public bool isAiming = false;
     public bool isReloading = false;
     public bool isShooting = false;
@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
     }
     public void Attacking(string animName,float resetShotTime)
     {
-        if (attackOnce)
+        if (attackOnce && !isShooting)
         {
             isShooting = true;
             anim.SetBool(animName, true);
@@ -82,6 +82,8 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(resetShotTime);
         anim.SetBool(animName, false);
         attackOnce = true;
+        isShooting = false;
+        isReloading = false;
     }
 
     public void CheckAmmo()
@@ -96,7 +98,7 @@ public class Attack : MonoBehaviour
 
     public void IsNotShootingNoMo()
     {
-        isShooting = false;
-        isReloading = false;
+        //isShooting = false;
+        //isReloading = false;
     }
 }

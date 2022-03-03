@@ -6,7 +6,7 @@ public class SniperBehavior : Attack
 {
     [SerializeField] private WeaponDamage damage;
     protected float resetTimeShot = 1.1f; //time between each individual shot
-    protected float bulletSpeed = 75;
+    protected float bulletSpeed = 100;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
     [SerializeField] private Camera AimCamera;

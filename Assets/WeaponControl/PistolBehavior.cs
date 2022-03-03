@@ -7,7 +7,7 @@ public class PistolBehavior : Attack
     [SerializeField] private WeaponDamage damage;
     protected float resetTimeShot = 0.5f; //time between each individual shot
     protected float range = 15.0f;
-    protected float bulletSpeed = 50;
+    protected float bulletSpeed = 75;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
     

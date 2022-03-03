@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7762041460000905453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallWallString
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,6 +43,18 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
       propertyPath: m_Name
       value: WallLong01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
       propertyPath: m_RootOrder
@@ -90,6 +102,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+--- !u!1 &7762041460978582584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+  m_PrefabInstance: {fileID: 7762041460978483866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5177553238398012050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762041460978582584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
 --- !u!1 &7762041460978582586 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
@@ -124,6 +155,18 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
       propertyPath: m_Name
       value: WallLong01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7fa5f403eca620d4c80136a34e33ac0e, type: 3}
       propertyPath: m_RootOrder
