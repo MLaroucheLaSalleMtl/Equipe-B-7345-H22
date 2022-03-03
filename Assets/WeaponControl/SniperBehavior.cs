@@ -16,7 +16,7 @@ public class SniperBehavior : Attack
     {
         base.maxBullet = 5;
         base.noAmmo = false;
-        base.currAmmo = 5;
+        damage.AmmoCount = maxBullet;
         base.currAmmo = damage.AmmoCount;
     }
 

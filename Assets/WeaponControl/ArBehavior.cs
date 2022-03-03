@@ -15,6 +15,7 @@ public class ArBehavior : Attack
     {
         base.maxBullet = 30;
         base.noAmmo = false;
+        damage.AmmoCount = maxBullet;
         base.currAmmo = damage.AmmoCount;
     }
 

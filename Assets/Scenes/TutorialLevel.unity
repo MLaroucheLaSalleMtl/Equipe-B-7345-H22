@@ -923,6 +923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86873b3ddd4a1a548a9d25799c621b3d, type: 3}
+--- !u!1 &89762359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5154587070372657008, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 1725595788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &96672102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,7 +2854,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -18197,7 +18202,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1600490
+  m_Name: pb_Mesh217042
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22343,6 +22348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7426597173416459451, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 89762359}
     - target: {fileID: 8799276752564914582, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -23958,7 +23967,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -29089,7 +29098,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1588818
+  m_Name: pb_Mesh215652
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

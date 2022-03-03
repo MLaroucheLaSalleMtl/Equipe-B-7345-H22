@@ -16,6 +16,7 @@ public class PistolBehavior : Attack
     {
         base.maxBullet = 10;
         base.noAmmo = false;
+        damage.AmmoCount = maxBullet;
         base.currAmmo = damage.AmmoCount;
     }
 
