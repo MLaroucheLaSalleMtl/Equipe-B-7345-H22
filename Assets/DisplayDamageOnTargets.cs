@@ -8,6 +8,11 @@ public class DisplayDamageOnTargets : MonoBehaviour
     [SerializeField] private Rigidbody player;
     [SerializeField] private TMP_Text damageText;
     private float totalDamage = 0;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Rigidbody>();
+    }
     public void PrintDamage(float damage)
     {
         totalDamage += damage;

@@ -11,8 +11,7 @@ public class MeleeBehavior : Attack
 
     private void Start()
     {
-        attackOnce = true;
-        control.FireInput = true;
+        attackOnce = false;
     }
     void Update()
     {
@@ -21,7 +20,6 @@ public class MeleeBehavior : Attack
         RaycastHit hit;
         if (control.FireInput && attackOnce)
         {
-            isShooting = true;
             control.FireInput = false;
             base.Attacking("Swing", resetTimeSwing);
         }
