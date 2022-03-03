@@ -97,5 +97,6 @@ public class Attack : MonoBehaviour
     public void IsNotShootingNoMo()
     {
         isShooting = false;
+        isReloading = false;
     }
 }
