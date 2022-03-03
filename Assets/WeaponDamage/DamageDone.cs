@@ -20,16 +20,17 @@ public class DamageDone : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Target")
-        {
-            other.GetComponent<DisplayDamageOnTargets>().PrintDamage(damage.Damage);
-            Destroy(gameObject);
-        }
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 9 || collision.gameObject.layer == 6 || collision.gameObject.tag == "Enemy")
         {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Target")
+        {
+            collision.gameObject.GetComponent<DisplayDamageOnTargets>().PrintDamage(damage.Damage);
             Destroy(gameObject);
         }
     }
