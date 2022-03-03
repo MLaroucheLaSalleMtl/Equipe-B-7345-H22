@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Enemie_MeleeAttack : MonoBehaviour
 {
-    [SerializeField]private PlayerStats playerStats;
     private Enemie enemie;
-    private float meleeHitRange = 10f;
+    private float meleeHitRange = 3f;
     public void Awake()
     {
         enemie = GetComponentInParent<Enemie>();
@@ -19,7 +18,6 @@ public class Enemie_MeleeAttack : MonoBehaviour
         {
             print("hit");
             this.enemie.AdaptiveForce(meleeHitRange,enemie.MeleeImpluseForce);
-            this.playerStats.HealthPoints -= this.enemie.RealDamage;
         }
     }
 

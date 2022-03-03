@@ -15,6 +15,7 @@ public abstract class Enemie : MonoBehaviour
     protected float MeleeAttackRange ;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
+    [SerializeField] private PlayerStats playerStats;
     // for melee attack
     protected EnnemiesSpawner respawnMe;
     // patroll variable
@@ -159,7 +160,7 @@ public abstract class Enemie : MonoBehaviour
     {
         int damage;
         
-        if (this.healthPoints == maxHealthPoints)
+        if (this.healthPoints == this.maxHealthPoints)
             damage = RandomValue((int)(this.attackPower * 0.25f), (int)(this.attackPower * 0.75f));
         else if (this.healthPoints < (int)(this.healthPoints * 0.50f))
             damage = RandomValue((int)(this.attackPower * 0.50f), (int)(this.attackPower));
@@ -206,6 +207,7 @@ public abstract class Enemie : MonoBehaviour
             var contact = hit.point - transform.position;
             contact.y = 0; // remove add force on  y 
             this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
+            this.playerStats.HealthPoints -= RealDamage;
         }
     }
    

@@ -24,7 +24,6 @@ public class GrenadierBehaviour : Enemie
     
     [SerializeField] private LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
-    [SerializeField] private PlayerStats playerStats;
     //melee Behaviour
     private string[] meleeAnim;
     private int animValue;
@@ -74,7 +73,6 @@ public class GrenadierBehaviour : Enemie
                     {
                     i++;
                     print("DAMMMMM" + i );
-                        this.playerStats.HealthPoints -= RealDamage;
                     }
                 }
         }
