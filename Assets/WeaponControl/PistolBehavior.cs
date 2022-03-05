@@ -20,6 +20,13 @@ public class PistolBehavior : Attack
         base.currAmmo = damage.AmmoCount;
     }
 
+    private void OnEnable()
+    {
+        attackOnce = true;
+        isAiming = false;
+        isShooting = false;
+        isReloading = false;
+    }
     public void ShootPistol()
     {
         //if(!isAiming)

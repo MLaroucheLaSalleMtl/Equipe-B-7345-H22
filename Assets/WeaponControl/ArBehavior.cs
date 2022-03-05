@@ -19,6 +19,13 @@ public class ArBehavior : Attack
         base.currAmmo = damage.AmmoCount;
     }
 
+    private void OnEnable()
+    {
+        attackOnce = true;
+        isAiming = false;
+        isShooting = false;
+        isReloading = false;
+    }
     public IEnumerator ShootRifle()
     {
         //if (!isAiming)

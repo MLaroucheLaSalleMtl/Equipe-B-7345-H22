@@ -9,6 +9,13 @@ public class MeleeBehavior : Attack
     protected float range = 2.0f;
     private bool rayActivated = false;
 
+    private void OnEnable()
+    {
+        attackOnce = true;
+        isAiming = false;
+        isShooting = false;
+        isReloading = false;
+    }
     void Update()
     {
         DisplayUI();

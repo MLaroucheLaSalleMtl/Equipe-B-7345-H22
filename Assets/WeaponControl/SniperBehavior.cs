@@ -19,6 +19,14 @@ public class SniperBehavior : Attack
         damage.AmmoCount = maxBullet;
         base.currAmmo = damage.AmmoCount;
     }
+    private void OnEnable()
+    {
+        attackOnce = true;
+        isAiming = false;
+        isShooting = false;
+        isReloading = false;
+        canAim = true;
+    }
 
     public void ShootSniper()
     {

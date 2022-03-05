@@ -96,9 +96,9 @@ public class Attack : MonoBehaviour
         ammoText.text = "Ammo : " + currAmmo + "/" + maxBullet;
     }
 
-    public void IsNotShootingNoMo()
+    public void CanDoAnything()
     {
-        //isShooting = false;
-        //isReloading = false;
+        isShooting = false;
+        isReloading = false;
     }
 }
