@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerTester
   - Enemy
+  - Weapon
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -16,14 +18,13 @@ TagManager:
   - Ground
   - Player
   - Bullet
-  - 
+  - Enviro
   - 
   - 
   - 
   - Enemy
-  - 
-  - 
-  - 
+  - GrenadierZone
+  - ChomperZone
   - 
   - 
   - 

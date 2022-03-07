@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ArDamage
   m_EditorClassIdentifier: 
   damage: 7
+  ammoCount: 30

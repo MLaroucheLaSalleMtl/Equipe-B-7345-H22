@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    private Camera cam;
+    [SerializeField] private Transform orientation;
+
+    private CapsuleCollider capsule;
+    private float capsuleScale;
+
     [Header("Player movement")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float baseSpeed = 40f;
@@ -14,11 +20,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerMovement;
 
     [SerializeField] private float runMultiplier = 1.5f;
-    private bool isRunning;
+    private bool runInput = false;
 
     [Header("Player crouch")]
     [SerializeField] private float crouchMultiplier = 0.5f;
     [SerializeField] private float slideSpeed = 12f;
+    private bool crouchInput = false;
+    private bool isCrouched = false;
+    private Vector3 halfHeight;
 
     [Header("Player jump")]
     [SerializeField] private float jumpForce = 5f;
@@ -27,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player ground detection")]
     [SerializeField] private LayerMask groundCheck;
-    private bool isGrounded;
+    private bool isGrounded = false;
     private float groundDistance = 0.4f;
     private float groundDrag = 6f;
 
@@ -39,19 +48,24 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player slopes handling")]
     RaycastHit slopeHit;
-    private bool isOnSlope;
     private Vector3 movementOnSlopes;
 
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
     private bool reloadInput = false;
 
-    private CapsuleCollider capsule;
-    private float capsuleScale;
+    private bool firstWeaponInput = false;
+    private bool secondWeaponInput = false;
+    private bool thirdWeaponInput = false;
+    private bool fourthWeaponInput = false;
 
     public bool FireInput { get => fireInput; set => fireInput = value; }
     public bool AimDownSightsInput { get => aimDownSightsInput; set => aimDownSightsInput = value; }
     public bool ReloadInput { get => reloadInput; set => reloadInput = value; }
+    public bool FirstWeaponInput { get => firstWeaponInput; set => firstWeaponInput = value; }
+    public bool SecondWeaponInput { get => secondWeaponInput; set => secondWeaponInput = value; }
+    public bool ThirdWeaponInput { get => thirdWeaponInput; set => thirdWeaponInput = value; }
+    public bool FourthWeaponInput { get => fourthWeaponInput; set => fourthWeaponInput = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +73,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         capsule = GetComponent<CapsuleCollider>();
         capsuleScale = capsule.height;
+        cam = GetComponentInChildren<Camera>();
     }
 
     private void Awake()
@@ -71,10 +86,13 @@ public class PlayerController : MonoBehaviour
     {
         Moving();
         CheckIfGrounded();
+        CheckIfCeiling();
         Jumping();
         DragValue();
         Stepping();
         OnSlopes();
+        Crouching();
+        Running();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -88,36 +106,57 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
+        if (context.performed) //&& isGrounded)
         {
-            moveSpeed *= runMultiplier;
-            isRunning = true;
+            //moveSpeed *= runMultiplier;
+            runInput = true;
         }
-        else if (context.canceled)
+        else if (context.canceled) //&& !isCrouched)
         {
-            moveSpeed = baseSpeed;
-            isRunning = false;
+            //moveSpeed = baseSpeed;
+            runInput = false;
         }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
-        {
-            moveSpeed *= crouchMultiplier;
-            transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
-            transform.localScale = new Vector3(1f, 0.5f, 1f);
-            if (isRunning)
-            {
-                rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
-                isRunning = false;
-            }
-        }
-        else if (context.canceled)
-        {
-            moveSpeed = baseSpeed;
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+
+        crouchInput = context.performed;
+    
+        //if (context.performed)
+        //{
+            //transform.localPosition = new Vector3(transform.position.x, transform.position.y * 0.5f, transform.position.z);
+            //moveSpeed *= crouchMultiplier;
+            //capsule.height = capsuleScale * 0.5f;
+            //isCrouched = true;
+            //if (isRunning)
+            //{
+            //    rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
+            //    isRunning = false;
+            //    moveSpeed = baseSpeed * crouchMultiplier;
+            //}
+            //if (context.performed && OnSlopes())
+            //{
+            //    cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.4f, cam.transform.position.z);
+            //}
+        //}
+        //else if (context.performed && OnSlopes())
+        //{
+        //    cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.4f, cam.transform.position.z);
+        //    if (context.canceled)
+        //    {
+        //        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.4f, cam.transform.position.z);
+        //    }
+        
+        //else if (context.canceled)
+        //{
+            //if (context.canceled && OnSlopes()) { 
+            //    cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + 0.4f, cam.transform.position.z);
+            //}
+            //moveSpeed = baseSpeed;
+            //capsule.height = capsuleScale;
+        //    isCrouched = false;
+        //}
     }
 
     public void OnFire(InputAction.CallbackContext context)
@@ -135,14 +174,37 @@ public class PlayerController : MonoBehaviour
         ReloadInput = context.performed;
     }
 
+    public void OnFirstWeaponSwitch(InputAction.CallbackContext context)
+    {
+        FirstWeaponInput = context.performed;
+    }
+    public void OnSecondWeaponSwitch(InputAction.CallbackContext context)
+    {
+        SecondWeaponInput = context.performed;
+    }
+    public void OnThirdWeaponSwitch(InputAction.CallbackContext context)
+    {
+        ThirdWeaponInput = context.performed;
+    }
+    public void OnFourthWeaponSwitch(InputAction.CallbackContext context)
+    {
+        FourthWeaponInput = context.performed;
+    }
+
+    void ReturnBaseState()
+    {
+        moveSpeed = baseSpeed;
+        capsule.height = capsuleScale;
+    }
+
     void Moving()
     {
-        playerMovement = transform.forward * moveInput.y + transform.right * moveInput.x;
-        if (isGrounded && !isOnSlope)
+        playerMovement = orientation.forward * moveInput.y + orientation.right * moveInput.x;
+        if (isGrounded && !OnSlopes())
         {
             rb.AddForce(playerMovement.normalized * moveSpeed, ForceMode.Acceleration);
         }
-        else if (isGrounded && isOnSlope)
+        else if (isGrounded && OnSlopes())
         {
             rb.AddForce(movementOnSlopes.normalized * moveSpeed, ForceMode.Acceleration);
         }
@@ -151,38 +213,92 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(playerMovement.normalized * moveSpeed * 0.1f, ForceMode.Acceleration);
         }
     }
-    void Stepping()
+    void Crouching()
     {
-        RaycastHit lowHit;
-        if (Physics.Raycast(rayStepLower.transform.position, transform.TransformDirection(Vector3.forward), out lowHit, 0.1f))
+        if (crouchInput && isGrounded)
         {
-            RaycastHit upperHit;
-            if (!Physics.Raycast(rayStepUpper.transform.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+            isCrouched = true;
+            moveSpeed = baseSpeed * crouchMultiplier;
+            capsule.height = capsuleScale * 0.5f;
+            if (runInput)
             {
-                rb.position += new Vector3(0f, stepSmooth, 0f);
+                rb.AddForce(orientation.forward * slideSpeed, ForceMode.VelocityChange);
+                runInput = false;
+                moveSpeed = baseSpeed * crouchMultiplier;
             }
+        }
+        else if (!crouchInput && !CheckIfCeiling())
+        {
+            isCrouched = false;
+            ReturnBaseState();
         }
     }
 
-    void OnSlopes()
+    void Running()
     {
-        movementOnSlopes = Vector3.ProjectOnPlane(playerMovement, slopeHit.normal);
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, capsuleScale / 2 + 0.5f))
+        if (runInput && isGrounded)
+        {
+            moveSpeed = baseSpeed * runMultiplier;
+        }
+        else if (!runInput && !crouchInput && !isCrouched)
+        {
+            moveSpeed = baseSpeed;
+        }
+    }
+
+    void Stepping()
+    {
+        //RaycastHit lowHit;
+        //if (Physics.Raycast(rayStepLower.transform.position, transform.TransformDirection(Vector3.forward), out lowHit, 0.1f))
+        //{
+        //    RaycastHit upperHit;
+        //    if (!Physics.Raycast(rayStepUpper.transform.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+        //    {
+        //        rb.position += new Vector3(0f, stepSmooth, 0f);
+        //    }
+        //}
+        
+    }
+
+    bool OnSlopes()
+    {
+        movementOnSlopes = Vector3.ProjectOnPlane(playerMovement, slopeHit.normal).normalized;
+        if (Physics.Raycast(transform.localPosition, Vector3.down, out slopeHit, capsuleScale * 0.5f + 0.3f))
         {
             if (slopeHit.normal != Vector3.up)
             {
-                isOnSlope = true;
+                if (moveInput.magnitude == 0)
+                {
+                    rb.velocity = Vector3.zero;
+                    rb.drag = 100f;
+                }
+                print("On slopes");
+                return true;
             }
-            isOnSlope = false;
+            else
+            {
+                return false;
+            }
         }
-        isOnSlope = false;
+        return false;
     }
-
     void CheckIfGrounded()
     {
-        Vector3 halfHeight = new Vector3(0f, capsuleScale / 2, 0f);
-        isGrounded = Physics.CheckSphere(transform.position - halfHeight, groundDistance, groundCheck);  
+        halfHeight = new Vector3(0f, capsule.height * 0.5f, 0f);
+        isGrounded = Physics.CheckSphere(capsule.transform.position - halfHeight, groundDistance, groundCheck);  
     }
+
+    bool CheckIfCeiling()
+    {
+        halfHeight = new Vector3(0f, capsule.height * 0.5f , 0f);
+        return Physics.Raycast(cam.transform.position, Vector3.up, 1f);
+    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(capsule.transform.position - halfHeight, groundDistance);
+    //    Gizmos.DrawWireSphere(capsule.transform.position + halfHeight, groundDistance);
+    //}
 
     void DragValue()
     {
@@ -194,7 +310,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.drag = airDrag;
         }
+        //rb.useGravity = !OnSlopes();
     }
+
     void Jumping()
     {
         if (jumpInput && isGrounded)
