@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Weapon
   - Target
+  - HipAim
   layers:
   - Default
   - TransparentFX

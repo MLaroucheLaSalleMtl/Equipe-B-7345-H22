@@ -29,21 +29,24 @@ public class PistolBehavior : Attack
     }
     public void ShootPistol()
     {
-        //if(!isAiming)
+        //if (!isAiming)
         //{
-        //    shotOffset = new Vector3(Random.Range(muzzle.transform.forward.x - 0.005f, muzzle.transform.forward.x + 0.005f), Random.Range(muzzle.transform.forward.y - 0.005f, muzzle.transform.forward.y + 0.005f), 0f);
+        //    shotOffset = new Vector3(Random.Range(muzzle.transform.localPosition.x - 1, muzzle.transform.localPosition.x + 1), Random.Range(muzzle.transform.localPosition.y - 1, muzzle.transform.localPosition.y + 1), 0f);
         //}
-        //else if(isAiming)
+        //else if (isAiming)
         //{
         //    shotOffset = new Vector3(0f, 0f, 0f);
         //}
         damage.AmmoCount--;
-        Rigidbody clone1 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
-        clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
+        Rigidbody clone1 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
+        //clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
+        clone1.AddForce(hipShot.transform.forward * bulletSpeed, ForceMode.Impulse);
+        if(isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0f));
+        if(!isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0.04f));
         StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
         if (damage.AmmoCount <= 0) base.noAmmo = true;
-    }
 
+    }
 
     void Update()
     {
@@ -70,5 +73,7 @@ public class PistolBehavior : Attack
                 base.currAmmo = damage.AmmoCount;
             }
         }
+        Debug.DrawRay(muzzle.transform.position, muzzle.transform.forward * range, Color.red);
+        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.yellow);
     }
 }

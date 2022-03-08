@@ -36,14 +36,16 @@ public class SniperBehavior : Attack
             shotOffset = new Vector3(0f, 0f, 0f);
             Rigidbody clone1 = Instantiate(bullets, AimCamera.gameObject.transform.position, AimCamera.gameObject.transform.rotation);
             clone1.AddForce((AimCamera.gameObject.transform.forward + shotOffset) * bulletSpeed, ForceMode.Impulse);
+            StartCoroutine(ActivateRenderBullet(clone1, 0f));
             StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
         }
         else if(!isAiming)
         {
             damage.AmmoCount--;
             //shotOffset = new Vector3(Random.Range(AimCamera.gameObject.transform.forward.x - 0.005f, AimCamera.gameObject.transform.forward.x + 0.005f), Random.Range(AimCamera.gameObject.transform.forward.y - 0.05f, AimCamera.gameObject.transform.forward.y + 0.05f), 0f);
-            Rigidbody clone1 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
-            clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
+            Rigidbody clone1 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
+            clone1.AddForce(hipShot.transform.forward * bulletSpeed, ForceMode.Impulse);
+            StartCoroutine(ActivateRenderBullet(clone1, 0.12f));
             StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
         }
         if (damage.AmmoCount <= 0) base.noAmmo = true;

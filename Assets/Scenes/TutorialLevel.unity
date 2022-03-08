@@ -9395,7 +9395,7 @@ PrefabInstance:
     - target: {fileID: 3625309308979687223, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7426597174974076680}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
 --- !u!1 &719945514
@@ -16830,17 +16830,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 604700858}
     m_Modifications:
-    - target: {fileID: 1970284407394914627, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1970284407394914631, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970284407394914631, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.10000001
       objectReference: {fileID: 0}
     - target: {fileID: 1970284407394914631, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16885,10 +16877,6 @@ PrefabInstance:
     - target: {fileID: 1970284407394914636, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
       propertyPath: m_Name
       value: TestTarget (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625309308979687223, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
-      propertyPath: player
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
@@ -17601,7 +17589,7 @@ PrefabInstance:
     - target: {fileID: 3625309308979687223, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7426597174974076680}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9bfc88f7d322cd47b773ab731004db2, type: 3}
 --- !u!1001 &1237955493
@@ -19470,7 +19458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26302
+  m_Name: pb_Mesh26358
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28364,7 +28352,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26482
+  m_Name: pb_Mesh26534
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31833,7 +31821,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24842
+  m_Name: pb_Mesh24904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36413,7 +36401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.1
+      value: 67.1
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36421,7 +36409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.6
+      value: 62.7
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36449,10 +36437,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4116941531632280275, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
