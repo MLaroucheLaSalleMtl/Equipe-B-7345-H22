@@ -15,7 +15,6 @@ public class ChomperBehaviour : Enemie
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canAttack;
-    private Vector3 startpos;
     private void Awake()
     {
         this.GetComponent();
@@ -28,22 +27,24 @@ public class ChomperBehaviour : Enemie
         this.needtomove = false;
         //position
         this.nextRunDest = new Vector3();
-        startpos = transform.position;
+        //***
+        //base.startpos = transform.position;
+        //base.enemieType = EnemieType.CHOMPER;
     }
 
     private void FixedUpdate()
     {
         //animation with rootMotion
         base.EnemieAnimation();
-       
+        
     }
     
     
     private void Update()
     {
+
         this.playerFound = base.PlayerDetected();
         this.canAttack = base.InMeleeAttackRange();
-
         //when update position before attack
         if (playerFound && needtomove)
         {
@@ -69,12 +70,12 @@ public class ChomperBehaviour : Enemie
             base.EnemieWalk();
         }
 
-        if (base.healthPoints <= 0)
-        {
-            base.respawnMe.isChomper = true;
-            base.respawnMe.startPosChomper = startpos;
+        //if (base.healthPoints <= 0)
+        //{
+        //    base.respawnMe.isChomper = true;
+        //    base.respawnMe.startPosChomper = startpos;
 
-        }
+        //}
     }
     #region Animation event
     public void AttackBegin()
@@ -143,12 +144,12 @@ public class ChomperBehaviour : Enemie
         AgentDestination(nextRunDest);
 
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
-        Gizmos.DrawWireSphere(transform.position, base.enemieRange);
-        Gizmos.DrawRay(new Vector3 (transform.position.x, 0.9f, transform.position.z), Vector3.forward * 10);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, base.enemieRange);
+    //    Gizmos.DrawRay(new Vector3 (transform.position.x, 0.9f, transform.position.z), Vector3.forward * 10);
+    //}
 
     
 }

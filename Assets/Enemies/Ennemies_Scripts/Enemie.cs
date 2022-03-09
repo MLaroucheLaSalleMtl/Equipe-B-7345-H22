@@ -7,6 +7,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemie : MonoBehaviour
 {
+    private EnemieManager enemieManager;
+    protected EnemieType enemieType;
+    protected Vector3 startpos;
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -16,15 +19,17 @@ public abstract class Enemie : MonoBehaviour
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
-    // for melee attack
-    protected EnnemiesSpawner respawnMe;
+    //can revive?
+
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
     protected bool attackDone = false;
 
-    private const float reviveTimer = 4f;
-    
+    //protected EnnemiesSpawner respawnMe;
+   [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
+   [SerializeField] private bool isRevivable = true;
+
     //EnemieStats
     protected new string name ;
     protected int healthPoints;
@@ -45,6 +50,8 @@ public abstract class Enemie : MonoBehaviour
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int RealDamage { get => InflictDamage(); }
     public float MeleeImpluseForce { get => meleeImpluseForce; }
+    public bool IsRevivable { get => isRevivable; set => isRevivable = value; }
+    
 
     //abstract methode  section 
     //------------------------------------------------//
@@ -57,6 +64,8 @@ public abstract class Enemie : MonoBehaviour
    
     protected void GetComponent()
     {
+       this.enemieManager = EnemieManager.instance;
+        
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
        this.obstacle = GetComponent<NavMeshObstacle>();
@@ -77,6 +86,7 @@ public abstract class Enemie : MonoBehaviour
     //use in update to show stat of the ennemie
     protected  void GetStats()
     {
+
         //set base statistique
         this.name = enemie_stats.Name;
         this.attackPower = this.enemie_stats.AttackPower;
@@ -95,7 +105,7 @@ public abstract class Enemie : MonoBehaviour
         if (this.myTarget == null)  //the name must fit with the the scene name
                 this.myTarget = GameObject.Find("Player");
 
-        respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
+        //respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
     }
     //Animation section 
     //------------------------------------------------//
@@ -111,9 +121,12 @@ public abstract class Enemie : MonoBehaviour
         if (this.healthPoints <= 0)
         {
             this.anim.SetBool("isDead", true);
-            //this.agent.isStopped = true;
-            this.gameObject.SetActive(  false);
-            Destroy(gameObject, 1.5f);
+            if (isRevivable)
+            {
+                var enemieData = new EnemieData(this.enemieType, this.startpos, reviveTimer);
+                this.enemieManager.ListOfEnemieData.Add(enemieData);
+            }
+            Destroy( gameObject, 1.5f);
         }
     }
 
@@ -202,7 +215,7 @@ public abstract class Enemie : MonoBehaviour
     //** weapon must have a force value to be use on ennemie to add ::: force parameter to me more versatile for all behaviour
     public void AdaptiveForce(float hitRange,float impluseForce)
     {
-        if (Physics.Raycast(new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
+        if (Physics.Raycast(new Vector3(this.transform.position.x,/* this.transform.position.y + 0.5f*/1f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
             var contact = hit.point - transform.position;
             contact.y = 0; // remove add force on  y 

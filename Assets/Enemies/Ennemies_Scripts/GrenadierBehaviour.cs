@@ -14,7 +14,6 @@ public class GrenadierBehaviour : Enemie
     private const int random_Lazer_Ray_Range = 1;
     private const float lazerResetTime = 3f;
 
-    private Vector3 startpos;
     //initialise into awake overide parent fonction
     private bool canLazer;
     private bool isLazerCooldown;
@@ -40,16 +39,11 @@ public class GrenadierBehaviour : Enemie
         this.SetMeleeAnim();
         this.SetMeleeColl();
         this.canLazer = false;
-        //this.lazerPrefab.enabled = false;
-        //this.lazerPrefab.gameObject.transform.position = Vector3.zero;
-        startpos = transform.position;
+        //base.enemieType = EnemieType.CHOMPER;
+
+      //  base.startpos = transform.position;
     }
-
-    //protected override void GetStats()
-    //{
-        
-
-    //}
+   
     protected override void EnemieAnimation()
     {
         base.EnemieAnimation();
@@ -185,11 +179,11 @@ public class GrenadierBehaviour : Enemie
             base.EnemieWalk();
         }
 
-        if(base.healthPoints <= 0)
-        {
-            base.respawnMe.isGrenadier = true;
-            base.respawnMe.startPosGrenadier = startpos;
-        }
+        //if(base.healthPoints <= 0)
+        //{
+        //    base.respawnMe.isGrenadier = true;
+        //    base.respawnMe.startPosGrenadier = startpos;
+        //}
     }
     
     private void RandomMeleeAttack()

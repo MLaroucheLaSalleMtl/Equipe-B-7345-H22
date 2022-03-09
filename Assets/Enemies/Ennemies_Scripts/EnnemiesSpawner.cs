@@ -24,20 +24,20 @@ public class EnnemiesSpawner : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (isChomper)
-        {
-            if (!IsInvoking(nameof(ReviveChomper)))
-            Invoke(nameof(ReviveChomper), respawnTimer);
+    //private void Update()
+    //{
+    //    if (isChomper)
+    //    {
+    //        if (!IsInvoking(nameof(ReviveChomper)))
+    //        Invoke(nameof(ReviveChomper), respawnTimer);
 
-        }
-        else if (isGrenadier)
-        {
-               if (!IsInvoking(nameof(ReviveGrenadier)))
+    //    }
+    //    else if (isGrenadier)
+    //    {
+    //           if (!IsInvoking(nameof(ReviveGrenadier)))
 
-                Invoke(nameof(ReviveGrenadier), respawnTimer);
+    //            Invoke(nameof(ReviveGrenadier), respawnTimer);
 
-        }
-    }
+    //    }
+    //}
 }
