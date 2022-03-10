@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 //main class to herite for enemie gameobject
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemie : MonoBehaviour
 {
-    private EnemieManager enemieManager;
-    protected EnemieType enemieType;
-    protected Vector3 startpos;
+    protected EnemieManager enemieManager;
+    
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -19,7 +19,6 @@ public abstract class Enemie : MonoBehaviour
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
-    //can revive?
 
     // patroll variable
     private bool walkDestinationSet;
@@ -27,8 +26,13 @@ public abstract class Enemie : MonoBehaviour
     protected bool attackDone = false;
 
     //protected EnnemiesSpawner respawnMe;
+    //revive variable
    [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
    [SerializeField] private bool isRevivable = true;
+    protected EnemieType enemieType;
+    protected Vector3 startpos;
+
+
 
     //EnemieStats
     protected new string name ;
@@ -61,10 +65,13 @@ public abstract class Enemie : MonoBehaviour
     //Starting stat section 
     //------------------------------------------------//
 
-   
+    private void Start()
+    {
+        this.enemieManager = EnemieManager.instance;
+
+    }
     protected void GetComponent()
     {
-       this.enemieManager = EnemieManager.instance;
         
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
@@ -86,7 +93,6 @@ public abstract class Enemie : MonoBehaviour
     //use in update to show stat of the ennemie
     protected  void GetStats()
     {
-
         //set base statistique
         this.name = enemie_stats.Name;
         this.attackPower = this.enemie_stats.AttackPower;
@@ -121,14 +127,16 @@ public abstract class Enemie : MonoBehaviour
         if (this.healthPoints <= 0)
         {
             this.anim.SetBool("isDead", true);
-            if (isRevivable)
+            if (this.isRevivable)
             {
-                var enemieData = new EnemieData(this.enemieType, this.startpos, reviveTimer);
-                this.enemieManager.ListOfEnemieData.Add(enemieData);
+                this.isRevivable = false;
+                EnemieData enemieData = new EnemieData(this.enemieType, this.startpos, this.reviveTimer);
+                this.enemieManager.StartCoroutine(this.enemieManager.EnemieReviver(enemieData));
             }
             Destroy( gameObject, 1.5f);
         }
     }
+    
 
     //Physic section 
     //------------------------------------------------//
@@ -215,7 +223,7 @@ public abstract class Enemie : MonoBehaviour
     //** weapon must have a force value to be use on ennemie to add ::: force parameter to me more versatile for all behaviour
     public void AdaptiveForce(float hitRange,float impluseForce)
     {
-        if (Physics.Raycast(new Vector3(this.transform.position.x,/* this.transform.position.y + 0.5f*/1f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
+        if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
             var contact = hit.point - transform.position;
             contact.y = 0; // remove add force on  y 

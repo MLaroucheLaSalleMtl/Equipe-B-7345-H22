@@ -2339,8 +2339,8 @@ MonoBehaviour:
     m_Bits: 0
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  reviveTimer: 6
   isRevivable: 1
-  reviveTimer: 12.9
   meleeAttackColl: {fileID: 6521793}
 --- !u!65 &95166600
 BoxCollider:

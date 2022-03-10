@@ -28,9 +28,10 @@ public class ChomperBehaviour : Enemie
         //position
         this.nextRunDest = new Vector3();
         //***
-        //base.startpos = transform.position;
-        //base.enemieType = EnemieType.CHOMPER;
+        base.startpos = transform.position;
+        base.enemieType = EnemieType.CHOMPER;
     }
+   
 
     private void FixedUpdate()
     {
