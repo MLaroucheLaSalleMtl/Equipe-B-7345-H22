@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Target
   - HipAim
+  - InteractableButton
   layers:
   - Default
   - TransparentFX

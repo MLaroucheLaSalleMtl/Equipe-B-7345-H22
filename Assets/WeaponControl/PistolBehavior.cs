@@ -73,7 +73,7 @@ public class PistolBehavior : Attack
                 base.currAmmo = damage.AmmoCount;
             }
         }
-        Debug.DrawRay(muzzle.transform.position, muzzle.transform.forward * range, Color.red);
-        Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.yellow);
+        //Debug.DrawRay(muzzle.transform.position, muzzle.transform.forward * range, Color.red);
+        //Debug.DrawRay(base.player.transform.position, base.player.transform.forward * range, Color.yellow);
     }
 }
