@@ -126,7 +126,9 @@ public abstract class Enemie : MonoBehaviour
     {
         if (this.healthPoints <= 0)
         {
+            this.AgentDestination(transform.position);
             this.anim.SetBool("isDead", true);
+            this.agent.isStopped = true;
             if (this.isRevivable)
             {
                 this.isRevivable = false;

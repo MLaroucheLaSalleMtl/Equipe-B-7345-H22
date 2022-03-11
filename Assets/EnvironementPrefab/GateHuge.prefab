@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5154587069951016097}
   - component: {fileID: 5154587069954407567}
   - component: {fileID: 5154587069953441359}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: DoorHugeTop_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5154587069951016097
 Transform:
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 5154587069971867657}
   - component: {fileID: 2244322690618619440}
   - component: {fileID: 617100428}
-  m_Layer: 6
+  - component: {fileID: 2406580720773969225}
+  m_Layer: 9
   m_Name: DoorHuge01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +180,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.006286, y: 19.742128, z: 1.3246286}
   m_Center: {x: 0.024579048, y: 9.864394, z: -0.0014341474}
+--- !u!114 &2406580720773969225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154587069951500425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5154587069951500427
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,12 +207,12 @@ GameObject:
   - component: {fileID: 5154587069951016107}
   - component: {fileID: 5154587069954407561}
   - component: {fileID: 5154587069953441353}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: DoorHugeBot_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5154587069951016107
 Transform:
@@ -273,12 +290,12 @@ GameObject:
   - component: {fileID: 5154587069951016109}
   - component: {fileID: 5154587069954407563}
   - component: {fileID: 5154587069953441355}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: DoorHugeBot_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5154587069951016109
 Transform:
@@ -356,12 +373,12 @@ GameObject:
   - component: {fileID: 5154587069951016111}
   - component: {fileID: 5154587069954407565}
   - component: {fileID: 5154587069953441357}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: DoorHugeTop_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5154587069951016111
 Transform:
@@ -440,7 +457,7 @@ GameObject:
   - component: {fileID: 5154587070355439606}
   - component: {fileID: 662029279}
   - component: {fileID: 662029278}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GateHuge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +548,8 @@ GameObject:
   - component: {fileID: 5154587070371588978}
   - component: {fileID: 5154587070370458034}
   - component: {fileID: 645879642}
-  m_Layer: 6
+  - component: {fileID: 2752500458056321330}
+  m_Layer: 9
   m_Name: GateHuge01_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,6 +635,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300004, guid: d6bae189a0fe4b948ab13c0103d593c0, type: 3}
+--- !u!114 &2752500458056321330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154587070372657010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5154587070372657012
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +663,8 @@ GameObject:
   - component: {fileID: 5154587070371588980}
   - component: {fileID: 5154587070370458036}
   - component: {fileID: 645879648}
-  m_Layer: 6
+  - component: {fileID: 4815960347263222078}
+  m_Layer: 9
   m_Name: GateHuge01_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,6 +750,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: d6bae189a0fe4b948ab13c0103d593c0, type: 3}
+--- !u!114 &4815960347263222078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154587070372657012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5154587070372657014
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +778,8 @@ GameObject:
   - component: {fileID: 5154587070371588982}
   - component: {fileID: 5154587070370458038}
   - component: {fileID: 645879646}
-  m_Layer: 6
+  - component: {fileID: 1430008313236231010}
+  m_Layer: 9
   m_Name: GateHuge01_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,3 +865,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d6bae189a0fe4b948ab13c0103d593c0, type: 3}
+--- !u!114 &1430008313236231010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154587070372657014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
