@@ -7,6 +7,7 @@ public class DoorTargets : MonoBehaviour
     [SerializeField] Material defaultMat;
     [SerializeField] Material hitMat;
     [SerializeField] OpenDoors connectedDoor;
+    [SerializeField] public bool interactOnce = true;
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,7 +41,7 @@ public class DoorTargets : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshRenderer>().material = defaultMat;
             this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
-            GetComponent<InteractWithButton>().interactOnce = true;
+            interactOnce = true;
         }
     }
 }
