@@ -7,24 +7,26 @@ public class InteractWithButton : MonoBehaviour
 {
     [SerializeField] private TMP_Text interactText;
     [SerializeField] private bool canInteract = false;
+    [SerializeField] public bool interactOnce = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactOnce = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canInteract && GetComponent<DoorTargets>().interactOnce)
+        if(Input.GetKeyDown(KeyCode.E) && canInteract && interactOnce)
         {
-            GetComponent<DoorTargets>().interactOnce = false;
+            interactOnce = false;
+            canInteract = false;
             GetComponent<DoorTargets>().TargetIsHit();
             interactText.gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
