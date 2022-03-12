@@ -129,6 +129,7 @@ public abstract class Enemie : MonoBehaviour
             this.AgentDestination(transform.position);
             this.anim.SetBool("isDead", true);
             this.agent.isStopped = true;
+            this.playerStats.EnemiesCount += 1;
             if (this.isRevivable)
             {
                 this.isRevivable = false;
