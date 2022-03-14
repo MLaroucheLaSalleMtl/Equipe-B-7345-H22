@@ -14,7 +14,7 @@ public class DropingDoor : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        txt_DoorCost.text = "X "+ DoorCost.ToString();
+        txt_DoorCost.text = "X " + DoorCost.ToString();
         this.anim = GetComponent<Animator>();
     }
 
@@ -23,6 +23,8 @@ public class DropingDoor : MonoBehaviour
         if (other.CompareTag("Player") && playerStat.EnemiesCount >= DoorCost)
         {
             playerStat.EnemiesCount -= this.DoorCost;
+            anim.SetBool("isOpen",true);
+            Destroy(gameObject, 1.75f);
             Destroy(gameObject, 2.5f);
 
         }

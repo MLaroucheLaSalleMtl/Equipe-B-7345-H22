@@ -11,10 +11,9 @@ public class CheckPointManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")&& playerStats.LastCheckpoint != transform.position)
         {
             this.playerStats.LastCheckpoint = transform.position;
-            Destroy(gameObject, 1.5f);
         }
     }
 }

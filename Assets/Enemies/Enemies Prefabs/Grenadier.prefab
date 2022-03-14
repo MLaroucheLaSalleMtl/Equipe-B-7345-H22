@@ -651,7 +651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce7faada3f44b4f8b06378fdbf9aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
 --- !u!1 &1512163676551859865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce7faada3f44b4f8b06378fdbf9aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
 --- !u!1 &1512163676551859895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,9 +1540,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   myTarget: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  reviveTimer: 5
+  isRevivable: 1
+  projetiles: {fileID: 11400000, guid: 5e623c88d7a40de4c85c6c344341f48d, type: 2}
   lazerPrefab: {fileID: 5746682804288049125, guid: 33ea79e940a9ed14184cc8a24ce38de7, type: 3}
   lazerStartPos: {fileID: 1967665472}
-  playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
   handColls:
   - {fileID: 1512163676551434930}
   - {fileID: 1512163676551435094}
