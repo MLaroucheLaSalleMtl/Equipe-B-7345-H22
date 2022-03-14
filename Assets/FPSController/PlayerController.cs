@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
     private bool reloadInput = false;
+    private bool interactInput = false;
 
     private bool firstWeaponInput = false;
     private bool secondWeaponInput = false;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public bool SecondWeaponInput { get => secondWeaponInput; set => secondWeaponInput = value; }
     public bool ThirdWeaponInput { get => thirdWeaponInput; set => thirdWeaponInput = value; }
     public bool FourthWeaponInput { get => fourthWeaponInput; set => fourthWeaponInput = value; }
+    public bool InteractInput { get => interactInput; set => interactInput = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +104,11 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         jumpInput = context.performed;
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        interactInput = context.performed;
     }
 
     public void OnRun(InputAction.CallbackContext context)
@@ -315,7 +322,7 @@ public class PlayerController : MonoBehaviour
 
     void Jumping()
     {
-        if (jumpInput && isGrounded)
+        if (jumpInput && isGrounded && !CheckIfCeiling())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpInput = false;
