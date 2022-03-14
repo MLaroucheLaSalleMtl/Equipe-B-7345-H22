@@ -530,17 +530,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6717622387968559358, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
   m_PrefabInstance: {fileID: 704142670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &142532619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 142532619, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
-  m_PrefabInstance: {fileID: 7089890791885368800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &156483113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4978931267689233406, guid: 52c36c802087c034ba1afb83403d0454, type: 3}
@@ -1792,7 +1781,7 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 1665608505}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: resetTime
       value: 5
@@ -1800,15 +1789,15 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 142532619}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 754335036}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: targetCount
       value: 
-      objectReference: {fileID: 1665608507}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2836,11 +2825,11 @@ PrefabInstance:
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 142532619}
+      objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 754335036}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &706460565
@@ -2976,15 +2965,15 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 142532619}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 754335036}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: targetCount
       value: 
-      objectReference: {fileID: 1759842629}
+      objectReference: {fileID: 0}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3076,17 +3065,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4978931267689233406, guid: 52c36c802087c034ba1afb83403d0454, type: 3}
   m_PrefabInstance: {fileID: 1978932364}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &754335036 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 754335036, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
-  m_PrefabInstance: {fileID: 7089890791885368800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &758289839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5193,7 +5171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5455,7 +5433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5655,11 +5633,11 @@ PrefabInstance:
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 142532619}
+      objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 754335036}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!4 &1184832662 stripped
@@ -15352,22 +15330,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1665608505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 616634327216652606, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
-  m_PrefabInstance: {fileID: 502991604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1665608507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6829422710822219764, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
-  m_PrefabInstance: {fileID: 502991604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665608505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1672695662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16462,17 +16424,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2981904563760813878, guid: 2584ce1164880954691bbaec84011836, type: 3}
   m_PrefabInstance: {fileID: 1756863469}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1759842629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6829422710822219764, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
-  m_PrefabInstance: {fileID: 720569535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1766657444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16486,7 +16437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16543,7 +16494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18517,11 +18468,11 @@ PrefabInstance:
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 142532619}
+      objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 754335036}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &2569227886446963815
