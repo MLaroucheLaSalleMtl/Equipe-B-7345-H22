@@ -18,11 +18,15 @@ public class OpenDoors : MonoBehaviour
     public bool firstIsHit = false;
     [Range(5f, 200f)] [SerializeField] float resetTime = 5f;
 
-    
+    private void Awake()
+    {
+        canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
+        timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
+        allTargets = GetComponentsInChildren<DoorTargets>();
+    }
 
     private void Start()
     {
-        allTargets = GetComponentsInChildren<DoorTargets>();
         canvasTimer.gameObject.SetActive(false);
     }
 

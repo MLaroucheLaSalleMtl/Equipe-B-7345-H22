@@ -15,7 +15,7 @@ public class DamageDone : MonoBehaviour
             other.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
             other.GetComponent<DisplayDamage>().PrintDamage();
         }
-        OnDestroy();
+        //OnDestroy();
         
     }
     private void OnCollisionEnter(Collision collision)

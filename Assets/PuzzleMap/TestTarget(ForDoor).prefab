@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3151d5d52acfd3147aa6377aae41d200, type: 2}
+  - {fileID: 2100000, guid: 26ac4cde285117148acca917dc54b4ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4eb97d11c4cb645950d012e235c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMat: {fileID: 2100000, guid: 3151d5d52acfd3147aa6377aae41d200, type: 2}
-  hitMat: {fileID: 2100000, guid: c665c34e1742c89469de7d8121dd41be, type: 2}
+  defaultMat: {fileID: 2100000, guid: 26ac4cde285117148acca917dc54b4ac, type: 2}
+  hitMat: {fileID: 2100000, guid: 7e0e44ebf8228c746af5c6ab80ab5df3, type: 2}
   connectedDoor: {fileID: 0}
   interactOnce: 1
 --- !u!1 &6957623583080339333

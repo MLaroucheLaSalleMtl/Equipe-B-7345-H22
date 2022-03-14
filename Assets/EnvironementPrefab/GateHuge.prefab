@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3271383519768304775
@@ -739,7 +739,7 @@ BoxCollider:
   m_GameObject: {fileID: 5154587070372657008}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 8.224941, y: 10.661967, z: 11.541455}
   m_Center: {x: -0.034837008, y: 4.8309836, z: -5.270727}
@@ -758,8 +758,13 @@ MonoBehaviour:
   anim: {fileID: 2244322690618619440}
   targetAmount: 0
   targetNeeded: 0
-  targetCount: {fileID: 0}
+  targetCount: {fileID: 6829422710822219764}
+  canvasTimer: {fileID: 0}
+  timerText: {fileID: 0}
   targetCountHit: 0
+  allTargets: []
+  firstIsHit: 0
+  resetTime: 15
 --- !u!1 &5154587070372657010
 GameObject:
   m_ObjectHideFlags: 0
