@@ -31,7 +31,6 @@ public class DoorTargets : MonoBehaviour
         {
             connectedDoor.firstIsHit = false;
             StartCoroutine(connectedDoor.ResetAllTargets());
-            print("help");
         }
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
     }

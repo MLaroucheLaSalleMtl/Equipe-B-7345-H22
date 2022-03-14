@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class InteractWithButton : MonoBehaviour
 {
+    [SerializeField] private PlayerController control;
     [SerializeField] private TMP_Text interactText;
     [SerializeField] private bool canInteract = false;
     // Start is called before the first frame update
     void Start()
     {
+        control = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canInteract && GetComponent<DoorTargets>().interactOnce)
+        if(control.InteractInput && canInteract && GetComponent<DoorTargets>().interactOnce)
         {
+            control.InteractInput = false;
             GetComponent<DoorTargets>().interactOnce = false;
             canInteract = false;
             GetComponent<DoorTargets>().TargetIsHit();
