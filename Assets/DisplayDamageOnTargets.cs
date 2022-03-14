@@ -12,6 +12,7 @@ public class DisplayDamageOnTargets : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Rigidbody>();
+        
     }
     public void PrintDamage(float damage)
     {

@@ -16,6 +16,7 @@ public class Attack : MonoBehaviour
     protected int maxBullet;
     protected bool noAmmo;
     protected int currAmmo;
+    [SerializeField] protected GameObject hipShot;
     [SerializeField] protected GameObject fullScope;
     [SerializeField] private GameObject generalCrosshair;
     [SerializeField] protected PlayerController control;
@@ -77,6 +78,11 @@ public class Attack : MonoBehaviour
             generalCrosshair.gameObject.SetActive(true);
         }
     }
+    public IEnumerator ActivateRenderBullet(Rigidbody a, float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        a.gameObject.GetComponent<MeshRenderer>().enabled = true;
+    }
     public IEnumerator ResetAttack(string animName, float resetShotTime)
     {
         yield return new WaitForSeconds(resetShotTime);
@@ -100,5 +106,9 @@ public class Attack : MonoBehaviour
     {
         isShooting = false;
         isReloading = false;
+    }
+    private void Update()
+    {
+        
     }
 }

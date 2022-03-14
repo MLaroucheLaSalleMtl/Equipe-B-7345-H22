@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283287309496619624}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 48.9, y: 0, z: 29.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53,46 +53,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_Name
       value: WallTallLong01 (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
@@ -145,27 +105,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
   m_PrefabInstance: {fileID: 1283287308525038194}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283287308525071570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287308525038194}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8542432872362313713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287308525071570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287308525071576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
@@ -234,46 +173,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallTallShort01 (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -320,27 +219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
---- !u!1 &1283287309080356640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287309080453504}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8302023171717715817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287309080356640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287309080356648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
@@ -414,46 +292,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallTallLong01 (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -500,27 +338,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
---- !u!1 &1283287309094506562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287309094606562}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5553222436541406782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287309094506562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287309094506568 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
@@ -593,46 +410,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_Name
       value: WallTallShort01 (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
@@ -737,27 +514,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
---- !u!1 &1283287309860550077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287309860516637}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6424794438809417445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287309860550077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!4 &1283287309860907421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
@@ -773,46 +529,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_Name
       value: WallTallLong01 (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
@@ -865,27 +581,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
   m_PrefabInstance: {fileID: 1283287309899241061}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283287309899141317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287309899241061}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3534238073855132178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287309899141317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287309899141321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
@@ -953,46 +648,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_Name
       value: WallTallShort01 (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
@@ -1102,27 +757,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
---- !u!1 &1283287310091021596 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287310090922940}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8323829261150663995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310091021596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1283287310103712413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,46 +767,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_Name
       value: WallTallLong01 (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
@@ -1282,27 +876,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
---- !u!1 &1283287310103614525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287310103712413}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2008395027834498208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310103614525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1283287310191264176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1313,46 +886,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_Name
       value: WallTallShort01 (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
@@ -1405,27 +938,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
   m_PrefabInstance: {fileID: 1283287310191264176}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283287310191167248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287310191264176}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2597082424348167856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310191167248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287310191167256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
@@ -1493,46 +1005,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_Name
       value: WallTallShort01 (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
@@ -1642,27 +1114,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
---- !u!1 &1283287310293330893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287310293364077}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6360372995022111929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310293330893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1283287310307252137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1673,46 +1124,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_Name
       value: WallTallShort01 (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
       propertyPath: m_RootOrder
@@ -1817,27 +1228,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300010, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
---- !u!1 &1283287310307217673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
-  m_PrefabInstance: {fileID: 1283287310307252137}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5478073391084429519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310307217673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!4 &1283287310307642665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
@@ -1853,46 +1243,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_Name
       value: WallTallLong01 (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
@@ -1945,27 +1295,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
   m_PrefabInstance: {fileID: 1283287310317629654}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283287310317532790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287310317629654}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3805808120151644763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310317532790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287310317532794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
@@ -2034,46 +1363,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallTallLong01 (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2125,27 +1414,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
   m_PrefabInstance: {fileID: 1283287310345925013}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283287310345893685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}
-  m_PrefabInstance: {fileID: 1283287310345925013}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6485704304615978277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283287310345893685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1283287310345893689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 5af9d1791d52faf4fb68417ce30722d9, type: 3}

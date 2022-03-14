@@ -667,9 +667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3233622677635655373}
+  attackOnce: 1
   isAiming: 0
   isReloading: 0
   isShooting: 0
+  hipShot: {fileID: 0}
   fullScope: {fileID: 1570887384444664112}
   generalCrosshair: {fileID: 0}
   control: {fileID: 0}
@@ -1525,9 +1527,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9115270142679311124}
+  attackOnce: 1
   isAiming: 0
   isReloading: 0
   isShooting: 0
+  hipShot: {fileID: 0}
   fullScope: {fileID: 0}
   generalCrosshair: {fileID: 0}
   control: {fileID: 0}
@@ -1550,7 +1554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6158623817100765879
 Transform:
   m_ObjectHideFlags: 0
@@ -1558,8 +1562,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6790305738729025549}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.14999999, z: -0.14999999}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4999985, y: 0.15000102, z: -0.14999986}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1607,9 +1611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6158623817100765877}
+  attackOnce: 1
   isAiming: 0
   isReloading: 0
   isShooting: 0
+  hipShot: {fileID: 0}
   fullScope: {fileID: 6983833668504178824}
   generalCrosshair: {fileID: 0}
   control: {fileID: 0}
@@ -2536,9 +2542,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9115270142580411551}
+  attackOnce: 1
   isAiming: 0
   isReloading: 0
   isShooting: 0
+  hipShot: {fileID: 0}
   fullScope: {fileID: 0}
   generalCrosshair: {fileID: 0}
   control: {fileID: 0}

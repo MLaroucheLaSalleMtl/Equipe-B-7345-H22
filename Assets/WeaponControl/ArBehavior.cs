@@ -36,23 +36,31 @@ public class ArBehavior : Attack
         //{
         //    shotOffset = new Vector3(0f, 0f, 0f);
         //}
+        for(int i = 0; i<3; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Rigidbody clone1 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
+            clone1.AddForce(hipShot.transform.forward * bulletSpeed, ForceMode.Impulse);
+            if (isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0f));
+            if (!isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0.04f));
+            StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
+        }
         damage.AmmoCount = damage.AmmoCount - 3;
-        yield return new WaitForSeconds(0.1f);
-        Rigidbody clone1 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
-        clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
-        StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
-        
-        yield return new WaitForSeconds(0.1f);
-        Rigidbody clone2 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
-        clone2.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
-        StartCoroutine(clone2.GetComponent<DamageDone>().BreakDistance());
-        
-        yield return new WaitForSeconds(0.1f);
-        Rigidbody clone3 = Instantiate(bullets, muzzle.transform.position, muzzle.transform.rotation);
-        clone3.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
-        StartCoroutine(clone3.GetComponent<DamageDone>().BreakDistance());
-        
         if (damage.AmmoCount <= 0) base.noAmmo = true;
+
+        //yield return new WaitForSeconds(0.1f);
+        //Rigidbody clone2 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
+        //clone2.AddForce(hipShot.transform.forward * bulletSpeed, ForceMode.Impulse);
+        //if (isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0f));
+        //if (!isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0.04f));
+        //StartCoroutine(clone2.GetComponent<DamageDone>().BreakDistance());
+
+        //yield return new WaitForSeconds(0.1f);
+        //Rigidbody clone3 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
+        //clone3.AddForce(hipShot.transform.forward * bulletSpeed, ForceMode.Impulse);
+        //if (isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0f));
+        //if (!isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0.04f));
+        //StartCoroutine(clone3.GetComponent<DamageDone>().BreakDistance());
     }
     void Update()
     {
