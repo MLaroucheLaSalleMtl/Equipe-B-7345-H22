@@ -13,25 +13,26 @@ public abstract class Enemie : MonoBehaviour
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
-    [SerializeField] protected LayerMask whatIsBullet;
+    
     protected float enemieRange ;
     protected float MeleeAttackRange ;
+
+    private string enemieArea;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
-
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
     protected bool attackDone = false;
-
-    //protected EnnemiesSpawner respawnMe;
+    
     //revive variable
-   [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
-   [SerializeField] private bool isRevivable = true;
+    [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
+    [SerializeField] private bool isRevivable = true;
     protected EnemieType enemieType;
     protected Vector3 startpos;
 
+    private bool countAdded;
 
 
     //EnemieStats
@@ -111,7 +112,7 @@ public abstract class Enemie : MonoBehaviour
         if (this.myTarget == null)  //the name must fit with the the scene name
                 this.myTarget = GameObject.Find("Player");
 
-        //respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
+       this.countAdded = true;
     }
     //Animation section 
     //------------------------------------------------//
@@ -129,7 +130,11 @@ public abstract class Enemie : MonoBehaviour
             this.AgentDestination(transform.position);
             this.anim.SetBool("isDead", true);
             this.agent.isStopped = true;
-            this.playerStats.EnemiesCount += 1;
+            if (this.countAdded)
+            {
+                this.playerStats.EnemiesCount += 1;
+                this.countAdded = false;
+            }
             if (this.isRevivable)
             {
                 this.isRevivable = false;
@@ -145,19 +150,12 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer);
+        print(this.enemieArea);
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && this.enemieArea == this.playerStats.PlayerArea;
     }
     protected bool InMeleeAttackRange()
     {
         return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer);
-    }
-    protected bool AttackedByPLayer()
-    {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsBullet);
-    }
-    protected bool BeenHitted()
-    {
-        return !this.PlayerDetected() && this.AttackedByPLayer();
     }
 
     protected void ResetHealth()
@@ -312,7 +310,7 @@ public abstract class Enemie : MonoBehaviour
             walkDestinationSet = true;
         }
         //Vector3 distanceLeft = nextWalkDest - transform.position;// calculating the diff between my actual pos and next dest
-        if (Vector3.Distance(nextWalkDest, transform.position) < 1f)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
+        if (Vector3.Distance(nextWalkDest, transform.position) < 1f || this.agent.velocity.magnitude < 0.1f)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
             walkDestinationSet = false;
     }
 
@@ -339,6 +337,13 @@ public abstract class Enemie : MonoBehaviour
     {
         var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
         this.transform.LookAt(lookAtTarget);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
+        {
+            this.enemieArea = other.tag;
+        }
     }
 
 }

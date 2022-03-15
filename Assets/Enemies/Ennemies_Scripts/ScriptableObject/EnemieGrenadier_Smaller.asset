@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f1325836b7307409d243c361a1a7ef, type: 3}
   m_Name: EnemieGrenadier_Smaller
   m_EditorClassIdentifier: 
-  name: Grenadier
+  name: Grenadier_Smaller
   healthPoints: 75
   defensePoints: 25
   attackPower: 20

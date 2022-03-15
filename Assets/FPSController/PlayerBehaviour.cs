@@ -37,4 +37,12 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 doorLookAt = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
         transform.LookAt(doorLookAt);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
+        {
+            this.player.PlayerArea = other.tag;
+        }
+    }
+
 }

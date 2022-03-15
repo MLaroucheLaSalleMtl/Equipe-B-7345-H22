@@ -11,6 +11,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private Vector3 lastCheckpoint;
     [SerializeField] private int playerLevel;
     [SerializeField] private int enemiesCount;
+    [SerializeField] private string playerArea;
 
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int EnergyPoints { get => energyPoints; set => energyPoints = value; }
@@ -18,4 +19,5 @@ public class PlayerStats : ScriptableObject
     public int PlayerLevel { get => playerLevel; set => playerLevel = value; }
     public int MaxHP { get => maxHP; set => maxHP = value; }
     public int EnemiesCount { get => enemiesCount; set => enemiesCount = value; }
+    public string PlayerArea { get => playerArea; set => playerArea = value; }
 }
