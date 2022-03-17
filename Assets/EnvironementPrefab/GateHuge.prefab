@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 5154587069971867657}
   - component: {fileID: 2244322690618619440}
   - component: {fileID: 617100428}
+  - component: {fileID: 5063048166433139351}
   m_Layer: 6
   m_Name: DoorHuge01
   m_TagString: Untagged
@@ -415,6 +416,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.006286, y: 19.742128, z: 1.3246286}
   m_Center: {x: 0.024579048, y: 9.864394, z: -0.0014341474}
+--- !u!114 &5063048166433139351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154587069951500425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0725308ad354ce448344aa168f469ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorIsClosed: 1
 --- !u!1 &5154587069951500427
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +777,7 @@ MonoBehaviour:
   timerText: {fileID: 0}
   targetCountHit: 0
   allTargets: []
+  button: {fileID: 0}
   firstIsHit: 0
   resetTime: 15
 --- !u!1 &5154587070372657010

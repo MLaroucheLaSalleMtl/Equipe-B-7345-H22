@@ -15,6 +15,7 @@ public class OpenDoors : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     public bool targetCountHit = false;
     [SerializeField] private DoorTargets[] allTargets;
+    [SerializeField] private InteractWithButton button;
     public bool firstIsHit = false;
     [Range(5f, 200f)] [SerializeField] float resetTime = 5f;
 
@@ -23,6 +24,7 @@ public class OpenDoors : MonoBehaviour
         canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
         timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
         allTargets = GetComponentsInChildren<DoorTargets>();
+        button = GetComponentInChildren<InteractWithButton>();
     }
 
     private void Start()
@@ -30,9 +32,9 @@ public class OpenDoors : MonoBehaviour
         canvasTimer.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && anim.GetComponent<CheckDoorStatus>().doorIsClosed)
         {
             anim.SetBool("Open", true);
         }
@@ -41,7 +43,10 @@ public class OpenDoors : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            targetAmount = 0;
+            targetCountHit = false;
             anim.SetBool("Open", false);
+            button.GetComponent<DoorTargets>().ResetTarget();
         }
     }
 
@@ -52,12 +57,13 @@ public class OpenDoors : MonoBehaviour
             targetCount.gameObject.SetActive(true);
             targetCount.text = targetAmount + "/" + targetNeeded;
         }
-        if(targetAmount == targetNeeded && targetNeeded > 0)
+        if(targetAmount == targetNeeded && targetNeeded > 0 && anim.GetComponent<CheckDoorStatus>().doorIsClosed)
         {
             anim.SetBool("Open", true);
             targetCountHit = true;
         }
     }
+    
     float timer;
     public IEnumerator ResetAllTargets()
     {
