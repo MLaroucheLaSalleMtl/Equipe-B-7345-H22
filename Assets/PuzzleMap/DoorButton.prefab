@@ -438,7 +438,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3151d5d52acfd3147aa6377aae41d200, type: 2}
+  - {fileID: 2100000, guid: d1ceeaadc3450694eafc85a314039392, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -504,6 +504,7 @@ MonoBehaviour:
   hitMat: {fileID: 2100000, guid: c665c34e1742c89469de7d8121dd41be, type: 2}
   connectedDoor: {fileID: 0}
   interactOnce: 1
+  isFakeButton: 0
 --- !u!114 &4486040855941547464
 MonoBehaviour:
   m_ObjectHideFlags: 0

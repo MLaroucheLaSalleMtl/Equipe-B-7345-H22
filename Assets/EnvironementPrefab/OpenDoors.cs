@@ -13,6 +13,8 @@ public class OpenDoors : MonoBehaviour
     [SerializeField] private TMP_Text targetCount;
     [SerializeField] private Image canvasTimer;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private Image targetTimer;
+    [SerializeField] private TMP_Text targetTimerText;
     public bool targetCountHit = false;
     [SerializeField] private DoorTargets[] allTargets;
     [SerializeField] private InteractWithButton button;
@@ -23,6 +25,9 @@ public class OpenDoors : MonoBehaviour
     {
         canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
         timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
+        targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
+        targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
+
         allTargets = GetComponentsInChildren<DoorTargets>();
         button = GetComponentInChildren<InteractWithButton>();
     }
@@ -30,6 +35,7 @@ public class OpenDoors : MonoBehaviour
     private void Start()
     {
         canvasTimer.gameObject.SetActive(false);
+        targetTimer.gameObject.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -54,14 +60,15 @@ public class OpenDoors : MonoBehaviour
     {
         if (targetNeeded > 0 && !targetCountHit)
         {
-            targetCount.gameObject.SetActive(true);
+            targetCount.gameObject.SetActive(true); //on the door
             targetCount.text = targetAmount + "/" + targetNeeded;
         }
-        if(targetAmount == targetNeeded && targetNeeded > 0 && anim.GetComponent<CheckDoorStatus>().doorIsClosed)
+        if (targetAmount == targetNeeded && targetNeeded > 0 && anim.GetComponent<CheckDoorStatus>().doorIsClosed)
         {
             anim.SetBool("Open", true);
             targetCountHit = true;
         }
+
     }
     
     float timer;
@@ -70,6 +77,7 @@ public class OpenDoors : MonoBehaviour
         if(targetNeeded > 1)
         {
             canvasTimer.gameObject.SetActive(true);
+            targetTimer.gameObject.SetActive(true); //on the player
             for (timer = resetTime; timer > 0; timer -= Time.deltaTime)
             {
                 if (targetAmount != targetNeeded)
@@ -77,16 +85,18 @@ public class OpenDoors : MonoBehaviour
                     float temp = (float)Math.Round(timer, 2);
                     timerText.text = "Timer: " + temp.ToString();
                 }
+                targetTimerText.text = targetAmount + "/" + targetNeeded;
                 yield return null;
             }
-            //timerText.text = ;
             //yield return new WaitForSeconds(resetTime);
             for (int i = 0; i < allTargets.Length; i++)
             {
                 allTargets[i].ResetTarget();
                 targetAmount = 0;
                 canvasTimer.gameObject.SetActive(false);
+                targetTimer.gameObject.SetActive(false); //on the player
             }
+            
         }
     }
 }
