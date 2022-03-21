@@ -1536,9 +1536,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  whatIsBullet:
-    serializedVersion: 2
-    m_Bits: 0
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
   reviveTimer: 5

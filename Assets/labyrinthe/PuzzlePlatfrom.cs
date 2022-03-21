@@ -13,8 +13,8 @@ public class PuzzlePlatfrom : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
-            print("hit");
             bossDoor.OrderToFollow(transform.position);
+            
         }
     }
 }

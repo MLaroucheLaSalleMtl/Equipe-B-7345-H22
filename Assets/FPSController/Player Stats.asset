@@ -18,4 +18,4 @@ MonoBehaviour:
   lastCheckpoint: {x: 0, y: 0, z: 0}
   playerLevel: 0
   enemiesCount: 90
-  playerArea: Area1
+  playerArea: 

@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public abstract class Enemie : MonoBehaviour
 {
     protected EnemieManager enemieManager;
-    
+    //** maybe add a IsUsiingArea bool variable
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -78,6 +78,7 @@ public abstract class Enemie : MonoBehaviour
        this.agent = GetComponent<NavMeshAgent>();
        this.obstacle = GetComponent<NavMeshObstacle>();
     }
+
 
     protected void NaveMeshSetting()
     {
@@ -150,7 +151,7 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        print(this.enemieArea);
+       // print(this.enemieArea);
         return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && this.enemieArea == this.playerStats.PlayerArea;
     }
     protected bool InMeleeAttackRange()
@@ -205,6 +206,17 @@ public abstract class Enemie : MonoBehaviour
 
     }
    
+    private bool IsNextPosInArea(Vector3 nextPos)
+    {
+        if(Physics.Raycast(nextPos,Vector3.down, out RaycastHit hit, 2f, LayerMask.NameToLayer("Area"))
+            && hit.collider.tag == this.enemieArea)
+        {
+            print("true");
+            return true;
+        }
+
+        return false;
+    }
     private float DamageReducer(int damage)
     {
         float scaling = this.defensePoints * 0.01f;
@@ -302,7 +314,7 @@ public abstract class Enemie : MonoBehaviour
             StartCoroutine(this.ChangeBehaviour());
             //check path 
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
-            while (!IsValidPath(nextWalkDest))
+            while (!IsValidPath(nextWalkDest) && !IsNextPosInArea(nextWalkDest))
             {
                 nextWalkDest = RandomEnemieDestionation(15f, 15f);
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private TMP_Text hpText;
 
+    [SerializeField] private UnityEvent m_labEvent; //labyrinthe
+    private int maxHP;
     private void Awake()
     {
-        player.HealthPoints = player.MaxHP;
+        this.maxHP = player.MaxHP;
+        player.HealthPoints = this.maxHP;
     }
 
 
@@ -20,17 +24,30 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayerDeath();
         hpText.text = "HP: " + player.HealthPoints.ToString() + "/" + player.MaxHP;
+        
     }
+    //changed
     void PlayerDeath()
     {
-        Vector3 doorCheckpoint = new Vector3(115f, 1f, 32f);
+       // Vector3 doorCheckpoint = new Vector3(115f, 1f, 32f);
 
         if (player.HealthPoints <= 0)
         {
-            transform.localPosition = doorCheckpoint;
-            player.HealthPoints = 100;
+            transform.localPosition = player.LastCheckpoint;
+            player.HealthPoints = maxHP;
+            DeadInAreaBehaviour();
         }
     }
+
+    private void DeadInAreaBehaviour()
+    {
+        if(player.PlayerArea == "BossArea")
+        {
+            m_labEvent.Invoke();
+        }
+    }
+
+
 
     void PlayerLookAt()
     {
