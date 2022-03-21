@@ -9,8 +9,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private PlayerStats player;
     [SerializeField] private GameObject door;
     [SerializeField] private TMP_Text hpText;
-
     [SerializeField] private UnityEvent m_labEvent; //labyrinthe
+
+    public bool isDead = false;
     //private int maxHP;
     private void Awake()
     {
@@ -33,8 +34,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
-            player.HealthPoints = this.player.MaxHP;
-            transform.localPosition = player.LastCheckpoint;
+            isDead = true;
+
+            //player.HealthPoints = this.player.MaxHP;
+            transform.position = player.LastCheckpoint;
+            //player.PlayerArea = "";
             //DeadInAreaBehaviour();
         }
     }

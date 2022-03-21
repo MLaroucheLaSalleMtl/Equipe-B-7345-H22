@@ -8,6 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemie : MonoBehaviour
 {
+    PlayerBehaviour PLAYERBEHAVIOUR;
     protected EnemieManager enemieManager;
     //** maybe add a IsUsiingArea bool variable
     // behaviour value
@@ -152,11 +153,11 @@ public abstract class Enemie : MonoBehaviour
     protected bool PlayerDetected()
     {
        // print(this.enemieArea);
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && this.enemieArea == this.playerStats.PlayerArea;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && playerStats.HealthPoints > 0;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer);
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && playerStats.HealthPoints > 0;
     }
 
     protected void ResetHealth()
@@ -257,7 +258,7 @@ public abstract class Enemie : MonoBehaviour
         //    this.AgentStatBehaviour(6, 8);
 
 
-        //this.MovingBehaviour();
+        if(playerStats.HealthPoints > 0)
         this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
 
@@ -286,6 +287,7 @@ public abstract class Enemie : MonoBehaviour
     }
     protected void AgentDestination(Vector3 nextPath)
     {
+        if(IsValidPath(nextPath))
         this.agent.SetDestination(nextPath);
     }
 
@@ -308,8 +310,7 @@ public abstract class Enemie : MonoBehaviour
     {
         if (!walkDestinationSet)
         {
-            //if (this.agent.speed != 3f && this.enemieRange != 10f)
-            //    AgentStatBehaviour(3, 10);
+            
             //MovingBehaviour();
             StartCoroutine(this.ChangeBehaviour());
             //check path 
