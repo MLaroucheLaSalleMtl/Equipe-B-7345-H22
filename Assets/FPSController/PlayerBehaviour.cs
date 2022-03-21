@@ -27,8 +27,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
-            transform.localPosition = doorCheckpoint;
-            player.HealthPoints = 100;
+            transform.localPosition = new Vector3(10f,10f,10f);
+            player.HealthPoints = 10;
         }
     }
 
