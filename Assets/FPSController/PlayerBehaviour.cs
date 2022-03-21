@@ -11,11 +11,11 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private TMP_Text hpText;
 
     [SerializeField] private UnityEvent m_labEvent; //labyrinthe
-    private int maxHP;
+    //private int maxHP;
     private void Awake()
     {
-        this.maxHP = player.MaxHP;
-        player.HealthPoints = this.maxHP;
+        //this.maxHP = player.MaxHP;
+        player.HealthPoints = this.player.MaxHP;
     }
 
 
@@ -29,13 +29,13 @@ public class PlayerBehaviour : MonoBehaviour
     //changed
     void PlayerDeath()
     {
-       // Vector3 doorCheckpoint = new Vector3(115f, 1f, 32f);
+        //Vector3 doorCheckpoint = new Vector3(115f, 1f, 32f);
 
         if (player.HealthPoints <= 0)
         {
+            player.HealthPoints = this.player.MaxHP;
             transform.localPosition = player.LastCheckpoint;
-            player.HealthPoints = maxHP;
-            DeadInAreaBehaviour();
+            //DeadInAreaBehaviour();
         }
     }
 

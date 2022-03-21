@@ -314,7 +314,7 @@ public abstract class Enemie : MonoBehaviour
             StartCoroutine(this.ChangeBehaviour());
             //check path 
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
-            while (!IsValidPath(nextWalkDest) && !IsNextPosInArea(nextWalkDest))
+            while (!IsValidPath(nextWalkDest) /*&& !IsNextPosInArea(nextWalkDest)*/)
             {
                 nextWalkDest = RandomEnemieDestionation(15f, 15f);
             }
