@@ -94,10 +94,10 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     {
         if (i == lastIndex)
         {
-            foreach(var color in ListOfColor)
-            {
-                ListOfColor.Remove(color);
-            }
+            //foreach(var color in ListOfColor)
+            //{
+            //    ListOfColor.Remove(color);
+            //}
             ListOfColor = null;
             return;
         }
