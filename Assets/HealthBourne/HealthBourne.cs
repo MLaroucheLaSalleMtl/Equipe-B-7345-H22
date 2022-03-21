@@ -13,7 +13,7 @@ public class HealthBourne : MonoBehaviour
     {
         crystal = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider>();
-        player.HealthPoints -= 10;
+        //player.HealthPoints -= 10;
     }
 
     private void OnTriggerEnter(Collider other)
