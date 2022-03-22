@@ -208,9 +208,10 @@ public abstract class Enemie : MonoBehaviour
 
     private bool IsNextPosInArea(Vector3 nextPos)
     {
-        nextPos.y = 5f;
+        nextPos.y = 1.5f;
+        var range = 1f;
         RaycastHit hit;
-        if (Physics.Raycast(nextPos, Vector3.down, out hit  ))
+        if (Physics.Raycast(nextPos, Vector3.down, out hit , range))
         {
             if(hit.collider.isTrigger && hit.collider.CompareTag(this.enemieArea))
                 return true;
