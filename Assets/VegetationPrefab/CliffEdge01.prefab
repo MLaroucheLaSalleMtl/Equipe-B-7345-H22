@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 6717833327832803383}
   - component: {fileID: 6717833327833803511}
   - component: {fileID: 328734535473806394}
+  - component: {fileID: 5439591233682527847}
   m_Layer: 6
   m_Name: CliffEdge01_LOD00
   m_TagString: Untagged
@@ -264,6 +265,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300004, guid: 04fa4995cb1cfcd4eb8dc1defa230c89, type: 3}
+--- !u!114 &5439591233682527847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717833327836066869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6717833327836066871
 GameObject:
   m_ObjectHideFlags: 0

@@ -4078,6 +4078,10 @@ PrefabInstance:
       propertyPath: canvasTimer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5154587069951016105, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -4541,6 +4545,10 @@ PrefabInstance:
     - target: {fileID: 8610506084757996880, guid: 76e4bab6e6ab08841ba692fbbf9fae85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610506084757996881, guid: 76e4bab6e6ab08841ba692fbbf9fae85, type: 3}
+      propertyPath: resetTimer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8610506084757996883, guid: 76e4bab6e6ab08841ba692fbbf9fae85, type: 3}
       propertyPath: m_Name
@@ -14642,6 +14650,14 @@ PrefabInstance:
       propertyPath: canvasTimer
       value: 
       objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5154587070372657008, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Name
       value: GateHuge (2)
@@ -20309,6 +20325,10 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154587069951016105, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27065,7 +27085,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26856
+  m_Name: pb_Mesh39164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32303,7 +32323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154587069951016105, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33265,6 +33285,10 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154587070372657008, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Name
@@ -35244,6 +35268,10 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3769565225014521238, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_SizeDelta.x
@@ -53981,7 +54009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26812
+  m_Name: pb_Mesh39120
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57096,7 +57124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25330
+  m_Name: pb_Mesh37638
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -65989,7 +66017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.3
+      value: 31.5
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -65997,7 +66025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.3
+      value: 112.7
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalRotation.w
