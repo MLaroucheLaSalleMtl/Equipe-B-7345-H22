@@ -5,12 +5,11 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 {
     public static LabyrinthePuzzleBehaviour instance = null;
     [Header("Boss Door")]
-    [SerializeField] private Transform whereToTp;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private GameObject SecretWall;
     [SerializeField] private Animator anim;
-
+    [SerializeField] private GameObject checkpoint;
     [Header("puzzle gameobject")]
     [SerializeField] private GameObject[] puzzle;
     [SerializeField] private GameObject[] sheetForPuzzle;
@@ -33,6 +32,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     }
     private void Start()
     {
+        this.checkpoint.SetActive(false);
         this.ListOfColor = InitializeListOfColor();
         this.InitialiseRngNumArray();
         this.RandomizePuzzleOrder();
@@ -92,8 +92,15 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
    
     private void ChargeTheColorRule(int i ,int lastIndex)
     {
-        if (i == lastIndex) return;
-
+        if (i == lastIndex)
+        {
+            //foreach(var color in ListOfColor)
+            //{
+            //    ListOfColor.Remove(color);
+            //}
+            ListOfColor = null;
+            return;
+        }
         int index = Random.Range(0, this.ListOfColor.Count - 1);
         this.puzzle[i].gameObject.GetComponent<Renderer>().material.color = this.ListOfColor[index];
         this.sheetForPuzzle[i].gameObject.GetComponent<Renderer>().material.color = this.ListOfColor[index];
@@ -178,24 +185,33 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
         if (count == puzzle.Length)
         {
-            foreach (var platfrom in puzzle)
+
+            for(int i = 0; i <puzzle.Length; i++)
             {
-                Destroy(platfrom);
+                Destroy(this.puzzle[i]);
+                Destroy(this.sheetForPuzzle[i]);
             }
-            Invoke(nameof(TeleportPlayer), 2f);
+            // Invoke(nameof(TeleportPlayer), 2f);
             //add ui to say that you complete the caleenge before tp
-            anim.SetBool("isOpen", true);
-            Destroy(this.SecretWall, 2f);
+            SetDoorAnim(true);
+            // Destroy(this.SecretWall, 2f);
+            this.sheetForPuzzle = null;
             this.puzzle = null;
-            this.anim = null;
+            //this.gameobjPos = null;
+            this.checkpoint.SetActive(true);
         }
     }
 
-    private void TeleportPlayer()
+    public void SetDoorAnim(bool isOpen)
     {
-        this.playerStats.LastCheckpoint = this.whereToTp.position;
-        this.player.transform.position = this.whereToTp.position;
+        anim.SetBool("isOpen", isOpen);
     }
+
+    //private void TeleportPlayer()
+    //{
+    //    this.playerStats.LastCheckpoint = this.whereToTp.position;
+    //    this.player.transform.position = this.whereToTp.position;
+    //}
 
     #endregion
 
