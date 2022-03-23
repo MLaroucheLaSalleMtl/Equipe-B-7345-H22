@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4982778154299111219}
   - component: {fileID: 4982778154551296372}
   - component: {fileID: 4982778154551296375}
+  - component: {fileID: 8227016008406383745}
   m_Layer: 6
   m_Name: SmallDoor
   m_TagString: Untagged
@@ -119,6 +120,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8227016008406383745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982778154301106673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0725308ad354ce448344aa168f469ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorIsClosed: 1
 --- !u!1 &4982778154301106675
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +199,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4982778154551296375}
+  targetAmount: 0
+  targetNeeded: 0
+  targetCount: {fileID: 0}
+  canvasTimer: {fileID: 0}
+  timerText: {fileID: 0}
+  targetTimer: {fileID: 0}
+  targetTimerText: {fileID: 0}
+  targetCountHit: 0
+  allTargets: []
+  button: {fileID: 0}
+  firstIsHit: 0
+  resetTime: 5
 --- !u!1 &4982778154301106679
 GameObject:
   m_ObjectHideFlags: 0
