@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2231861389805785787}
   - component: {fileID: 2231861389806915707}
   - component: {fileID: 2231861389205977497}
+  - component: {fileID: 467333720209741878}
   m_Layer: 9
   m_Name: VegetationLarge04_LOD00
   m_TagString: Untagged
@@ -161,6 +162,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 50b92cf3f08f03745bbc74de550c2dc7, type: 3}
+--- !u!114 &467333720209741878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231861389809110715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &2231861389809110717
 GameObject:
   m_ObjectHideFlags: 0
