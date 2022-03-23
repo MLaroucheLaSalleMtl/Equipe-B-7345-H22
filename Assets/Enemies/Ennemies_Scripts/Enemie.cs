@@ -324,7 +324,7 @@ public abstract class Enemie : MonoBehaviour
     private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
     {
         return new Vector3(Random.Range(transform.position.x - minValue, transform.position.x + maxValue),
-               transform.localPosition.y, Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
+               transform.localPosition.y , Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
     }
 
     protected void MeleeAttack(string attackName)

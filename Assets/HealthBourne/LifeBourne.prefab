@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crystal: {fileID: 0}
   player: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  resetTimer: 60
 --- !u!1 &9028418460199849043
 GameObject:
   m_ObjectHideFlags: 0
