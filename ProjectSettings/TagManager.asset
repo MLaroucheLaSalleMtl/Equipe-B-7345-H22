@@ -8,6 +8,13 @@ TagManager:
   - Enemy
   - Weapon
   - Target
+  - InteractableButton
+  - Area1
+  - Area3
+  - Area4
+  - Area2
+  - Area5
+  - BossArea
   layers:
   - Default
   - TransparentFX
@@ -26,7 +33,7 @@ TagManager:
   - GrenadierZone
   - ChomperZone
   - CheckPoint
-  - 
+  - Area
   - 
   - 
   - 

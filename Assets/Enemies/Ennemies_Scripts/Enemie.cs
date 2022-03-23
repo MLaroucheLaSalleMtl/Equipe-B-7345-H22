@@ -9,29 +9,31 @@ using UnityEngine.Events;
 public abstract class Enemie : MonoBehaviour
 {
     protected EnemieManager enemieManager;
-    
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
-    [SerializeField] protected LayerMask whatIsBullet;
+    
     protected float enemieRange ;
     protected float MeleeAttackRange ;
+
+    private string enemieArea;
+    private bool isAreaSet = false;
     // player gameobject position
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
-
+    
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
     protected bool attackDone = false;
-
-    //protected EnnemiesSpawner respawnMe;
+    
     //revive variable
-   [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
-   [SerializeField] private bool isRevivable = true;
+    [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
+    [SerializeField] private bool isRevivable = true;
     protected EnemieType enemieType;
     protected Vector3 startpos;
 
+    private bool countAdded;
 
 
     //EnemieStats
@@ -78,6 +80,7 @@ public abstract class Enemie : MonoBehaviour
        this.obstacle = GetComponent<NavMeshObstacle>();
     }
 
+
     protected void NaveMeshSetting()
     {
         //agent
@@ -111,7 +114,7 @@ public abstract class Enemie : MonoBehaviour
         if (this.myTarget == null)  //the name must fit with the the scene name
                 this.myTarget = GameObject.Find("Player");
 
-        //respawnMe = GameObject.Find("Spawner").GetComponent<EnnemiesSpawner>();
+       this.countAdded = true;
     }
     //Animation section 
     //------------------------------------------------//
@@ -129,7 +132,11 @@ public abstract class Enemie : MonoBehaviour
             this.AgentDestination(transform.position);
             this.anim.SetBool("isDead", true);
             this.agent.isStopped = true;
-            this.playerStats.EnemiesCount += 1;
+            if (this.countAdded)
+            {
+                this.playerStats.EnemiesCount += 1;
+                this.countAdded = false;
+            }
             if (this.isRevivable)
             {
                 this.isRevivable = false;
@@ -145,19 +152,11 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer);
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && playerStats.HealthPoints > 0 && this.enemieArea == this.playerStats.PlayerArea;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer);
-    }
-    protected bool AttackedByPLayer()
-    {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsBullet);
-    }
-    protected bool BeenHitted()
-    {
-        return !this.PlayerDetected() && this.AttackedByPLayer();
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && playerStats.HealthPoints > 0;
     }
 
     protected void ResetHealth()
@@ -206,7 +205,19 @@ public abstract class Enemie : MonoBehaviour
                 this.powerIncresed = true;
 
     }
-   
+
+    private bool IsNextPosInArea(Vector3 nextPos)
+    {
+        nextPos.y = 1.5f;
+        var range = 1f;
+        RaycastHit hit;
+        if (Physics.Raycast(nextPos, Vector3.down, out hit , range))
+        {
+            if(hit.collider.isTrigger && hit.collider.CompareTag(this.enemieArea))
+                return true;
+        }
+        return false;
+    }
     private float DamageReducer(int damage)
     {
         float scaling = this.defensePoints * 0.01f;
@@ -243,11 +254,6 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        //if (this.agent.speed != 6f && this.enemieRange != 8f) //changing value for chassing
-        //    this.AgentStatBehaviour(6, 8);
-
-
-        //this.MovingBehaviour();
         this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
 
@@ -276,6 +282,7 @@ public abstract class Enemie : MonoBehaviour
     }
     protected void AgentDestination(Vector3 nextPath)
     {
+       //if(IsValidPath(nextPath))
         this.agent.SetDestination(nextPath);
     }
 
@@ -298,28 +305,26 @@ public abstract class Enemie : MonoBehaviour
     {
         if (!walkDestinationSet)
         {
-            //if (this.agent.speed != 3f && this.enemieRange != 10f)
-            //    AgentStatBehaviour(3, 10);
-            //MovingBehaviour();
+            
             StartCoroutine(this.ChangeBehaviour());
             //check path 
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
-            while (!IsValidPath(nextWalkDest))
+            while ( !IsNextPosInArea(nextWalkDest))
             {
                 nextWalkDest = RandomEnemieDestionation(15f, 15f);
+                //if (IsValidPath(nextWalkDest) && IsNextPosInArea(nextWalkDest)) break;
             }
             AgentDestination(nextWalkDest);
             walkDestinationSet = true;
         }
-        //Vector3 distanceLeft = nextWalkDest - transform.position;// calculating the diff between my actual pos and next dest
-        if (Vector3.Distance(nextWalkDest, transform.position) < 1f)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
+        if (Vector3.Distance(nextWalkDest, transform.position) < 1f /*|| this.agent.velocity.magnitude < 0.01f*/)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
             walkDestinationSet = false;
     }
 
     private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
     {
         return new Vector3(Random.Range(transform.position.x - minValue, transform.position.x + maxValue),
-               transform.position.y, Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
+               transform.localPosition.y , Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
     }
 
     protected void MeleeAttack(string attackName)
@@ -339,6 +344,14 @@ public abstract class Enemie : MonoBehaviour
     {
         var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
         this.transform.LookAt(lookAtTarget);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Area") && !this.isAreaSet)
+        {
+            this.enemieArea = other.tag;
+            this.isAreaSet = true;
+        }
     }
 
 }

@@ -8,9 +8,12 @@ public class DoorTargets : MonoBehaviour
     [SerializeField] Material hitMat;
     [SerializeField] OpenDoors connectedDoor;
     [SerializeField] public bool interactOnce = true;
+
+    [SerializeField] private bool isFakeButton = false;
     // Start is called before the first frame update
     void Awake()
     {
+        if (isFakeButton) return;
         this.gameObject.GetComponent<MeshRenderer>().material = defaultMat;
         connectedDoor = GetComponentInParent<OpenDoors>();
         connectedDoor.targetNeeded += 1;
@@ -25,6 +28,9 @@ public class DoorTargets : MonoBehaviour
     public void TargetIsHit()
     {
         this.gameObject.GetComponent<MeshRenderer>().material = hitMat;
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        Invoke("ResetFakeButtons", 5.0f);
+        if (isFakeButton) return;
         connectedDoor.targetAmount += 1;
         if (connectedDoor.targetAmount == 1) connectedDoor.firstIsHit = true;
         if (connectedDoor.firstIsHit)
@@ -32,7 +38,15 @@ public class DoorTargets : MonoBehaviour
             connectedDoor.firstIsHit = false;
             StartCoroutine(connectedDoor.ResetAllTargets());
         }
-        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+    }
+    private void ResetFakeButtons()
+    {
+        if(isFakeButton)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = defaultMat;
+            this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+            interactOnce = true;
+        }
     }
     public void ResetTarget()
     {

@@ -7,13 +7,12 @@ public class HealthBourne : MonoBehaviour
     [SerializeField] private Animator crystal;
     [SerializeField] private PlayerStats player;
     private CapsuleCollider col;
-
+    [SerializeField][Range(5,200)] private float resetTimer;
     // Start is called before the first frame update
     void Start()
     {
         crystal = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider>();
-        player.HealthPoints -= 10;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +30,7 @@ public class HealthBourne : MonoBehaviour
     }
     private IEnumerator ReactivateHealthbourne()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(resetTimer);
         crystal.gameObject.SetActive(true);
         col.enabled = true;
     }

@@ -42,7 +42,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6521790}
   m_Material: {fileID: 13400000, guid: a96ec0e7c0495884c9309d482ff3bb40, type: 2}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -2295,7 +2295,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 32
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!195 &7396104603048430303
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2306,8 +2306,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -334000983
   m_Radius: 1
-  m_Speed: 4.5
-  m_Acceleration: 7
+  m_Speed: 4
+  m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 0
@@ -2334,12 +2334,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2176
-  whatIsBullet:
-    serializedVersion: 2
-    m_Bits: 0
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
-  reviveTimer: 6
+  reviveTimer: 5
   isRevivable: 1
   meleeAttackColl: {fileID: 6521793}
 --- !u!65 &95166600
@@ -2351,7 +2348,7 @@ BoxCollider:
   m_GameObject: {fileID: 7396104602027554599}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.33253574, y: 0.41427767, z: 0.3479271}
   m_Center: {x: 0.02584076, y: 0.3385074, z: -0.041036606}
@@ -2366,8 +2363,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.36, z: 0.09}
+  m_Radius: 0.5629351
+  m_Center: {x: -2.5043523e-10, y: 0.36, z: 0.15293512}
 --- !u!208 &334662859
 NavMeshObstacle:
   m_ObjectHideFlags: 0

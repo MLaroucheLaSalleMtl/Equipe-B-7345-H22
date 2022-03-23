@@ -24,8 +24,7 @@ public class DropingDoor : MonoBehaviour
         {
             playerStat.EnemiesCount -= this.DoorCost;
             anim.SetBool("isOpen",true);
-            Destroy(gameObject, 1.75f);
-            Destroy(gameObject, 2.5f);
+            Destroy(gameObject, 2f);
 
         }
     }

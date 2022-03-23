@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
 
     void Running()
     {
-        if (runInput && isGrounded)
+        if (runInput && isGrounded && !CheckIfCeiling())
         {
             moveSpeed = baseSpeed * runMultiplier;
         }
