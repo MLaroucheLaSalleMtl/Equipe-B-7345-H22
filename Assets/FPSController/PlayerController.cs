@@ -279,7 +279,7 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = Vector3.zero;
                     rb.drag = 100f;
                 }
-                print("On slopes");
+                //print("On slopes");
                 return true;
             }
             else

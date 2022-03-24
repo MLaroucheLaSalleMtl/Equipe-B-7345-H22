@@ -22,7 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayerDeath();
         hpText.text = "HP: " + player.HealthPoints.ToString() + "/" + player.MaxHP;
-        
+
     }
     //changed
     void PlayerDeath()
@@ -31,13 +31,16 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
-            player.HealthPoints = this.player.MaxHP;
             transform.position = player.LastCheckpoint;
-            //player.PlayerArea = "";
+            player.PlayerArea = "";
+            Invoke("ResetHP", 1f);
             DeadInAreaBehaviour();
         }
     }
-
+    private void ResetHP()
+    {
+        player.HealthPoints = this.player.MaxHP;
+    }
     private void DeadInAreaBehaviour()
     {
         if(player.PlayerArea == "BossArea")
@@ -60,5 +63,20 @@ public class PlayerBehaviour : MonoBehaviour
             this.player.PlayerArea = other.tag;
         }
     }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.layer == LayerMask.NameToLayer("Area") && this.player.PlayerArea != other.tag)
+    //    {
+    //        this.player.PlayerArea = other.tag;
+    //    }
+
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
+    //    {
+    //        this.player.PlayerArea = "";
+    //    }
+    //}
 
 }
