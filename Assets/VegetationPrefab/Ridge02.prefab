@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7347682765444854623}
   - component: {fileID: 7198990441260270310}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: EnemyBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -171,9 +171,6 @@ public abstract class Enemie : MonoBehaviour
             }
         }
     }
-
-
-    
     protected int RandomValue(int min, int max)
     {
         return Random.Range(min, max + 1);
@@ -208,13 +205,15 @@ public abstract class Enemie : MonoBehaviour
 
     private bool IsNextPosInArea(Vector3 nextPos)
     {
-        nextPos.y = 1.5f;
-        var range = 1f;
-        RaycastHit hit;
-        if (Physics.Raycast(nextPos, Vector3.down, out hit , range))
+        float yOffset = 1.5f; // add an offset to be able to check the areazone
+        var maxRange = 1.45f; // add a range for the ray
+        if (Physics.Raycast(new Vector3(nextPos.x, yOffset, nextPos.z), Vector3.down, out RaycastHit hit , maxRange))
         {
             if(hit.collider.isTrigger && hit.collider.CompareTag(this.enemieArea))
-                return true;
+            {
+                if(this.IsValidPath(nextPos))
+                    return true;
+            }
         }
         return false;
     }
@@ -240,7 +239,7 @@ public abstract class Enemie : MonoBehaviour
         if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
             var contact = hit.point - transform.position;
-            contact.y = 0; // remove add force on  y 
+            contact.y = 0; // remove force on  y 
             this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
             this.playerStats.HealthPoints -= RealDamage;
         }
@@ -294,30 +293,31 @@ public abstract class Enemie : MonoBehaviour
             this.enemieRange = enemieRange;
         }
     }
-
     public bool IsValidPath(Vector3 path)
     {
         NavMeshPath navPath = new NavMeshPath();
-        return this.agent.CalculatePath(path, navPath);
+        this.agent.CalculatePath(path, navPath);
+        if (navPath.status == NavMeshPathStatus.PathInvalid)
+            return false;
+
+        return true;
     }
 
     protected void EnemieWalk()
     {
         if (!walkDestinationSet)
         {
-            
             StartCoroutine(this.ChangeBehaviour());
             //check path 
             nextWalkDest = RandomEnemieDestionation(15f, 15f);
             while ( !IsNextPosInArea(nextWalkDest))
             {
                 nextWalkDest = RandomEnemieDestionation(15f, 15f);
-                //if (IsValidPath(nextWalkDest) && IsNextPosInArea(nextWalkDest)) break;
             }
             AgentDestination(nextWalkDest);
             walkDestinationSet = true;
         }
-        if (Vector3.Distance(nextWalkDest, transform.position) < 1f /*|| this.agent.velocity.magnitude < 0.01f*/)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
+        if (Vector3.Distance(nextWalkDest, transform.position) < 1f /*|| this.agent.velocity.magnitude < 0.01f*/)
             walkDestinationSet = false;
     }
 
