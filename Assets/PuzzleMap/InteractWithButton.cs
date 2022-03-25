@@ -8,9 +8,11 @@ public class InteractWithButton : MonoBehaviour
     [SerializeField] private PlayerController control;
     [SerializeField] private TMP_Text interactText;
     [SerializeField] private bool canInteract = false;
+    [SerializeField] private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         control = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -20,6 +22,7 @@ public class InteractWithButton : MonoBehaviour
         if(control.InteractInput && canInteract && GetComponent<DoorTargets>().interactOnce)
         {
             control.InteractInput = false;
+            audio.PlayOneShot(audio.clip);
             GetComponent<DoorTargets>().interactOnce = false;
             canInteract = false;
             GetComponent<DoorTargets>().TargetIsHit();

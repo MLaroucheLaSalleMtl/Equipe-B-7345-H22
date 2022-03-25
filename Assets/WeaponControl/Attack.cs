@@ -89,7 +89,6 @@ public class Attack : MonoBehaviour
         anim.SetBool(animName, false);
         attackOnce = true;
         isShooting = false;
-        isReloading = false;
     }
 
     public void CheckAmmo()
@@ -105,7 +104,7 @@ public class Attack : MonoBehaviour
     public void CanDoAnything()
     {
         isShooting = false;
-        isReloading = false;
+        //isReloading = false;
     }
     private void Update()
     {

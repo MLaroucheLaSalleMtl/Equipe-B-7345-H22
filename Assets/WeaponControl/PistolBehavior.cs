@@ -56,14 +56,14 @@ public class PistolBehavior : Attack
             control.AimDownSightsInput = false;
             base.AimDownSight();
         }
-        if (control.FireInput && attackOnce && damage.AmmoCount > 0)
+        if (control.FireInput && attackOnce && damage.AmmoCount > 0 && !isReloading)
         {
             control.FireInput = false;
             base.Attacking("Shoot", resetTimeShot);
             ShootPistol();
             base.currAmmo = damage.AmmoCount;
         }
-        if (control.ReloadInput)
+        if ((control.ReloadInput || damage.AmmoCount <= 0) && damage.AmmoCount != maxBullet)
         {
             control.ReloadInput = false;
             base.Reloading("PistolIsAim");

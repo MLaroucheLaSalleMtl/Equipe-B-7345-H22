@@ -36,7 +36,8 @@ public class ArBehavior : Attack
         //{
         //    shotOffset = new Vector3(0f, 0f, 0f);
         //}
-        for(int i = 0; i<3; i++)
+        damage.AmmoCount = damage.AmmoCount - 3;
+        for (int i = 0; i<3; i++)
         {
             yield return new WaitForSeconds(0.1f);
             Rigidbody clone1 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
@@ -45,7 +46,6 @@ public class ArBehavior : Attack
             if (!isAiming) StartCoroutine(ActivateRenderBullet(clone1, 0.04f));
             StartCoroutine(clone1.GetComponent<DamageDone>().BreakDistance());
         }
-        damage.AmmoCount = damage.AmmoCount - 3;
         if (damage.AmmoCount <= 0) base.noAmmo = true;
 
         //yield return new WaitForSeconds(0.1f);
@@ -70,14 +70,14 @@ public class ArBehavior : Attack
             control.AimDownSightsInput = false;
             base.AimDownSight();
         }
-        if (control.FireInput && attackOnce && damage.AmmoCount > 0)
+        if (control.FireInput && attackOnce && damage.AmmoCount > 0 && !isReloading)
         {
             control.FireInput = false;
             StartCoroutine(ShootRifle());
             base.Attacking("Shoot", resetTimeShot);
             base.currAmmo = damage.AmmoCount;
         }
-        if(control.ReloadInput)
+        if((control.ReloadInput || damage.AmmoCount <= 0) && damage.AmmoCount != maxBullet)
         {
             control.ReloadInput = false;
             base.Reloading("ArIsAim");
