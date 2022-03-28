@@ -2260,11 +2260,11 @@ PrefabInstance:
       objectReference: {fileID: 629924137863397387}
     - target: {fileID: 6614639602597974671, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6790305738729025549, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9115270142580411550, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
       propertyPath: muzzle
@@ -2306,6 +2306,14 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 7305434076877654315}
+    - target: {fileID: 9115270142679311125, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b04fbacc6f93384d8f610dd0b36a90d, type: 3}
+    - target: {fileID: 9115270142679311125, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
+      propertyPath: swingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 32f0f82907b979d49b464a053d25e97e, type: 3}
     - target: {fileID: 9115270142679311125, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
       propertyPath: generalCrosshair
       value: 
@@ -2441,6 +2449,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5287654179991636439, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
   m_PrefabInstance: {fileID: 7127433693813796956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4116941531632280275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6614639602597974671, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
+  m_PrefabInstance: {fileID: 7127433693813796956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &946618101
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116941531632280275}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4383612368456155217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6790305738729025549, guid: 1a7779344fad85044a5e105b3de53a2c, type: 3}
