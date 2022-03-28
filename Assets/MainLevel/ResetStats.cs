@@ -6,10 +6,10 @@ public class ResetStats : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
     
-    void Start()
+    void Awake()
     {
         player.HealthPoints = player.MaxHP;
-        player.LastCheckpoint = new Vector3(0f, 0f, 0f);
+        player.LastCheckpoint = this.gameObject.transform.position;
         player.GotMarcPiece = false;
         player.GotSebPiece = false;
         player.GotStevenPiece = false;

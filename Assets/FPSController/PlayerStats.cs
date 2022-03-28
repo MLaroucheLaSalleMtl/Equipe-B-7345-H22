@@ -12,6 +12,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private int playerLevel;
     [SerializeField] private int enemiesCount;
     [SerializeField] private string playerArea;
+    [SerializeField] private bool isContinuing;
 
     [Header("ShipPieces")]
     [SerializeField] private bool gotMarcPiece;
@@ -28,4 +29,5 @@ public class PlayerStats : ScriptableObject
     public bool GotMarcPiece { get => gotMarcPiece; set => gotMarcPiece = value; }
     public bool GotSebPiece { get => gotSebPiece; set => gotSebPiece = value; }
     public bool GotStevenPiece { get => gotStevenPiece; set => gotStevenPiece = value; }
+    public bool IsContinuing { get => isContinuing; set => isContinuing = value; }
 }

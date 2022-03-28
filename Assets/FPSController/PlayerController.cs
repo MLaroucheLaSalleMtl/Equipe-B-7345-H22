@@ -58,6 +58,14 @@ public class PlayerController : MonoBehaviour
     RaycastHit slopeHit;
     private Vector3 movementOnSlopes;
 
+    [Header("Player Pause")]
+    private bool pauseInput = false;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingMenu;
+    private float oldTime = 0f;
+    private bool isActive = false;
+    [SerializeField] private Canvas playerGameplayUI;
+
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
     private bool reloadInput = false;
@@ -76,6 +84,7 @@ public class PlayerController : MonoBehaviour
     public bool ThirdWeaponInput { get => thirdWeaponInput; set => thirdWeaponInput = value; }
     public bool FourthWeaponInput { get => fourthWeaponInput; set => fourthWeaponInput = value; }
     public bool InteractInput { get => interactInput; set => interactInput = value; }
+    public bool PauseInput { get => pauseInput; set => pauseInput = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         rayStepUpper.transform.position = new Vector3(rayStepUpper.transform.position.x, stepHeight, rayStepUpper.transform.position.z);
     }
 
@@ -212,6 +222,32 @@ public class PlayerController : MonoBehaviour
     public void OnFourthWeaponSwitch(InputAction.CallbackContext context)
     {
         FourthWeaponInput = context.performed;
+    }
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        PauseInput = context.performed;
+        if(PauseInput)
+        {
+            float temp = oldTime;
+            oldTime = Time.timeScale;
+            Time.timeScale = temp;
+            isActive = !isActive;
+            if (isActive == true)
+            {
+                pauseMenu.gameObject.SetActive(true);
+                playerGameplayUI.gameObject.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                pauseMenu.gameObject.SetActive(false);
+                playerGameplayUI.gameObject.SetActive(true);
+                settingMenu.gameObject.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 
     void ReturnBaseState()
@@ -396,4 +432,5 @@ public class PlayerController : MonoBehaviour
             rb.velocity = rb.velocity + platformRBody.velocity;
         }
     }
+
 }

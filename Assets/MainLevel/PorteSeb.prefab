@@ -815,7 +815,7 @@ Transform:
   - {fileID: 8360811333585728452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!205 &5506938031165454868
 LODGroup:
   m_ObjectHideFlags: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a28debbfb37e884eaab7cd476c8cc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToOpenID: 3
+  levelToOpenID: 4
 --- !u!114 &2563430199194395312
 MonoBehaviour:
   m_ObjectHideFlags: 0
