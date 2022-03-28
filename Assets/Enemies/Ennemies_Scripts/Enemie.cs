@@ -32,7 +32,7 @@ public abstract class Enemie : MonoBehaviour
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
-    [Range(3f,25f)][SerializeField] private float randWalkValue;
+    [Range(3f, 25f)] [SerializeField] private float randWalkValue = 5f;
     //melee attack variable
     protected bool attackDone = false;
     private float meleeImpluseForce;
