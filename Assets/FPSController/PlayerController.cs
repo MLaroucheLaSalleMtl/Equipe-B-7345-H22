@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Sound")]
     private AudioSource audioS;
-    [SerializeField] private AudioClip footstepSound, runningSound, jumpingSound, landingSound, slidingSound;
+    [SerializeField] private AudioClip footstepSound, runningSound, jumpingSound, slidingSound;
 
     [Header("Player movement")]
     [SerializeField] private float moveSpeed;
@@ -230,6 +230,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(playerMovement.normalized * moveSpeed * 0.1f, ForceMode.Acceleration);
         }
     }
+
     void Crouching()
     {
         if (crouchInput && isGrounded)
@@ -240,6 +241,7 @@ public class PlayerController : MonoBehaviour
             if (runInput)
             {
                 rb.AddForce(orientation.forward * slideSpeed, ForceMode.VelocityChange);
+                audioS.PlayOneShot(slidingSound);
                 runInput = false;
                 moveSpeed = baseSpeed * crouchMultiplier;
             }
@@ -303,7 +305,7 @@ public class PlayerController : MonoBehaviour
     void CheckIfGrounded()
     {
         halfHeight = new Vector3(0f, capsule.height * 0.5f, 0f);
-        isGrounded = Physics.CheckSphere(capsule.transform.position - halfHeight, groundDistance, groundCheck);  
+        isGrounded = Physics.CheckSphere(capsule.transform.position - halfHeight, groundDistance, groundCheck);
     }
 
     bool CheckIfCeiling()
