@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    private MovingPlatforms platforms;
+    private Rigidbody platformRBody;
+    private bool isOnPlatform = false;
+
     private Camera cam;
     [SerializeField] private Transform orientation;
 
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
         capsuleScale = capsule.height;
         cam = GetComponentInChildren<Camera>();
         audioS = GetComponent<AudioSource>();
+        platforms = GetComponent<MovingPlatforms>();
     }
 
     private void Awake()
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour
         OnSlopes();
         Crouching();
         Running();
+        OnPlatforms();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -362,6 +368,32 @@ public class PlayerController : MonoBehaviour
         {
             audioS.PlayOneShot(clip);
             audioS.Play();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Platform")
+        {
+            platformRBody = platforms.gameObject.GetComponent<Rigidbody>();
+            isOnPlatform = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Platform")
+        {
+            isOnPlatform = false;
+            platformRBody = null;
+        }
+    }
+
+    void OnPlatforms()
+    {
+        if (isOnPlatform)
+        {
+            rb.velocity = rb.velocity + platformRBody.velocity;
         }
     }
 }
