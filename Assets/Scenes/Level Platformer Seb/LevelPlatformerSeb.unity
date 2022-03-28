@@ -3215,7 +3215,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh521400
+  m_Name: pb_Mesh25162
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8663,6 +8663,10 @@ PrefabInstance:
       propertyPath: runningSound
       value: 
       objectReference: {fileID: 8300000, guid: 5f5404a4acaf44d4881454325303619e, type: 3}
+    - target: {fileID: 393159884282804974, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+      propertyPath: slidingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 06f5651c3b83ea64c88d61079ee1aeda, type: 3}
     - target: {fileID: 393159884282804974, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: footstepSound
       value: 
@@ -22333,22 +22337,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1487363443}
     m_Modifications:
-    - target: {fileID: 3016585396525162794, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -14.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3016585397112960321, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3016585397112960321, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
-      propertyPath: platformPos
-      value: 
-      objectReference: {fileID: 89816754}
-    - target: {fileID: 3016585397112960334, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3016585398460690204, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -22396,10 +22384,6 @@ PrefabInstance:
     - target: {fileID: 3016585398460690205, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
       propertyPath: m_Name
       value: Moving Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 3016585398460690205, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}

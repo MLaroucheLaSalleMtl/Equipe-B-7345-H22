@@ -15,6 +15,7 @@ TagManager:
   - Area2
   - Area5
   - BossArea
+  - Platform
   layers:
   - Default
   - TransparentFX

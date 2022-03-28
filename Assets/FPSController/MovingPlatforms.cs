@@ -121,7 +121,7 @@ public class MovingPlatforms : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.parent = null;
-            //player.gameObject.GetComponent<Rigidbody>().velocity += rb.velocity;
+            //player.gameObject.GetComponent<Rigidbody>().AddForce(transform.position * speed, ForceMode.Impulse);
         }
     }
 

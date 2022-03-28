@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    private MovingPlatforms platforms;
+    private Rigidbody platformRBody;
+    private bool isOnPlatform = false;
+
     private Camera cam;
     [SerializeField] private Transform orientation;
 
@@ -15,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Sound")]
     private AudioSource audioS;
-    [SerializeField] private AudioClip footstepSound, runningSound, jumpingSound, landingSound, slidingSound;
+    [SerializeField] private AudioClip footstepSound, runningSound, jumpingSound, slidingSound;
 
     [Header("Player movement")]
     [SerializeField] private float moveSpeed;
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
         capsuleScale = capsule.height;
         cam = GetComponentInChildren<Camera>();
         audioS = GetComponent<AudioSource>();
+        platforms = GetComponent<MovingPlatforms>();
     }
 
     private void Awake()
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour
         OnSlopes();
         Crouching();
         Running();
+        OnPlatforms();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -230,6 +236,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(playerMovement.normalized * moveSpeed * 0.1f, ForceMode.Acceleration);
         }
     }
+
     void Crouching()
     {
         if (crouchInput && isGrounded)
@@ -240,6 +247,7 @@ public class PlayerController : MonoBehaviour
             if (runInput)
             {
                 rb.AddForce(orientation.forward * slideSpeed, ForceMode.VelocityChange);
+                audioS.PlayOneShot(slidingSound);
                 runInput = false;
                 moveSpeed = baseSpeed * crouchMultiplier;
             }
@@ -303,7 +311,7 @@ public class PlayerController : MonoBehaviour
     void CheckIfGrounded()
     {
         halfHeight = new Vector3(0f, capsule.height * 0.5f, 0f);
-        isGrounded = Physics.CheckSphere(capsule.transform.position - halfHeight, groundDistance, groundCheck);  
+        isGrounded = Physics.CheckSphere(capsule.transform.position - halfHeight, groundDistance, groundCheck);
     }
 
     bool CheckIfCeiling()
@@ -360,6 +368,32 @@ public class PlayerController : MonoBehaviour
         {
             audioS.PlayOneShot(clip);
             audioS.Play();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Platform")
+        {
+            platformRBody = platforms.gameObject.GetComponent<Rigidbody>();
+            isOnPlatform = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Platform")
+        {
+            isOnPlatform = false;
+            platformRBody = null;
+        }
+    }
+
+    void OnPlatforms()
+    {
+        if (isOnPlatform)
+        {
+            rb.velocity = rb.velocity + platformRBody.velocity;
         }
     }
 }
