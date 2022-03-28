@@ -1536,10 +1536,13 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  enemieArea: 
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  randWalkValue: 5
   reviveTimer: 5
   isRevivable: 1
+  countAdded: 0
   projetiles: {fileID: 11400000, guid: 5e623c88d7a40de4c85c6c344341f48d, type: 2}
   lazerPrefab: {fileID: 5746682804288049125, guid: 33ea79e940a9ed14184cc8a24ce38de7, type: 3}
   lazerStartPos: {fileID: 1967665472}
@@ -1595,9 +1598,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.95
-  m_Height: 3.8675394
+  m_Height: 3.9499352
   m_Direction: 1
-  m_Center: {x: 0, y: 1.9862304, z: 0}
+  m_Center: {x: 0, y: 1.9450325, z: 0}
 --- !u!54 &1512163677963025496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1638,11 +1641,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1512163676551859997}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1.25
-  m_Height: 4.43
+  m_Enabled: 1
+  m_Radius: 0.85
+  m_Height: 3.9499352
   m_Direction: 1
-  m_Center: {x: 0, y: 1.9862304, z: 0}
+  m_Center: {x: 0, y: 1.9450325, z: 0}
 --- !u!1 &1512163676551860033
 GameObject:
   m_ObjectHideFlags: 0

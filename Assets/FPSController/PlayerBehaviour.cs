@@ -50,13 +50,20 @@ public class PlayerBehaviour : MonoBehaviour
     void PlayerLookAt()
     {
       //  Vector3 doorLookAt = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
-       // transform.LookAt(doorLookAt);
+      //  transform.LookAt(doorLookAt);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
         {
             this.player.PlayerArea = other.tag;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
+        {
+            this.player.PlayerArea = "";
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ChomperBehaviour : Enemie
 {
@@ -30,7 +31,6 @@ public class ChomperBehaviour : Enemie
 
         //save start pos for respawn
         base.startpos = transform.position;
-
     }
    
 

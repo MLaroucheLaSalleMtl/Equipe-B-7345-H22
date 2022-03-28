@@ -22,7 +22,7 @@ public abstract class Enemie : MonoBehaviour
     protected float MeleeAttackRange;
 
     //enemie area variable
-    private string enemieArea;
+   [SerializeField] private string enemieArea;
     private bool isAreaSet = false;
     
     // player variable
