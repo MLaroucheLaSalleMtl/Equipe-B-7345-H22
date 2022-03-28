@@ -25,7 +25,6 @@ public class EnemieManager : MonoBehaviour
 {
     public static EnemieManager instance = null;
     [SerializeField] private GameObject[] enemiesPrefabs; //[0] chomper , [1] grenadier
-    Vector3[] pos = new Vector3[2] { new Vector3(4, 0, 10), new Vector3(4, 0, 10) };
 
     private void Awake()
     {
@@ -37,16 +36,15 @@ public class EnemieManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this);
 
         }
-
     }
     private void Start()
     {
-        //Instantiate(enemiesPrefabs[0]   , pos[0], Quaternion.identity);
-        //CreateEnemies(1, pos, EnemieType.CHOMPER);
+        //Instantiate(enemiesPrefabs[0], new Vector3(-49.0200005f, 0f, 40.0900002f), Quaternion.identity);
     }
+
 
     private GameObject KindOfEnemie(EnemieType enemieType)
     {
@@ -59,20 +57,12 @@ public class EnemieManager : MonoBehaviour
 
         return currentEnemie;
     }
-    private void CreateEnemies(int number, Vector3[] startPos, EnemieType enemieType)
-    {
-        for (int i = 0; i < number; i++)
-        {
-            //Instantiate(currentEnemie, startPos[i], Quaternion.identity);
-        }
-        
-    }
+    
 
     public IEnumerator EnemieReviver(EnemieData data)
     {
-        GameObject enemieToRevive = KindOfEnemie(data.Type);
+        //GameObject enemieToRevive = KindOfEnemie(data.Type);
         yield return new WaitForSeconds(data.Timer);
-        print("Donne to instantiate");
-        Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
+        Instantiate(enemiesPrefabs[0], data.StartPos, Quaternion.identity);
     }
 }

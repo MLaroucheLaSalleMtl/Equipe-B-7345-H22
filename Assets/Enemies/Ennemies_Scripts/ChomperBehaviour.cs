@@ -27,25 +27,25 @@ public class ChomperBehaviour : Enemie
         this.needtomove = false;
         //position
         this.nextRunDest = new Vector3();
-        //***
+
+        //save start pos for respawn
         base.startpos = transform.position;
-        base.enemieType = EnemieType.CHOMPER;
+
     }
    
+
 
     private void FixedUpdate()
     {
         //animation with rootMotion
         base.EnemieAnimation();
-        
+        this.playerFound = base.PlayerDetected();
+        this.canAttack = base.InMeleeAttackRange();
     }
     
     
     private void Update()
     {
-
-        this.playerFound = base.PlayerDetected();
-        this.canAttack = base.InMeleeAttackRange();
         //when update position before attack
         if (playerFound && needtomove)
         {
@@ -53,13 +53,13 @@ public class ChomperBehaviour : Enemie
             this.SpecialMove();
         }
         //when chassing player
-        if (playerFound && !canAttack && !needtomove)
+        if (playerFound && !canAttack && !needtomove )
         {
             //print("chasse");
             base.EnemieChassing();
         }
         //when melee attack
-        if (canAttack && playerFound && !needtomove)
+        if (canAttack && playerFound && !needtomove )
         {
             //print("attack");
             base.MeleeAttack("attack");
@@ -71,12 +71,6 @@ public class ChomperBehaviour : Enemie
             base.EnemieWalk();
         }
 
-        //if (base.healthPoints <= 0)
-        //{
-        //    base.respawnMe.isChomper = true;
-        //    base.respawnMe.startPosChomper = startpos;
-
-        //}
     }
     #region Animation event
     public void AttackBegin()

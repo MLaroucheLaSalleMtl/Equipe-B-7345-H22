@@ -19,3 +19,4 @@ MonoBehaviour:
   meleeAttackRange: 2
   detectionPlayerRange: 25
   meleeImpluseForce: 30
+  type: 1

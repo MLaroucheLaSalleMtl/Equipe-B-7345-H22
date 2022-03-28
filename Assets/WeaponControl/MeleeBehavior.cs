@@ -8,6 +8,8 @@ public class MeleeBehavior : Attack
     protected float resetTimeSwing = 0.9f; //time between each individual swings
     protected float range = 2.0f;
     private bool rayActivated = false;
+    private AudioSource audio;
+    [SerializeField] AudioClip swingSound;
 
     private void OnEnable()
     {
@@ -15,6 +17,7 @@ public class MeleeBehavior : Attack
         isAiming = false;
         isShooting = false;
         isReloading = false;
+        audio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -24,6 +27,8 @@ public class MeleeBehavior : Attack
         if (control.FireInput && attackOnce)
         {
             control.FireInput = false;
+            audio.clip = swingSound;
+            audio.PlayOneShot(audio.clip);
             base.Attacking("Swing", resetTimeSwing);
         }
         if (rayActivated)

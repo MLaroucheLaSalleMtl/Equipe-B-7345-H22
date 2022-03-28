@@ -12,6 +12,10 @@ public class SniperBehavior : Attack
     [SerializeField] private Camera AimCamera;
     private bool canAim = true;
 
+    private AudioSource audio;
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip reloadSound;
+
     private void Awake()
     {
         base.maxBullet = 5;
@@ -28,9 +32,15 @@ public class SniperBehavior : Attack
         canAim = true;
     }
 
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     public void ShootSniper()
     {
-        if(isAiming)
+        GetComponent<AudioSource>().clip = shootSound;
+        GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
+        if (isAiming)
         {
             damage.AmmoCount--;
             shotOffset = new Vector3(0f, 0f, 0f);
@@ -88,17 +98,19 @@ public class SniperBehavior : Attack
             control.AimDownSightsInput = false;
             base.AimDownSight();
         }
-        if (control.FireInput && attackOnce && damage.AmmoCount > 0)
+        if (control.FireInput && attackOnce && damage.AmmoCount > 0 && !isReloading)
         {
             control.FireInput = false;
             base.Attacking("Shoot", resetTimeShot);
             ShootSniper();
             base.currAmmo = damage.AmmoCount;
         }
-        if (control.ReloadInput)
+        if ((control.ReloadInput || damage.AmmoCount <= 0) && damage.AmmoCount != maxBullet)
         {
             control.ReloadInput = false;
             base.Reloading("SniperIsAim");
+            GetComponent<AudioSource>().clip = reloadSound;
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
             if (!isAiming)
             {
                 damage.AmmoCount = maxBullet;

@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: 8c03ca8cf13e03d4f8125743d10e6c06
+  - enabled: 1
+    path: Assets/Scenes/MainMap.unity
+    guid: beb50b2664d470049bf9a1706b8a201e
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevel.unity
+    guid: c6f7d1f75a7e0c0448f73835ff53cd87
+  - enabled: 1
+    path: Assets/Scenes/Level Platformer Seb/LevelPlatformerSeb.unity
+    guid: fa74b2aae8e2ffa4fb08d88fc80d7d7f
+  - enabled: 1
+    path: Assets/Scenes/Labyrithe.unity
+    guid: 66a11cb8359c206449759249b80a345d
   m_configObjects: {}

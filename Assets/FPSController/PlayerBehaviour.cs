@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
-    [SerializeField] private GameObject door;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private UnityEvent m_labEvent; //labyrinthe ----- BossBoxCollider, labPuzlle.dooranim
 
@@ -50,8 +49,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void PlayerLookAt()
     {
-        Vector3 doorLookAt = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
-        transform.LookAt(doorLookAt);
+      //  Vector3 doorLookAt = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
+       // transform.LookAt(doorLookAt);
     }
     private void OnTriggerEnter(Collider other)
     {

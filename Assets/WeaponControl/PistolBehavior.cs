@@ -10,7 +10,11 @@ public class PistolBehavior : Attack
     protected float bulletSpeed = 75;
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
-    
+    private AudioSource audio;
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip reloadSound;
+
+
 
     private void Awake()
     {
@@ -18,6 +22,10 @@ public class PistolBehavior : Attack
         base.noAmmo = false;
         damage.AmmoCount = maxBullet;
         base.currAmmo = damage.AmmoCount;
+    }
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -37,6 +45,8 @@ public class PistolBehavior : Attack
         //{
         //    shotOffset = new Vector3(0f, 0f, 0f);
         //}
+        audio.clip = shootSound;
+        audio.PlayOneShot(audio.clip);
         damage.AmmoCount--;
         Rigidbody clone1 = Instantiate(bullets, hipShot.transform.position, muzzle.transform.rotation);
         //clone1.AddForce(muzzle.transform.forward * bulletSpeed, ForceMode.Impulse);
@@ -56,17 +66,19 @@ public class PistolBehavior : Attack
             control.AimDownSightsInput = false;
             base.AimDownSight();
         }
-        if (control.FireInput && attackOnce && damage.AmmoCount > 0)
+        if (control.FireInput && attackOnce && damage.AmmoCount > 0 && !isReloading)
         {
             control.FireInput = false;
             base.Attacking("Shoot", resetTimeShot);
             ShootPistol();
             base.currAmmo = damage.AmmoCount;
         }
-        if (control.ReloadInput)
+        if ((control.ReloadInput || damage.AmmoCount <= 0) && damage.AmmoCount != maxBullet)
         {
             control.ReloadInput = false;
             base.Reloading("PistolIsAim");
+            audio.clip = reloadSound;
+            audio.PlayOneShot(audio.clip);
             if(!isAiming)
             {
                 damage.AmmoCount = maxBullet;

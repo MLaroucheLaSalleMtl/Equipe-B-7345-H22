@@ -3,37 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+//Important Area Need To be in Trigger, Y position of the transform = 0, collider size Y = 0, Layer = Area, Tag = Area(1,2,3,etc...)
+
 
 //main class to herite for enemie gameobject
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemie : MonoBehaviour
 {
-    protected EnemieManager enemieManager;
+    // EnemieManager is use for respawn enemie after an amount of time
+    private EnemieManager enemieManager;
+
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
-    
-    protected float enemieRange ;
-    protected float MeleeAttackRange ;
 
+    //melee range  ,  player range detection
+    protected float enemieRange ;
+    protected float MeleeAttackRange;
+
+    //enemie area variable
     private string enemieArea;
     private bool isAreaSet = false;
-    // player gameobject position
+    
+    // player variable
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
     
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
+    [Range(3f, 25f)] [SerializeField] private float randWalkValue = 5f;
+    //melee attack variable
     protected bool attackDone = false;
-    
+    private float meleeImpluseForce;
+    private bool powerIncresed = false;
+
     //revive variable
     [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
     [SerializeField] private bool isRevivable = true;
-    protected EnemieType enemieType;
+
+    //those value are set in awake method;
+    protected EnemieType enemieType; // can add this to scriptable initialisator
     protected Vector3 startpos;
 
-    private bool countAdded;
+
+    [SerializeField]private bool countAdded;
 
 
     //EnemieStats
@@ -47,9 +61,7 @@ public abstract class Enemie : MonoBehaviour
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
    
-    //add force variable
-    private float meleeImpluseForce;
-    private bool powerIncresed = false;
+    
 
     //Get -- Set  section 
     //------------------------------------------------//
@@ -70,11 +82,9 @@ public abstract class Enemie : MonoBehaviour
     private void Start()
     {
         this.enemieManager = EnemieManager.instance;
-
     }
     protected void GetComponent()
     {
-        
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
        this.obstacle = GetComponent<NavMeshObstacle>();
@@ -102,7 +112,7 @@ public abstract class Enemie : MonoBehaviour
         this.healthPoints = this.enemie_stats.HealthPoints;
         this.defensePoints = this.enemie_stats.DefensePoints;
         this.maxHealthPoints = this.healthPoints;
-        
+        this.enemieType = this.enemie_stats.Type;
         //set default range 
         this.enemieRange = this.enemie_stats.DetectionPlayerRange;
         this.MeleeAttackRange = this.enemie_stats.MeleeAttackRange;
@@ -152,11 +162,11 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) && playerStats.HealthPoints > 0 && this.enemieArea == this.playerStats.PlayerArea;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/ && this.enemieArea == this.playerStats.PlayerArea;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && playerStats.HealthPoints > 0;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/;
     }
 
     protected void ResetHealth()
@@ -171,9 +181,6 @@ public abstract class Enemie : MonoBehaviour
             }
         }
     }
-
-
-    
     protected int RandomValue(int min, int max)
     {
         return Random.Range(min, max + 1);
@@ -182,13 +189,13 @@ public abstract class Enemie : MonoBehaviour
     public int InflictDamage()//will receive player variable to have acces to his hp
     {
         int damage;
-        
+
         if (this.healthPoints == this.maxHealthPoints)
             damage = RandomValue((int)(this.attackPower * 0.25f), (int)(this.attackPower * 0.75f));
         else if (this.healthPoints < (int)(this.healthPoints * 0.50f))
             damage = RandomValue((int)(this.attackPower * 0.50f), (int)(this.attackPower));
         else
-            damage = (int)(this.attackPower * 0.5f) ;
+            damage = (int)(this.attackPower * 0.5f);
         return damage;
     }
 
@@ -205,16 +212,19 @@ public abstract class Enemie : MonoBehaviour
                 this.powerIncresed = true;
 
     }
-
+    
     private bool IsNextPosInArea(Vector3 nextPos)
     {
-        nextPos.y = 1.5f;
-        var range = 1f;
-        RaycastHit hit;
-        if (Physics.Raycast(nextPos, Vector3.down, out hit , range))
+        //float yOffset = 1f; // add an offset to be able to check the areazone
+        var maxRange = 1.2f; // add a range for the ray
+        int layerMask = 1 << 17;
+        if (Physics.Raycast(nextPos, Vector3.down, out RaycastHit hit, maxRange, layerMask))
         {
             if(hit.collider.isTrigger && hit.collider.CompareTag(this.enemieArea))
-                return true;
+            {
+                if(this.IsValidPath(nextPos))
+                    return true;
+            }
         }
         return false;
     }
@@ -240,9 +250,9 @@ public abstract class Enemie : MonoBehaviour
         if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
             var contact = hit.point - transform.position;
-            contact.y = 0; // remove add force on  y 
+            contact.y = 0; // remove force on  y 
             this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
-            this.playerStats.HealthPoints -= RealDamage;
+                this.playerStats.HealthPoints -= RealDamage;
         }
     }
    
@@ -254,18 +264,21 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        this.AgentDestination(this.myTarget.transform.position); //apply movement
+        if (walkDestinationSet)
+            walkDestinationSet = false;
+        
+            this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
 
-    protected void MovingBehaviour()
-    {
-        if (this.obstacle.enabled != false && this.agent.enabled != true)
-        {
+    //protected void MovingBehaviour()
+    //{
+    //    if (this.obstacle.enabled != false && this.agent.enabled != true)
+    //    {
 
-            this.obstacle.enabled = false;
-            Invoke(nameof(ResetAgent), 0.01f);
-        }
-    }
+    //        this.obstacle.enabled = false;
+    //        Invoke(nameof(ResetAgent), 0.01f);
+    //    }
+    //}
     protected IEnumerator ChangeBehaviour()
     {
         if (this.obstacle.enabled != false && this.agent.enabled != true)
@@ -283,7 +296,7 @@ public abstract class Enemie : MonoBehaviour
     protected void AgentDestination(Vector3 nextPath)
     {
        //if(IsValidPath(nextPath))
-        this.agent.SetDestination(nextPath);
+        this.agent.destination = (nextPath);
     }
 
     protected void AgentStatBehaviour(float speedValue, float enemieRange)
@@ -294,50 +307,54 @@ public abstract class Enemie : MonoBehaviour
             this.enemieRange = enemieRange;
         }
     }
-
     public bool IsValidPath(Vector3 path)
     {
         NavMeshPath navPath = new NavMeshPath();
-        return this.agent.CalculatePath(path, navPath);
+        this.agent.CalculatePath(path, navPath);
+        if (navPath.status == NavMeshPathStatus.PathInvalid)
+            return false;
+
+        return true;
     }
 
     protected void EnemieWalk()
     {
-        if (!walkDestinationSet)
+        if (!walkDestinationSet && this.isAreaSet)
         {
-            
             StartCoroutine(this.ChangeBehaviour());
             //check path 
-            nextWalkDest = RandomEnemieDestionation(15f, 15f);
-            while ( !IsNextPosInArea(nextWalkDest))
+            nextWalkDest = RandomEnemieDestionation();
+            while (!IsNextPosInArea(nextWalkDest))
             {
-                nextWalkDest = RandomEnemieDestionation(15f, 15f);
-                //if (IsValidPath(nextWalkDest) && IsNextPosInArea(nextWalkDest)) break;
+                nextWalkDest = RandomEnemieDestionation();
+                if (this.attackDone) return;
             }
+            
             AgentDestination(nextWalkDest);
             walkDestinationSet = true;
         }
-        if (Vector3.Distance(nextWalkDest, transform.position) < 1f /*|| this.agent.velocity.magnitude < 0.01f*/)  /*distanceLeft.magnitude < 1f || agent.velocity.magnitude < 0.01f) *///check if my actualPos is far to my nextDest
+        if (Vector3.Distance(nextWalkDest, transform.position) < 1f )
             walkDestinationSet = false;
     }
 
-    private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
+    private Vector3 RandomEnemieDestionation()
     {
-        return new Vector3(Random.Range(transform.position.x - minValue, transform.position.x + maxValue),
-               transform.localPosition.y , Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
+        return new Vector3(Random.Range(transform.position.x - this.randWalkValue, transform.position.x + this.randWalkValue),
+               transform.localPosition.y , Random.Range(transform.position.z - this.randWalkValue, transform.position.z + this.randWalkValue));
     }
 
     protected void MeleeAttack(string attackName)
     {
-        AgentDestination(this.transform.position); // stop player from moving
 
         if (!this.attackDone)
         {
+            AgentDestination(this.transform.position); // stop player from moving
             this.LookAtTarget();
             this.anim.SetTrigger(attackName); // set my attack
             this.agent.enabled = false;
             this.obstacle.enabled = true;
             this.attackDone = true;// wait Invoke for attack again
+           
         }
     }
     protected void LookAtTarget()

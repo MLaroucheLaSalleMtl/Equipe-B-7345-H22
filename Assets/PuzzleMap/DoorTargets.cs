@@ -10,6 +10,7 @@ public class DoorTargets : MonoBehaviour
     [SerializeField] public bool interactOnce = true;
 
     [SerializeField] private bool isFakeButton = false;
+    [SerializeField] private AudioSource audio;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,11 +19,16 @@ public class DoorTargets : MonoBehaviour
         connectedDoor = GetComponentInParent<OpenDoors>();
         connectedDoor.targetNeeded += 1;
     }
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Weapon")
         {
             TargetIsHit();
+            audio.PlayOneShot(audio.clip);
         }
     }
     public void TargetIsHit()

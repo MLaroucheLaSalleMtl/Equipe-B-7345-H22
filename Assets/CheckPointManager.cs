@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPointManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CheckPointManager : MonoBehaviour
         if (other.CompareTag("Player") && this.playerStats.LastCheckpoint != transform.position)
         {
             this.playerStats.LastCheckpoint = transform.position;
+            playerStats.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
+            
         }
     }
 }

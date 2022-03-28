@@ -36,10 +36,9 @@ public class GrenadierBehaviour : Enemie
         base.GetStats();
         this.SetMeleeAnim();
         this.SetMeleeColl();
-        
-        //base.enemieType = EnemieType.CHOMPER;
-
-        //  base.startpos = transform.position;
+        this.LazerStats();
+        //save start pos for respawn
+        base.startpos = transform.position;
     }
     private  void LazerStats()
     {
@@ -105,16 +104,6 @@ public class GrenadierBehaviour : Enemie
         this.isLazerCooldown = false;
     }
     #endregion
-    //private Vector3Int IntTargetValuePosition()
-    //{
-    //    Vector3 targetPosition = base.myTarget.transform.position;
-    //    return new Vector3Int((int)(targetPosition.x), (int)(targetPosition.y), (int)(targetPosition.z));
-    //}
-    //private void NextRayCastValue()
-    //{
-    //    Vector3Int target = IntTargetValuePosition();
-    //    this.nextRayPos =  new Vector3(Random.Range((int)target.x - random_Lazer_Ray_Range, (int)target.x + random_Lazer_Ray_Range), target.y, target.z );
-    //}
 
     private void VisualLazerBeam()
     {
