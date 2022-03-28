@@ -32,7 +32,7 @@ public abstract class Enemie : MonoBehaviour
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
-
+    [Range(3f,25f)][SerializeField] private float randWalkValue;
     //melee attack variable
     protected bool attackDone = false;
     private float meleeImpluseForce;
@@ -215,10 +215,10 @@ public abstract class Enemie : MonoBehaviour
     
     private bool IsNextPosInArea(Vector3 nextPos)
     {
-        float yOffset = 1f; // add an offset to be able to check the areazone
+        //float yOffset = 1f; // add an offset to be able to check the areazone
         var maxRange = 1.2f; // add a range for the ray
         int layerMask = 1 << 17;
-        if (Physics.Raycast(new Vector3(nextPos.x, yOffset, nextPos.z), Vector3.down, out RaycastHit hit, maxRange, layerMask))
+        if (Physics.Raycast(nextPos, Vector3.down, out RaycastHit hit, maxRange, layerMask))
         {
             if(hit.collider.isTrigger && hit.collider.CompareTag(this.enemieArea))
             {
@@ -266,17 +266,8 @@ public abstract class Enemie : MonoBehaviour
     {
         if (walkDestinationSet)
             walkDestinationSet = false;
-        //SET IT TO TRANS.POSISITON
-        //var nextDestination = this.myTarget.transform.position;
-        //nextDestination.y = transform.position.y;
-        //if (IsValidPath(nextDestination))
-        //{
-            this.AgentDestination(this.myTarget.transform.position); //apply movement
-        //}
-      
-       
         
-
+            this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
 
     //protected void MovingBehaviour()
@@ -332,10 +323,10 @@ public abstract class Enemie : MonoBehaviour
         {
             StartCoroutine(this.ChangeBehaviour());
             //check path 
-            nextWalkDest = RandomEnemieDestionation(15f, 15f);
+            nextWalkDest = RandomEnemieDestionation();
             while (!IsNextPosInArea(nextWalkDest))
             {
-                nextWalkDest = RandomEnemieDestionation(15f, 15f);
+                nextWalkDest = RandomEnemieDestionation();
                 if (this.attackDone) return;
             }
             
@@ -346,10 +337,10 @@ public abstract class Enemie : MonoBehaviour
             walkDestinationSet = false;
     }
 
-    private Vector3 RandomEnemieDestionation(float minValue, float maxValue)
+    private Vector3 RandomEnemieDestionation()
     {
-        return new Vector3(Random.Range(transform.position.x - minValue, transform.position.x + maxValue),
-               transform.localPosition.y , Random.Range(transform.position.z - minValue, transform.position.z + maxValue));
+        return new Vector3(Random.Range(transform.position.x - this.randWalkValue, transform.position.x + this.randWalkValue),
+               transform.localPosition.y , Random.Range(transform.position.z - this.randWalkValue, transform.position.z + this.randWalkValue));
     }
 
     protected void MeleeAttack(string attackName)
