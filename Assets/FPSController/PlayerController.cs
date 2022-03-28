@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider capsule;
     private float capsuleScale;
 
+    [Header("Player Sound")]
+    private AudioSource audioS;
+    [SerializeField] private AudioClip footstepSound, runningSound, jumpingSound, landingSound, slidingSound;
+
     [Header("Player movement")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float baseSpeed = 40f;
@@ -76,11 +80,17 @@ public class PlayerController : MonoBehaviour
         capsule = GetComponent<CapsuleCollider>();
         capsuleScale = capsule.height;
         cam = GetComponentInChildren<Camera>();
+        audioS = GetComponent<AudioSource>();
     }
 
     private void Awake()
     {
         rayStepUpper.transform.position = new Vector3(rayStepUpper.transform.position.x, stepHeight, rayStepUpper.transform.position.z);
+    }
+
+    private void Update()
+    {
+        PlayFootstep();
     }
 
     // Update is called once per frame
@@ -246,6 +256,7 @@ public class PlayerController : MonoBehaviour
         if (runInput && isGrounded && !CheckIfCeiling())
         {
             moveSpeed = baseSpeed * runMultiplier;
+            PlayRunningFootstep();
         }
         else if (!runInput && !crouchInput && !isCrouched)
         {
@@ -325,8 +336,30 @@ public class PlayerController : MonoBehaviour
         if (jumpInput && isGrounded && !CheckIfCeiling())
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            audioS.PlayOneShot(jumpingSound);
             jumpInput = false;
         }
     }
-    
+    void PlayRunningFootstep()
+    {
+        if (rb.velocity.magnitude > 0.5f && audioS.isPlaying == false)
+        {
+            LoopingAudioClip(runningSound);
+        }
+    }
+    void PlayFootstep()
+    {
+        if(isGrounded && rb.velocity.magnitude > 1f && audioS.isPlaying == false)
+        {
+            LoopingAudioClip(footstepSound);
+        }
+    }
+    void LoopingAudioClip(AudioClip clip)
+    {
+        if (!audioS.isPlaying)
+        {
+            audioS.PlayOneShot(clip);
+            audioS.Play();
+        }
+    }
 }
