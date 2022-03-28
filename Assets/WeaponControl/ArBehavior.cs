@@ -10,6 +10,9 @@ public class ArBehavior : Attack
     [SerializeField] private Rigidbody bullets;
     [SerializeField] private GameObject muzzle;
 
+    private AudioSource audio;
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip reloadSound;
 
     private void Awake()
     {
@@ -26,6 +29,10 @@ public class ArBehavior : Attack
         isShooting = false;
         isReloading = false;
     }
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     public IEnumerator ShootRifle()
     {
         //if (!isAiming)
@@ -36,6 +43,8 @@ public class ArBehavior : Attack
         //{
         //    shotOffset = new Vector3(0f, 0f, 0f);
         //}
+        audio.clip = shootSound;
+        audio.PlayOneShot(audio.clip);
         damage.AmmoCount = damage.AmmoCount - 3;
         for (int i = 0; i<3; i++)
         {
@@ -81,6 +90,8 @@ public class ArBehavior : Attack
         {
             control.ReloadInput = false;
             base.Reloading("ArIsAim");
+            audio.clip = reloadSound;
+            audio.PlayOneShot(audio.clip);
             if (!isAiming)
             {
                 damage.AmmoCount = maxBullet;
