@@ -10,29 +10,42 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemie : MonoBehaviour
 {
+    // EnemieManager is use for respawn enemie after an amount of time
     private EnemieManager enemieManager;
+
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
-    protected float enemieRange ;
-    protected float MeleeAttackRange ;
 
+    //melee range  ,  player range detection
+    protected float enemieRange ;
+    protected float MeleeAttackRange;
+
+    //enemie area variable
     private string enemieArea;
     private bool isAreaSet = false;
-    // player gameobject position
+    
+    // player variable
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
     
     // patroll variable
     private bool walkDestinationSet;
     private Vector3 nextWalkDest;
+
+    //melee attack variable
     protected bool attackDone = false;
-    
+    private float meleeImpluseForce;
+    private bool powerIncresed = false;
+
     //revive variable
     [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
     [SerializeField] private bool isRevivable = true;
-    protected EnemieType enemieType;
+
+    //those value are set in awake method;
+    protected EnemieType enemieType; // can add this to scriptable initialisator
     protected Vector3 startpos;
+
 
     [SerializeField]private bool countAdded;
 
@@ -48,9 +61,7 @@ public abstract class Enemie : MonoBehaviour
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
    
-    //add force variable
-    private float meleeImpluseForce;
-    private bool powerIncresed = false;
+    
 
     //Get -- Set  section 
     //------------------------------------------------//
@@ -71,7 +82,6 @@ public abstract class Enemie : MonoBehaviour
     private void Start()
     {
         this.enemieManager = EnemieManager.instance;
-
     }
     protected void GetComponent()
     {
@@ -102,7 +112,7 @@ public abstract class Enemie : MonoBehaviour
         this.healthPoints = this.enemie_stats.HealthPoints;
         this.defensePoints = this.enemie_stats.DefensePoints;
         this.maxHealthPoints = this.healthPoints;
-        
+        this.enemieType = this.enemie_stats.Type;
         //set default range 
         this.enemieRange = this.enemie_stats.DetectionPlayerRange;
         this.MeleeAttackRange = this.enemie_stats.MeleeAttackRange;
@@ -257,15 +267,13 @@ public abstract class Enemie : MonoBehaviour
         if (walkDestinationSet)
             walkDestinationSet = false;
         //SET IT TO TRANS.POSISITON
-        var nextDestination = this.myTarget.transform.position;
-        nextDestination.y = transform.position.y;
-        if (IsValidPath(nextDestination))
-        {
+        //var nextDestination = this.myTarget.transform.position;
+        //nextDestination.y = transform.position.y;
+        //if (IsValidPath(nextDestination))
+        //{
             this.AgentDestination(this.myTarget.transform.position); //apply movement
-        }
-        else
-            this.AgentDestination(transform.position);
-
+        //}
+      
        
         
 

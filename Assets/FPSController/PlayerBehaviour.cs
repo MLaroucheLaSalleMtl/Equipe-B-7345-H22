@@ -31,10 +31,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
-            transform.position = player.LastCheckpoint;
-            player.PlayerArea = "";
-            Invoke("ResetHP", 1f);
             DeadInAreaBehaviour();
+            transform.position = player.LastCheckpoint;
+            //player.PlayerArea = "";
+            Invoke("ResetHP", 1f);
         }
     }
     private void ResetHP()

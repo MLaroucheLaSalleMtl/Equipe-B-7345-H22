@@ -27,8 +27,8 @@ public class ChomperBehaviour : Enemie
         this.needtomove = false;
         //position
         this.nextRunDest = new Vector3();
-        //***
-        base.enemieType = EnemieType.CHOMPER;
+
+        //save start pos for respawn
         base.startpos = transform.position;
 
     }
@@ -46,8 +46,6 @@ public class ChomperBehaviour : Enemie
     
     private void Update()
     {
-
-       
         //when update position before attack
         if (playerFound && needtomove)
         {
@@ -73,12 +71,6 @@ public class ChomperBehaviour : Enemie
             base.EnemieWalk();
         }
 
-        //if (base.healthPoints <= 0)
-        //{
-        //    base.respawnMe.isChomper = true;
-        //    base.respawnMe.startPosChomper = startpos;
-
-        //}
     }
     #region Animation event
     public void AttackBegin()

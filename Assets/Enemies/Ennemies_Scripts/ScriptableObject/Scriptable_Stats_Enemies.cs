@@ -13,6 +13,7 @@ public class Scriptable_Stats_Enemies : ScriptableObject
     [SerializeField] private float meleeAttackRange; // melle attack range
     [SerializeField] private float detectionPlayerRange; // range player detection
     [SerializeField] private float meleeImpluseForce; // push player
+    [SerializeField] private EnemieType type; // push player
     
 
     public string Name       { get => name; }
@@ -22,6 +23,5 @@ public class Scriptable_Stats_Enemies : ScriptableObject
     public float MeleeAttackRange { get => meleeAttackRange; }
     public float DetectionPlayerRange { get => detectionPlayerRange; }
     public float MeleeImpluseForce { get => meleeImpluseForce;  }
-
-
+    public EnemieType Type { get => type;  }
 }   
