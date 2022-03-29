@@ -11,7 +11,6 @@ public class DamageDone : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            print(damage.Damage);
             other.GetComponent<Enemie>().ReceiveDamage(damage.Damage);
             other.GetComponent<DisplayDamage>().PrintDamage();
         }

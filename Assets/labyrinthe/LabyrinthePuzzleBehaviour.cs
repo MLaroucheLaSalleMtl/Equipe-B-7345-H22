@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LabyrinthePuzzleBehaviour : MonoBehaviour
 {
     public static LabyrinthePuzzleBehaviour instance = null;
+    private EnemieManager enemieManager;
+
     [Header("Boss Door")]
-    [SerializeField] private GameObject player;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private GameObject SecretWall;
     [SerializeField] private Animator anim;
@@ -13,6 +17,11 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     [Header("puzzle gameobject")]
     [SerializeField] private GameObject[] puzzle;
     [SerializeField] private GameObject[] sheetForPuzzle;
+    [SerializeField] private GameObject lifeBourne;
+    [Header("Puzzle completed  Text")]
+    [SerializeField] private TMP_Text puzzle_Completed;
+
+    //private value
     private Vector3[] gameobjPos;
     private int[] rngNum;
     private int count = 0;
@@ -21,25 +30,34 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-
-        }
         else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-    private void Start()
-    {
+            Destroy(this);
+
+        enemieManager = EnemieManager.instance;
+
+        this.EnableEnemieCount();
         this.checkpoint.SetActive(false);
+        this.lifeBourne.SetActive(false);
+        this.puzzle_Completed.gameObject.GetComponentInParent<Image>().gameObject.SetActive(false);
         this.ListOfColor = InitializeListOfColor();
         this.InitialiseRngNumArray();
         this.RandomizePuzzleOrder();
-        this.InOrderPlatform(0, 0, this.puzzle.Length-1);
+        this.InOrderPlatform(0, 0, this.puzzle.Length - 1);
         this.ChargeTheColorRule(0, this.puzzle.Length);
-
     }
+
+    private void Start()
+    {
+    }
+
+    private void EnableEnemieCount()
+    {
+        this.playerStats.EnemiesCount = 0;
+        this.enemieManager.CanUseEnemieCounter(true);
+        this.enemieManager.DisplayEnemieCounter();
+    }
+
     private List<Color> InitializeListOfColor()
     {
         List<Color> ListOfColor = new List<Color>();
@@ -55,6 +73,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     
     private void InitialiseRngNumArray()
     {
+        //initialise to -1 to prevent stackoverflow default value is 0
         this.rngNum = new int[this.puzzle.Length];
         for (int i = 0; i < this.puzzle.Length; i++)
         {
@@ -94,7 +113,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     {
         if (i == lastIndex)
         {
-            //foreach(var color in ListOfColor)
+            //foreach (Color color in ListOfColor)
             //{
             //    ListOfColor.Remove(color);
             //}
@@ -110,47 +129,24 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     }
 
     #region OrderPlatform
-    private void InOrderPlatform(int i,int j, int lastElement)
+    private void InOrderPlatform(int currentElement,int index, int lastElement)
     {
        if(this.puzzle[lastElement].transform.position == gameobjPos[lastElement])
             return;
 
-        else if (this.puzzle[i].transform.position == this.gameobjPos[j])
+        else if (this.puzzle[currentElement].transform.position == this.gameobjPos[index])
         {
-            var temp = this.puzzle[j];
-            this.puzzle[j] = this.puzzle[i];
-            this.puzzle[i] = temp;
-            this.InOrderPlatform(0, ++j,this.puzzle.Length-1);
+            var temp = this.puzzle[index];
+            this.puzzle[index] = this.puzzle[currentElement];
+            this.puzzle[currentElement] = temp;
+            this.InOrderPlatform(0, ++index,this.puzzle.Length-1);
         }
         else
         {
-            InOrderPlatform(++i, j, this.puzzle.Length - 1);
-
+            InOrderPlatform(++currentElement, index, this.puzzle.Length - 1);
         }
     }
-    private void InOrderPlatform()
-    {
-
-        int lastElement = puzzle.Length - 1;
-        int i = 0, j = 0;
-        while (this.puzzle[lastElement].transform.position != gameobjPos[lastElement] )
-        {
-            if (  this.puzzle[i].transform.position == this.gameobjPos[j] )
-            {
-                var temp = this.puzzle[j];
-                this.puzzle[j] = this.puzzle[i];
-                this.puzzle[i] = temp;
-                j++;
-                i = 0;
-            }
-            else
-            {
-                i++;
-            }
-
-        }
-     
-    }
+   
     #endregion
 
 
@@ -166,7 +162,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                 {
                     platfrom.SetActive(false);
                     this.count++;
-                    break;
+                    return;
                 }
             }
         }
@@ -181,6 +177,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                     //fail sound
                 }
             }
+            return;
         }
 
         if (count == puzzle.Length)
@@ -191,28 +188,36 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                 Destroy(this.puzzle[i]);
                 Destroy(this.sheetForPuzzle[i]);
             }
-            // Invoke(nameof(TeleportPlayer), 2f);
-            //add ui to say that you complete the caleenge before tp
-            SetDoorAnim(true);
-            // Destroy(this.SecretWall, 2f);
+            //StartCoroutine(PuzzleCompletedDisplay());
+            Invoke(nameof(BossEvent), 0.5f);
             this.sheetForPuzzle = null;
             this.puzzle = null;
-            //this.gameobjPos = null;
-            this.checkpoint.SetActive(true);
         }
+    }
+    private IEnumerator PuzzleCompletedDisplay()
+    {
+        this.puzzle_Completed.GetComponentInParent<Image>().gameObject.SetActive(true);
+       // this.puzzle_Completed.gameObject.SetActive(true);
+        this.puzzle_Completed.text = "Puzzle completed now time for Boss";
+        yield return new WaitForSeconds(3f);
+        this.puzzle_Completed.GetComponentInParent<Image>().gameObject.SetActive(false);
+        //this.puzzle_Completed.gameObject.SetActive(false);
+    }
+
+    private void BossEvent()
+    {
+        SetDoorAnim(true);
+        this.enemieManager.RemoveAllEnemies();
+        this.enemieManager.CanUseEnemieCounter(false);
+        this.playerStats.EnemiesCount = 0;
+        this.checkpoint.SetActive(true);
+        this.lifeBourne.SetActive(true);
     }
 
     public void SetDoorAnim(bool isOpen)
     {
         anim.SetBool("isOpen", isOpen);
     }
-
-    //private void TeleportPlayer()
-    //{
-    //    this.playerStats.LastCheckpoint = this.whereToTp.position;
-    //    this.player.transform.position = this.whereToTp.position;
-    //}
-
     #endregion
 
 }

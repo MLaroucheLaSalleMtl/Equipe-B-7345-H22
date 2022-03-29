@@ -30,10 +30,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
+            DeadInAreaBehaviour();
             player.HealthPoints = this.player.MaxHP;
             transform.position = player.LastCheckpoint;
             //player.PlayerArea = "";
-            DeadInAreaBehaviour();
         }
     }
 
@@ -44,8 +44,6 @@ public class PlayerBehaviour : MonoBehaviour
             m_labEvent.Invoke();
         }
     }
-
-
 
     void PlayerLookAt()
     {
@@ -59,12 +57,6 @@ public class PlayerBehaviour : MonoBehaviour
             this.player.PlayerArea = other.tag;
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Area"))
-        {
-            this.player.PlayerArea = "";
-        }
-    }
+   
 
 }

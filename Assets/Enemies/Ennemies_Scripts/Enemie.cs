@@ -47,7 +47,7 @@ public abstract class Enemie : MonoBehaviour
     protected Vector3 startpos;
 
 
-    [SerializeField]private bool countAdded;
+    [SerializeField] private bool countAdded = false;
 
 
     //EnemieStats
@@ -56,7 +56,7 @@ public abstract class Enemie : MonoBehaviour
     private int maxHealthPoints;
     protected int defensePoints;
     protected int attackPower;
-   //Essential Components
+    //Essential Components
     protected Animator anim;
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
@@ -68,8 +68,9 @@ public abstract class Enemie : MonoBehaviour
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int RealDamage { get => InflictDamage(); }
     public float MeleeImpluseForce { get => meleeImpluseForce; }
-    public bool IsRevivable { get => isRevivable; set => isRevivable = value; }
-    
+    public int AttackPower { get => attackPower; set => attackPower = value; }
+
+
 
     //abstract methode  section 
     //------------------------------------------------//
@@ -82,6 +83,8 @@ public abstract class Enemie : MonoBehaviour
     private void Start()
     {
         this.enemieManager = EnemieManager.instance;
+        if (this.enemieType == EnemieType.CHOMPER)
+            this.enemieManager.ListOfChomper.Add(this);
     }
     protected void GetComponent()
     {
@@ -145,6 +148,7 @@ public abstract class Enemie : MonoBehaviour
             if (this.countAdded)
             {
                 this.playerStats.EnemiesCount += 1;
+                this.enemieManager.DisplayEnemieCounter();
                 this.countAdded = false;
             }
             if (this.isRevivable)

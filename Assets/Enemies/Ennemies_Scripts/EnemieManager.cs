@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,26 +26,24 @@ public class EnemieManager : MonoBehaviour
 {
     public static EnemieManager instance = null;
     [SerializeField] private GameObject[] enemiesPrefabs; //[0] chomper , [1] grenadier
+    public List<Enemie> ListOfChomper = new List<Enemie>();
+    [SerializeField] private TMP_Text EnemieCount;
+    [SerializeField] private PlayerStats playerStats;
 
     private void Awake()
     {
-
         if (instance == null)
-        {
             instance = this;
-
-        }
+        
         else if (instance != this)
-        {
             Destroy(this);
 
-        }
+        this.CanUseEnemieCounter(false);
     }
     private void Start()
     {
-        //Instantiate(enemiesPrefabs[0], new Vector3(-49.0200005f, 0f, 40.0900002f), Quaternion.identity);
+        //Invoke("RemoveAllEnemies", 5f);
     }
-
 
     private GameObject KindOfEnemie(EnemieType enemieType)
     {
@@ -61,8 +60,35 @@ public class EnemieManager : MonoBehaviour
 
     public IEnumerator EnemieReviver(EnemieData data)
     {
-        //GameObject enemieToRevive = KindOfEnemie(data.Type);
+        //verify
+        GameObject enemieToRevive = KindOfEnemie(data.Type);
         yield return new WaitForSeconds(data.Timer);
-        Instantiate(enemiesPrefabs[0], data.StartPos, Quaternion.identity);
+       var enemieCreated = Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
+        if(data.Type == EnemieType.CHOMPER)
+        {
+            ListOfChomper.Add(enemieCreated.GetComponent<Enemie>());
+        }
+    }
+
+    public void RemoveAllEnemies()
+    {
+       for(int count = ListOfChomper.Count-1; count >= 0 ; count--)
+       {
+            var current = ListOfChomper[count];
+            Destroy(current.gameObject);
+            ListOfChomper.Remove(current);
+       }
+        ListOfChomper = null;
+    }
+
+    public void DisplayEnemieCounter()
+    {
+        if (EnemieCount != null)
+            EnemieCount.text = "[count] : " + playerStats.EnemiesCount;
+    }
+    public void CanUseEnemieCounter(bool isEnable)
+    {
+        if(EnemieCount != null)
+             EnemieCount.gameObject.SetActive(isEnable);
     }
 }
