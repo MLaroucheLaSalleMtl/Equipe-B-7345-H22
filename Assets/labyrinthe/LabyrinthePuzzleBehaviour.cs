@@ -19,7 +19,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     [SerializeField] private GameObject[] sheetForPuzzle;
     [SerializeField] private GameObject lifeBourne;
     [Header("Puzzle completed  Text")]
-    [SerializeField] private TMP_Text puzzle_Completed;
+    [SerializeField] private GameObject puzzleDone_txt;
 
     //private value
     private Vector3[] gameobjPos;
@@ -33,13 +33,12 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(this);
-
-        enemieManager = EnemieManager.instance;
-
-        this.EnableEnemieCount();
+        //get enemieManager instance
+        this.enemieManager = EnemieManager.instance;
+        //gameobject in the scene
         this.checkpoint.SetActive(false);
         this.lifeBourne.SetActive(false);
-        this.puzzle_Completed.gameObject.GetComponentInParent<Image>().gameObject.SetActive(false);
+        //system to generate a random puzzle platform tosolve
         this.ListOfColor = InitializeListOfColor();
         this.InitialiseRngNumArray();
         this.RandomizePuzzleOrder();
@@ -49,6 +48,8 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
     private void Start()
     {
+        this.EnableEnemieCount();
+
     }
 
     private void EnableEnemieCount()
@@ -162,7 +163,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                 {
                     platfrom.SetActive(false);
                     this.count++;
-                    return;
+                    break;
                 }
             }
         }
@@ -188,20 +189,18 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                 Destroy(this.puzzle[i]);
                 Destroy(this.sheetForPuzzle[i]);
             }
-            //StartCoroutine(PuzzleCompletedDisplay());
-            Invoke(nameof(BossEvent), 0.5f);
+            StartCoroutine(PuzzleCompletedDisplay());
+            Invoke(nameof(BossEvent), 1f);
             this.sheetForPuzzle = null;
             this.puzzle = null;
         }
     }
     private IEnumerator PuzzleCompletedDisplay()
     {
-        this.puzzle_Completed.GetComponentInParent<Image>().gameObject.SetActive(true);
-       // this.puzzle_Completed.gameObject.SetActive(true);
-        this.puzzle_Completed.text = "Puzzle completed now time for Boss";
+        this.puzzleDone_txt.SetActive(true);
+        this.puzzleDone_txt.GetComponent<TMP_Text>().text = "Puzzle completed - Secret door open";
         yield return new WaitForSeconds(3f);
-        this.puzzle_Completed.GetComponentInParent<Image>().gameObject.SetActive(false);
-        //this.puzzle_Completed.gameObject.SetActive(false);
+        Destroy(puzzleDone_txt);
     }
 
     private void BossEvent()

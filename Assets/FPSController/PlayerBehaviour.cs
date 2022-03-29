@@ -33,7 +33,6 @@ public class PlayerBehaviour : MonoBehaviour
             DeadInAreaBehaviour();
             player.HealthPoints = this.player.MaxHP;
             transform.position = player.LastCheckpoint;
-            //player.PlayerArea = "";
         }
     }
 

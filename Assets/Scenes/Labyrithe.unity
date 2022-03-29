@@ -815,7 +815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.76
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -823,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.97
+      value: -82.2
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3495,6 +3495,10 @@ PrefabInstance:
     - target: {fileID: 2059916105963253925, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829817243187554062, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
@@ -11287,7 +11291,7 @@ MonoBehaviour:
   - {fileID: 1060426205}
   - {fileID: 1454377615}
   lifeBourne: {fileID: 417519855}
-  puzzle_Completed: {fileID: 2137046396}
+  puzzleDone_txt: {fileID: 0}
 --- !u!4 &1152383741
 Transform:
   m_ObjectHideFlags: 0
@@ -12197,7 +12201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.47
+      value: -58.1
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12205,7 +12209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.1
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13048,7 +13052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.3
+      value: 55.3
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13056,7 +13060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.54
+      value: -82.4
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13221,7 +13225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.16
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13229,7 +13233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.06
+      value: -39.3
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15430,7 +15434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.84
+      value: 45.4
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15438,7 +15442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -65.9
+      value: -66.6
       objectReference: {fileID: 0}
     - target: {fileID: 5589571174892813727, guid: 41ac01bc1db752b41a364513a0587e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22745,7 +22749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Puzzle completed now time for Boss
+  m_text: Puzzle completed - Secret door open
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -23045,7 +23049,7 @@ PrefabInstance:
     - target: {fileID: 568181669015346885, guid: c98d12c3668a0f0488f466fb8b9a7e86, type: 3}
       propertyPath: EnemieCount
       value: 
-      objectReference: {fileID: 1673854779}
+      objectReference: {fileID: 1916497576}
     - target: {fileID: 568181669015346885, guid: c98d12c3668a0f0488f466fb8b9a7e86, type: 3}
       propertyPath: playerStats
       value: 

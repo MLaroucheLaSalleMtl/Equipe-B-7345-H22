@@ -24,12 +24,12 @@ public class LabyrintheBoss : MonoBehaviour
 
     private void DeadBossBeahaviour()
     {
-        if(Boss.HealthPoints <= 0 )
         reward.SetActive(true);
     }
     private void Update()
     {
-        DeadBossBeahaviour();
+        if (Boss.HealthPoints <= 0)
+            Invoke(nameof(DeadBossBeahaviour), 1f);
     }
 
 }

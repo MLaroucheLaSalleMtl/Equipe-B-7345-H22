@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum EnemieType { CHOMPER, GRENADIER };
 public struct EnemieData
@@ -27,7 +29,7 @@ public class EnemieManager : MonoBehaviour
     public static EnemieManager instance = null;
     [SerializeField] private GameObject[] enemiesPrefabs; //[0] chomper , [1] grenadier
     public List<Enemie> ListOfChomper = new List<Enemie>();
-    [SerializeField] private TMP_Text EnemieCount;
+    [SerializeField] private GameObject EnemieCount;
     [SerializeField] private PlayerStats playerStats;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class EnemieManager : MonoBehaviour
         else if (instance != this)
             Destroy(this);
 
+        //if (SceneManager.GetSceneByName("Labyrithe").IsValid())
         this.CanUseEnemieCounter(false);
     }
     private void Start()
@@ -83,12 +86,13 @@ public class EnemieManager : MonoBehaviour
 
     public void DisplayEnemieCounter()
     {
-        if (EnemieCount != null)
-            EnemieCount.text = "[count] : " + playerStats.EnemiesCount;
+       // if (EnemieCount != null)
+            EnemieCount.GetComponentInChildren<TMP_Text>().text = "[count] : " + playerStats.EnemiesCount;
+
     }
     public void CanUseEnemieCounter(bool isEnable)
     {
-        if(EnemieCount != null)
-             EnemieCount.gameObject.SetActive(isEnable);
+        //if (EnemieCount != null)
+            EnemieCount.gameObject.SetActive(isEnable);
     }
 }
