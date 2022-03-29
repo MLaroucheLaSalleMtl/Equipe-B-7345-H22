@@ -10,12 +10,16 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject settingCanvas;
     [SerializeField] private PlayerController control;
+
+    [SerializeField] private Button btnContinue;
     private AudioSource audio;
 
     private int sceneToLoad;
     private void Start()
     {
         audio = GetComponent<AudioSource>();
+        if(player.LastCheckpoint == Vector3.zero) btnContinue.GetComponent<Button>().interactable = false;
+        else btnContinue.GetComponent<Button>().interactable = true;
     }
     public void StartNewGame()
     {
@@ -53,10 +57,17 @@ public class MainMenuManager : MonoBehaviour
     }
     public void BackToMainMenu()
     {
+        audio.PlayOneShot(audio.clip);
         SceneManager.LoadScene("MainMenu");
     }
     public void CloseMenu()
     {
-        
+        audio.PlayOneShot(audio.clip);
+        control.PauseInput = true;
+    }
+    public void BackToHub()
+    {
+        audio.PlayOneShot(audio.clip);
+        SceneManager.LoadScene("MainMap");
     }
 }

@@ -2142,6 +2142,8 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
   mainCanvas: {fileID: 12630953}
   settingCanvas: {fileID: 919804312}
+  control: {fileID: 0}
+  btnContinue: {fileID: 410063287}
 --- !u!4 &925667674
 Transform:
   m_ObjectHideFlags: 0

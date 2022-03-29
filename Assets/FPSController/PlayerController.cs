@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     private float oldTime = 0f;
     private bool isActive = false;
     [SerializeField] private Canvas playerGameplayUI;
+    [SerializeField] private PlayerInput input;
 
     private bool fireInput = false;
     private bool aimDownSightsInput = false;
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         PlayFootstep();
+        Pausing();
     }
 
     // Update is called once per frame
@@ -226,8 +228,13 @@ public class PlayerController : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         PauseInput = context.performed;
-        if(PauseInput)
+    }
+
+    public void Pausing()
+    {
+        if (PauseInput)
         {
+            PauseInput = false;
             float temp = oldTime;
             oldTime = Time.timeScale;
             Time.timeScale = temp;
@@ -236,6 +243,8 @@ public class PlayerController : MonoBehaviour
             {
                 pauseMenu.gameObject.SetActive(true);
                 playerGameplayUI.gameObject.SetActive(false);
+                this.gameObject.GetComponent<LookAround>().enabled = false;
+                input.DeactivateInput();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
@@ -244,6 +253,8 @@ public class PlayerController : MonoBehaviour
                 pauseMenu.gameObject.SetActive(false);
                 playerGameplayUI.gameObject.SetActive(true);
                 settingMenu.gameObject.SetActive(false);
+                this.gameObject.GetComponent<LookAround>().enabled = true;
+                input.ActivateInput();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
