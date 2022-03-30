@@ -10540,7 +10540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1065353300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11291,7 +11291,7 @@ MonoBehaviour:
   - {fileID: 1060426205}
   - {fileID: 1454377615}
   lifeBourne: {fileID: 417519855}
-  puzzleDone_txt: {fileID: 0}
+  puzzleDone_txt: {fileID: 1065353299}
 --- !u!4 &1152383741
 Transform:
   m_ObjectHideFlags: 0
@@ -19991,7 +19991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1916497577
 RectTransform:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
         this.RandomizePuzzleOrder();
         this.InOrderPlatform(0, 0, this.puzzle.Length - 1);
         this.ChargeTheColorRule(0, this.puzzle.Length);
+        this.puzzleDone_txt.SetActive(false);
     }
 
     private void Start()
