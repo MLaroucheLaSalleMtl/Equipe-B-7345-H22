@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5873252a29a926b4b813319df1a7630d, type: 3}
   m_Name: Lab_Level
   m_EditorClassIdentifier: 
-  x: 
+  eventProgress:
+  - eventName: zone1
+    isCompleted: 0
+    eventCheckPoint: {x: 0, y: 0, z: 0}
+  - eventName: zone2
+    isCompleted: 0
+    eventCheckPoint: {x: 0, y: 0, z: 0}
+  - eventName: zone3
+    isCompleted: 0
+    eventCheckPoint: {x: 0, y: 0, z: 0}
