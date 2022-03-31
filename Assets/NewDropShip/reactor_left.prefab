@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3693641044255757021}
   - component: {fileID: 809173132599530144}
   - component: {fileID: 8315563229500742462}
+  - component: {fileID: 1975148680}
+  - component: {fileID: 1975148673}
+  - component: {fileID: 1975148674}
   m_Layer: 0
   m_Name: reactor_left
   m_TagString: Untagged
@@ -196,3 +199,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &1975148680
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901037815955813128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3385809203700434052, guid: 7836c6581beb67c48b0491340a328df0, type: 3}
+--- !u!114 &1975148673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901037815955813128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a28debbfb37e884eaab7cd476c8cc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToOpenID: 2
+--- !u!114 &1975148674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901037815955813128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f746a6e83e568247ad98f2cb611d4bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  currentLevel: 0
+  audio: {fileID: 0}

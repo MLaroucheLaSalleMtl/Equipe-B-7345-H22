@@ -7,11 +7,17 @@ public class InteractWithButton : MonoBehaviour
 {
     [SerializeField] private PlayerController control;
     [SerializeField] private TMP_Text interactText;
-    [SerializeField] private bool canInteract = false;
+    public bool canInteract = false;
     [SerializeField] private AudioSource audio;
+    [SerializeField] private bool isSkipLevel = false;
+    private SkipButtons skipbutton = null;
     // Start is called before the first frame update
     void Start()
     {
+        if (isSkipLevel)
+        {
+            skipbutton = GetComponent<SkipButtons>();
+        }
         audio = GetComponent<AudioSource>();
         control = GameObject.Find("Player").GetComponent<PlayerController>();
     }
@@ -27,6 +33,18 @@ public class InteractWithButton : MonoBehaviour
             canInteract = false;
             GetComponent<DoorTargets>().TargetIsHit();
             interactText.gameObject.SetActive(false);
+            if(isSkipLevel)
+            {
+                if (!skipbutton.needVerif)
+                {
+                    skipbutton.MovePlayerSkip();
+                }
+                if (skipbutton.needVerif)
+                {
+                    skipbutton.NeedVerif();
+                }
+                
+            }
         }
     }
 
@@ -34,8 +52,9 @@ public class InteractWithButton : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            interactText.gameObject.SetActive(true);
             canInteract = true;
+            if (!skipbutton.needVerif) return;
+            interactText.gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)

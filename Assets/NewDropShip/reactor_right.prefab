@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3654239782991076944}
   - component: {fileID: 1378238571610544064}
   - component: {fileID: 2154138142997059875}
+  - component: {fileID: 291835405}
+  - component: {fileID: 291835406}
   m_Layer: 0
   m_Name: reactor_right
   m_TagString: Untagged
@@ -211,3 +213,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 926389398385390194, guid: a6a5f36b1e79c8540917ac9d9ef88d20, type: 3}
+--- !u!114 &291835405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817608049999483640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a28debbfb37e884eaab7cd476c8cc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToOpenID: 2
+--- !u!114 &291835406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817608049999483640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f746a6e83e568247ad98f2cb611d4bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  currentLevel: 0
+  audio: {fileID: 0}

@@ -76,27 +76,38 @@ public class OpenDoors : MonoBehaviour
     {
         if(targetNeeded > 1)
         {
-            canvasTimer.gameObject.SetActive(true);
-            targetTimer.gameObject.SetActive(true); //on the player
             for (timer = resetTime; timer > 0; timer -= Time.deltaTime)
             {
+                canvasTimer.gameObject.SetActive(true);
+                targetTimer.gameObject.SetActive(true); //on the player
                 if (targetAmount != targetNeeded)
                 {
                     float temp = (float)Math.Round(timer, 2);
                     timerText.text = "Timer: " + temp.ToString();
                 }
                 targetTimerText.text = targetAmount + "/" + targetNeeded;
+                if (targetAmount == targetNeeded)
+                {
+                    yield return new WaitForSeconds(1f);
+                    canvasTimer.gameObject.SetActive(false);
+                    targetTimer.gameObject.SetActive(false); //on the player
+                    //StopCoroutine(ResetAllTargets());
+                    break;
+                }
                 yield return null;
             }
-            //yield return new WaitForSeconds(resetTime);
-            for (int i = 0; i < allTargets.Length; i++)
-            {
-                allTargets[i].ResetTarget();
-                targetAmount = 0;
-                canvasTimer.gameObject.SetActive(false);
-                targetTimer.gameObject.SetActive(false); //on the player
-            }
             
+            //yield return new WaitForSeconds(resetTime);
+            if(targetAmount != targetNeeded)
+            {
+                for (int i = 0; i < allTargets.Length; i++)
+                {
+                    allTargets[i].ResetTarget();
+                    targetAmount = 0;
+                    canvasTimer.gameObject.SetActive(false);
+                    targetTimer.gameObject.SetActive(false); //on the player
+                }
+            }
         }
     }
 }
