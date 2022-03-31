@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5873252a29a926b4b813319df1a7630d, type: 3}
   m_Name: Lab_Level
   m_EditorClassIdentifier: 
+  LevelName: Steven level
   eventProgress:
-  - eventName: zone1
-    isCompleted: 0
-    eventCheckPoint: {x: 0, y: 0, z: 0}
-  - eventName: zone2
-    isCompleted: 0
-    eventCheckPoint: {x: 0, y: 0, z: 0}
-  - eventName: zone3
-    isCompleted: 0
-    eventCheckPoint: {x: 0, y: 0, z: 0}
+  - checkPointName: EntryZone
+    isCompleted: 1
+    checkPoint: {x: 1.77, y: 1, z: 47.88}
+  - checkPointName: SecondZone
+    isCompleted: 1
+    checkPoint: {x: 12.38, y: 1, z: -25.02}
+  - checkPointName: BossZone
+    isCompleted: 1
+    checkPoint: {x: -16.21, y: 1, z: -74.29}

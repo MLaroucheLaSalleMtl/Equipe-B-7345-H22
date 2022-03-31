@@ -31,6 +31,10 @@ public class EnemieManager : MonoBehaviour
     public List<Enemie> ListOfChomper = new List<Enemie>();
     [SerializeField] private GameObject EnemieCount;
     [SerializeField] private PlayerStats playerStats;
+    public int tokenCount = 0;
+   [SerializeField] public const int  MAX_TOKEN = 3;
+
+    public int TokenCount { get => tokenCount; set => tokenCount = value; }
 
     private void Awake()
     {
@@ -95,4 +99,20 @@ public class EnemieManager : MonoBehaviour
         //if (EnemieCount != null)
             EnemieCount.gameObject.SetActive(isEnable);
     }
+    #region token management
+    public bool CanHaveToken()
+    {
+        return tokenCount < MAX_TOKEN;
+    }
+
+    public void GiveEnemieToken()
+    {
+            tokenCount++;
+    }
+    public void RemoveEnemieToken()
+    {
+        if(TokenCount>0)
+        tokenCount--;
+    }
+    #endregion
 }

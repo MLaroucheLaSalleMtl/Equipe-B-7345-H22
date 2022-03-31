@@ -13,7 +13,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private GameObject SecretWall;
     [SerializeField] private Animator anim;
-    [SerializeField] private GameObject checkpoint;
+    [SerializeField] private GameObject bossCheckpoint;
     [Header("puzzle gameobject")]
     [SerializeField] private GameObject[] puzzle;
     [SerializeField] private GameObject[] sheetForPuzzle;
@@ -21,6 +21,8 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     [Header("Puzzle completed  Text")]
     [SerializeField] private GameObject puzzleDone_txt;
 
+    [Header("Progress ")]
+    [SerializeField] private CurrentProgressLevel currentProgress;
     //private value
     private Vector3[] gameobjPos;
     private int[] rngNum;
@@ -33,10 +35,33 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(this);
-        //get enemieManager instance
+        
         this.enemieManager = EnemieManager.instance;
-        //gameobject in the scene
-        this.checkpoint.SetActive(false);
+
+
+
+        ////gameobject in the scene
+        //this.bossCheckpoint.SetActive(false);
+        //this.lifeBourne.SetActive(false);
+        ////system to generate a random puzzle platform tosolve
+        //this.ListOfColor = InitializeListOfColor();
+        //this.InitialiseRngNumArray();
+        //this.RandomizePuzzleOrder();
+        //this.InOrderPlatform(0, 0, this.puzzle.Length - 1);
+        //this.ChargeTheColorRule(0, this.puzzle.Length);
+        //this.puzzleDone_txt.SetActive(false);
+        this.ProgressBehaviour();
+        
+    }
+
+
+    private void EntryZone()
+    {
+        //if(currentProgress.GetLastProgressName() == "EntryZone")
+        //{
+        //    playerStats.PlayerArea = "";
+        //}
+        this.bossCheckpoint.SetActive(false);
         this.lifeBourne.SetActive(false);
         //system to generate a random puzzle platform tosolve
         this.ListOfColor = InitializeListOfColor();
@@ -47,17 +72,35 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
         this.puzzleDone_txt.SetActive(false);
     }
 
+    private void ProgressBehaviour()
+    {
+        switch (currentProgress.GetLastProgressName())
+        {
+            case "EntryZone":
+            case "SecondZone":
+                EntryZone();
+                break;
+
+            case "BossZone":
+                Invoke(nameof(BossEvent), 0.5f);
+                break;
+        }
+    }
+
     private void Start()
     {
         this.EnableEnemieCount();
-
     }
 
     private void EnableEnemieCount()
     {
-        this.playerStats.EnemiesCount = 0;
-        this.enemieManager.CanUseEnemieCounter(true);
-        this.enemieManager.DisplayEnemieCounter();
+        if (currentProgress.GetLastProgressName() != "BossZone")
+        {
+
+            this.playerStats.EnemiesCount = 0;
+            this.enemieManager.CanUseEnemieCounter(true);
+            this.enemieManager.DisplayEnemieCounter();
+        }
     }
 
     private List<Color> InitializeListOfColor()
@@ -210,7 +253,9 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
         this.enemieManager.RemoveAllEnemies();
         this.enemieManager.CanUseEnemieCounter(false);
         this.playerStats.EnemiesCount = 0;
-        this.checkpoint.SetActive(true);
+        if (currentProgress.GetLastProgressName() != "BossZone")
+            this.bossCheckpoint.SetActive(true);
+
         this.lifeBourne.SetActive(true);
     }
 

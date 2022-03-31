@@ -7,12 +7,15 @@ using UnityEngine.Events;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
+     private ProgressManager progress;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private UnityEvent m_labEvent; //labyrinthe ----- BossBoxCollider, labPuzlle.dooranim
 
     private void Awake()
     {
         player.HealthPoints = this.player.MaxHP;
+        this.progress = ProgressManager.instance;
+        this.transform.position = progress.CurrentLevel.GetLastProgress();
     }
 
 

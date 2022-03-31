@@ -11,7 +11,7 @@ using UnityEngine.Events;
 public abstract class Enemie : MonoBehaviour
 {
     // EnemieManager is use for respawn enemie after an amount of time
-    private EnemieManager enemieManager;
+    protected EnemieManager enemieManager;
 
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
@@ -47,6 +47,8 @@ public abstract class Enemie : MonoBehaviour
     protected Vector3 startpos;
 
 
+    public bool haveToken = false;
+
     [SerializeField] private bool countAdded = false;
 
 
@@ -60,8 +62,27 @@ public abstract class Enemie : MonoBehaviour
     protected Animator anim;
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
-   
-    
+
+    public void TokenManagement()
+    {
+        if (this.CanHaveToken() && !this.haveToken && this.healthPoints > 0 && this.enemieManager.CanHaveToken())
+        {
+            this.enemieManager.GiveEnemieToken();
+            this.haveToken = true;
+        }
+
+        else if (this.healthPoints <= 0 && this.haveToken)
+        {
+            this.enemieManager.RemoveEnemieToken();
+            this.haveToken = false;
+        }
+
+        else if(!PlayerDetected() && this.haveToken)
+        {
+            this.enemieManager.RemoveEnemieToken();
+            this.haveToken = false;
+        }
+    }
 
     //Get -- Set  section 
     //------------------------------------------------//
@@ -136,7 +157,8 @@ public abstract class Enemie : MonoBehaviour
     {
         this.anim.SetFloat("magnitude", this.agent.velocity.magnitude);
         this.anim.SetBool("isPlayer", this.PlayerDetected());
-        DeadBehaviour();
+        this.DeadBehaviour();
+        this.TokenManagement();
     }
     private void DeadBehaviour()
     {
@@ -166,11 +188,15 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/ && this.enemieArea == this.playerStats.PlayerArea;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.haveToken;
+    } 
+    protected bool CanHaveToken()
+    {
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea ;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) ;
     }
 
     protected void ResetHealth()
@@ -311,7 +337,7 @@ public abstract class Enemie : MonoBehaviour
             this.enemieRange = enemieRange;
         }
     }
-    public bool IsValidPath(Vector3 path)
+    protected bool IsValidPath(Vector3 path)
     {
         NavMeshPath navPath = new NavMeshPath();
         this.agent.CalculatePath(path, navPath);

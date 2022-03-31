@@ -114,8 +114,13 @@ public class ChomperBehaviour : Enemie
          if (!isDestChange)
          {
             StartCoroutine(base.ChangeBehaviour());
-            nextRunDest = (transform.position + (new Vector3(base.myTarget.transform.position.x - transform.position.x, 0,
+            this.nextRunDest = (transform.position + (new Vector3(base.myTarget.transform.position.x - transform.position.x, 0,
                         base.myTarget.transform.position.z - transform.position.z).normalized * -4.5f));
+            if (!base.IsValidPath(this.nextRunDest))
+            {
+                needtomove = false;
+                return;
+            }
             isDestChange = true;
          }
        
