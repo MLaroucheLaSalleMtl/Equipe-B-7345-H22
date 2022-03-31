@@ -2139,6 +2139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77deec4c01f557a47a3994453e09cbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 1
   player: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
   mainCanvas: {fileID: 12630953}
   settingCanvas: {fileID: 919804312}

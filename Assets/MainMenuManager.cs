@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private bool isMainMenu;
     [SerializeField] private PlayerStats player;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject settingCanvas;
@@ -18,8 +19,11 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         audio = GetComponent<AudioSource>();
-        if(player.LastCheckpoint == Vector3.zero) btnContinue.GetComponent<Button>().interactable = false;
-        else btnContinue.GetComponent<Button>().interactable = true;
+        if(isMainMenu)
+        {
+            if (player.LastCheckpoint == Vector3.zero) btnContinue.GetComponent<Button>().interactable = false;
+            else btnContinue.GetComponent<Button>().interactable = true;
+        }
     }
     public void StartNewGame()
     {
