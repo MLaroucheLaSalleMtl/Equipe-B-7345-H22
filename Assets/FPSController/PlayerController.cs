@@ -251,8 +251,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 pauseMenu.gameObject.SetActive(false);
-                playerGameplayUI.gameObject.SetActive(true);
                 settingMenu.gameObject.SetActive(false);
+                playerGameplayUI.gameObject.SetActive(true);
                 this.gameObject.GetComponent<LookAround>().enabled = true;
                 input.ActivateInput();
                 Cursor.lockState = CursorLockMode.Locked;

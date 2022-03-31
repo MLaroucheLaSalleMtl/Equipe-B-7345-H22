@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject settingCanvas;
     [SerializeField] private PlayerController control;
+    [SerializeField] private Button resume;
 
     [SerializeField] private Button btnContinue;
     private AudioSource audio;

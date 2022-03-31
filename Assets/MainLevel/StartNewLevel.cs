@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StartNewLevel : MonoBehaviour
 {
-    public int levelToOpenID;
+    public string levelToOpenName;
     private float blackingScreentimer = 2.5f;
     private Image blackSceen;
     private AudioSource audio;
@@ -27,6 +27,7 @@ public class StartNewLevel : MonoBehaviour
     {
         blackSceen.gameObject.GetComponent<Animator>().SetTrigger("Start");
         yield return new WaitForSeconds(blackingScreentimer);
-        SceneManager.LoadScene(levelToOpenID);
+        SceneManager.LoadScene(levelToOpenName);
+
     }
 }

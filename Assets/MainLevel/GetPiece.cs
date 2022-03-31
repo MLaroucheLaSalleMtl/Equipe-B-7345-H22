@@ -24,12 +24,12 @@ public class GetPiece : MonoBehaviour
             audio.PlayOneShot(audio.clip);
             switch (currentLevel)
             {
-                case 2: player.GotMarcPiece = true;
-                    break;
-                case 3:
-                    player.GotSebPiece = true;
+                case 3: player.GotMarcPiece = true;
                     break;
                 case 4:
+                    player.GotSebPiece = true;
+                    break;
+                case 5:
                     player.GotStevenPiece = true;
                     break;
                 default:
