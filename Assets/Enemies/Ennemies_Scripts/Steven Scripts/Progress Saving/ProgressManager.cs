@@ -27,7 +27,7 @@ public class ProgressManager : MonoBehaviour
     private void AssignEventPosition()
     {
         //this mean that all position are set correclty
-        if (ListOfProgress[ListOfProgress.Length - 1].checkPoint != Vector3.zero) 
+        if (ListOfProgress[ListOfProgress.Length - 1].checkPoint != Vector3.zero ) 
             return;
 
             for (int i = 0; i < checkpointPos.Length; i++)
@@ -40,7 +40,7 @@ public class ProgressManager : MonoBehaviour
     {
         for(int i = 0; i <ListOfProgress.Length; i++)
         {
-            if (ListOfProgress[i].checkPoint == checkPointPos)
+            if (ListOfProgress[i].checkPoint == checkPointPos && !ListOfProgress[i].isCompleted)
             {
                 ListOfProgress[i].isCompleted = true;
                 return true;

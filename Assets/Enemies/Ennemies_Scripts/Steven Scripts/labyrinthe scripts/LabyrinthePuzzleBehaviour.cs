@@ -82,7 +82,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
                 break;
 
             case "BossZone":
-                Invoke(nameof(BossEvent), 0.5f);
+                Invoke(nameof(BossEvent), 0.1f);
                 break;
         }
     }

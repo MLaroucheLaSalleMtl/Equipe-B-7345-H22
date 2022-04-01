@@ -14,10 +14,12 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         player.HealthPoints = this.player.MaxHP;
+    }
+    private void Start()
+    {
         this.progress = ProgressManager.instance;
         this.transform.position = progress.CurrentLevel.GetLastProgress();
     }
-
 
     // Update is called once per frame
     void Update()

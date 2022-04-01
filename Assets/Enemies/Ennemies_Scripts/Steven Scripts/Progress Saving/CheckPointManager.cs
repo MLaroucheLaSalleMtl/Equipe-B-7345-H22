@@ -9,8 +9,12 @@ public class CheckPointManager : MonoBehaviour
     private ProgressManager currentProgress;
     private void Awake()
     {
-        currentProgress = ProgressManager.instance;
         GetComponent<Collider>().isTrigger = true;
+    }
+    private void Start()
+    {
+        currentProgress = ProgressManager.instance;
+
     }
     private void OnTriggerEnter(Collider other)
     {
