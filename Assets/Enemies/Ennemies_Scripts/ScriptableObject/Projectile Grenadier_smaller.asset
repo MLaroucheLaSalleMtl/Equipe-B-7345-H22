@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Projectile Grenadier_smaller
   m_EditorClassIdentifier: 
   lazerMaxRange: 15
-  lazerMinRange: 5
+  lazerMinRange: 2
   lazerImpulseForce: 15
   lazerDamage: 15
-  lazerResetTime: 5
+  lazerResetTime: 1.5
