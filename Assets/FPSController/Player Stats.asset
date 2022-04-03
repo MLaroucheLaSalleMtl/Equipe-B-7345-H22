@@ -17,13 +17,8 @@ MonoBehaviour:
   energyPoints: 0
   lastCheckpoint: {x: 1.77, y: 1, z: 47.88}
   playerLevel: 4
-<<<<<<< Updated upstream
   enemiesCount: 5
   playerArea: Area1
-=======
-  enemiesCount: 0
-  playerArea: Area0
->>>>>>> Stashed changes
   gotMarcPiece: 0
   gotSebPiece: 0
   gotStevenPiece: 0
