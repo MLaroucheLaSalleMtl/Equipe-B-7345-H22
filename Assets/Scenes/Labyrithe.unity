@@ -7343,10 +7343,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grenadier
       objectReference: {fileID: 0}
-    - target: {fileID: 1512163676551859997, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: myTarget
       value: 
@@ -15000,14 +14996,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1538855125}
     m_Modifications:
-    - target: {fileID: 1616169524, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1616169524, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1707212157, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: player
       value: 

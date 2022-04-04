@@ -1555,7 +1555,6 @@ MonoBehaviour:
   handColls:
   - {fileID: 1512163676551434930}
   - {fileID: 1512163676551435094}
-  lazerSound: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
 --- !u!195 &1512163677963025503
 NavMeshAgent:
   m_ObjectHideFlags: 0
