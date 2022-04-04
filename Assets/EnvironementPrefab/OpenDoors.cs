@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpenDoors : MonoBehaviour
 {
@@ -23,19 +24,25 @@ public class OpenDoors : MonoBehaviour
 
     private void Awake()
     {
-        canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
-        timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
-        targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
-        targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
+        if(SceneManager.GetActiveScene().name == "PuzzleLevel")
+        {
+            canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
+            timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
+            targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
+            targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
 
-        allTargets = GetComponentsInChildren<DoorTargets>();
-        button = GetComponentInChildren<InteractWithButton>();
+            allTargets = GetComponentsInChildren<DoorTargets>();
+            button = GetComponentInChildren<InteractWithButton>();
+        }
     }
 
     private void Start()
     {
-        canvasTimer.gameObject.SetActive(false);
-        targetTimer.gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "PuzzleLevel")
+        {
+            canvasTimer.gameObject.SetActive(false);
+            targetTimer.gameObject.SetActive(false);
+        }   
     }
 
     private void OnTriggerStay(Collider other)
@@ -51,8 +58,8 @@ public class OpenDoors : MonoBehaviour
         {
             targetAmount = 0;
             targetCountHit = false;
-            anim.SetBool("Open", false);
             button.GetComponent<DoorTargets>().ResetTarget();
+            anim.SetBool("Open", false);
         }
     }
 

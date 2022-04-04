@@ -25,7 +25,7 @@ public class InteractWithButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(control.InteractInput && canInteract && GetComponent<DoorTargets>().interactOnce)
+        if (control.InteractInput && canInteract && GetComponent<DoorTargets>().interactOnce)
         {
             control.InteractInput = false;
             audio.PlayOneShot(audio.clip);
@@ -33,7 +33,7 @@ public class InteractWithButton : MonoBehaviour
             canInteract = false;
             GetComponent<DoorTargets>().TargetIsHit();
             interactText.gameObject.SetActive(false);
-            if(isSkipLevel)
+            if (isSkipLevel)
             {
                 if (!skipbutton.needVerif)
                 {
@@ -43,17 +43,16 @@ public class InteractWithButton : MonoBehaviour
                 {
                     skipbutton.NeedVerif();
                 }
-                
             }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             canInteract = true;
-            if (!skipbutton.needVerif) return;
+            if (isSkipLevel && !skipbutton.needVerif) return;
             interactText.gameObject.SetActive(true);
         }
     }

@@ -14,25 +14,42 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button resume;
 
     [SerializeField] private Button btnContinue;
+    [SerializeField] private Button btnHub;
     private AudioSource audio;
 
     private int sceneToLoad;
+
+    [SerializeField] private CurrentProgressLevel[] progress;
     private void Start()
     {
         audio = GetComponent<AudioSource>();
         if(isMainMenu)
         {
-            if (player.LastCheckpoint == Vector3.zero) btnContinue.GetComponent<Button>().interactable = false;
+            if (progress[0].GetLastProgressName() == "CheckPointStart") btnContinue.GetComponent<Button>().interactable = false;
             else btnContinue.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            if (player.PlayerLevel == 1) btnHub.GetComponent<Button>().interactable = false;
+            else btnHub.GetComponent<Button>().interactable = true;
         }
     }
     public void StartNewGame()
     {
+        ClearCheckpoints();
         audio.PlayOneShot(audio.clip);
         SceneManager.LoadScene("TutorialLevel");
+
         //sceneToLoad = SceneManager.GetSceneByName("TutorialLevel");
         //print(sceneToLoad);
         //SceneManager.LoadScene(sceneToLoad);
+    }
+    private void ClearCheckpoints()
+    {
+        for (int i = 0; i < progress.Length; i++)
+        {
+            progress[i].ResetForNewGame();
+        }
     }
     public void ContinueLevel()
     {
@@ -72,6 +89,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void BackToHub()
     {
+        ClearCheckpoints();
         audio.PlayOneShot(audio.clip);
         SceneManager.LoadScene("MainMap");
     }

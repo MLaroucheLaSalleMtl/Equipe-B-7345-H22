@@ -11,8 +11,8 @@ using UnityEngine.Events;
 public abstract class Enemie : MonoBehaviour
 {
     // EnemieManager is use for respawn enemie after an amount of time
-    private EnemieManager enemieManager;
-
+    protected EnemieManager enemieManager;
+    private bool isRemoved = false;
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -22,7 +22,7 @@ public abstract class Enemie : MonoBehaviour
     protected float MeleeAttackRange;
 
     //enemie area variable
-    private string enemieArea;
+   [SerializeField] private string enemieArea;
     private bool isAreaSet = false;
     
     // player variable
@@ -41,13 +41,19 @@ public abstract class Enemie : MonoBehaviour
     //revive variable
     [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
     [SerializeField] private bool isRevivable = true;
-
+    private bool isDead = false;
+    //Sounds
+    [SerializeField] protected AudioClip breathingSound, deadSound, meleeAttackSound;
+    [SerializeField] protected AudioSource audioSource;
+    private bool isPlayed = false;
     //those value are set in awake method;
     protected EnemieType enemieType; // can add this to scriptable initialisator
     protected Vector3 startpos;
 
 
-    [SerializeField]private bool countAdded;
+    public bool haveToken = false;
+
+    [SerializeField] private bool countAdded = false;
 
 
     //EnemieStats
@@ -56,20 +62,45 @@ public abstract class Enemie : MonoBehaviour
     private int maxHealthPoints;
     protected int defensePoints;
     protected int attackPower;
-   //Essential Components
+    //Essential Components
     protected Animator anim;
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
-   
-    
+
+
+    protected void SetSound(AudioClip audio)
+    {
+        this.audioSource.PlayOneShot(audio);
+    }
+    public void TokenManagement()
+    {
+        if (this.CanHaveToken() && !this.haveToken && this.healthPoints > 0 && this.enemieManager.CanHaveToken())
+        {
+            this.enemieManager.GiveEnemieToken();
+            this.haveToken = true;
+        }
+
+        else if (this.healthPoints <= 0 && this.haveToken)
+        {
+            this.enemieManager.RemoveEnemieToken();
+            this.haveToken = false;
+        }
+
+        else if(!PlayerDetected() && this.haveToken)
+        {
+            this.enemieManager.RemoveEnemieToken();
+            this.haveToken = false;
+        }
+    }
 
     //Get -- Set  section 
     //------------------------------------------------//
     public int HealthPoints { get => healthPoints; set => healthPoints = value; }
     public int RealDamage { get => InflictDamage(); }
     public float MeleeImpluseForce { get => meleeImpluseForce; }
-    public bool IsRevivable { get => isRevivable; set => isRevivable = value; }
-    
+    public int AttackPower { get => attackPower; set => attackPower = value; }
+
+
 
     //abstract methode  section 
     //------------------------------------------------//
@@ -81,7 +112,9 @@ public abstract class Enemie : MonoBehaviour
 
     private void Start()
     {
-        this.enemieManager = EnemieManager.instance;
+           this.enemieManager = EnemieManager.instance;
+            if (this.enemieType == EnemieType.CHOMPER)
+                this.enemieManager.ListOfChomper.Add(this);
     }
     protected void GetComponent()
     {
@@ -133,18 +166,26 @@ public abstract class Enemie : MonoBehaviour
     {
         this.anim.SetFloat("magnitude", this.agent.velocity.magnitude);
         this.anim.SetBool("isPlayer", this.PlayerDetected());
-        DeadBehaviour();
+        this.DeadBehaviour();
+        this.TokenManagement();
     }
     private void DeadBehaviour()
     {
         if (this.healthPoints <= 0)
         {
-            this.AgentDestination(transform.position);
-            this.anim.SetBool("isDead", true);
-            this.agent.isStopped = true;
+            if (!isDead)
+            {
+                this.AgentDestination(transform.position);
+                this.anim.SetBool("isDead", true);
+                this.agent.isStopped = true;
+                this.SetSound(this.deadSound);
+                isDead = true;
+            }
+
             if (this.countAdded)
             {
                 this.playerStats.EnemiesCount += 1;
+                this.enemieManager.DisplayEnemieCounter();
                 this.countAdded = false;
             }
             if (this.isRevivable)
@@ -153,6 +194,14 @@ public abstract class Enemie : MonoBehaviour
                 EnemieData enemieData = new EnemieData(this.enemieType, this.startpos, this.reviveTimer);
                 this.enemieManager.StartCoroutine(this.enemieManager.EnemieReviver(enemieData));
             }
+            
+            if (!this.isRemoved && this.enemieType == EnemieType.CHOMPER)
+            {
+                this.enemieManager.ListOfChomper.Remove(this);
+                this.isRemoved = true;
+            }
+
+
             Destroy( gameObject, 1.5f);
         }
     }
@@ -162,11 +211,15 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/ && this.enemieArea == this.playerStats.PlayerArea;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.haveToken;
+    } 
+    protected bool CanHaveToken()
+    {
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea ;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) /*&& playerStats.HealthPoints > 0*/;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) ;
     }
 
     protected void ResetHealth()
@@ -264,12 +317,18 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
+        print("chasse");
+        if (!isPlayed)
+        {
+            this.SetSound(this.breathingSound);
+            isPlayed = true;
+        }
         if (walkDestinationSet)
             walkDestinationSet = false;
         
             this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
-
+    
     //protected void MovingBehaviour()
     //{
     //    if (this.obstacle.enabled != false && this.agent.enabled != true)
@@ -307,7 +366,7 @@ public abstract class Enemie : MonoBehaviour
             this.enemieRange = enemieRange;
         }
     }
-    public bool IsValidPath(Vector3 path)
+    protected bool IsValidPath(Vector3 path)
     {
         NavMeshPath navPath = new NavMeshPath();
         this.agent.CalculatePath(path, navPath);
@@ -319,6 +378,9 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieWalk()
     {
+        if (isPlayed)
+            isPlayed = false;
+
         if (!walkDestinationSet && this.isAreaSet)
         {
             StartCoroutine(this.ChangeBehaviour());

@@ -10,12 +10,10 @@ public class DoorTargets : MonoBehaviour
     [SerializeField] public bool interactOnce = true;
 
     [SerializeField] private bool isFakeButton = false;
-    
     [SerializeField] private AudioSource audio;
     // Start is called before the first frame update
     void Awake()
     {
-        
         if (isFakeButton) return;
         this.gameObject.GetComponent<MeshRenderer>().material = defaultMat;
         connectedDoor = GetComponentInParent<OpenDoors>();
@@ -37,7 +35,7 @@ public class DoorTargets : MonoBehaviour
     {
         this.gameObject.GetComponent<MeshRenderer>().material = hitMat;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        Invoke("ResetFakeButtons", 2.0f);
+        Invoke("ResetFakeButtons", 5.0f);
         if (isFakeButton) return;
         connectedDoor.targetAmount += 1;
         if (connectedDoor.targetAmount == 1) connectedDoor.firstIsHit = true;
@@ -47,7 +45,7 @@ public class DoorTargets : MonoBehaviour
             StartCoroutine(connectedDoor.ResetAllTargets());
         }
     }
-    public void ResetFakeButtons()
+    private void ResetFakeButtons()
     {
         if(isFakeButton)
         {
