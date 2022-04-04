@@ -23,6 +23,11 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
     [Header("Progress ")]
     [SerializeField] private CurrentProgressLevel currentProgress;
+
+    
+    [SerializeField] private AudioClip bossDoorClip, errorPlatform, completePlatfrom; 
+    [SerializeField] private AudioSource source;
+
     //private value
     private Vector3[] gameobjPos;
     private int[] rngNum;
@@ -37,8 +42,6 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
             Destroy(this);
         
         this.enemieManager = EnemieManager.instance;
-
-
 
         ////gameobject in the scene
         //this.bossCheckpoint.SetActive(false);
@@ -57,10 +60,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
     private void EntryZone()
     {
-        //if(currentProgress.GetLastProgressName() == "EntryZone")
-        //{
-        //    playerStats.PlayerArea = "";
-        //}
+       
         this.bossCheckpoint.SetActive(false);
         this.lifeBourne.SetActive(false);
         //system to generate a random puzzle platform tosolve
@@ -176,10 +176,10 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
     #region OrderPlatform
     private void InOrderPlatform(int currentElement,int index, int lastElement)
     {
-       if(this.puzzle[lastElement].transform.position == gameobjPos[lastElement])
+       if(this.puzzle[lastElement].transform.position == gameobjPos[lastElement] && index == lastElement)
             return;
 
-        else if (this.puzzle[currentElement].transform.position == this.gameobjPos[index])
+        if (this.puzzle[currentElement].transform.position == this.gameobjPos[index])
         {
             var temp = this.puzzle[index];
             this.puzzle[index] = this.puzzle[currentElement];
@@ -214,6 +214,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
         else if(gameobjectPos != gameobjPos[count])
         {
             this.count = 0;
+            this.source.PlayOneShot(this.errorPlatform);
             foreach (var platfrom in puzzle)
             {
                 if (!platfrom.activeSelf)
@@ -227,28 +228,40 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
         if (count == puzzle.Length)
         {
-
-            for(int i = 0; i <puzzle.Length; i++)
-            {
-                Destroy(this.puzzle[i]);
-                Destroy(this.sheetForPuzzle[i]);
-            }
+            this.source.PlayOneShot(this.completePlatfrom);
             StartCoroutine(PuzzleCompletedDisplay());
             Invoke(nameof(BossEvent), 1f);
-            this.sheetForPuzzle = null;
-            this.puzzle = null;
+            
         }
+    }
+    private void PlaySound()
+    {
+        
+    }
+
+    private void RemovePlatform()
+    {
+        for (int i = 0; i < puzzle.Length; i++)
+        {
+            Destroy(this.puzzle[i]);
+            Destroy(this.sheetForPuzzle[i]);
+        }
+        this.sheetForPuzzle = null;
+        this.puzzle = null;
     }
     private IEnumerator PuzzleCompletedDisplay()
     {
         this.puzzleDone_txt.SetActive(true);
-        this.puzzleDone_txt.GetComponent<TMP_Text>().text = "Puzzle completed - Secret door open";
-        yield return new WaitForSeconds(3f);
+        //this.puzzleDone_txt.GetComponent<TMP_Text>().text = "Puzzle completed - Secret door open";
+        yield return new WaitForSeconds(2f);
+        this.puzzleDone_txt.SetActive(false);
+
         Destroy(puzzleDone_txt);
     }
 
     private void BossEvent()
     {
+        RemovePlatform();
         SetDoorAnim(true);
         this.enemieManager.RemoveAllEnemies();
         this.enemieManager.CanUseEnemieCounter(false);
@@ -261,6 +274,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
     public void SetDoorAnim(bool isOpen)
     {
+        this.source.PlayOneShot(this.bossDoorClip);
         anim.SetBool("isOpen", isOpen);
     }
     #endregion

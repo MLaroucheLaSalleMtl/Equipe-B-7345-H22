@@ -12,7 +12,7 @@ public abstract class Enemie : MonoBehaviour
 {
     // EnemieManager is use for respawn enemie after an amount of time
     protected EnemieManager enemieManager;
-
+    private bool isRemoved = false;
     // behaviour value
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
     [SerializeField] protected LayerMask whatIsPlayer;
@@ -179,6 +179,15 @@ public abstract class Enemie : MonoBehaviour
                 EnemieData enemieData = new EnemieData(this.enemieType, this.startpos, this.reviveTimer);
                 this.enemieManager.StartCoroutine(this.enemieManager.EnemieReviver(enemieData));
             }
+            
+            if (!this.isRemoved && this.enemieType == EnemieType.CHOMPER)
+            {
+                this.enemieManager.ListOfChomper.Remove(this);
+                this.isRemoved = true;
+            }
+
+
+
             Destroy( gameObject, 1.5f);
         }
     }

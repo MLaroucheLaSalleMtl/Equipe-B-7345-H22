@@ -79,6 +79,7 @@ public class EnemieManager : MonoBehaviour
 
     public void RemoveAllEnemies()
     {
+        StopAllCoroutines();
        for(int count = ListOfChomper.Count-1; count >= 0 ; count--)
        {
             var current = ListOfChomper[count];
