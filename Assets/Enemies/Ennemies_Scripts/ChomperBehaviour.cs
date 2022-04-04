@@ -74,6 +74,7 @@ public class ChomperBehaviour : Enemie
     public void AttackBegin()
     {
         this.meleeAttackColl.enabled = true;
+        base.SetSound(this.meleeAttackSound);
     }
     public void AttackEnd()
     {

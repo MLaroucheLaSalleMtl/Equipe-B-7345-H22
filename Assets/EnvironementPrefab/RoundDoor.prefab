@@ -643,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txt_DoorCost: {fileID: 8384600343287340873}
   playerStat: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
-  DoorCost: 5
+  DoorCost: 10
   source: {fileID: 953469579}
   clip: {fileID: 8300000, guid: 98a46701ed0736c4fb6059a6486371bf, type: 3}
 --- !u!82 &953469579
@@ -657,7 +657,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.25
   m_Pitch: 1
   Loop: 0

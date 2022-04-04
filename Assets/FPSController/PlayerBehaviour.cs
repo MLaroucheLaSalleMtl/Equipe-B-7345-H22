@@ -17,6 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Start()
     {
+        
         this.progress = ProgressManager.instance;
         this.transform.position = progress.CurrentLevel.GetLastProgress();
     }

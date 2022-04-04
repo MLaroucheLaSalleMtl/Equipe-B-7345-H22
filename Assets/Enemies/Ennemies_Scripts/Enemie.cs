@@ -41,7 +41,11 @@ public abstract class Enemie : MonoBehaviour
     //revive variable
     [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
     [SerializeField] private bool isRevivable = true;
-
+    private bool isDead = false;
+    //Sounds
+    [SerializeField] protected AudioClip breathingSound, deadSound, meleeAttackSound;
+    [SerializeField] protected AudioSource audioSource;
+    private bool isPlayed = false;
     //those value are set in awake method;
     protected EnemieType enemieType; // can add this to scriptable initialisator
     protected Vector3 startpos;
@@ -63,6 +67,11 @@ public abstract class Enemie : MonoBehaviour
     protected NavMeshAgent agent;
     protected NavMeshObstacle obstacle;
 
+
+    protected void SetSound(AudioClip audio)
+    {
+        this.audioSource.PlayOneShot(audio);
+    }
     public void TokenManagement()
     {
         if (this.CanHaveToken() && !this.haveToken && this.healthPoints > 0 && this.enemieManager.CanHaveToken())
@@ -103,9 +112,9 @@ public abstract class Enemie : MonoBehaviour
 
     private void Start()
     {
-        this.enemieManager = EnemieManager.instance;
-        if (this.enemieType == EnemieType.CHOMPER)
-            this.enemieManager.ListOfChomper.Add(this);
+           this.enemieManager = EnemieManager.instance;
+            if (this.enemieType == EnemieType.CHOMPER)
+                this.enemieManager.ListOfChomper.Add(this);
     }
     protected void GetComponent()
     {
@@ -164,9 +173,15 @@ public abstract class Enemie : MonoBehaviour
     {
         if (this.healthPoints <= 0)
         {
-            this.AgentDestination(transform.position);
-            this.anim.SetBool("isDead", true);
-            this.agent.isStopped = true;
+            if (!isDead)
+            {
+                this.AgentDestination(transform.position);
+                this.anim.SetBool("isDead", true);
+                this.agent.isStopped = true;
+                this.SetSound(this.deadSound);
+                isDead = true;
+            }
+
             if (this.countAdded)
             {
                 this.playerStats.EnemiesCount += 1;
@@ -185,7 +200,6 @@ public abstract class Enemie : MonoBehaviour
                 this.enemieManager.ListOfChomper.Remove(this);
                 this.isRemoved = true;
             }
-
 
 
             Destroy( gameObject, 1.5f);
@@ -303,12 +317,17 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
+        if (!isPlayed)
+        {
+            this.SetSound(this.breathingSound);
+            isPlayed = true;
+        }
         if (walkDestinationSet)
             walkDestinationSet = false;
         
             this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
-
+    
     //protected void MovingBehaviour()
     //{
     //    if (this.obstacle.enabled != false && this.agent.enabled != true)
@@ -358,6 +377,9 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieWalk()
     {
+        if (isPlayed)
+            isPlayed = false;
+
         if (!walkDestinationSet && this.isAreaSet)
         {
             StartCoroutine(this.ChangeBehaviour());
