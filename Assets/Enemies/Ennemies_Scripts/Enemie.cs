@@ -317,7 +317,6 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        print("chasse");
         if (!isPlayed)
         {
             this.SetSound(this.breathingSound);
