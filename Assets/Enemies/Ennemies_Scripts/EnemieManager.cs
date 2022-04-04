@@ -28,13 +28,14 @@ public class EnemieManager : MonoBehaviour
 {
     public static EnemieManager instance = null;
     [SerializeField] private GameObject[] enemiesPrefabs; //[0] chomper , [1] grenadier
-    public List<Enemie> ListOfChomper = new List<Enemie>();
+    private List<Enemie> listOfChomper = new List<Enemie>();
     [SerializeField] private GameObject EnemieCount;
     [SerializeField] private PlayerStats playerStats;
     public int tokenCount = 0;
    [SerializeField] public const int  MAX_TOKEN = 3;
 
     public int TokenCount { get => tokenCount; set => tokenCount = value; }
+    public List<Enemie> ListOfChomper { get => listOfChomper; set => listOfChomper = value; }
 
     private void Awake()
     {

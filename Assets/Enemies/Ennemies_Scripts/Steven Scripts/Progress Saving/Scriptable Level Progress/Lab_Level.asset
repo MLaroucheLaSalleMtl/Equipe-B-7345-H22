@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelName: Steven level
   eventProgress:
   - checkPointName: EntryZone
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 1.77, y: 1, z: 47.88}
   - checkPointName: SecondZone
     isCompleted: 0
