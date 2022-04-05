@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GetPiece : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
     [SerializeField] private int currentLevel;
     [SerializeField] private AudioSource audio;
+    
+
     void Start()
     {
         audio = GetComponent<AudioSource>();

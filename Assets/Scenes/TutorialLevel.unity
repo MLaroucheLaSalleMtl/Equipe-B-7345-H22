@@ -2873,13 +2873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3398df682ec9d7a428e748cd985e3e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemie:
-  - {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
-  - {fileID: 1512163676551859997, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-  isChomper: 0
-  isGrenadier: 0
-  startPosChomper: {x: 0, y: 0, z: 0}
-  startPosGrenadier: {x: 0, y: 0, z: 0}
 --- !u!4 &277216761
 Transform:
   m_ObjectHideFlags: 0
@@ -18735,6 +18728,8 @@ PlayableDirector:
     value: {fileID: 1697657875}
   - key: {fileID: -5632409167765019541, guid: 834e27043ff8cad4da10c50bf5ce673f, type: 2}
     value: {fileID: 1124857490}
+  - key: {fileID: 7048380294809510758, guid: 834e27043ff8cad4da10c50bf5ce673f, type: 2}
+    value: {fileID: 310485770}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1319235557
