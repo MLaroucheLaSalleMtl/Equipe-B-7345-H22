@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
+     private ProgressManager progress;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private UnityEvent m_labEvent; //labyrinthe ----- BossBoxCollider, labPuzlle.dooranim
 
@@ -14,7 +15,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         player.HealthPoints = this.player.MaxHP;
     }
-
+    private void Start()
+    {
+        this.progress = ProgressManager.instance;
+        this.transform.position = progress.CurrentLevel.GetLastProgress();
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,10 +35,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (player.HealthPoints <= 0)
         {
+            DeadInAreaBehaviour();
             player.HealthPoints = this.player.MaxHP;
             transform.position = player.LastCheckpoint;
-            //player.PlayerArea = "";
-            DeadInAreaBehaviour();
         }
     }
 
@@ -45,12 +49,10 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-
-
     void PlayerLookAt()
     {
       //  Vector3 doorLookAt = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
-       // transform.LookAt(doorLookAt);
+      //  transform.LookAt(doorLookAt);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -59,5 +61,6 @@ public class PlayerBehaviour : MonoBehaviour
             this.player.PlayerArea = other.tag;
         }
     }
+   
 
 }

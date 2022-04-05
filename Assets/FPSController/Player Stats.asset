@@ -15,10 +15,11 @@ MonoBehaviour:
   healthPoints: 100
   maxHP: 100
   energyPoints: 0
-  lastCheckpoint: {x: 14.69, y: 1, z: 40.64}
-  playerLevel: 1
+  lastCheckpoint: {x: 14.69, y: 1, z: 38.12}
+  playerLevel: 2
   enemiesCount: 0
-  playerArea: BossArea
+  playerArea: Area1
+  isContinuing: 0
   gotMarcPiece: 0
   gotSebPiece: 0
   gotStevenPiece: 0

@@ -9,6 +9,8 @@ public class DropingDoor : MonoBehaviour
     
     [SerializeField] private PlayerStats playerStat;
     [SerializeField] private int DoorCost = 5;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip; 
 
      private Animator anim;
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class DropingDoor : MonoBehaviour
     {
         if (other.CompareTag("Player") && playerStat.EnemiesCount >= DoorCost)
         {
+            this.source.PlayOneShot(clip);
             playerStat.EnemiesCount -= this.DoorCost;
             anim.SetBool("isOpen",true);
             Destroy(gameObject, 2f);

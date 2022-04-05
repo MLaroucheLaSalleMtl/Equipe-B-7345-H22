@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ChomperBehaviour : Enemie
 {
@@ -30,10 +31,7 @@ public class ChomperBehaviour : Enemie
 
         //save start pos for respawn
         base.startpos = transform.position;
-
     }
-   
-
 
     private void FixedUpdate()
     {
@@ -76,6 +74,7 @@ public class ChomperBehaviour : Enemie
     public void AttackBegin()
     {
         this.meleeAttackColl.enabled = true;
+        base.SetSound(this.meleeAttackSound);
     }
     public void AttackEnd()
     {
@@ -116,18 +115,13 @@ public class ChomperBehaviour : Enemie
          if (!isDestChange)
          {
             StartCoroutine(base.ChangeBehaviour());
-            //MovingBehaviour();
-
-            nextRunDest = (transform.position + (new Vector3(base.myTarget.transform.position.x - transform.position.x, 0,
+            this.nextRunDest = (transform.position + (new Vector3(base.myTarget.transform.position.x - transform.position.x, 0,
                         base.myTarget.transform.position.z - transform.position.z).normalized * -4.5f));
-
-            //if (!base.IsValidPath(nextRunDest))
-            //{
-            //    this.needtomove = false;
-            //    this.isDestChange = false;
-            //}
-            //base.enemieRange = 20f;
-            //base.agent.speed = enemieSpeed * 1.5f;
+            if (!base.IsValidPath(this.nextRunDest))
+            {
+                needtomove = false;
+                return;
+            }
             isDestChange = true;
          }
        
@@ -139,12 +133,4 @@ public class ChomperBehaviour : Enemie
         AgentDestination(nextRunDest);
 
     }
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = base.PlayerDetected() ? Color.yellow : Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, base.enemieRange);
-    //    Gizmos.DrawRay(new Vector3 (transform.position.x, 0.9f, transform.position.z), Vector3.forward * 10);
-    //}
-
-    
 }

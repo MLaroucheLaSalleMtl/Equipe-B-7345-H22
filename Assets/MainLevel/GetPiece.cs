@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GetPiece : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
     [SerializeField] private int currentLevel;
     [SerializeField] private AudioSource audio;
+    
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -24,12 +27,12 @@ public class GetPiece : MonoBehaviour
             audio.PlayOneShot(audio.clip);
             switch (currentLevel)
             {
-                case 2: player.GotMarcPiece = true;
-                    break;
-                case 3:
-                    player.GotSebPiece = true;
+                case 3: player.GotMarcPiece = true;
                     break;
                 case 4:
+                    player.GotSebPiece = true;
+                    break;
+                case 5:
                     player.GotStevenPiece = true;
                     break;
                 default:

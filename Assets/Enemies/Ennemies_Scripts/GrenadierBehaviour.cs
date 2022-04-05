@@ -26,7 +26,7 @@ public class GrenadierBehaviour : Enemie
     private int animValue;
     //when facing enemie righthand is at left and lefthand is at the right
     [SerializeField] private CapsuleCollider[] handColls; // left is [0] and righ is [1]
-
+    [SerializeField] private AudioClip lazerSound;
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canMeleeAttack;
@@ -62,24 +62,7 @@ public class GrenadierBehaviour : Enemie
     }
     
 
-    //Lazer Beam Behaviour
-
-    //private void LazerImpulsion()
-    //{
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(new Vector3(transform.position.x, 1, transform.position.z), transform.forward, out hit,lazerMaxRange) && hit.transform.CompareTag("Player"))
-    //    {
-    //        var contact = hit.point - transform.position;
-    //        contact.y = 0; 
-
-    //        base.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * lazerImpulseForce, ForceMode.Impulse);
-    //        this.tempPlayerPos = hit.point;
-    //    }
-    //    //else
-    //    //{
-    //    //    this.tempPlayerPos = hit.point;
-    //    //}
-    //}
+    
     #region LazerAnimEvent
 
     public void LockTarget()
@@ -89,6 +72,7 @@ public class GrenadierBehaviour : Enemie
     }
     public void EnableBeam()
     {
+        base.SetSound(this.lazerSound);
         base.AdaptiveForce(lazerMaxRange,lazerImpulseForce); // lazer impulsion
         VisualLazerBeam();
     }
@@ -128,7 +112,7 @@ public class GrenadierBehaviour : Enemie
             
             return true;
         }
-         base.EnemieChassing();
+         
         return false;
     }
 

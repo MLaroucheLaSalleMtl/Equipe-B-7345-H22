@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: EnemieChomper
   m_EditorClassIdentifier: 
   name: Chomper
-  healthPoints: 10
+  healthPoints: 25
   defensePoints: 15
   attackPower: 25
   meleeAttackRange: 1.5
   detectionPlayerRange: 20
   meleeImpluseForce: 25
+  type: 0

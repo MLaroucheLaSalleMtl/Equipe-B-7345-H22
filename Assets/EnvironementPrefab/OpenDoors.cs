@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpenDoors : MonoBehaviour
 {
@@ -23,19 +24,25 @@ public class OpenDoors : MonoBehaviour
 
     private void Awake()
     {
-        canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
-        timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
-        targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
-        targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
+        if(SceneManager.GetActiveScene().name == "PuzzleLevel")
+        {
+            canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
+            timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
+            targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
+            targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
 
-        allTargets = GetComponentsInChildren<DoorTargets>();
-        button = GetComponentInChildren<InteractWithButton>();
+            allTargets = GetComponentsInChildren<DoorTargets>();
+            button = GetComponentInChildren<InteractWithButton>();
+        }
     }
 
     private void Start()
     {
-        canvasTimer.gameObject.SetActive(false);
-        targetTimer.gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "PuzzleLevel")
+        {
+            canvasTimer.gameObject.SetActive(false);
+            targetTimer.gameObject.SetActive(false);
+        }   
     }
 
     private void OnTriggerStay(Collider other)
@@ -51,8 +58,8 @@ public class OpenDoors : MonoBehaviour
         {
             targetAmount = 0;
             targetCountHit = false;
-            anim.SetBool("Open", false);
             button.GetComponent<DoorTargets>().ResetTarget();
+            anim.SetBool("Open", false);
         }
     }
 
@@ -76,27 +83,38 @@ public class OpenDoors : MonoBehaviour
     {
         if(targetNeeded > 1)
         {
-            canvasTimer.gameObject.SetActive(true);
-            targetTimer.gameObject.SetActive(true); //on the player
             for (timer = resetTime; timer > 0; timer -= Time.deltaTime)
             {
+                canvasTimer.gameObject.SetActive(true);
+                targetTimer.gameObject.SetActive(true); //on the player
                 if (targetAmount != targetNeeded)
                 {
                     float temp = (float)Math.Round(timer, 2);
                     timerText.text = "Timer: " + temp.ToString();
                 }
                 targetTimerText.text = targetAmount + "/" + targetNeeded;
+                if (targetAmount == targetNeeded)
+                {
+                    yield return new WaitForSeconds(1f);
+                    canvasTimer.gameObject.SetActive(false);
+                    targetTimer.gameObject.SetActive(false); //on the player
+                    //StopCoroutine(ResetAllTargets());
+                    break;
+                }
                 yield return null;
             }
-            //yield return new WaitForSeconds(resetTime);
-            for (int i = 0; i < allTargets.Length; i++)
-            {
-                allTargets[i].ResetTarget();
-                targetAmount = 0;
-                canvasTimer.gameObject.SetActive(false);
-                targetTimer.gameObject.SetActive(false); //on the player
-            }
             
+            //yield return new WaitForSeconds(resetTime);
+            if(targetAmount != targetNeeded)
+            {
+                for (int i = 0; i < allTargets.Length; i++)
+                {
+                    allTargets[i].ResetTarget();
+                    targetAmount = 0;
+                    canvasTimer.gameObject.SetActive(false);
+                    targetTimer.gameObject.SetActive(false); //on the player
+                }
+            }
         }
     }
 }
