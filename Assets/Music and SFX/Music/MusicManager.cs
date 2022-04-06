@@ -37,18 +37,14 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
+          
     }
 
     void PauseForCinematics()
     {
         if (cinematic.activeSelf)
         {
-            audioS.Pause();
-        }
-        else if (!cinematic.activeSelf)
-        {
-            audioS.UnPause();
+            audioS.Stop();
         }
     }
 
