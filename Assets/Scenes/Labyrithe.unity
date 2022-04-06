@@ -20224,6 +20224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundDoor3
       objectReference: {fileID: 0}
+    - target: {fileID: 8384600344031733423, guid: c98b7307f7616b64e893d2da162f2adf, type: 3}
+      propertyPath: DoorCost
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c98b7307f7616b64e893d2da162f2adf, type: 3}
 --- !u!114 &8542432872513383061
