@@ -2338,7 +2338,7 @@ MonoBehaviour:
   enemieArea: 
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
-  randWalkValue: 8
+  randWalkValue: 10
   reviveTimer: 15
   isRevivable: 1
   breathingSound: {fileID: 8300000, guid: f6dbb1c9fcdc0f04c94675bbea489e72, type: 3}
