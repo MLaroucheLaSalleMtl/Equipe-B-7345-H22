@@ -43,7 +43,7 @@ public abstract class Enemie : MonoBehaviour
     [SerializeField] private bool isRevivable = true;
     private bool isDead = false;
     //Sounds
-    [SerializeField] protected AudioClip breathingSound, deadSound, meleeAttackSound;
+    [SerializeField] protected AudioClip breathingSound, deadSound, meleeAttackSound, playerHitted;
     [SerializeField] protected AudioSource audioSource;
     private bool isPlayed = false;
     //those value are set in awake method;
@@ -298,7 +298,7 @@ public abstract class Enemie : MonoBehaviour
     //Behaviour section 
     //------------------------------------------------//
     //** weapon must have a force value to be use on ennemie to add ::: force parameter to me more versatile for all behaviour
-    public void AdaptiveForce(float hitRange,float impluseForce)
+    public void AdaptiveForce(float hitRange,float impluseForce, bool isLazer = false)
     {
         if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.forward, out RaycastHit hit, hitRange) && hit.transform.CompareTag("Player"))
         {
@@ -306,10 +306,14 @@ public abstract class Enemie : MonoBehaviour
             contact.y = 0; // remove force on  y 
             this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
             this.playerStats.HealthPoints -= RealDamage;
-            this.SetSound(this.meleeAttackSound);
+            if(!isLazer)
+            this.SetSound(this.playerHitted);
         }
+        if(!isLazer)
+        this.SetSound(this.meleeAttackSound);
+
     }
-   
+
     protected void ResetAttack()
     {
         this.attackDone = false;

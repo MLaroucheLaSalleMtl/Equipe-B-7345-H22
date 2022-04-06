@@ -73,7 +73,7 @@ public class GrenadierBehaviour : Enemie
     public void EnableBeam()
     {
         base.SetSound(this.lazerSound);
-        base.AdaptiveForce(lazerMaxRange,lazerImpulseForce); // lazer impulsion
+        base.AdaptiveForce(lazerMaxRange,lazerImpulseForce,true); // lazer impulsion
         VisualLazerBeam();
     }
     public void DisableBeam()

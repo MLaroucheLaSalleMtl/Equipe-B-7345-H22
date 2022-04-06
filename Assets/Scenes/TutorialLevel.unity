@@ -16705,13 +16705,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
     - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
+      propertyPath: playerHitted
+      value: 
+      objectReference: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
+    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: randWalkValue
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: meleeAttackSound
       value: 
-      objectReference: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
+      objectReference: {fileID: 8300000, guid: bac635bbd57d2044aaa7477e4fc13430, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
 --- !u!4 &1167130668 stripped
@@ -27042,6 +27046,10 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+    - target: {fileID: 7396104603048430296, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: playerHitted
+      value: 
+      objectReference: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
     - target: {fileID: 7396104603048430296, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: randWalkValue
       value: 10
