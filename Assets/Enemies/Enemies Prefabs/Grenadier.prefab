@@ -1540,12 +1540,12 @@ MonoBehaviour:
   enemieArea: 
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
-  randWalkValue: 5
+  randWalkValue: 10
   reviveTimer: 5
   isRevivable: 0
   breathingSound: {fileID: 8300000, guid: 604772ceeef94474d8809e4f73d0b7fe, type: 3}
-  deadSound: {fileID: 8300000, guid: 4a11cdcc0becf7e4db304dc565f6b34d, type: 3}
-  meleeAttackSound: {fileID: 8300000, guid: f28a517261075ec47926678310e4b7ac, type: 3}
+  deadSound: {fileID: 8300000, guid: e777517a193947341a94154844ebb852, type: 3}
+  meleeAttackSound: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
   audioSource: {fileID: 772771843}
   haveToken: 0
   countAdded: 1
@@ -1555,6 +1555,7 @@ MonoBehaviour:
   handColls:
   - {fileID: 1512163676551434930}
   - {fileID: 1512163676551435094}
+  lazerSound: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
 --- !u!195 &1512163677963025503
 NavMeshAgent:
   m_ObjectHideFlags: 0

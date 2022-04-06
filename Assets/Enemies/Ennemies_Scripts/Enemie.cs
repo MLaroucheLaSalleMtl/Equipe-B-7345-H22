@@ -305,7 +305,8 @@ public abstract class Enemie : MonoBehaviour
             var contact = hit.point - transform.position;
             contact.y = 0; // remove force on  y 
             this.myTarget.GetComponent<Rigidbody>().AddForce(contact.normalized * impluseForce, ForceMode.Impulse);
-                this.playerStats.HealthPoints -= RealDamage;
+            this.playerStats.HealthPoints -= RealDamage;
+            this.SetSound(this.meleeAttackSound);
         }
     }
    
@@ -327,16 +328,6 @@ public abstract class Enemie : MonoBehaviour
         
             this.AgentDestination(this.myTarget.transform.position); //apply movement
     }
-    
-    //protected void MovingBehaviour()
-    //{
-    //    if (this.obstacle.enabled != false && this.agent.enabled != true)
-    //    {
-
-    //        this.obstacle.enabled = false;
-    //        Invoke(nameof(ResetAgent), 0.01f);
-    //    }
-    //}
     protected IEnumerator ChangeBehaviour()
     {
         if (this.obstacle.enabled != false && this.agent.enabled != true)

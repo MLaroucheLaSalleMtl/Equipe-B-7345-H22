@@ -16,7 +16,6 @@ public class Enemie_MeleeAttack : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            //print("hit");
             this.enemie.AdaptiveForce(meleeHitRange,enemie.MeleeImpluseForce);
         }
     }

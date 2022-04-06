@@ -17,7 +17,7 @@ public class ResetStats : MonoBehaviour
         else
         {
             player.HealthPoints = player.MaxHP;
-            player.LastCheckpoint = new Vector3(0f, 0f, 0f);
+            //player.LastCheckpoint = new Vector3(0f, 0f, 0f);
             player.GotMarcPiece = false;
             player.GotSebPiece = false;
             player.GotStevenPiece = false;

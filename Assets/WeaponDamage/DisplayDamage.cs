@@ -15,7 +15,14 @@ public class DisplayDamage : MonoBehaviour
     }
     public void PrintDamage()
     {
+        var hp = GetComponent<Enemie>().HealthPoints;
+        if(hp > 0)
         damageText.text = GetComponent<Enemie>().HealthPoints.ToString() + "/" + stats.HealthPoints;
+        else
+        {
+            damageText.text = 0 + "/" + stats.HealthPoints;
+
+        }
         CancelInvoke("ClearPrint");
         Invoke("ClearPrint", 2.0f);
     }
