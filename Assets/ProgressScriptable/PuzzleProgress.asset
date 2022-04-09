@@ -24,14 +24,14 @@ MonoBehaviour:
     isCompleted: 1
     checkPoint: {x: 30.829998, y: 1.6800001, z: 94.350006}
   - checkPointName: Checkpoint3
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 86.82, y: 1, z: 81.55}
   - checkPointName: Checkpoint4
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 181.9, y: 1, z: 67.06}
   - checkPointName: Checkpoint5
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 269.31, y: 1, z: 78.78}
   - checkPointName: Checkpoint6
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 354.15, y: 1, z: 62.440002}

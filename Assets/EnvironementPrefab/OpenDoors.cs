@@ -22,6 +22,8 @@ public class OpenDoors : MonoBehaviour
     public bool firstIsHit = false;
     [Range(5f, 200f)] [SerializeField] float resetTime = 5f;
 
+    public bool isSkipped = false;
+
     private void Awake()
     {
         allTargets = GetComponentsInChildren<DoorTargets>();
@@ -86,6 +88,11 @@ public class OpenDoors : MonoBehaviour
         {
             for (timer = resetTime; timer > 0; timer -= Time.deltaTime)
             {
+                if(isSkipped)
+                {
+                    isSkipped = false;
+                    break;
+                }
                 canvasTimer.gameObject.SetActive(true);
                 targetTimer.gameObject.SetActive(true); //on the player
                 if (targetAmount != targetNeeded)

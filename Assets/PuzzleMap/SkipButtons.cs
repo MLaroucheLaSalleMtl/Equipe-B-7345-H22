@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkipButtons : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class SkipButtons : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerStats PStats;
     [SerializeField] private GameObject[] checkpoints;
-    [SerializeField] private CloseUI cUI;
+    [SerializeField] private OpenDoors closeDoor;
+
+    [SerializeField] private Image canvasTimer;
+    [SerializeField] private Image targetTimer;
 
     private void Start()
     {
@@ -32,7 +36,9 @@ public class SkipButtons : MonoBehaviour
             }
         }
         player.transform.position = PStats.LastCheckpoint;
-        cUI.CloseUIFtc();
+        closeDoor.isSkipped = true;
+        canvasTimer.gameObject.SetActive(false);
+        targetTimer.gameObject.SetActive(false);
         needVerif = true;
     }
     public void NeedVerif()

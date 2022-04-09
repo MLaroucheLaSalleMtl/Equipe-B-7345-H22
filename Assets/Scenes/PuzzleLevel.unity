@@ -2839,6 +2839,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPointPuzzle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.x
+      value: 24.42312
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.z
+      value: 12.62987
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.x
+      value: 0.6445508
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.z
+      value: 6.102764
+      objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -9715,11 +9731,23 @@ PrefabInstance:
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: cUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1404897782}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7089890791885368801}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: closeDoor
+      value: 
+      objectReference: {fileID: 1182528928}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -17240,11 +17268,23 @@ PrefabInstance:
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: cUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1404897782}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7089890791885368801}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: closeDoor
+      value: 
+      objectReference: {fileID: 2140452057}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -26804,11 +26844,23 @@ PrefabInstance:
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: cUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1404897782}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7089890791885368801}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: closeDoor
+      value: 
+      objectReference: {fileID: 1941087472}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -29197,6 +29249,22 @@ PrefabInstance:
     - target: {fileID: 2049235526364113569, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_Name
       value: CheckPointPuzzle (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.x
+      value: 15.928745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.z
+      value: 7.602249
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.x
+      value: -0.63401437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.z
+      value: 3.5889535
       objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
@@ -34886,6 +34954,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5154587070372883280, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
   m_PrefabInstance: {fileID: 1182528925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182528928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 1182528925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eb3a18a8dc01b4285f938b5b2d092b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1184832662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4978931267689233406, guid: 52c36c802087c034ba1afb83403d0454, type: 3}
@@ -40001,6 +40080,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5154587070372883280, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
   m_PrefabInstance: {fileID: 720569535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1401552916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 720569535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eb3a18a8dc01b4285f938b5b2d092b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1403029230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40082,6 +40172,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
   m_PrefabInstance: {fileID: 6124433418009856753}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404897782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2979428960521421368, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+  m_PrefabInstance: {fileID: 6124433418009856753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aae511f76ed49d4abccfaacab621f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1406049395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40520,6 +40621,22 @@ PrefabInstance:
     - target: {fileID: 2049235526364113569, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_Name
       value: CheckPointPuzzle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.x
+      value: 17.446411
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.z
+      value: 12.126982
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.x
+      value: -1.1846199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.z
+      value: 5.8513193
       objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
@@ -51240,6 +51357,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5154587070372883280, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
   m_PrefabInstance: {fileID: 1261655428}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636269617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 1261655428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eb3a18a8dc01b4285f938b5b2d092b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1638056514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1682634058664541113, guid: 6e49ca22b548a8b44a78ab7347174a62, type: 3}
@@ -63646,6 +63774,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1941087472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 191244820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eb3a18a8dc01b4285f938b5b2d092b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1941778383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63660,11 +63799,23 @@ PrefabInstance:
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: cUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1404897782}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7089890791885368801}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: closeDoor
+      value: 
+      objectReference: {fileID: 1636269617}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -64984,11 +65135,23 @@ PrefabInstance:
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: cUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1404897782}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7089890791885368801}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: closeDoor
+      value: 
+      objectReference: {fileID: 1401552916}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
     - target: {fileID: 1696556487, guid: 4522219b095520b46a0a27958855b994, type: 3}
       propertyPath: checkpoints.Array.data[0]
       value: 
@@ -65943,6 +66106,22 @@ PrefabInstance:
     - target: {fileID: 2049235526364113569, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_Name
       value: CheckPointPuzzle (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.x
+      value: 20.42584
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.z
+      value: 13.272805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.x
+      value: -1.9010568
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.z
+      value: 6.4242315
       objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
@@ -69018,6 +69197,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPointPuzzle (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.x
+      value: 20.170483
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Size.z
+      value: 14.522128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.x
+      value: -1.089335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_Center.z
+      value: 7.0488734
+      objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -69150,6 +69345,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5154587070372883280, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
   m_PrefabInstance: {fileID: 502991604}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140452057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+  m_PrefabInstance: {fileID: 502991604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eb3a18a8dc01b4285f938b5b2d092b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2140939646
 PrefabInstance:
   m_ObjectHideFlags: 0
