@@ -24,22 +24,20 @@ public class OpenDoors : MonoBehaviour
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().name == "PuzzleLevel")
-        {
-            canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
-            timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
-            targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
-            targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
-
-            allTargets = GetComponentsInChildren<DoorTargets>();
-            button = GetComponentInChildren<InteractWithButton>();
-        }
+        allTargets = GetComponentsInChildren<DoorTargets>();
+        button = GetComponentInChildren<InteractWithButton>();
     }
 
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "PuzzleLevel")
         {
+            //canvasTimer = GameObject.Find("TimerDoors").GetComponent<Image>();
+            //timerText = GameObject.Find("TimerCount(Text)").GetComponent<TMP_Text>();
+            //targetTimer = GameObject.Find("TargetTimer").GetComponent<Image>();
+            //targetTimerText = GameObject.Find("TargetTimer(Text)").GetComponent<TMP_Text>();
+
+
             canvasTimer.gameObject.SetActive(false);
             targetTimer.gameObject.SetActive(false);
         }   

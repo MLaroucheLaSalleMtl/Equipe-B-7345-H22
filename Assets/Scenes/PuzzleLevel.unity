@@ -344,17 +344,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (10)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1396481056}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 28501366}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &6101692
@@ -1106,6 +1118,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1615,6 +1643,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 557777426}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2553,6 +2601,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4154,11 +4218,19 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4776,6 +4848,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6970507656518958816, guid: b1b062d1fc3daca41aeaaf4096acc65c, type: 3}
   m_PrefabInstance: {fileID: 237766090}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &238733004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1068780043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &238880073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
@@ -6129,6 +6212,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7619182472280363201, guid: b7459e22a59d25a47a26cfd94b6787aa, type: 3}
   m_PrefabInstance: {fileID: 156869256}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &319585584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1842143874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &319668719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6670,6 +6764,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
   m_PrefabInstance: {fileID: 1783813025}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &329735081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1166080754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &330366119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6717622387968559358, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
@@ -7494,6 +7599,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
+--- !u!114 &382886460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 955063225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &383115821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7599600428584783463, guid: 4ad55aabb9670f946a5aa5a14c73422b, type: 3}
@@ -7587,6 +7703,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7771,17 +7903,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (8)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1566060767}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 671072634}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &399663783
@@ -7977,6 +8121,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -8138,6 +8298,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -9155,6 +9331,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -14820,6 +15012,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1261153856}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -14845,6 +15057,14 @@ PrefabInstance:
       propertyPath: canvasTimer
       value: 
       objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -15072,6 +15292,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -15386,6 +15622,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1651790939}
     m_Modifications:
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -16210,6 +16462,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
   m_PrefabInstance: {fileID: 1968943950}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &557777426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 55462419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &559681881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6951025604167199398, guid: f0261f9dbbc1ecb43be3dd1a4b066244, type: 3}
@@ -20087,6 +20350,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 919698349}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -20263,13 +20546,25 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 973298038}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &706460565
@@ -20827,11 +21122,19 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -23005,6 +23308,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -23578,6 +23897,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1682640937}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -26148,6 +26487,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -26710,6 +27065,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 334315317311188496, guid: 6ee13bb95bd70d14ebbf61e826efd0b4, type: 3}
   m_PrefabInstance: {fileID: 331903038}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &899425868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1632700616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &904099628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
@@ -26966,6 +27332,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919698349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 700585881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &920715173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
@@ -27533,6 +27910,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -28021,6 +28414,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 382886460}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -28217,17 +28630,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1446307124}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 851388566}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &966985574
@@ -28575,6 +29000,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e49ca22b548a8b44a78ab7347174a62, type: 3}
+--- !u!114 &973298038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 704142670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &974432868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
@@ -28662,6 +29098,10 @@ PrefabInstance:
     - target: {fileID: 2049235526364113569, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_Name
       value: CloseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049235526364113569, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_Size.x
@@ -29198,6 +29638,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -30896,17 +31352,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (9)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 238733004}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 744083150}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &1071776834
@@ -31877,6 +32345,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6717622387968559358, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
   m_PrefabInstance: {fileID: 1320457994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1094483215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1320457994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1096906712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33930,13 +34409,25 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 329735081}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!4 &1167140838 stripped
@@ -34051,6 +34542,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -34234,11 +34741,19 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -36068,6 +36583,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc6a0a8273dbf94fb0d04ee62776e46, type: 3}
+--- !u!114 &1250325743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 2044858302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1251880607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36309,6 +36835,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
   m_PrefabInstance: {fileID: 113313964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1261153856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 501411468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1261655428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36323,7 +36860,7 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: firstIsHit
       value: 0
@@ -36331,7 +36868,15 @@ PrefabInstance:
     - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 662029278, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 662029279, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -37434,17 +37979,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1094483215}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 483454829}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!4 &1322996156 stripped
@@ -37837,6 +38394,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -38055,17 +38628,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1416619281}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 675067374}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &1357699976
@@ -39256,6 +39841,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc6a0a8273dbf94fb0d04ee62776e46, type: 3}
+--- !u!114 &1396481056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 5117956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1397911024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39637,6 +40233,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4987084945349473314, guid: 1900aade13c979a409fec2836aea7b00, type: 3}
   m_PrefabInstance: {fileID: 1277957773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416619281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1356640536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1416980010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4987084945349473314, guid: 1900aade13c979a409fec2836aea7b00, type: 3}
@@ -39969,17 +40576,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1749541815}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 1453181120}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1 &1423051831 stripped
@@ -40634,6 +41253,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6951025604167199398, guid: f0261f9dbbc1ecb43be3dd1a4b066244, type: 3}
   m_PrefabInstance: {fileID: 1443750804}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1446307124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 965423052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1446870186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41268,6 +41898,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
+--- !u!114 &1471014028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1738296739005857475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1471200142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43369,6 +44010,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -43432,6 +44089,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0261f9dbbc1ecb43be3dd1a4b066244, type: 3}
+--- !u!114 &1566060767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 396447854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1567454402
 GameObject:
   m_ObjectHideFlags: 0
@@ -43760,6 +44428,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -50107,6 +50791,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 899425868}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -55339,6 +56043,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -55547,6 +56267,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583fd0d3093356c479d651d1e617ac85, type: 3}
+--- !u!114 &1682640937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 814656776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1684457930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
@@ -56939,6 +57670,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -57382,6 +58129,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4987084945349473314, guid: 1900aade13c979a409fec2836aea7b00, type: 3}
   m_PrefabInstance: {fileID: 1275827664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1749541815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+  m_PrefabInstance: {fileID: 1422416257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0790d0cd9c57c0c409e7ceb9475325a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1752611743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57694,6 +58452,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -60024,6 +60798,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 319585584}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -60396,6 +61190,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7762041460000905453, guid: 70a0c326534fb0e40a003a53a9ad7df1, type: 3}
   m_PrefabInstance: {fileID: 480523097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860717328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5826205399312018200, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+  m_PrefabInstance: {fileID: 7089890791885368800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1863051332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60829,6 +61634,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -62751,6 +63572,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton) (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     - target: {fileID: 8268229527145264351, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -65294,17 +66131,29 @@ PrefabInstance:
       value: SmallDoorWithEdge(WithButton) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1250325743}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1777775198}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: canvasTimer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1939004913}
     - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: targetCount
       value: 
       objectReference: {fileID: 753402220}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &2045591446
@@ -68522,6 +69371,22 @@ PrefabInstance:
       propertyPath: levelToOpenName
       value: MainMap
       objectReference: {fileID: 0}
+    - target: {fileID: 6462756920444406549, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 6462756920444406549, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 6462756920444406549, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 6462756920444406549, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
 --- !u!1001 &760221209281060298
@@ -68644,6 +69509,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoorWithEdge(WithButton)
       objectReference: {fileID: 0}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1471014028}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1777775198}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: canvasTimer
+      value: 
+      objectReference: {fileID: 1939004913}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimer
+      value: 
+      objectReference: {fileID: 7089890791885368802}
+    - target: {fileID: 8268229527145264349, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
+      propertyPath: targetTimerText
+      value: 
+      objectReference: {fileID: 1860717328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
 --- !u!1001 &2049235527861243080
