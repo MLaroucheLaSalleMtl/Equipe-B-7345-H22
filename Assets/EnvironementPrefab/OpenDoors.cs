@@ -54,10 +54,13 @@ public class OpenDoors : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            targetAmount = 0;
-            targetCountHit = false;
-            button.GetComponent<DoorTargets>().ResetTarget();
             anim.SetBool("Open", false);
+            if (SceneManager.GetActiveScene().name == "PuzzleLevel")
+            {
+                targetAmount = 0;
+                targetCountHit = false;
+                button.GetComponent<DoorTargets>().ResetTarget();
+            }
         }
     }
 

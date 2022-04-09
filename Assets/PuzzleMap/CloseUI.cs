@@ -10,6 +10,10 @@ public class CloseUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        CloseUIFtc();
+    }
+    public void CloseUIFtc()
+    {
         canvasTimer.gameObject.SetActive(false);
         targetTimer.gameObject.SetActive(false);
     }

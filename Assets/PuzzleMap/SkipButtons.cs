@@ -11,6 +11,7 @@ public class SkipButtons : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerStats PStats;
     [SerializeField] private GameObject[] checkpoints;
+    [SerializeField] private CloseUI cUI;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class SkipButtons : MonoBehaviour
             }
         }
         player.transform.position = PStats.LastCheckpoint;
+        cUI.CloseUIFtc();
         needVerif = true;
     }
     public void NeedVerif()
