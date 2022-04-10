@@ -16,10 +16,10 @@ MonoBehaviour:
   eventProgress:
   - checkPointName: CheckPointStart
     isCompleted: 0
-    checkPoint: {x: 0, y: 0, z: 0}
+    checkPoint: {x: 10.94, y: 1, z: 12.71}
   - checkPointName: CheckPoint2
     isCompleted: 0
-    checkPoint: {x: 0, y: 0, z: 0}
+    checkPoint: {x: 49.75, y: 1, z: 49.48}
   - checkPointName: CheckPoint3
-    isCompleted: 0
-    checkPoint: {x: 0, y: 0, z: 0}
+    isCompleted: 1
+    checkPoint: {x: 107.1, y: 1, z: 32.17}

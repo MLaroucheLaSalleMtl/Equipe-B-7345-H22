@@ -2332,19 +2332,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemie_stats: {fileID: 11400000, guid: e6ba516a24149004684d6b7fb61457bf, type: 2}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 2176
   enemieArea: 
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
-  randWalkValue: 10
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 2176
+  randWalkValue: 6
+  bodyColl: {fileID: 95166600}
   reviveTimer: 15
   isRevivable: 1
   breathingSound: {fileID: 8300000, guid: f6dbb1c9fcdc0f04c94675bbea489e72, type: 3}
   deadSound: {fileID: 8300000, guid: e7cabd9782b1a8b49af5256908c3bf5a, type: 3}
   meleeAttackSound: {fileID: 8300000, guid: 540e431714fbb50478f86190ecc01f6c, type: 3}
-  audioSource: {fileID: 1616169524}
+  playerHitted: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
   haveToken: 0
   countAdded: 0
   meleeAttackColl: {fileID: 6521793}
@@ -2387,7 +2388,7 @@ NavMeshObstacle:
   m_Extents: {x: 0.3, y: 1, z: 0.3}
   m_MoveThreshold: 0.1
   m_Carve: 1
-  m_CarveOnlyStationary: 1
+  m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 1
 --- !u!114 &1707212157

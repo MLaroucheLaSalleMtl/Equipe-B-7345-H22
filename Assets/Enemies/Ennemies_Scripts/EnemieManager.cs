@@ -28,7 +28,7 @@ public class EnemieManager : MonoBehaviour
 {
     public static EnemieManager instance = null;
     [SerializeField] private GameObject[] enemiesPrefabs; //[0] chomper , [1] grenadier
-    private List<Enemie> listOfChomper = new List<Enemie>();
+    public List<Enemie> listOfChomper = new List<Enemie>();
     [SerializeField] private GameObject EnemieCount;
     [SerializeField] private PlayerStats playerStats;
     public int tokenCount = 0;
@@ -71,11 +71,8 @@ public class EnemieManager : MonoBehaviour
         //verify
         GameObject enemieToRevive = KindOfEnemie(data.Type);
         yield return new WaitForSeconds(data.Timer);
-       var enemieCreated = Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
-        if(data.Type == EnemieType.CHOMPER)
-        {
-            ListOfChomper.Add(enemieCreated.GetComponent<Enemie>());
-        }
+        Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
+        
     }
 
     public void RemoveAllEnemies()
@@ -85,7 +82,6 @@ public class EnemieManager : MonoBehaviour
        {
             var current = ListOfChomper[count];
             Destroy(current.gameObject);
-            ListOfChomper.Remove(current);
        }
         ListOfChomper = null;
     }

@@ -16636,10 +16636,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1195689619}
     m_Modifications:
-    - target: {fileID: 877032065742172117, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1512163676551435069, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -16688,34 +16684,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grenadier
       objectReference: {fileID: 0}
-    - target: {fileID: 1512163676551859997, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: myTarget
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: deadSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e777517a193947341a94154844ebb852, type: 3}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: lazerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: playerHitted
-      value: 
-      objectReference: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: randWalkValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
-      propertyPath: meleeAttackSound
-      value: 
-      objectReference: {fileID: 8300000, guid: bac635bbd57d2044aaa7477e4fc13430, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
 --- !u!4 &1167130668 stripped

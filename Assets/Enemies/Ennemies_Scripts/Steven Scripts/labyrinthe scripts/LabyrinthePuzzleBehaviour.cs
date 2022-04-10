@@ -42,19 +42,6 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
             Destroy(this);
         
         this.enemieManager = EnemieManager.instance;
-
-        ////gameobject in the scene
-        //this.bossCheckpoint.SetActive(false);
-        //this.lifeBourne.SetActive(false);
-        ////system to generate a random puzzle platform tosolve
-        //this.ListOfColor = InitializeListOfColor();
-        //this.InitialiseRngNumArray();
-        //this.RandomizePuzzleOrder();
-        //this.InOrderPlatform(0, 0, this.puzzle.Length - 1);
-        //this.ChargeTheColorRule(0, this.puzzle.Length);
-        //this.puzzleDone_txt.SetActive(false);
-        this.ProgressBehaviour();
-        
     }
 
 
@@ -89,6 +76,7 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
 
     private void Start()
     {
+        this.ProgressBehaviour();
         this.EnableEnemieCount();
     }
 
@@ -233,10 +221,6 @@ public class LabyrinthePuzzleBehaviour : MonoBehaviour
             Invoke(nameof(BossEvent), 1f);
             
         }
-    }
-    private void PlaySound()
-    {
-        
     }
 
     private void RemovePlatform()
