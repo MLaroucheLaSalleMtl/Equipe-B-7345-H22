@@ -3343,6 +3343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -5585,6 +5589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6723,6 +6731,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
@@ -15260,6 +15272,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
@@ -30213,6 +30229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -31708,6 +31728,7 @@ MonoBehaviour:
   enemiesPrefabs:
   - {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
   - {fileID: 1512163676551859997, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
+  listOfChomper: []
   EnemieCount: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
   tokenCount: 0
@@ -34403,6 +34424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -35701,6 +35726,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
@@ -43698,6 +43727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -45514,6 +45547,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
@@ -59278,6 +59315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -67226,6 +67267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -67548,6 +67593,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
@@ -68237,6 +68286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -68421,6 +68474,10 @@ PrefabInstance:
     - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_Name
       value: Chomper (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396104602027554599, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder

@@ -230,11 +230,11 @@ public abstract class Enemie : MonoBehaviour
     } 
     protected bool CanHaveToken()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea ;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.healthPoints > 0;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) ;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && this.healthPoints > 0;
     }
 
     protected void ResetHealth()
@@ -258,13 +258,15 @@ public abstract class Enemie : MonoBehaviour
     {
         int damage;
 
-        if (this.healthPoints == this.maxHealthPoints)
-            damage = RandomValue((int)(this.attackPower * 0.25f), (int)(this.attackPower * 0.75f));
-        else if (this.healthPoints < (int)(this.healthPoints * 0.50f))
-            damage = RandomValue((int)(this.attackPower * 0.50f), (int)(this.attackPower));
-        else
-            damage = (int)(this.attackPower * 0.5f);
-        return damage;
+        return this.healthPoints > this.healthPoints * 0.5 ? RandomValue((int)(this.attackPower * 0.50f), this.attackPower) :
+                                                             RandomValue((int)(this.attackPower * 0.25f), (int)(this.attackPower * 0.75f));
+        //if (this.healthPoints == this.maxHealthPoints)
+        //    damage = RandomValue((int)(this.attackPower * 0.25f), (int)(this.attackPower * 0.75f));
+        //else if (this.healthPoints < (int)(this.healthPoints * 0.50f))
+        //    damage = RandomValue((int)(this.attackPower * 0.50f), (int)(this.attackPower));
+        //else
+        //    damage = (int)(this.attackPower * 0.5f);
+        //return damage;
     }
 
     private void EnrageMode()
@@ -356,10 +358,7 @@ public abstract class Enemie : MonoBehaviour
             this.agent.enabled = true;
         }
     }
-    private void ResetAgent()
-    {
-        this.agent.enabled = true;
-    }
+    
     protected void AgentDestination(Vector3 nextPath)
     {
        //if(IsValidPath(nextPath))
@@ -414,12 +413,16 @@ public abstract class Enemie : MonoBehaviour
                transform.localPosition.y , Random.Range(transform.position.z - this.randWalkValue, transform.position.z + this.randWalkValue));
     }
 
+    bool newpathset = false;
+    Vector3 meleedes;
     protected void MeleeAttack(string attackName)
     {
-        var attackPos = this.transform.position.z > 0 ? 2.5f : -2.5f;
-        if (!this.attackDone /*&& this.IsValidPath(new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z + attackPos))*/)
+        //var attackPos = this.transform.position.z > 0 ? 2.5f : -2.5f;
+        if (!this.attackDone /*&& this.IsValidPath(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + attackPos))*/)
         {
-            AgentDestination(this.transform.position); // stop player from moving
+            
+                AgentDestination(this.transform.position); // stop player from moving
+
             this.LookAtTarget();
             this.anim.SetTrigger(attackName); // set my attack
             this.agent.enabled = false;
@@ -427,7 +430,9 @@ public abstract class Enemie : MonoBehaviour
             this.attackDone = true;// wait Invoke for attack again
            
         }
+        
     }
+   
     protected void LookAtTarget()
     {
         var lookAtTarget = new Vector3(this.myTarget.transform.position.x, this.transform.position.y, this.myTarget.transform.position.z);
