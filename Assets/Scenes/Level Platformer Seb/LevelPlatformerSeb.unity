@@ -17959,8 +17959,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 294789365362452934, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+--- !u!1 &1471928753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5780757733774811321, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+  m_PrefabInstance: {fileID: 1471928752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1471928754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471928753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.259995, y: 16.134615, z: 1.2692055}
+  m_Center: {x: -1.1783905, y: 1.0645704, z: -0.13460279}
 --- !u!1001 &1477463913
 PrefabInstance:
   m_ObjectHideFlags: 0
