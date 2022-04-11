@@ -8,10 +8,11 @@ public class VolumeSlider : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioM;
     [SerializeField] private string nameParam;
-    [SerializeField] private Slider slider;
+    private Slider slider;
     // Start is called before the first frame update
     void Start()
     {
+        slider = GetComponent<Slider>();
         float vol = PlayerPrefs.GetFloat(nameParam, 0.3f);
         slider.value = vol;
         //SoundManager.instance.ChangeMasterVolume(slider.value);
