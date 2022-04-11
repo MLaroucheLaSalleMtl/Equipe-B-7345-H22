@@ -15,6 +15,7 @@ TagManager:
   - Area2
   - Area5
   - BossArea
+  - MusicManager
   layers:
   - Default
   - TransparentFX
