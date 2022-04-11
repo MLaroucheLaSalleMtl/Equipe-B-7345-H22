@@ -6629,11 +6629,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1283287309496619627, guid: b63de30f67c615349874e70653f40fc1, type: 3}
   m_PrefabInstance: {fileID: 741551206}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &593411366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8044675330611615129, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
-  m_PrefabInstance: {fileID: 1586923947}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &649942990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8384,7 +8379,6 @@ MonoBehaviour:
   brokenShip: {fileID: 251866669}
   rebuildedShip: {fileID: 1941959946}
   cineCamera: {fileID: 46853354}
-  musicM: {fileID: 593411366}
 --- !u!4 &1078132164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 334315317311188496, guid: 6ee13bb95bd70d14ebbf61e826efd0b4, type: 3}
