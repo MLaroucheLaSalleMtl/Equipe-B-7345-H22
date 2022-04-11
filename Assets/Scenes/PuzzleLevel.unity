@@ -15800,10 +15800,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6901679317207342795, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8cda1ceb9ea477438f3b64eda732127, type: 3}
 --- !u!224 &525752406 stripped
@@ -69830,10 +69826,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 361276207, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2177655951813321627, guid: cd11c24a1e8278e4a82dca958dcaa33a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -69968,10 +69960,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1651790939}
     m_Modifications:
-    - target: {fileID: 495549268500824370, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2936430200135685628, guid: 4f2ce8e5f3fb1c444abf1e21cc65fd74, type: 3}
       propertyPath: control
       value: 

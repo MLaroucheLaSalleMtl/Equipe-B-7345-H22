@@ -15341,7 +15341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3016585396525162794, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.48
+      value: -18.36
       objectReference: {fileID: 0}
     - target: {fileID: 3016585397112960321, guid: 3e8eeec3c6f1777419be1ade2a49054c, type: 3}
       propertyPath: speed
@@ -17296,10 +17296,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 295663438}
     m_Modifications:
-    - target: {fileID: 8285964610361792944, guid: 0146857104372ad4a8d324d0bd550e8e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8285964610525401982, guid: 0146857104372ad4a8d324d0bd550e8e, type: 3}
       propertyPath: m_Name
       value: Moving Trampoline
@@ -17352,10 +17348,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1258622631}
-    - target: {fileID: 8568913803609896696, guid: 0146857104372ad4a8d324d0bd550e8e, type: 3}
-      propertyPath: jumpForce
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0146857104372ad4a8d324d0bd550e8e, type: 3}
 --- !u!1001 &1455823031

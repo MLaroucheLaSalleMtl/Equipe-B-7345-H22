@@ -524,6 +524,7 @@ MonoBehaviour:
   interactText: {fileID: 1053418428413720340}
   canInteract: 0
   audio: {fileID: 0}
+  isSkipLevel: 0
 --- !u!82 &5309805270491574212
 AudioSource:
   m_ObjectHideFlags: 0
@@ -533,7 +534,7 @@ AudioSource:
   m_GameObject: {fileID: 1682634058664541106}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2018515377085345056, guid: 545fe23e21e7a204093b14c4878dd14c, type: 2}
   m_audioClip: {fileID: 8300000, guid: a7f208fac3e460d4095f08092078e84f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

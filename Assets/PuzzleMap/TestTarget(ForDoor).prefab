@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   damageText: {fileID: 6957623584196389964}
+  audio: {fileID: 0}
 --- !u!114 &8924352100347761950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ AudioSource:
   m_GameObject: {fileID: 6957623582893314336}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2018515377085345056, guid: 545fe23e21e7a204093b14c4878dd14c, type: 2}
   m_audioClip: {fileID: 8300000, guid: f18b8fb9e861c8241ae5af8852dadae7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

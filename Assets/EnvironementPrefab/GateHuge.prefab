@@ -784,6 +784,7 @@ MonoBehaviour:
   button: {fileID: 0}
   firstIsHit: 0
   resetTime: 15
+  isSkipped: 0
 --- !u!82 &6901679317207342795
 AudioSource:
   m_ObjectHideFlags: 0
@@ -793,7 +794,7 @@ AudioSource:
   m_GameObject: {fileID: 5154587070372657008}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2018515377085345056, guid: 545fe23e21e7a204093b14c4878dd14c, type: 2}
   m_audioClip: {fileID: 8300000, guid: 045e81ed64d3b1e4989c9cb8a3244ce3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -840,7 +841,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
