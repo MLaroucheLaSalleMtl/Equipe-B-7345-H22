@@ -230,11 +230,11 @@ public abstract class Enemie : MonoBehaviour
     } 
     protected bool CanHaveToken()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea ;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.healthPoints > 0;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) ;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && this.healthPoints > 0;
     }
 
     protected void ResetHealth()
