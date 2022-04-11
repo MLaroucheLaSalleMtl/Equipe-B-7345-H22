@@ -12,9 +12,11 @@ public class CheckIfEndGame : MonoBehaviour
     [SerializeField] private GameObject brokenShip;
     [SerializeField] private GameObject rebuildedShip;
     [SerializeField] private GameObject cineCamera;
+    private AudioSource musicM;
 
     private void Start()
     {
+        musicM = MusicManager.instance.gameObject.GetComponent<AudioSource>();
         if(player.GotMarcPiece && player.GotSebPiece && player.GotStevenPiece)
         {
             StartCoroutine(StartCine());
@@ -22,6 +24,7 @@ public class CheckIfEndGame : MonoBehaviour
     }
     private IEnumerator StartCine()
     {
+        musicM.Pause();
         playerObject.SetActive(false);
         brokenShip.SetActive(false);
         rebuildedShip.SetActive(true);
@@ -32,6 +35,7 @@ public class CheckIfEndGame : MonoBehaviour
         player.GotMarcPiece = false;
         player.GotSebPiece = false;
         player.GotStevenPiece = false;
+        musicM.UnPause();
         SceneManager.LoadScene("MainMenu");
     }
 }

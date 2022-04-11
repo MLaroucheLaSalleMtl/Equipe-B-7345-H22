@@ -18,7 +18,9 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         this.progress = ProgressManager.instance;
-        this.transform.position = progress.CurrentLevel.GetLastProgress();
+        var currentCheckPoint = progress.CurrentLevel.GetLastProgress();
+        this.transform.position = currentCheckPoint;
+        this.player.LastCheckpoint = currentCheckPoint;
     }
 
     // Update is called once per frame
