@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemieGrenadier
   m_EditorClassIdentifier: 
   name: Grenadier
-  healthPoints: 15
+  healthPoints: 60
   defensePoints: 40
   attackPower: 30
   meleeAttackRange: 2
