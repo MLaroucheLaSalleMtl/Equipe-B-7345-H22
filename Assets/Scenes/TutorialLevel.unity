@@ -11195,26 +11195,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPointPuzzle
       objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Size.x
-      value: 25.530754
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Size.z
-      value: 3.5444465
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.x
-      value: -1.283773
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0000052916625
-      objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -37126,6 +37106,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1789115580, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 393159884282804963, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_Name
       value: Player
