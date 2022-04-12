@@ -44,9 +44,13 @@ public class MusicManager : MonoBehaviour
 
     void PauseForCinematics()
     {
-        if (cinematic.activeSelf)
+        if (cinematic != null)
         {
-            audioS.Pause();
+
+            if (cinematic.activeSelf)
+            {
+                audioS.Pause();
+            }
         }
         //else
         //{
