@@ -22,6 +22,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private CurrentProgressLevel[] progress;
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         audio = GetComponent<AudioSource>();
         if(isMainMenu)
         {

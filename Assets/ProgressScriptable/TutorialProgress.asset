@@ -21,5 +21,5 @@ MonoBehaviour:
     isCompleted: 0
     checkPoint: {x: 49.75, y: 1, z: 49.48}
   - checkPointName: CheckPoint3
-    isCompleted: 1
+    isCompleted: 0
     checkPoint: {x: 107.1, y: 1, z: 32.17}
