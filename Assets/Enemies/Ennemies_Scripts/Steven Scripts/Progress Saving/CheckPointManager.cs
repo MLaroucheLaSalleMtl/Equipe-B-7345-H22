@@ -25,7 +25,6 @@ public class CheckPointManager : MonoBehaviour
             if (currentProgress.UpdateProgress(transform.position))
             {
                 this.playerStats.LastCheckpoint = transform.position;
-                playerStats.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
             }
             else
             {

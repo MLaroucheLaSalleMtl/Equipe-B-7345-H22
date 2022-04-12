@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        player.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
         player.HealthPoints = this.player.MaxHP;
     }
     private void Start()

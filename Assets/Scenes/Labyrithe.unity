@@ -5557,6 +5557,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Solve the puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 3077232257951865870, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+    - target: {fileID: 3077232257951865870, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
 --- !u!114 &772771835 stripped
@@ -10883,6 +10891,14 @@ PrefabInstance:
       propertyPath: m_text
       value: You lost a peice here try to find it
       objectReference: {fileID: 0}
+    - target: {fileID: 3077232257951865870, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+    - target: {fileID: 3077232257951865870, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d22db64a7b19b4a9c24144fce6d3fa, type: 3}
 --- !u!1001 &1535805237
