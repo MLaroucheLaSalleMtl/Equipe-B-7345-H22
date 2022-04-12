@@ -18,10 +18,10 @@ public class CheckPointManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") /*&& this.playerStats.LastCheckpoint != transform.position*/)
+        if (other.CompareTag("Player") && this.playerStats.LastCheckpoint != transform.position)
         {
-            this.playerStats.LastCheckpoint = transform.position;
-            playerStats.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
+            //this.playerStats.LastCheckpoint = transform.position;
+            //playerStats.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
             if (currentProgress.UpdateProgress(transform.position))
             {
                 this.playerStats.LastCheckpoint = transform.position;

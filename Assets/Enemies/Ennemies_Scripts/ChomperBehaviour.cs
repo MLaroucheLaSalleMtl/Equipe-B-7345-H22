@@ -103,7 +103,7 @@ public class ChomperBehaviour : Enemie
 
     
     //** need to rework stat modifier on enemies 
-    protected override void SpecialMove()
+    private void SpecialMove()
     {
        
         if (!playerFound  )

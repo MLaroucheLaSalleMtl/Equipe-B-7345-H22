@@ -69,6 +69,8 @@ public class GrenadierBehaviour : Enemie
 
     public void LockTarget()
     {
+        if (base.walkDestinationSet)
+            base.walkDestinationSet = false;
         this.tempPlayerPos = base.myTarget.transform.position;
         base.LookAtTarget();
     }
@@ -190,10 +192,7 @@ public class GrenadierBehaviour : Enemie
         Invoke(nameof(base.ResetAttack), 1f);
     }
     #endregion
-    protected override void SpecialMove()
-    {
-        throw new System.NotImplementedException();
-    }
+   
 
 
    
