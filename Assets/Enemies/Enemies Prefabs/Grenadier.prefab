@@ -215,8 +215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1580,12 +1580,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemie_stats: {fileID: 11400000, guid: 239d0142f30fbf94ebc4f397279f452e, type: 2}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
   enemieArea: 
   myTarget: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 43006c365d5ddd74ca8e83c76352117c, type: 2}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
   randWalkValue: 6
   bodyColl: {fileID: 173247324}
   reviveTimer: 5
@@ -1594,16 +1594,15 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: e777517a193947341a94154844ebb852, type: 3}
   meleeAttackSound: {fileID: 8300000, guid: bac635bbd57d2044aaa7477e4fc13430, type: 3}
   playerHitted: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
-  audioSource: {fileID: 772771843}
   haveToken: 0
   countAdded: 1
   projetiles: {fileID: 11400000, guid: 5e623c88d7a40de4c85c6c344341f48d, type: 2}
   lazerPrefab: {fileID: 5746682804288049125, guid: 33ea79e940a9ed14184cc8a24ce38de7, type: 3}
   lazerStartPos: {fileID: 1967665472}
+  lazerSound: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
   handColls:
   - {fileID: 1512163676551434930}
   - {fileID: 1512163676551435094}
-  lazerSound: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
 --- !u!195 &1512163677963025503
 NavMeshAgent:
   m_ObjectHideFlags: 0
