@@ -69,6 +69,9 @@ public class GrenadierBehaviour : Enemie
 
     public void LockTarget()
     {
+        if (walkDestinationSet)
+            walkDestinationSet = false;
+
         this.tempPlayerPos = base.myTarget.transform.position;
         base.LookAtTarget();
     }
