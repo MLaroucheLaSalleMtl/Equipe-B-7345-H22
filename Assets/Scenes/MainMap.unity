@@ -5384,7 +5384,7 @@ GameObject:
   - component: {fileID: 185439691}
   m_Layer: 17
   m_Name: Area3 (3)
-  m_TagString: Untagged
+  m_TagString: Area3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7541,7 +7541,7 @@ GameObject:
   - component: {fileID: 788058207}
   m_Layer: 17
   m_Name: Area3 (1)
-  m_TagString: Untagged
+  m_TagString: Area3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8527,7 +8527,7 @@ GameObject:
   - component: {fileID: 1103747779}
   m_Layer: 17
   m_Name: Area3
-  m_TagString: Untagged
+  m_TagString: Area3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8691,7 +8691,7 @@ GameObject:
   - component: {fileID: 1137090721}
   m_Layer: 17
   m_Name: Area3 (2)
-  m_TagString: Untagged
+  m_TagString: Area3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13025,7 +13025,7 @@ GameObject:
   - component: {fileID: 2110931348}
   m_Layer: 17
   m_Name: Area3 (4)
-  m_TagString: Untagged
+  m_TagString: Area3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
