@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        player.PlayerLevel = SceneManager.GetActiveScene().buildIndex;
         player.HealthPoints = this.player.MaxHP;
     }
     private void Start()
     {
         this.progress = ProgressManager.instance;
-        this.transform.position = progress.CurrentLevel.GetLastProgress();
+        var currentCheckPoint = progress.CurrentLevel.GetLastProgress();
+        this.transform.position = currentCheckPoint;
+        this.player.LastCheckpoint = currentCheckPoint;
     }
 
     // Update is called once per frame

@@ -569,6 +569,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
   m_PrefabInstance: {fileID: 46991715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &47676831
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615128, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615129, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044675330611615134, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: cinematic
+      value: 
+      objectReference: {fileID: 1517002868}
+    - target: {fileID: 8044675330611615134, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
+      propertyPath: dontInterrupt
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0b225d6859ad90438fe7faa24574d2b, type: 3}
 --- !u!1 &47957665
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1676,8 +1741,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use Shift or "Left stick press" to Sprint
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2538,8 +2603,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chompers
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4253,8 +4318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "1" or "D-Pad up" to take out your Sword
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5439,7 +5504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6130,8 +6195,8 @@ MonoBehaviour:
     Use Right click or left
     trigger to Aim'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6613,8 +6678,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go right to test your Sniper
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7253,8 +7318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use Left click or Right trigger to swing
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7353,7 +7418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3833448542547917302, guid: d5e0a1f47f619a344bf2c81e43cd5d58, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3833448542547917302, guid: d5e0a1f47f619a344bf2c81e43cd5d58, type: 3}
       propertyPath: m_LocalScale.x
@@ -7558,8 +7623,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go left to test out the enemies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9452,8 +9517,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "2" or D-Pad left to take out your Pistol
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11130,26 +11195,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPointPuzzle
       objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Size.x
-      value: 25.530754
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Size.z
-      value: 3.5444465
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.x
-      value: -1.283773
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049235526364113570, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0000052916625
-      objectReference: {fileID: 0}
     - target: {fileID: 2049235526364113572, guid: 28aed1251f25b4c4389e3ae47eb22690, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -11280,8 +11325,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use Space or "south button" to Jump
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12504,8 +12549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go this way to quit the tutorial
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14409,8 +14454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Out Your Weapons
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16642,7 +16687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1512163676551435069, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1512163676551435069, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16705,6 +16750,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 34b37d1606b26c4498f7c637cdda1ce0, type: 3}
     - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
+      propertyPath: isRevivable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
+      propertyPath: reviveTimer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512163677963025502, guid: fd1d790ba6ed86b4daaf77cd2b6a5c7a, type: 3}
       propertyPath: playerHitted
       value: 
       objectReference: {fileID: 8300000, guid: 7afb3f718fb2eae4fa045c969d3d45a0, type: 3}
@@ -16740,7 +16793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17001,7 +17054,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 559183726}
-  - {fileID: 1454406854}
   - {fileID: 522592666}
   - {fileID: 1817541629}
   - {fileID: 1167130668}
@@ -20027,8 +20079,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "3" or D-Pad right to take out your Rifle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20745,37 +20797,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 4fc87a6ef03346841ac84f0a5936c730, type: 3}
   m_PrefabInstance: {fileID: 1453220240}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1454406853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1454406854}
-  m_Layer: 0
-  m_Name: ==== Enemies ====
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1454406854
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454406853}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.832375, y: -50.21058, z: 53.38719}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1195689619}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1461126773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 905322423487191790, guid: 0c0598a7350020549b63a6383a367c0b, type: 3}
@@ -20841,8 +20862,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Combine Sprint and crouch to Slide
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21769,8 +21790,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "R" or "West button" to reload
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23362,8 +23383,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CRoss this line to start the game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23636,8 +23657,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "R" or "West button" to reload
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24050,8 +24071,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "R" or "West button" to reload
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25108,8 +25129,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "4" or D-pad down to take out your Sniper
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26996,7 +27017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7396104602027584263, guid: b8b454a53f635514cafa5845b32446eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28025,8 +28046,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Grenadier!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28512,8 +28533,8 @@ MonoBehaviour:
     Use Right click or left
     trigger to Aim'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32863,8 +32884,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use "C" or "east button" to Crouch
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37085,6 +37106,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1789115580, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 393159884282804963, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -37095,7 +37120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.9
+      value: 203.5
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37103,7 +37128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.6
+      value: 45.2
       objectReference: {fileID: 0}
     - target: {fileID: 393159884282804972, guid: 3e2c020fe6d79994399c58cc59505b8b, type: 3}
       propertyPath: m_LocalRotation.w

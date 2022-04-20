@@ -14,38 +14,49 @@ public abstract class Enemie : MonoBehaviour
     protected EnemieManager enemieManager;
     private bool isRemoved = false;
     // behaviour value
+    [Header("Enemie stats")]
     [SerializeField] private Scriptable_Stats_Enemies enemie_stats;
-    [SerializeField] protected LayerMask whatIsPlayer;
 
     //melee range  ,  player range detection
     protected float enemieRange ;
     protected float MeleeAttackRange;
 
     //enemie area variable
-   [SerializeField] private string enemieArea;
+    [Header("Enemie Area")]
+    [SerializeField] private string enemieArea;
     private bool isAreaSet = false;
-    
+
     // player variable
+    [Header("Player Informations")]
     [SerializeField] protected GameObject myTarget;
     [SerializeField] private PlayerStats playerStats;
-    
+    [SerializeField] protected LayerMask whatIsPlayer;
+
+
     // patroll variable
-    private bool walkDestinationSet;
-    private Vector3 nextWalkDest;
+    [Header("Walk Range Value")]
     [Range(3f, 25f)] [SerializeField] private float randWalkValue = 5f;
+    protected bool walkDestinationSet;
+    private Vector3 nextWalkDest;
     //melee attack variable
     protected bool attackDone = false;
     private float meleeImpluseForce;
     private bool powerIncresed = false;
-
+    [SerializeField] private Collider bodyColl;
     //revive variable
+    [Header("Reviving status")]
     [Range(5f,120f)] [SerializeField] private  float reviveTimer = 5f;
     [SerializeField] private bool isRevivable = true;
     private bool isDead = false;
     //Sounds
-    [SerializeField] protected AudioClip breathingSound, deadSound, meleeAttackSound, playerHitted;
-    [SerializeField] protected AudioSource audioSource;
-    private bool isPlayed = false;
+    [Header("Enemie Audio Sounds")]
+    [SerializeField] protected AudioClip breathingSound;
+    [SerializeField] protected AudioClip deadSound;
+    [SerializeField] protected AudioClip meleeAttackSound;
+    [SerializeField] protected AudioClip  playerHitted;
+    protected AudioSource audioSource;
+    protected bool isPlayed = false; // is player found sound play
+   
     //those value are set in awake method;
     protected EnemieType enemieType; // can add this to scriptable initialisator
     protected Vector3 startpos;
@@ -121,6 +132,7 @@ public abstract class Enemie : MonoBehaviour
        this.anim = GetComponent<Animator>();
        this.agent = GetComponent<NavMeshAgent>();
        this.obstacle = GetComponent<NavMeshObstacle>();
+       this.audioSource = GetComponent<AudioSource>(); 
     }
 
 
@@ -173,6 +185,9 @@ public abstract class Enemie : MonoBehaviour
     {
         if (this.healthPoints <= 0)
         {
+            if (this.bodyColl.enabled)
+                this.bodyColl.enabled = false;
+
             if (!isDead)
             {
                 this.AgentDestination(transform.position);
@@ -211,15 +226,15 @@ public abstract class Enemie : MonoBehaviour
     //------------------------------------------------//
     protected bool PlayerDetected()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.haveToken;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.haveToken && this.healthPoints > 0;
     } 
     protected bool CanHaveToken()
     {
-        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea ;
+        return Physics.CheckSphere(transform.position, this.enemieRange, this.whatIsPlayer)  && this.enemieArea == this.playerStats.PlayerArea && this.healthPoints > 0;
     }
     protected bool InMeleeAttackRange()
     {
-        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) ;
+        return Physics.CheckSphere(transform.position, this.MeleeAttackRange, this.whatIsPlayer) && this.healthPoints > 0;
     }
 
     protected void ResetHealth()
@@ -309,9 +324,6 @@ public abstract class Enemie : MonoBehaviour
             if(!isLazer)
             this.SetSound(this.playerHitted);
         }
-        if(!isLazer)
-        this.SetSound(this.meleeAttackSound);
-
     }
 
     protected void ResetAttack()
@@ -322,15 +334,17 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieChassing()
     {
-        if (!isPlayed)
-        {
-            this.SetSound(this.breathingSound);
-            isPlayed = true;
-        }
-        if (walkDestinationSet)
-            walkDestinationSet = false;
-        
+       
+            if (!isPlayed)
+            {
+                this.SetSound(this.breathingSound);
+                isPlayed = true;
+            }
+            if (walkDestinationSet)
+                walkDestinationSet = false;
+
             this.AgentDestination(this.myTarget.transform.position); //apply movement
+        
     }
     protected IEnumerator ChangeBehaviour()
     {
@@ -372,25 +386,26 @@ public abstract class Enemie : MonoBehaviour
 
     protected void EnemieWalk()
     {
-        if (isPlayed)
-            isPlayed = false;
 
-        if (!walkDestinationSet && this.isAreaSet)
-        {
-            StartCoroutine(this.ChangeBehaviour());
-            //check path 
-            nextWalkDest = RandomEnemieDestionation();
-            while (!IsNextPosInArea(nextWalkDest))
+            if (isPlayed)
+                isPlayed = false;
+
+            if (!walkDestinationSet && this.isAreaSet)
             {
+                StartCoroutine(this.ChangeBehaviour());
+                //check path 
                 nextWalkDest = RandomEnemieDestionation();
-                if (this.attackDone) return;
+                while (!IsNextPosInArea(nextWalkDest))
+                {
+                    nextWalkDest = RandomEnemieDestionation();
+                    if (this.attackDone) return;
+                }
+
+                AgentDestination(nextWalkDest);
+                walkDestinationSet = true;
             }
-            
-            AgentDestination(nextWalkDest);
-            walkDestinationSet = true;
-        }
-        if (Vector3.Distance(nextWalkDest, transform.position) < 1f )
-            walkDestinationSet = false;
+            if (Vector3.Distance(nextWalkDest, transform.position) < 1f)
+                walkDestinationSet = false;
     }
 
     private Vector3 RandomEnemieDestionation()
@@ -401,8 +416,8 @@ public abstract class Enemie : MonoBehaviour
 
     protected void MeleeAttack(string attackName)
     {
-
-        if (!this.attackDone)
+        var attackPos = this.transform.position.z > 0 ? 2.5f : -2.5f;
+        if (!this.attackDone /*&& this.IsValidPath(new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z + attackPos))*/)
         {
             AgentDestination(this.transform.position); // stop player from moving
             this.LookAtTarget();

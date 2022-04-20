@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Seb
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
+  m_sharedMaterial: {fileID: -7491282444877304170, guid: ec7f21ff7a494cd499cfcf4266ec7b2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -868,6 +868,7 @@ MonoBehaviour:
   button: {fileID: 0}
   firstIsHit: 0
   resetTime: 15
+  isSkipped: 0
 --- !u!1 &5506938031146136212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1303,7 @@ AudioSource:
   m_GameObject: {fileID: 8360811333585235940}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2018515377085345056, guid: 545fe23e21e7a204093b14c4878dd14c, type: 2}
   m_audioClip: {fileID: 8300000, guid: 06960eb60cdef344499f895323600e23, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1401,7 +1402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a28debbfb37e884eaab7cd476c8cc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToOpenID: 4
+  levelToOpenName: 
 --- !u!114 &2563430199194395312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -71,11 +71,8 @@ public class EnemieManager : MonoBehaviour
         //verify
         GameObject enemieToRevive = KindOfEnemie(data.Type);
         yield return new WaitForSeconds(data.Timer);
-       var enemieCreated = Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
-        if(data.Type == EnemieType.CHOMPER)
-        {
-            ListOfChomper.Add(enemieCreated.GetComponent<Enemie>());
-        }
+        Instantiate(enemieToRevive, data.StartPos, Quaternion.identity);
+        
     }
 
     public void RemoveAllEnemies()
@@ -85,7 +82,6 @@ public class EnemieManager : MonoBehaviour
        {
             var current = ListOfChomper[count];
             Destroy(current.gameObject);
-            ListOfChomper.Remove(current);
        }
         ListOfChomper = null;
     }

@@ -12,21 +12,23 @@ public class GrenadierBehaviour : Enemie
     private float lazerImpulseForce;
     private float lazerDamage;
     private float lazerResetTime;
-    
+
     private bool canLazer;
     private bool isLazerCooldown;
-    
+
     private Vector3 nextRayPos = Vector3.zero;
     private Vector3 tempPlayerPos;
-
+    [Header("Lazer")]
     [SerializeField] private LineRenderer lazerPrefab; // ** WARNING linerenderer must be at Vector(0,0,0)
     [SerializeField] private Transform lazerStartPos;
+    [SerializeField] private AudioClip lazerSound;
+
     //melee Behaviour
     private string[] meleeAnim;
     private int animValue;
     //when facing enemie righthand is at left and lefthand is at the right
     [SerializeField] private CapsuleCollider[] handColls; // left is [0] and righ is [1]
-    [SerializeField] private AudioClip lazerSound;
+
     // both are assing in update for check the attack range and player detection
     private bool playerFound;
     private bool canMeleeAttack;
@@ -67,6 +69,9 @@ public class GrenadierBehaviour : Enemie
 
     public void LockTarget()
     {
+        if (walkDestinationSet)
+            walkDestinationSet = false;
+
         this.tempPlayerPos = base.myTarget.transform.position;
         base.LookAtTarget();
     }
@@ -109,7 +114,11 @@ public class GrenadierBehaviour : Enemie
         if (actualDistance > lazerMinRange && actualDistance <= lazerMaxRange && !isLazerCooldown)
         {
             base.AgentDestination(this.transform.position);
-            
+            if (!base.isPlayed && base.healthPoints > 0)
+            {
+                base.SetSound(this.breathingSound);
+                base.isPlayed = true;
+            }
             return true;
         }
          
@@ -123,7 +132,7 @@ public class GrenadierBehaviour : Enemie
         this.canMeleeAttack = base.InMeleeAttackRange();
 
 
-        if(CanUseLazer())
+        if(CanUseLazer() && base.PlayerDetected())
             this.canLazer = true;
         //when chassing player
         if (playerFound && !canMeleeAttack && !CanUseLazer())
@@ -170,6 +179,7 @@ public class GrenadierBehaviour : Enemie
     public void StartAttack()
     {
         this.handColls[this.animValue].enabled = true;
+        base.SetSound(base.meleeAttackSound);
     }
     public void EndAttack()
     {

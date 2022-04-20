@@ -103,9 +103,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8285964610525401983}
     m_Modifications:
+    - target: {fileID: 294789365362452934, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+      propertyPath: m_Size.x
+      value: 17.259995
+      objectReference: {fileID: 0}
+    - target: {fileID: 294789365362452934, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+      propertyPath: m_Size.y
+      value: 16.134615
+      objectReference: {fileID: 0}
+    - target: {fileID: 294789365362452934, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+      propertyPath: m_Center.x
+      value: -1.1783905
+      objectReference: {fileID: 0}
+    - target: {fileID: 294789365362452934, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0645704
+      objectReference: {fileID: 0}
     - target: {fileID: 294789365362452985, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 294789365362452985, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
+      propertyPath: jumpForce
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5780757733774811320, guid: b8d5f613b198fa345b60fe7f79836195, type: 3}
       propertyPath: m_RootOrder

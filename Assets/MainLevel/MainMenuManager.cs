@@ -22,16 +22,22 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private CurrentProgressLevel[] progress;
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         audio = GetComponent<AudioSource>();
-        if(isMainMenu)
+        
+    }
+    private void Update()
+    {
+        if (isMainMenu)
         {
-            if (progress[0].GetLastProgressName() == "CheckPointStart") btnContinue.GetComponent<Button>().interactable = false;
+            if (player.PlayerLevel == 1 || player.PlayerLevel == 0) btnContinue.GetComponent<Button>().interactable = false;
             else btnContinue.GetComponent<Button>().interactable = true;
         }
         else
         {
-            if (player.PlayerLevel == 1) btnHub.GetComponent<Button>().interactable = false;
-            else btnHub.GetComponent<Button>().interactable = true;
+            if (player.PlayerLevel == 1 || player.PlayerLevel == 0) btnHub.gameObject.SetActive(false);
+            else btnHub.gameObject.SetActive(true);
         }
     }
     public void StartNewGame()

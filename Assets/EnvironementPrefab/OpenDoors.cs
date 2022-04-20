@@ -28,6 +28,7 @@ public class OpenDoors : MonoBehaviour
     {
         allTargets = GetComponentsInChildren<DoorTargets>();
         button = GetComponentInChildren<InteractWithButton>();
+        
     }
 
     private void Start()
