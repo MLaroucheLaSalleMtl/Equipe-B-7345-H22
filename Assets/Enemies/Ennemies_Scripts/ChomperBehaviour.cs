@@ -92,16 +92,16 @@ public class ChomperBehaviour : Enemie
     #endregion
 
 
-    private void LookAtPlayer(Vector3 target) // maybe remove it
-    {
-        if (base.PlayerDetected())
-        {
-            var rotation = Quaternion.LookRotation(target- transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 50f);
-        }
-    }
+    //private void LookAtPlayer(Vector3 target) // maybe remove it
+    //{
+    //    if (base.PlayerDetected())
+    //    {
+    //        var rotation = Quaternion.LookRotation(target - transform.position);
+    //        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 50f);
+    //    }
+    //}
 
-    
+
     //** need to rework stat modifier on enemies 
     protected override void SpecialMove()
     {

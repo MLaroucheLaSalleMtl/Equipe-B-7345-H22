@@ -66,7 +66,6 @@ public abstract class Enemie : MonoBehaviour
 
     [SerializeField] private bool countAdded = false;
 
-
     //EnemieStats
     protected new string name ;
     protected int healthPoints;
@@ -350,19 +349,13 @@ public abstract class Enemie : MonoBehaviour
     {
         if (this.obstacle.enabled != false && this.agent.enabled != true)
         {
-
             this.obstacle.enabled = false;
             yield return new WaitForSeconds(0.1f);
             this.agent.enabled = true;
         }
     }
-    private void ResetAgent()
-    {
-        this.agent.enabled = true;
-    }
     protected void AgentDestination(Vector3 nextPath)
     {
-       //if(IsValidPath(nextPath))
         this.agent.destination = (nextPath);
     }
 
@@ -400,14 +393,12 @@ public abstract class Enemie : MonoBehaviour
                     nextWalkDest = RandomEnemieDestionation();
                     if (this.attackDone) return;
                 }
-
                 AgentDestination(nextWalkDest);
                 walkDestinationSet = true;
             }
             if (Vector3.Distance(nextWalkDest, transform.position) < 1f)
                 walkDestinationSet = false;
     }
-
     private Vector3 RandomEnemieDestionation()
     {
         return new Vector3(Random.Range(transform.position.x - this.randWalkValue, transform.position.x + this.randWalkValue),
@@ -425,7 +416,6 @@ public abstract class Enemie : MonoBehaviour
             this.agent.enabled = false;
             this.obstacle.enabled = true;
             this.attackDone = true;// wait Invoke for attack again
-           
         }
     }
     protected void LookAtTarget()
