@@ -5929,10 +5929,6 @@ PrefabInstance:
       propertyPath: levelToOpenName
       value: MainMap
       objectReference: {fileID: 0}
-    - target: {fileID: 1378238571610544064, guid: a484d18ae46815a4bb1556b9579cd32c, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5817608049999483640, guid: a484d18ae46815a4bb1556b9579cd32c, type: 3}
       propertyPath: m_Name
       value: reactor_right
